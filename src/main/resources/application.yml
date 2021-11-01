@@ -1,0 +1,21 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 230941456647-soqga3l5ab0237dmbgc7l7dor01dv1i7.apps.googleusercontent.com
+            clientSecret: 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
+  datasource:
+    url: jdbc:postgresql://localhost/SWIPDATA
+    username: postgres
+    password: Orel-5287
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 9000
