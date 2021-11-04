@@ -21,9 +21,9 @@ body {
 }
 
 .cover-container {
+    justify-content: center;
     max-width: 90%;
 }
-
 
 /*
  * Header
@@ -56,6 +56,16 @@ body {
     width: 100%;
     justify-content: space-around;
 }
+
+a {
+    color: #ffffff !important;
+    text-decoration: none
+}
+
+.root-main{
+    min-height: 70%;
+}
+
 
 @media (max-width: 1000px) {
     .header-cls {
