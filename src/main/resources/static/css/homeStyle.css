@@ -1,10 +1,15 @@
 #home-container {
     background: none;
+    display: table-footer-group;
+}
+
+.home-instruction{
+    margin-top: 125px;
 }
 
 .Iam {
     display: inline;
-    padding: 2em 5em;
+    /*padding: 2em 5em;*/
     font: normal 40px/50px Montserrat, sans-serif;
     color: #ffffff;
     margin-bottom: 25px;
@@ -86,20 +91,25 @@
     80% { top: -200px; }
 }
 
-@media (max-width: 600px) {
-    .Iam{
-        display: contents;
+@media (max-width: 800px) {
+    .home-instruction{
+        margin-top: 175px;
     }
+}
+
+@media (max-width: 600px) {
     .Iam-b{
         font-size: xx-large;
     }
 }
 
 @media (max-width: 475px) {
-    .Iam{
-        display: contents;
-    }
     .Iam-b{
         font-size: x-large;
+    }
+}
+@media (max-width: 400px) {
+    .home-instruction{
+        max-width: 320px;
     }
 }

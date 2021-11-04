@@ -12,40 +12,41 @@
       </b>
     </div>
 
-    <div class="accordion" role="tablist">
-      <b-card no-body class="mb-1">
-        <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button block v-b-toggle.accordion-1 variant="info">Accordion 1</b-button>
-        </b-card-header>
-        <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
-          <b-card-body>
-            <b-card-text>I start opened because <code>visible</code> is <code>true</code></b-card-text>
-            <b-card-text>{{ text }}</b-card-text>
-          </b-card-body>
-        </b-collapse>
-      </b-card>
-
-      <b-card no-body class="mb-1">
-        <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button block v-b-toggle.accordion-2 variant="info">Accordion 2</b-button>
-        </b-card-header>
-        <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
-          <b-card-body>
-            <b-card-text>{{ text }}</b-card-text>
-          </b-card-body>
-        </b-collapse>
-      </b-card>
-
-      <b-card no-body class="mb-1">
-        <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button block v-b-toggle.accordion-3 variant="info">Accordion 3</b-button>
-        </b-card-header>
-        <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
-          <b-card-body>
-            <b-card-text>{{ text }}</b-card-text>
-          </b-card-body>
-        </b-collapse>
-      </b-card>
+    <div class="row home-instruction">
+      <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">dfbfgbfbfg bdffffffff fffffffffff fffffffff</div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+        </div>
+      </div>
+    </div>
+    <div class="row home-instruction">
+      <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">dfbfgbfbfg bdffffffff fffffffffff fffffffff</div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -74,54 +75,6 @@ export default {
   },
   mounted() {
     console.log("heheheh")
-
-    window.onload = play();
-    document.getElementById('tryAgain').addEventListener('click', () => {
-      play()
-    })
-
-    function play() {
-      var blue = '#2980b9';
-      var l = Snap('#logo');
-      var p = l.select('path');
-      l.clear();
-      l.append(p);
-
-      p.attr({
-        fill: blue,
-        stroke: '#0066CC',
-      });
-
-      setTimeout(function () {
-        // modify this one line below, and see the result !
-        var logoTitle = 'alticreation';
-        var logoRandom = '';
-        var logoTitleContainer = l.text(0, '98%', '');
-        var possible = "-+*/|}{[]~\\\":;?/.><=+-_)(*&^%$#@!)}";
-        logoTitleContainer.attr({
-          fontSize: 280,
-          fontFamily: 'Dosis',
-          fontWeight: '600'
-        });
-
-        function generateRandomTitle(i, logoRandom) {
-          setTimeout(function () {
-            logoTitleContainer.attr({text: logoRandom});
-          }, i * 70);
-        }
-
-        for (var i = 0; i < logoTitle.length + 1; i++) {
-          logoRandom = logoTitle.substr(0, i);
-          for (var j = i; j < logoTitle.length; j++) {
-            logoRandom += possible.charAt(Math.floor(Math.random() * possible.length));
-          }
-          generateRandomTitle(i, logoRandom);
-          logoRandom = '';
-        }
-
-      }, 500);
-
-    }
   }
 }
 </script>
