@@ -1,23 +1,16 @@
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+import App from "pages/App.vue";
 
 
-Vue.component('messages-list', {
-    data: function() {
-        return {
-            message: null
-        }
-    },
-    template:
-        '<div style="position: relative; width: 300px;">' +
-        'hello' +
-        '</div>',
-    methods: {
-        editMethod: function(message) {
-            this.message = message;
-        }
-    }
-});
+Vue.use(VueResource)
 
-var app = new Vue({
+new Vue({
+    el: '#app',
+    render: a => a(App)
+})
+
+/*var app = new Vue({
     el: '#app',
     template:
         '<div>' +
@@ -40,4 +33,4 @@ var app = new Vue({
 //        )
 //    )
     },
-});
+});*/

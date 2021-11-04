@@ -3,6 +3,7 @@ package com.example.swip.controller
 import com.example.swip.domain.User
 import com.example.swip.repo.UserDetailsRepo
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,6 +17,9 @@ import java.util.function.Supplier
 @RequestMapping()
 class MainController(@Autowired
                      var userDetailsRepo: UserDetailsRepo) {
+    @Value("\${spring.profiles.active}")
+    private val profile: String? = null
+
     @GetMapping("/")
     fun initialIndex(model: Model,
                         principal: Principal): String {
@@ -53,6 +57,7 @@ class MainController(@Autowired
         data["profile"] = user
 
         model.addAttribute("frontendData", data)
+        model.addAttribute("isDevMode", "dev".equals(profile));
         return "index"
     }
 }
