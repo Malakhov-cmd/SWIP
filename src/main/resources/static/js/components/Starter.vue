@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex w-100 h-100 p-3 mx-auto flex-column cover-container">
+  <div class="d-flex w-100 p-3 mx-auto flex-column cover-container">
     <header class="mb-auto">
       <div class="header-cls">
         <h3 class="float-md-start mb-0">SWIP</h3>

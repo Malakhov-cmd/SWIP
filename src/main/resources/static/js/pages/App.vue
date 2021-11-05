@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="h-100">
+  <div id="app">
     <Started/>
   </div>
 </template>
@@ -20,6 +20,6 @@ export default {
 
 <style scoped>
 #app{
-  min-height: 100%;
+  min-height: 100vh;
 }
 </style>
