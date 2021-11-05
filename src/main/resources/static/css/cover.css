@@ -72,7 +72,6 @@ a {
     min-height: 70%;
 }
 
-
 @media (max-width: 1000px) {
     .header-cls {
         display: inline-flex;

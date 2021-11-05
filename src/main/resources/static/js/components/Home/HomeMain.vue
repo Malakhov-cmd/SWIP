@@ -13,56 +13,24 @@
     </div>
 
     <div class="row home-instruction">
-      <div class="col-4">
+      <div class="col-4 info-nav-panel">
         <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
-          <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-          <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-          <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+          <button class="btn btn-outline-success list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</button>
+          <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-language-list" data-bs-toggle="list" href="#list-language" role="tab" aria-controls="list-language">Language</button>
+          <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-smart-training-list" data-bs-toggle="list" href="#list-smart-training" role="tab" aria-controls="list-smart-training">Smart training</button>
+          <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-message-list" data-bs-toggle="list" href="#list-message" role="tab" aria-controls="list-message">Message</button>
+          <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-friend-list" data-bs-toggle="list" href="#list-friend" role="tab" aria-controls="list-friend">Friend</button>
+          <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-setting-list" data-bs-toggle="list" href="#list-setting" role="tab" aria-controls="list-setting">Setting</button>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-8 info-content-panel">
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">dfbfgbfbfg bdffffffff fffffffffff fffffffff</div>
-          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-        </div>
-      </div>
-    </div>
-    <div class="row home-instruction">
-      <div class="col-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
-          <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-          <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-          <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">dfbfgbfbfg bdffffffff fffffffffff fffffffff</div>
-          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-        </div>
-      </div>
-    </div>
-    <div class="row home-instruction">
-      <div class="col-4">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
-          <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-          <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-          <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">dfbfgbfbfg bdffffffff fffffffffff fffffffff</div>
-          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+          <div class="tab-pane fade" id="list-language" role="tabpanel" aria-labelledby="list-language-list">Some text about language</div>
+          <div class="tab-pane fade" id="list-smart-training" role="tabpanel" aria-labelledby="list-smart-training-list">Some text about smart training</div>
+          <div class="tab-pane fade" id="list-message" role="tabpanel" aria-labelledby="list-message-list">Some text about messaging</div>
+          <div class="tab-pane fade" id="list-friend" role="tabpanel" aria-labelledby="list-friend-list">Some text about friend relations</div>
+          <div class="tab-pane fade" id="list-setting" role="tabpanel" aria-labelledby="list-setting-list">Mau be settings</div>
         </div>
       </div>
     </div>

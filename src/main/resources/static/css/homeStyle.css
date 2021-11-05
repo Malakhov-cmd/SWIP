@@ -7,6 +7,12 @@
     margin-top: 125px;
 }
 
+.list-group-item{
+    background: none;
+    color: #28a745;
+    border-color: #28a745;
+}
+
 .Iam {
     display: inline;
     /*padding: 2em 5em;*/
@@ -103,9 +109,20 @@
     }
 }
 
-@media (max-width: 475px) {
+@media (max-width: 485px) {
     .Iam-b{
         font-size: x-large;
+    }
+    .home-instruction{
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-nav-panel{
+        max-width: none;
+    }
+    .info-content-panel{
+        margin-top: 35px;
+        max-width: none;
     }
 }
 @media (max-width: 400px) {

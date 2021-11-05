@@ -27,7 +27,7 @@
                <span class="usrname navbar-text">
 
                                </span>
-          <button class="logoutBtn btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+          <button class="logoutBtn btn btn-outline-success my-2 my-sm-0" onclick="document.location='/logout'" type="submit">Logout</button>
         </div>
       </div>
     </header>
@@ -37,8 +37,8 @@
       </b-container>
     </main>
     <footer class="mt-auto text-white-50 footer">
-      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a
-          href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+      <p>Created and developed with love, by <a
+          href="https://github.com/Malakhov-cmd" class="text-white">@Malakhov-cmd</a>.</p>
     </footer>
   </div>
 </template>
