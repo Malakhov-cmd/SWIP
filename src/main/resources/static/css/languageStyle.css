@@ -1,8 +1,20 @@
-.language-chooser-btn{
+.language-chooser-btn {
     background: none;
     border: none;
+    display: inline-block;
 }
 
-.language-container{
+.language-container {
     height: 85%;
+}
+
+.language-header {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-bottom: 25px;
+}
+
+.card {
+    display: inline-block;
 }
