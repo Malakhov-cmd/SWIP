@@ -9,7 +9,7 @@
 }
 
 .language-header {
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     margin-bottom: 25px;
@@ -17,4 +17,66 @@
 
 .card {
     display: inline-block;
+}
+
+.row-header-language{
+    justify-content: center;
+}
+
+.language-main-row{
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center
+}
+
+.language-main-row-content{
+    width: 2000px;
+    height: 2000px;
+    overflow-x: auto;
+    min-width: 95vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    white-space: nowrap;
+    margin-bottom: 25px;
+}
+
+.language-main-row-content::-webkit-scrollbar{
+    width:7px;
+    height: 7px;
+}
+
+.language-main-row-content::-webkit-scrollbar-thumb{
+    border-width:1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.language-main-row-content::-webkit-scrollbar-thumb:hover{
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.language-main-row-content::-webkit-scrollbar-track{
+    border-width:0;
+}
+
+.language-main-row-content::-webkit-scrollbar-track:hover{
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
+
+.btn-language-name{
+    margin-top: 25vh;
+    border-radius: 75%;
+    width: 135px;
+    height: 55px;
+    border: none;
+    background: #8d1622;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-language-chapter{
+    color: #00c6fb;
 }

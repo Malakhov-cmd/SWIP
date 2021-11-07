@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueRouter from "vue-router"
+import vuetify from "./plugin/vuetify";
+//import './plugin/bootstrap'
+import './plugin/bootstrap-vue'
 import App from "pages/App.vue";
 import HomeMain from "./components/Home/HomeMain.vue";
 import LanguageMain from "./components/Language/LanguageMain.vue";
@@ -9,6 +12,10 @@ import MessageMain from "./components/Message/MessageMain.vue";
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
 import LoginMain from "./components/Login/LoginMain.vue";
+import test from "./components/Language/Kotlin/Test/test.vue";
+import JavaLanguage from "./components/Language/Java/JavaLanguage.vue";
+import KotlinLanguage from "./components/Language/Kotlin/KotlinLanguage.vue";
+import JSLanguage from "./components/Language/JS/JSLanguage.vue";
 
 //Глобальная шина событий
 Vue.prototype.$eventBus = new Vue();
@@ -18,6 +25,13 @@ Vue.config.productionTip = false
 const routes = [
     {path: '/home', component: HomeMain},
     {path: '/language' , component: LanguageMain},
+    {path: '/language/java', component: JavaLanguage},
+    {path: '/language/kotlin', component: KotlinLanguage},
+    {path: '/language/js', component: JSLanguage},
+
+    //test
+    {path: '/language/kotlin/1', component: test},
+
     {path: '/intellecttraining', component: IntellectTrainingMain},
     {path: '/message', component: MessageMain},
     {path: '/friend', component: FriendMain},
@@ -32,29 +46,6 @@ const router = new VueRouter({
 
 new Vue({
     router,
+    vuetify,
     render: h => h(App),
 }).$mount('#app')
-/*var app = new Vue({
-    el: '#app',
-    template:
-        '<div>' +
-        '<div v-if="!profile">Необходимо авторизоваться через <a href="/login">Google</a></div>' +
-        '<div v-else>' +
-        '<div>{{profile.name}}&nbsp;<a href="/logout">Выйти</a></div>' +
-        '</div>' +
-        ' <a href=""><router-link to="/message-list" class="mainNav">Language</router-link> </a>' +
-        '<b-container>' +
-            '<router-view></router-view>' +
-        '</b-container>' +
-        '</div>',
-    data: {
-        profile: frontendData.profile
-    },
-    created: function() {
-//    messageApi.get().then(result =>
-//        result.json().then(data =>
-//            data.forEach(message => this.messages.push(message))
-//        )
-//    )
-    },
-});*/

@@ -1,6 +1,6 @@
 <template>
   <div class="language-main">
-    <b-row>
+    <b-row class="row-header-language">
       <div class="language-header">
         <button v-on:click="chooserContainer(1)" class="java-chooser-btn language-chooser-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="155" height="155" viewBox="0 0 192.756 192.756">
