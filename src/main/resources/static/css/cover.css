@@ -6,10 +6,9 @@
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-    color: #333;
+    background-color: #700606;
     text-shadow: none; /* Prevent inheritance from `body` */
 }
-
 
 /*
  * Base structure
@@ -68,7 +67,7 @@ body {
 
 a {
     color: #ffffff !important;
-    text-decoration: none
+    text-decoration: none !important;
 }
 
 @media (max-width: 1000px) {

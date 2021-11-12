@@ -3,19 +3,19 @@
     <div class="language-main-row-content">
       <v-fab-transition>
         <router-link to="/language/kotlin/1" class="btn-language-chapter" tag="button" v-show="!hidden">
-          <b-btn>Function
+          <b-btn class="my-b-btn">Function
             <v-icon>mdi-plus</v-icon>
           </b-btn>
         </router-link>
       </v-fab-transition>
       <b-btn
-          class="btn-language-name"
+          class="btn-language-name my-b-btn"
           @click="hidden = !hidden"
       >
         Kotlin
       </b-btn>
       <v-fab-transition>
-        <b-btn
+        <b-btn class="my-b-btn"
             v-show="!hidden"
         >
           Operands
@@ -32,7 +32,6 @@ export default {
     hidden: false,
   }),
   mounted() {
-    console.log('here')
     var scr = $(".language-main-row-content");
     scr.mousedown(function () {
       var startX = this.scrollLeft + event.pageX;
