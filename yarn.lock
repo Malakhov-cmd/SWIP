@@ -1259,6 +1259,13 @@
   "resolved" "https://registry.npmjs.org/array-unique/-/array-unique-0.3.2.tgz"
   "version" "0.3.2"
 
+"arrows-svg@^1.5.5":
+  "integrity" "sha512-tbtGeNQzZHyqVucOg8oMQQES10bivzeLBARMfLIHdVwx7mkA+EcTdjnqQX8VYn7n1B36MSrBXSDFspGjK3cMsg=="
+  "resolved" "https://registry.npmjs.org/arrows-svg/-/arrows-svg-1.5.5.tgz"
+  "version" "1.5.5"
+  dependencies:
+    "preact" "^10.5.7"
+
 "asn1.js@^5.2.0":
   "integrity" "sha512-+I//4cYPccV8LdmBLiX8CYvf9Sp3vQsrqu2QNXRcrbiWvcx/UdlFiqUJJzxRQxgsZmvhXhn4cSKeSmoFjVdupA=="
   "resolved" "https://registry.npmjs.org/asn1.js/-/asn1.js-5.4.1.tgz"
@@ -4244,6 +4251,11 @@
   dependencies:
     "picocolors" "^0.2.1"
     "source-map" "^0.6.1"
+
+"preact@^10.5.7":
+  "integrity" "sha512-5chK29n6QcJc3m1lVrKQSQ+V7K1Gb8HeQY6FViQ5AxCAEGu3DaHffWNDkC9+miZgsLvbvU9rxbV1qinGHMHzqA=="
+  "resolved" "https://registry.npmjs.org/preact/-/preact-10.5.15.tgz"
+  "version" "10.5.15"
 
 "prettier@1.16.3":
   "integrity" "sha512-kn/GU6SMRYPxUakNXhpP0EedT/KmaPzr0H5lIsDogrykbaxOpOfAFfk5XA7DZrJyMAv1wlMV3CPcZruGXVVUZw=="

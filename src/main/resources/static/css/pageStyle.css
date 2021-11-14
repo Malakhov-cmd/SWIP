@@ -1,0 +1,64 @@
+.jumbotron {
+    background: linear-gradient(to right, #d72d2d, #0e3154);
+    max-height: 80vh;
+    overflow: auto;
+    margin-top: 33px;
+}
+
+.page-theme-author-text,
+.page-theme-theory-text,
+.page-theme-question-text,
+.page-theme-collapse-btn{
+    font-size: 22px;
+    font-family: "Roboto", serif;
+    text-align: justify;
+    margin-top: 25px;
+}
+
+.page-theme-collapse-btn{
+    background: none;
+}
+
+#input-live-feedback,
+#input-live-help{
+    font-size: 18px;
+}
+
+.jumbotron::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.jumbotron::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.jumbotron::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.jumbotron::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.jumbotron::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
+
+@media (max-width: 660px) {
+    .jumbotron {
+        position: absolute;
+        left: 0;
+        max-width: 100vw;
+        max-height: 70vh;
+    }
+    .page-theme-name{
+        font-size: 3.5rem;
+    }
+}

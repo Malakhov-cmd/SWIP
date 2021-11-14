@@ -14,6 +14,8 @@ export default {
   vuetify: new Vuetify(),
   components: {
     Started
+  },
+  mounted() {
   }
 }
 </script>

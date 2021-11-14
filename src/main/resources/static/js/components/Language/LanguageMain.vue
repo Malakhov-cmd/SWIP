@@ -1,6 +1,6 @@
 <template>
   <div class="language-main">
-    <b-row class="row-header-language">
+    <b-row class="row-header-language" v-if="isShow">
       <div class="language-header">
         <button v-on:click="chooserContainer(1)" class="java-chooser-btn language-chooser-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="155" height="155" viewBox="0 0 192.756 192.756">
@@ -94,9 +94,45 @@
         </button>
       </div>
     </b-row>
-    <div class="language-container">
+    <div class="map-options">
+      <div class="map-options-zoom">
+        <div id="btn_zoomin" class="map-options-zoom-in" v-on:click="zoomIn">
+          <div class="icon-svg" data-icon="plus" data-color="blue" data-size="14">
+            <div class="svg-icon">
+              <svg class="maxw-100% icon-plus" viewBox="0 0 12 12" style="fill:#00AAFF; height:14px; width:14px;">
+                <g fill-rule="evenodd">
+                  <rect width="2" height="12" x="5" rx="1"></rect>
+                  <rect width="12" height="2" y="5" rx="1"></rect>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div id="btn_zoomout" class="map-options-zoom-out" v-on:click="zoomOut">
+          <div class="icon-svg" data-icon="minus" data-color="blue" data-size="14">
+            <div class="svg-icon">
+              <svg class="maxw-100% icon-minus" viewBox="0 0 23 23" style="fill:#00AAFF; height:14px; width:14px;">
+                <path d="M0 9.566h22.32v3.189H0z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="btn_recenter" class="map-option-centering" v-on:click="centered">
+        <div class="icon-svg" data-icon="align-center" data-color="blue" data-size="20">
+          <div class="svg-icon">
+            <svg class="maxw-100% icon-align-center" viewBox="0 0 23 23" style="fill:#00AAFF; height:20px; width:20px;">
+              <path fill-rule="nonzero" d="M11.5 14.95a3.45 3.45 0 10-.001-6.901 3.45 3.45 0 00.001 6.901z"></path>
+              <path
+                  d="M12.077 2.61c.26.016.52.043.78.082a8.904 8.904 0 012.41.73 8.996 8.996 0 014.118 3.925c.41.774.7 1.608.866 2.467.07.366.12.737.15 1.11H23v1.153h-2.608a8.836 8.836 0 01-.861 3.286 8.92 8.92 0 01-4.66 4.389c-.89.363-1.83.578-2.79.64V23h-1.15v-2.608a8.94 8.94 0 01-2.79-.64 8.977 8.977 0 01-2.78-1.802 8.89 8.89 0 01-1.88-2.587 8.795 8.795 0 01-.793-2.618c-.03-.222-.054-.445-.07-.668H0v-1.154h2.608c.024-.372.07-.743.14-1.11a8.907 8.907 0 01.867-2.466 8.991 8.991 0 014.12-3.925 8.861 8.861 0 013.188-.813V0h1.154v2.61zm-.67 1.7c-.336.007-.67.033-1.003.083-.67.103-1.326.3-1.94.59A7.238 7.238 0 005.22 7.998a7.173 7.173 0 00-.852 4.419c.093.733.3 1.45.614 2.12a7.208 7.208 0 003.72 3.587 7.182 7.182 0 002.705.565 7.29 7.29 0 002.73-.5 7.26 7.26 0 002.26-1.43 7.164 7.164 0 002.21-4.17c.12-.788.11-1.59-.03-2.37a7.132 7.132 0 00-.674-2 7.225 7.225 0 00-5.128-3.807 7.77 7.77 0 00-1.367-.112z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="language-container" id="language-container-id">
       <div v-if="chooser===1">
-        <java-language></java-language>
+        <java-language @scrolldown="onscrollDownJava"></java-language>
       </div>
       <div v-if="chooser===2">
         <kotlin-language></kotlin-language>
@@ -118,15 +154,59 @@ export default {
   components: {JavaLanguage, KotlinLanguage, JSLanguage},
   data() {
     return {
-      chooser: 0
+      chooser: 0,
+      isShow: true,
+      scale: 1,
+      margining: 50
     }
   },
   methods: {
-    chooserContainer(a){
+    chooserContainer(a) {
       if (a === 1) this.chooser = 1
       if (a === 2) this.chooser = 2
       if (a === 3) this.chooser = 3
+    },
+    onscrollDownJava(value) {
+      this.isShow = value !== false;
+    },
+    zoomIn() {
+      if (this.margining < 300) {
+        this.scale < 1 ? this.scale = 1 : this.scale+=0.5
+        this.margining += 50
+        let chapterBtns = document.getElementsByClassName('my-b-btn')
+        for (let i = 0; i < chapterBtns.length; i++) {
+          chapterBtns.item(i).setAttribute("style", "transform: scale(" + this.scale + ");" +
+              "margin: " + this.margining + "px;");
+        }
+      }
+    },
+    zoomOut() {
+      if (this.scale > 1) {
+        this.scale -= 0.5
+        this.margining -= 50
+        let chapterBtns = document.getElementsByClassName('my-b-btn')
+        for (let i = 0; i < chapterBtns.length; i++) {
+          chapterBtns.item(i).setAttribute("style", "transform: scale(" + this.scale + ");" +
+              "margin: " + this.margining + "px;");
+        }
+      } else {
+        if (this.scale > 0.3) {
+          this.scale -= 0.2
+          this.margining > 0 ? this.margining-=20 : this.margining = 0
+          let chapterBtns = document.getElementsByClassName('my-b-btn')
+          for (let i = 0; i < chapterBtns.length; i++) {
+            chapterBtns.item(i).setAttribute("style", "transform: scale(" + this.scale + ");" +
+                "margin: " + this.margining + "px;");
+          }
+        }
+      }
+    },
+    centered() {
+      let container = document.getElementsByClassName('language-main-row-content').item(0)
+      container.scrollTo(500,0)
     }
+  },
+  mounted() {
   }
 }
 </script>

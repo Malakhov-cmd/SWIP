@@ -1,9 +1,8 @@
 <template>
   <v-fab-transition>
-    <router-link :to='pathTheme'>
-      <b-btn class="my-b-btn">{{themeName}}
+      <b-btn class="my-b-btn">
+        <router-link :to='pathTheme'>{{themeName}}</router-link>
       </b-btn>
-    </router-link>
   </v-fab-transition>
 </template>
 
