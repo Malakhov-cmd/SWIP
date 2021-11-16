@@ -1,0 +1,132 @@
+<template>
+  <div class="chapter-level-1">
+    <div class="theme-level-1">
+      <carcas-collections-in-java/>
+      <theme-button theme-name="Интерфейсы в каркасе коллекций Java"
+                    path-theme="/language/java/collections/InterfacesInCarcasCollectionsInJava" id="java-8-chapter-2-theme"/>
+      <type-collections/>
+      <reflections/>
+      <algorithms/>
+      <inherince-collections/>
+    </div>
+    <chapter-button chapter-name="Коллекции" class="theme-level-1-chapter-left"
+                    id="central-btn-8chapter"/>
+  </div>
+</template>
+
+<script>
+import CarcasCollectionsInJava from "./1CarcasCollectionsInJava/CarcasCollectionsInJava.vue";
+import ThemeButton from "../../../Blocks/ThemeButton.vue";
+import TypeCollections from "./3TypeCollections/TypeCollections.vue";
+import Reflections from "./4Reflection/Reflections.vue";
+import Algorithms from "./5Algorithms/Algorithms.vue";
+import InherinceCollections from "./6InherinceCollections/InherinceCollections.vue";
+import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
+import ChapterButton from "../../../Blocks/ChapterButton.vue";
+
+export default {
+  name: "Collections",
+  components: {
+    ChapterButton,
+    InherinceCollections, Algorithms, Reflections, TypeCollections, ThemeButton, CarcasCollectionsInJava
+  },
+  mounted() {
+    const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        direction: DIRECTION.TOP,
+      },
+      to: {
+        node: () => document.getElementById("java-8-chapter-1-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        direction: DIRECTION.TOP,
+      },
+      to: {
+        node: () => document.getElementById("java-8-chapter-2-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        direction: DIRECTION.TOP,
+      },
+      to: {
+        node: () => document.getElementById("java-8-chapter-3-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo4Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        direction: DIRECTION.TOP,
+      },
+      to: {
+        node: () => document.getElementById("java-8-chapter-4-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        direction: DIRECTION.BOTTOM,
+      },
+      to: {
+        node: () => document.getElementById("java-8-chapter-5-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        direction: DIRECTION.BOTTOM,
+      },
+      to: {
+        node: () => document.getElementById("java-8-chapter-6-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo1Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo6Theme.node);
+
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -5,11 +5,11 @@
         <IntroduceInJava/>
         <LanguageConstructions/>
         <o-o-p/>
-        <ThemeButton theme-name="Наследование"/>
-        <ThemeButton theme-name="Интерфейсы, лямбда-выражения и внутренние классы"/>
-        <ThemeButton theme-name="Исключения, утверждение и протоколирование"/>
-        <ThemeButton theme-name="Обобщенное программирование"/>
-        <ThemeButton theme-name="Коллекции"/>
+        <inheritance/>
+        <interface-lyambda-and-inner/>
+        <exeption/>
+        <generic-programming/>
+        <collections/>
       </div>
       <div>
         <b-btn
@@ -22,7 +22,6 @@
         </div>
       <div class="chapter-right-side">
         <LanguageConstructions/>
-        <ThemeButton theme-name="JavaFX"/>
         <ThemeButton theme-name="Потоки ввода вывода"/>
         <ThemeButton theme-name="XML"/>
         <ThemeButton theme-name="Работа в сети"/>
@@ -38,11 +37,19 @@
 import ThemeButton from "../Blocks/ChapterButton.vue";
 import IntroduceInJava from "./Chapter/1Introduce/IntroduceInJava.vue";
 import LanguageConstructions from "./Chapter/2LanguageConstruction/LanguageConstructions.vue";
-import arrowCreate, { HEAD } from "arrows-svg";
+import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
 import OOP from "./Chapter/3OOP/OOP.vue";
+import Inheritance from "./Chapter/4Inheritance/Inheritance.vue";
+import InterfaceLyambdaAndInner from "./Chapter/5interfaceLyambdaAndInner/InterfaceLyambdaAndInner.vue";
+import Exeption from "./Chapter/6Exeption/Exeption.vue";
+import GenericProgramming from "./Chapter/7GenericProgramming/GenericProgramming.vue";
+import Collections from "./Chapter/8Collections/Collections.vue";
 
 export default {
-  components: {OOP, LanguageConstructions, IntroduceInJava, ThemeButton},
+  components: {
+    Collections,
+    GenericProgramming,
+    Exeption, InterfaceLyambdaAndInner, Inheritance, OOP, LanguageConstructions, IntroduceInJava, ThemeButton},
   data() {
     return {
       dialog: false,
@@ -90,7 +97,10 @@ export default {
 
     const arrowFromCentralBtnToHeadOFFirstChapter = arrowCreate({
       from: document.getElementById("center-btn-language-name"),
-      to: document.getElementById("central-btn-1chapter"),
+      to: {
+        node: () => document.getElementById("central-btn-1chapter"),
+        translation: [1, 0]
+      },
       head: {
         func: HEAD.VEE,
       }
@@ -98,7 +108,10 @@ export default {
 
     const arrowFromCentralBtnToHeadOFSecondChapter = arrowCreate({
       from: document.getElementById("center-btn-language-name"),
-      to: document.getElementById("central-btn-2chapter"),
+      to: {
+        node: () => document.getElementById("central-btn-2chapter"),
+        translation: [1, 0]
+      },
       head: {
         func: HEAD.VEE,
       }
@@ -106,7 +119,61 @@ export default {
 
     const arrowFromCentralBtnToHeadOFThirdChapter = arrowCreate({
       from: document.getElementById("center-btn-language-name"),
-      to: document.getElementById("central-btn-3chapter"),
+      to: {
+        node: () => document.getElementById("central-btn-3chapter"),
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+
+    const arrowFromCentralBtnToHeadOFFourthChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-4chapter"),
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFFifthChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-5chapter"),
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFSixChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-6chapter"),
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFSevenChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-7chapter"),
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFEightChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-8chapter"),
+        translation: [1, 0]
+      },
       head: {
         func: HEAD.VEE,
       }
@@ -115,6 +182,11 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFirstChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSecondChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirdChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourthChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFifthChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSixChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSevenChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
 
   },
   beforeDestroy() {

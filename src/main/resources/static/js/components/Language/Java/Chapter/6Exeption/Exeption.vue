@@ -1,0 +1,78 @@
+<template>
+  <div class="chapter-level-1">
+    <div class="theme-level-1">
+      <working-with-exeption/>
+      <interception-exeption/>
+      <theme-button theme-name="Рекомендации по обработке исключений"
+                    path-theme="/language/java/exeption/RecomendationWorkWithExeption" id="java-6-chapter-3-theme"/>
+    </div>
+    <chapter-button chapter-name="Исключения, утверждения и протоколирование " class="theme-level-1-chapter-left"
+                    id="central-btn-6chapter"/>
+  </div>
+</template>
+
+<script>
+import ThemeButton from "../../../Blocks/ThemeButton.vue";
+import ChapterButton from "../../../Blocks/ChapterButton.vue";
+import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
+import WorkingWithExeption from "./1WorkingWithExeption/WorkingWithExeption.vue";
+import InterceptionExeption from "./2InterceptionExeption/InterceptionExeption.vue";
+
+export default {
+  name: "Exeption",
+  components: {InterceptionExeption, WorkingWithExeption, ChapterButton, ThemeButton},
+  mounted() {
+    const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-6chapter"),
+        direction: DIRECTION.TOP,
+      },
+      to: {
+        node: () => document.getElementById("java-6-chapter-1-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-6chapter"),
+        direction: DIRECTION.LEFT,
+      },
+      to: {
+        node: () => document.getElementById("java-6-chapter-2-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-6chapter"),
+        direction: DIRECTION.BOTTOM,
+      },
+      to: {
+        node: () => document.getElementById("java-6-chapter-3-theme"),
+        direction: DIRECTION.RIGHT,
+        translation: [1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo1Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
+
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
