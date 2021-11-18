@@ -370,7 +370,237 @@ import Enums from "./components/Language/Java/Chapter/8Collections/6InherinceCol
 import Stacks from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/Stacks.vue";
 import TablesProperties
     from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/TablesProperties.vue";
-
+//9.1
+import DeclarationThread from "./components/Language/Java/Chapter/9Threads/1DeclarationThread/DeclarationThread.vue";
+//9.2
+import BlockingAndWaitingThreads
+    from "./components/Language/Java/Chapter/9Threads/2ConditionThreads/Theme/BlockingAndWaitingThreads.vue";
+import EndedThreads from "./components/Language/Java/Chapter/9Threads/2ConditionThreads/Theme/EndedThreads.vue";
+import NewThreads from "./components/Language/Java/Chapter/9Threads/2ConditionThreads/Theme/NewThreads.vue";
+import Thread from "./components/Language/Java/Chapter/9Threads/2ConditionThreads/Theme/Thread.vue";
+//9.3
+import DemonThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/DemonThreads.vue";
+import HandlerUnproccessException from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/HandlerUnproccessException.vue";
+import InterruptedThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/InterruptedThreads.vue";
+import PriorityThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/PriorityThreads.vue";
+import NamingThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/NamingThreads.vue";
+//9.4
+import AtomicOperation from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/AtomicOperation.vue";
+import BlockingObject from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/BlockingObject.vue";
+import DeadLocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/DeadLocks.vue";
+import DepricatedMethodsStopAndSuspend
+    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/DepricatedMethodsStopAndSuspend.vue";
+import ExampleRaceCondition
+    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/ExampleRaceCondition.vue";
+import ExplanationRaceCondition
+    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/ExplanationRaceCondition.vue";
+import IfBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/IfBlocks.vue";
+import KeyWorkSynchrinized
+    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/KeyWorkSynchrinized.vue";
+import LocalTempsInThread from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/LocalTempsInThread.vue";
+import MonitorPrincep from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/MonitorPrincep.vue";
+import SynchroBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/SynchroBlocks.vue";
+import TypeFinal from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/TypeFinal.vue";
+import TypeVolatile from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/TypeVolatile.vue";
+//9.5
+import AlgorithmsWorkingOnParralelMassive
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/AlgorithmsWorkingOnParralelMassive.vue";
+import AtomicUpdateRowInReflections
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/AtomicUpdateRowInReflections.vue";
+import BlockingQueue from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/BlockingQueue.vue";
+import DepricatedThreadSecurity
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/DepricatedThreadSecurity.vue";
+import EffictiveReflectionMapAndQueue
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/EffictiveReflectionMapAndQueue.vue";
+import GroupOperationOnParralelHashMap
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/GroupOperationOnParralelHashMap.vue";
+import MassiveCopingOnWriting
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/MassiveCopingOnWriting.vue";
+import ParralelDeclarationMap
+    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/ParralelDeclarationMap.vue";
+//9.6
+import ArchitectureForkLink
+    from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/ArchitectureForkLink.vue";
+import Executions from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/Executions.vue";
+import InterfacesCallableAndFuture
+    from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/InterfacesCallableAndFuture.vue";
+import ManagerGroupTask from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/ManagerGroupTask.vue";
+//9.7
+import EndingFutureActions
+    from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/EndingFutureActions.vue";
+import LongTaskInGUI from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/LongTaskInBackcallGUI.vue";
+import MakingFutureEndingActions
+    from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/MakingFutureEndingActions.vue";
+//9.8
+import BuildingProccess from "./components/Language/Java/Chapter/9Threads/8Processes/Theme/BuildingProccess.vue";
+import DescriptorsProccess from "./components/Language/Java/Chapter/9Threads/8Processes/Theme/DescriptorsProccess.vue";
+import ExecutionProccess from "./components/Language/Java/Chapter/9Threads/8Processes/Theme/ExecutionProccess.vue";
+//10.1-10.6
+import FromInterationToStreams
+    from "./components/Language/Java/Chapter/10Streams/1FromInterationToStreams/FromInterationToStreams.vue";
+import CreationStreams from "./components/Language/Java/Chapter/10Streams/2CreationStreams/CreationStreams.vue";
+import MethodsFilterMapFlatMap
+    from "./components/Language/Java/Chapter/10Streams/3MethodsFilterMapFlatMap/MethodsFilterMapFlatMap.vue";
+import ExtractionSubStreamsAndAddingData
+    from "./components/Language/Java/Chapter/10Streams/4ExtractionSubStreamsAndAddingData/ExtractionSubStreamsAndAddingData.vue";
+import AnotherOperarionOnStreams
+    from "./components/Language/Java/Chapter/10Streams/5AnotherOperarionOnStreams/AnotherOperarionOnStreams.vue";
+import SimpleMethodsGrouping
+    from "./components/Language/Java/Chapter/10Streams/6SimpleMethodsGrouping/SimpleMethodsGrouping.vue";
+//10.7
+import FactoryUnnessary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FactoryUnnessary.vue";
+import FormingUnnessasary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FormingUnnessasary.vue";
+import GettingUnnesaryResults
+    from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/GettingUnnesaryResults.vue";
+import OptinalToStream from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/OptinalToStream.vue";
+import UsingUnnesary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/UsingUnnesary.vue";
+import WarningProcessingUnnessasary
+    from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/WarningProcessingUnnessasary.vue";
+//10.8-10.14
+import AccumulationResults from "./components/Language/Java/Chapter/10Streams/8AccumulationResults/AccumulationResults.vue";
+import AccumulationInReflection
+    from "./components/Language/Java/Chapter/10Streams/9AccumulationInReflection/AccumulationInReflection.vue";
+import GroupingAndRegrouping
+    from "./components/Language/Java/Chapter/10Streams/10GroupingAndRegrouping/GroupingAndRegrouping.vue";
+import DowingCollectors from "./components/Language/Java/Chapter/10Streams/11DowingCollectors/DowingCollectors.vue";
+import AddingOperation from "./components/Language/Java/Chapter/10Streams/12AddingOperation/AddingOperation.vue";
+import SimpleTypeStreams from "./components/Language/Java/Chapter/10Streams/13SimpleTypeStreams/SimpleTypeStreams.vue";
+import ParallelStreamsData
+    from "./components/Language/Java/Chapter/10Streams/14ParallelStreamsData/ParallelStreamsData.vue";
+//11.1
+import CodingSymbols from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/CodingSymbols.vue";
+import FullComplectInputOutputStreams
+    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/FullComplectInputOutputStreams.vue";
+import InputOutputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/InputOutputText.vue";
+import InputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/InputText.vue";
+import MixingFiltersStreamsInputOutput
+    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/MixingFiltersStreamsInputOutput.vue";
+import OutputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/OutputText.vue";
+import ReadAndWriteBites from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/ReadAndWriteBites.vue";
+import SaveObjectInTextFormat
+    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/SaveObjectInTextFormat.vue";
+//11.2
+import FilesRandomAccess
+    from "./components/Language/Java/Chapter/11InputOutput/2ReadAndWriteBitData/Theme/FilesRandomAccess.vue";
+import InterfaceDataInputDataOutput
+    from "./components/Language/Java/Chapter/11InputOutput/2ReadAndWriteBitData/Theme/InterfaceDataInputDataOutput.vue";
+import ZIPFiles from "./components/Language/Java/Chapter/11InputOutput/2ReadAndWriteBitData/Theme/ZIPFiles.vue";
+//11.3
+import ChangingSourceMechanizmSerialization
+    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/ChangingSourceMechanizmSerialization.vue";
+import ControlVertions
+    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/ControlVertions.vue";
+import DeclarationFormatFileForSerialization
+    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/DeclarationFormatFileForSerialization.vue";
+import SavingAndLoadingSerializeObject
+    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/SavingAndLoadingSerializeObject.vue";
+import UseSerializationForClonning
+    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/UseSerializationForClonning.vue";
+//11.4
+import CopingTempAndDeleteFiles
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/CopingTempAndDeleteFiles.vue";
+import CreationFilesAndCatalogies
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/CreationFilesAndCatalogies.vue";
+import FilePath from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/FilePath.vue";
+import GettingFileInfo from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/GettingFileInfo.vue";
+import LookingElementCatalogies
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/LookingElementCatalogies.vue";
+import ReadAndWriteInFiles
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ReadAndWriteInFiles.vue";
+import UseCatalogiesStreams
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/UseCatalogiesStreams.vue";
+import ZIPSystemFiles from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ZIPSystemFiles.vue";
+//11.5
+import BlockingFiles from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/BlockingFiles.vue";
+import DataBufferStructure
+    from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/DataBufferStructure.vue";
+import EffictiveFilesIntoMemory
+    from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/EffictiveFilesIntoMemory.vue";
+//11.6
+import ChangingSame from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/ChangingSame.vue";
+import FindinManySaneInString
+    from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/FindinManySaneInString.vue";
+import ItemingStringToSeparator
+    from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/ItemingStringToSeparator.vue";
+import SameWithString from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/SameWithString.vue";
+//12.1-3
+import IntroductionToXML from "./components/Language/Java/Chapter/12XML/1IntroductionToXML/IntroductionToXML.vue";
+import StructureXML from "./components/Language/Java/Chapter/12XML/2StructureXML/StructureXML.vue";
+import SyntaxAnalizeXMLDoc from "./components/Language/Java/Chapter/12XML/3SyntaxAnalizeXMLDoc/SyntaxAnalizeXMLDoc.vue";
+//12.4
+import DeclarationDocType from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/DeclarationDocType.vue";
+import PracticUseXMLDocUse
+    from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/PracticUseXMLDocUse.vue";
+import SchemaXML from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/SchemaXML.vue";
+//12.5-6
+import FindInfoViaXPath from "./components/Language/Java/Chapter/12XML/5FindInfoViaXPath/FindInfoViaXPath.vue";
+import UseSpacenaming from "./components/Language/Java/Chapter/12XML/6UseSpacenaming/UseSpacenaming.vue";
+//12.7
+import SAXAnalizator from "./components/Language/Java/Chapter/12XML/7StreamSyntaxAnalizator/Theme/SAXAnalizator.vue";
+import STAXAnalizator from "./components/Language/Java/Chapter/12XML/7StreamSyntaxAnalizator/Theme/STAXAnalizator.vue";
+//12.8
+import FormingFileViaSVG from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/FormingFileViaSVG.vue";
+import WriteXMLDoc from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/WriteXMLDoc.vue";
+import WriteXMLViaSTAX from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/WriteXMLViaSTAX.vue";
+import XMLWithoutSpacenaming from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithoutSpacenaming.vue";
+import XMLWithSpacenaming from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithSpacenaming.vue";
+import TransformationXMLDocViaXSLT
+    from "./components/Language/Java/Chapter/12XML/9TransformationXMLDocViaXSLT/TransformationXMLDocViaXSLT.vue";
+//13.1
+import CallFuncktionAndMethodsFromScenario
+    from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/CallFuncktionAndMethodsFromScenario.vue";
+import CompileScenario from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/CompileScenario.vue";
+import ExeScenario from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/ExeScenario.vue";
+import InterpretatorScenario
+    from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/InterpretatorScenario.vue";
+import RedirectInputOutput from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/RedirectInputOutput.vue";
+import UseScenarioForProcessingGUI
+    from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/UseScenarioForProcessingGUI.vue";
+//13.2
+import CallCompile from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/CallCompile.vue";
+import ExampleDiagnosticGeneratedJavaCode
+    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/ExampleDiagnosticGeneratedJavaCode.vue";
+import FicsationDiagnostic
+    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/FicsationDiagnostic.vue";
+import LaunchTaskOnCompile
+    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/LaunchTaskOnCompile.vue";
+import ReadSourceCodeFromOperMemory
+    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/ReadSourceCodeFromOperMemory.vue";
+import WriteBityCodeOnOperMemory
+    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/WriteBityCodeOnOperMemory.vue";
+//13.3
+import ExampleAnnotationProcessorEvent
+    from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/ExampleAnnotationProcessorEvent.vue";
+import IntroInAnnotation from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/IntroInAnnotation.vue";
+//13.4
+import AnnotationingAnnouncement
+    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingAnnouncement.vue";
+import AnnotationingInPlaceUseTypes
+    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingInPlaceUseTypes.vue";
+import AnnotationingOnLinkThis
+    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingOnLinkThis.vue";
+import DeclarationAnnotation
+    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/DeclarationAnnotation.vue";
+import InterfacesAnnotations
+    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/InterfacesAnnotations.vue";
+//13.5
+import AnnotationForCompiling
+    from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/AnnotationForCompiling.vue";
+import AnnotationForManageResource
+    from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/AnnotationForManageResource.vue";
+import MetaAnnotation from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/MetaAnnotation.vue";
+//14.1-9
+import DeclarationModules from "./components/Language/Java/Chapter/14Modules/1DeclarationModules/DeclarationModules.vue";
+import NamingModules from "./components/Language/Java/Chapter/14Modules/2NamingModules/NamingModules.vue";
+import ExampleModuleHelloWorld
+    from "./components/Language/Java/Chapter/14Modules/3ExampleModuleHelloWorld/ExampleModuleHelloWorld.vue";
+import ReqirementModules from "./components/Language/Java/Chapter/14Modules/4ReqirementModules/ReqirementModules.vue";
+import ExportModules from "./components/Language/Java/Chapter/14Modules/5ExportModules/ExportModules.vue";
+import ModuleArchiveJAR from "./components/Language/Java/Chapter/14Modules/6ModuleArchiveJAR/ModuleArchiveJAR.vue";
+import AutoModule from "./components/Language/Java/Chapter/14Modules/7AutoModule/AutoModule.vue";
+import UnnamedModules from "./components/Language/Java/Chapter/14Modules/8UnnamedModules/UnnamedModules.vue";
+import InstrumentalForWorkingWithModules
+    from "./components/Language/Java/Chapter/14Modules/9InstrumentalForWorkingWithModules/InstrumentalForWorkingWithModules.vue";
 
 //Глобальная шина событий
 Vue.prototype.$eventBus = new Vue();
@@ -718,6 +948,224 @@ const routes = [
     {path: '/language/java/collections/Enums', component: Enums},
     {path: '/language/java/collections/Stacks', component: Stacks},
     {path: '/language/java/collections/TablesProperties', component: TablesProperties},
+
+    //9.1
+    {path: '/language/java/threads/DeclarationThread', component: DeclarationThread},
+
+    //9.2
+    {path: '/language/java/threads/BlockingAndWaitingThreads', component: BlockingAndWaitingThreads},
+    {path: '/language/java/threads/EndedThreads', component: EndedThreads},
+    {path: '/language/java/threads/NewThreads', component: NewThreads},
+    {path: '/language/java/threads/Thread', component: Thread},
+
+    //9.3
+    {path: '/language/java/threads/DemonThreads', component: DemonThreads},
+    {path: '/language/java/threads/HandlerUnproccessException', component: HandlerUnproccessException},
+    {path: '/language/java/threads/InterruptedThreads', component: InterruptedThreads},
+    {path: '/language/java/threads/NamingThreads', component: NamingThreads},
+    {path: '/language/java/threads/PriorityThreads', component: PriorityThreads},
+
+    //9.4
+    {path: '/language/java/threads/AtomicOperation', component: AtomicOperation},
+    {path: '/language/java/threads/BlockingObject', component: BlockingObject},
+    {path: '/language/java/threads/DeadLocks', component: DeadLocks},
+    {path: '/language/java/threads/DepricatedMethodsStopAndSuspend', component: DepricatedMethodsStopAndSuspend},
+    {path: '/language/java/threads/ExampleRaceCondition', component: ExampleRaceCondition},
+    {path: '/language/java/threads/ExplanationRaceCondition', component: ExplanationRaceCondition},
+    {path: '/language/java/threads/IfBlocks', component: IfBlocks},
+    {path: '/language/java/threads/KeyWorkSynchrinized', component: KeyWorkSynchrinized},
+    {path: '/language/java/threads/LocalTempsInThread', component: LocalTempsInThread},
+    {path: '/language/java/threads/MonitorPrincep', component: MonitorPrincep},
+    {path: '/language/java/threads/SynchroBlocks', component: SynchroBlocks},
+    {path: '/language/java/threads/TypeFinal', component: TypeFinal},
+    {path: '/language/java/threads/TypeVolatile', component: TypeVolatile},
+
+    //9.5
+    {path: '/language/java/threads/AlgorithmsWorkingOnParralelMassive', component: AlgorithmsWorkingOnParralelMassive},
+    {path: '/language/java/threads/AtomicUpdateRowInReflections', component: AtomicUpdateRowInReflections},
+    {path: '/language/java/threads/BlockingQueue', component: BlockingQueue},
+    {path: '/language/java/threads/DepricatedThreadSecurity', component: DepricatedThreadSecurity},
+    {path: '/language/java/threads/EffictiveReflectionMapAndQueue', component: EffictiveReflectionMapAndQueue},
+    {path: '/language/java/threads/GroupOperationOnParralelHashMap', component: GroupOperationOnParralelHashMap},
+    {path: '/language/java/threads/MassiveCopingOnWriting', component: MassiveCopingOnWriting},
+    {path: '/language/java/threads/ParralelDeclarationMap', component: ParralelDeclarationMap},
+
+    //9.6
+    {path: '/language/java/threads/ArchitectureForkLink', component: ArchitectureForkLink},
+    {path: '/language/java/threads/Executions', component: Executions},
+    {path: '/language/java/threads/InterfacesCallableAndFuture', component: InterfacesCallableAndFuture},
+    {path: '/language/java/threads/ManagerGroupTask', component: ManagerGroupTask},
+
+    //9.7
+    {path: '/language/java/threads/EndingFutureActions', component: EndingFutureActions},
+    {path: '/language/java/threads/LongTaskInBackcallGUI', component: LongTaskInGUI},
+    {path: '/language/java/threads/MakingFutureEndingActions', component: MakingFutureEndingActions},
+
+    //9.8
+    {path: '/language/java/threads/BuildingProccess', component: BuildingProccess},
+    {path: '/language/java/threads/DescriptorsProccess', component: DescriptorsProccess},
+    {path: '/language/java/threads/ExecutionProccess', component: ExecutionProccess},
+
+    //10.1
+    {path: '/language/java/streams/FromInterationToStreams', component: FromInterationToStreams},
+
+    //10.2
+    {path: '/language/java/streams/CreationStreams', component: CreationStreams},
+
+    //10.3
+    {path: '/language/java/streams/MethodsFilterMapFlatMap', component: MethodsFilterMapFlatMap},
+
+    //10.4
+    {path: '/language/java/streams/ExtractionSubStreamsAndAddingData', component: ExtractionSubStreamsAndAddingData},
+
+    //10.5
+    {path: '/language/java/streams/AnotherOperarionOnStreams', component: AnotherOperarionOnStreams},
+
+    //10.6
+    {path: '/language/java/streams/SimpleMethodsGrouping', component: SimpleMethodsGrouping},
+
+    //10.7
+    {path: '/language/java/streams/FactoryUnnessary', component: FactoryUnnessary},
+    {path: '/language/java/streams/FormingUnnessasary', component: FormingUnnessasary},
+    {path: '/language/java/streams/GettingUnnesaryResults', component: GettingUnnesaryResults},
+    {path: '/language/java/streams/OptinalToStream', component: OptinalToStream},
+    {path: '/language/java/streams/UsingUnnesary', component: UsingUnnesary},
+    {path: '/language/java/streams/WarningProcessingUnnessasary', component: WarningProcessingUnnessasary},
+
+    //10.8
+    {path: '/language/java/streams/AccumulationResults', component: AccumulationResults},
+
+    //10.9
+    {path: '/language/java/streams/AccumulationInReflection', component: AccumulationInReflection},
+
+    //10.10
+    {path: '/language/java/streams/GroupingAndRegrouping', component: GroupingAndRegrouping},
+
+    //10.11
+    {path: '/language/java/streams/DowingCollectors', component: DowingCollectors},
+
+    //10.12
+    {path: '/language/java/streams/AddingOperation', component: AddingOperation},
+
+    //10.13
+    {path: '/language/java/streams/SimpleTypeStreams', component: SimpleTypeStreams},
+
+    //10.14
+    {path: '/language/java/streams/ParallelStreamsData', component: ParallelStreamsData},
+
+    //11.1
+    {path: '/language/java/inputoutput/CodingSymbols', component: CodingSymbols},
+    {path: '/language/java/inputoutput/FullComplectInputOutputStreams', component: FullComplectInputOutputStreams},
+    {path: '/language/java/inputoutput/InputOutputText', component: InputOutputText},
+    {path: '/language/java/inputoutput/InputText', component: InputText},
+    {path: '/language/java/inputoutput/MixingFiltersStreamsInputOutput', component: MixingFiltersStreamsInputOutput},
+    {path: '/language/java/inputoutput/OutputText', component: OutputText},
+    {path: '/language/java/inputoutput/ReadAndWriteBites', component: ReadAndWriteBites},
+    {path: '/language/java/inputoutput/SaveObjectInTextFormat', component: SaveObjectInTextFormat},
+
+    //11.2
+    {path: '/language/java/inputoutput/FilesRandomAccess', component: FilesRandomAccess},
+    {path: '/language/java/inputoutput/InterfaceDataInputDataOutput', component: InterfaceDataInputDataOutput},
+    {path: '/language/java/inputoutput/ZIPFiles', component: ZIPFiles},
+
+    //11.3
+    {path: '/language/java/inputoutput/ChangingSourceMechanizmSerialization', component: ChangingSourceMechanizmSerialization},
+    {path: '/language/java/inputoutput/ControlVertions', component: ControlVertions},
+    {path: '/language/java/inputoutput/DeclarationFormatFileForSerialization', component: DeclarationFormatFileForSerialization},
+    {path: '/language/java/inputoutput/SavingAndLoadingSerializeObject', component: SavingAndLoadingSerializeObject},
+    {path: '/language/java/inputoutput/UseSerializationForClonning', component: UseSerializationForClonning},
+
+    //11.4
+    {path: '/language/java/inputoutput/CopingTempAndDeleteFiles', component: CopingTempAndDeleteFiles},
+    {path: '/language/java/inputoutput/CreationFilesAndCatalogies', component: CreationFilesAndCatalogies},
+    {path: '/language/java/inputoutput/FilePath', component: FilePath},
+    {path: '/language/java/inputoutput/GettingFileInfo', component: GettingFileInfo},
+    {path: '/language/java/inputoutput/LookingElementCatalogies', component: LookingElementCatalogies},
+    {path: '/language/java/inputoutput/ReadAndWriteInFiles', component: ReadAndWriteInFiles},
+    {path: '/language/java/inputoutput/UseCatalogiesStreams', component: UseCatalogiesStreams},
+    {path: '/language/java/inputoutput/ZIPSystemFiles', component: ZIPSystemFiles},
+
+    //11.5
+    {path: '/language/java/inputoutput/BlockingFiles', component: BlockingFiles},
+    {path: '/language/java/inputoutput/DataBufferStructure', component: DataBufferStructure},
+    {path: '/language/java/inputoutput/EffictiveFilesIntoMemory', component: EffictiveFilesIntoMemory},
+
+    //11.6
+    {path: '/language/java/inputoutput/ChangingSame', component: ChangingSame},
+    {path: '/language/java/inputoutput/FindinManySaneInString', component: FindinManySaneInString},
+    {path: '/language/java/inputoutput/ItemingStringToSeparator', component: ItemingStringToSeparator},
+    {path: '/language/java/inputoutput/SameWithString', component: SameWithString},
+
+    //12.1-3
+    {path: '/language/java/xml/IntroductionToXML', component: IntroductionToXML},
+    {path: '/language/java/xml/StructureXML', component: StructureXML},
+    {path: '/language/java/xml/SyntaxAnalizeXMLDoc', component: SyntaxAnalizeXMLDoc},
+
+    //12.4
+    {path: '/language/java/xml/DeclarationDocType', component: DeclarationDocType},
+    {path: '/language/java/xml/PracticUseXMLDocUse', component: PracticUseXMLDocUse},
+    {path: '/language/java/xml/SchemaXML', component: SchemaXML},
+
+    //12.5-6
+    {path: '/language/java/xml/FindInfoViaXPath', component: FindInfoViaXPath},
+    {path: '/language/java/xml/UseSpacenaming', component: UseSpacenaming},
+
+    //12.7
+    {path: '/language/java/xml/SAXAnalizator', component: SAXAnalizator},
+    {path: '/language/java/xml/STAXAnalizator', component: STAXAnalizator},
+
+    //12.8
+    {path: '/language/java/xml/FormingFileViaSVG', component: FormingFileViaSVG},
+    {path: '/language/java/xml/WriteXMLDoc', component: WriteXMLDoc},
+    {path: '/language/java/xml/WriteXMLViaSTAX', component: WriteXMLViaSTAX},
+    {path: '/language/java/xml/XMLWithoutSpacenaming', component: XMLWithoutSpacenaming},
+    {path: '/language/java/xml/XMLWithSpacenaming', component: XMLWithSpacenaming},
+
+    //12.9
+    {path: '/language/java/xml/TransformationXMLDocViaXSLT', component: TransformationXMLDocViaXSLT},
+
+    //13.1
+    {path: '/language/java/scenarioandannotation/CallFuncktionAndMethodsFromScenario', component: CallFuncktionAndMethodsFromScenario},
+    {path: '/language/java/scenarioandannotation/CompileScenario', component: CompileScenario},
+    {path: '/language/java/scenarioandannotation/ExeScenario', component: ExeScenario},
+    {path: '/language/java/scenarioandannotation/InterpretatorScenario', component: InterpretatorScenario},
+    {path: '/language/java/scenarioandannotation/RedirectInputOutput', component: RedirectInputOutput},
+    {path: '/language/java/scenarioandannotation/UseScenarioForProcessingGUI', component: UseScenarioForProcessingGUI},
+
+    //13.2
+    {path: '/language/java/scenarioandannotation/CallCompile', component: CallCompile},
+    {path: '/language/java/scenarioandannotation/ExampleDiagnosticGeneratedJavaCode', component: ExampleDiagnosticGeneratedJavaCode},
+    {path: '/language/java/scenarioandannotation/FicsationDiagnostic', component: FicsationDiagnostic},
+    {path: '/language/java/scenarioandannotation/LaunchTaskOnCompile', component: LaunchTaskOnCompile},
+    {path: '/language/java/scenarioandannotation/ReadSourceCodeFromOperMemory', component: ReadSourceCodeFromOperMemory},
+    {path: '/language/java/scenarioandannotation/WriteBityCodeOnOperMemory', component: WriteBityCodeOnOperMemory},
+
+    //13.3
+    {path: '/language/java/scenarioandannotation/ExampleAnnotationProcessorEvent', component: ExampleAnnotationProcessorEvent},
+    {path: '/language/java/scenarioandannotation/IntroInAnnotation', component: IntroInAnnotation},
+
+    //13.4
+    {path: '/language/java/scenarioandannotation/AnnotationingAnnouncement', component: AnnotationingAnnouncement},
+    {path: '/language/java/scenarioandannotation/AnnotationingInPlaceUseTypes', component: AnnotationingInPlaceUseTypes},
+    {path: '/language/java/scenarioandannotation/AnnotationingOnLinkThis', component: AnnotationingOnLinkThis},
+    {path: '/language/java/scenarioandannotation/DeclarationAnnotation', component: DeclarationAnnotation},
+    {path: '/language/java/scenarioandannotation/InterfacesAnnotations', component: InterfacesAnnotations},
+
+    //13.5
+    {path: '/language/java/scenarioandannotation/AnnotationForCompiling', component: AnnotationForCompiling},
+    {path: '/language/java/scenarioandannotation/AnnotationForManageResource', component: AnnotationForManageResource},
+    {path: '/language/java/scenarioandannotation/MetaAnnotation', component: MetaAnnotation},
+
+    //14.1-9
+    {path: '/language/java/module/DeclarationModules', component: DeclarationModules},
+    {path: '/language/java/module/NamingModules', component: NamingModules},
+    {path: '/language/java/module/ExampleModuleHelloWorld', component: ExampleModuleHelloWorld},
+    {path: '/language/java/module/ReqirementModules', component: ReqirementModules},
+    {path: '/language/java/module/ExportModules', component: ExportModules},
+    {path: '/language/java/module/ModuleArchiveJAR', component: ModuleArchiveJAR},
+    {path: '/language/java/module/AutoModule', component: AutoModule},
+    {path: '/language/java/module/UnnamedModules', component: UnnamedModules},
+    {path: '/language/java/module/InstrumentalForWorkingWithModules', component: InstrumentalForWorkingWithModules},
 
     {path: '/language/kotlin', component: KotlinLanguage},
     {path: '/language/js', component: JSLanguage},

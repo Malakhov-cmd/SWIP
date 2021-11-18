@@ -1,0 +1,169 @@
+<template>
+  <div class="chapter-level-1">
+    <chapter-button chapter-name="Потоки" class="theme-level-9-chapter-right"
+                    id="central-btn-9chapter"/>
+    <div class="theme-level-1 theme-level-1-right">
+      <theme-button theme-name="Назначение потоков"
+                    path-theme="/language/java/threads/DeclarationThread"
+                    id="java-9-chapter-1-theme"/>
+      <condition-threads/>
+      <properties-thread/>
+      <sinchronization/>
+      <thread-safe-collection/>
+      <task-and-pulls-threads/>
+      <asinchronized-calk/>
+      <processes/>
+    </div>
+  </div>
+</template>
+
+<script>
+import ThemeButton from "../../../Blocks/ThemeButton.vue";
+import ChapterButton from "../../../Blocks/ChapterButton.vue";
+import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
+import ConditionThreads from "./2ConditionThreads/ConditionThreads.vue";
+import PropertiesThread from "./3PropertiesThread/PropertiesThread.vue";
+import Sinchronization from "./4Sinchronization/Sinchronization.vue";
+import ThreadSafeCollection from "./5ThreadSafeCollection/ThreadSafeCollection.vue";
+import TaskAndPullsThreads from "./6TaskAndPullsThreads/TaskAndPullsThreads.vue";
+import AsinchronizedCalk from "./7AsinchronizedCalk/AsinchronizedCalk.vue";
+import Processes from "./8Processes/Processes.vue";
+
+export default {
+  name: "Threads",
+  components: {
+    Processes,
+    AsinchronizedCalk,
+    TaskAndPullsThreads,
+    ThreadSafeCollection, Sinchronization, PropertiesThread, ConditionThreads, ChapterButton, ThemeButton
+  },
+  mounted() {
+    const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-1-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-2-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-3-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo4Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-4-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-5-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-6-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo7Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-7-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+    const arrowFromCentralBtnChapterTo8Theme = arrowCreate({
+      from: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        direction: DIRECTION.RIGHT,
+      },
+      to: {
+        node: () => document.getElementById("java-9-chapter-8-theme"),
+        direction: DIRECTION.LEFT,
+        translation: [-1, 0]
+      },
+      head: {
+        func: HEAD.VEE,
+      },
+    });
+
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo1Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo6Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
+
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

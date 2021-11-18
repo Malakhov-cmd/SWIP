@@ -21,32 +21,43 @@
         </b-btn>
         </div>
       <div class="chapter-right-side">
-        <LanguageConstructions/>
-        <ThemeButton theme-name="Потоки ввода вывода"/>
-        <ThemeButton theme-name="XML"/>
-        <ThemeButton theme-name="Работа в сети"/>
-        <ThemeButton theme-name="Интернационализация"/>
-        <ThemeButton theme-name="Компоненты JavaBeans"/>
-        <ThemeButton theme-name="Безопасность"/>
+        <threads/>
+        <streams/>
+        <input-output/>
+        <x-m-l/>
+        <annotation/>
+        <modules/>
       </div>
     </div>
   </b-row>
 </template>
 
 <script>
+import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
 import ThemeButton from "../Blocks/ChapterButton.vue";
 import IntroduceInJava from "./Chapter/1Introduce/IntroduceInJava.vue";
 import LanguageConstructions from "./Chapter/2LanguageConstruction/LanguageConstructions.vue";
-import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
 import OOP from "./Chapter/3OOP/OOP.vue";
 import Inheritance from "./Chapter/4Inheritance/Inheritance.vue";
 import InterfaceLyambdaAndInner from "./Chapter/5interfaceLyambdaAndInner/InterfaceLyambdaAndInner.vue";
 import Exeption from "./Chapter/6Exeption/Exeption.vue";
 import GenericProgramming from "./Chapter/7GenericProgramming/GenericProgramming.vue";
 import Collections from "./Chapter/8Collections/Collections.vue";
+import Threads from "./Chapter/9Threads/Threads.vue";
+import Streams from "./Chapter/10Streams/Streams.vue";
+import InputOutput from "./Chapter/11InputOutput/InputOutput.vue";
+import XML from "./Chapter/12XML/XML.vue";
+import Annotation from "./Chapter/13Annotation/Annotation.vue";
+import Modules from "./Chapter/14Modules/Modules.vue";
 
 export default {
   components: {
+    Modules,
+    Annotation,
+    XML,
+    InputOutput,
+    Streams,
+    Threads,
     Collections,
     GenericProgramming,
     Exeption, InterfaceLyambdaAndInner, Inheritance, OOP, LanguageConstructions, IntroduceInJava, ThemeButton},
@@ -87,19 +98,12 @@ export default {
       scr.off("mousemove");
     });
 
-
-    /*const arrow1 = arrowCreate({
-       from: document.getElementById("center-btn-language-name"),
-       to: document.getElementById("chapter1"),
-     });
-
-     document.getElementById("language-main-row-content").appendChild(arrow1.node);*/
-
     const arrowFromCentralBtnToHeadOFFirstChapter = arrowCreate({
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-1chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -110,7 +114,8 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-2chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -121,7 +126,8 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-3chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -132,7 +138,8 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-4chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -142,7 +149,8 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-5chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -152,7 +160,8 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-6chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -162,7 +171,8 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-7chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
       },
       head: {
         func: HEAD.VEE,
@@ -172,7 +182,74 @@ export default {
       from: document.getElementById("center-btn-language-name"),
       to: {
         node: () => document.getElementById("central-btn-8chapter"),
-        translation: [1, 0]
+        translation: [1, 0],
+        direction: DIRECTION.RIGHT,
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFNineChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-9chapter"),
+        translation: [-1, 0],
+        direction: DIRECTION.LEFT,
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFTenChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-10chapter"),
+        translation: [-1, 0],
+        direction: DIRECTION.LEFT,
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFElevenChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-11chapter"),
+        translation: [-1, 0],
+        direction: DIRECTION.LEFT,
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFTwelveChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-12chapter"),
+        translation: [-1, 0],
+        direction: DIRECTION.LEFT,
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFThirtinChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-13chapter"),
+        translation: [-1, 0],
+        direction: DIRECTION.LEFT,
+      },
+      head: {
+        func: HEAD.VEE,
+      }
+    });
+    const arrowFromCentralBtnToHeadOFFourtinChapter = arrowCreate({
+      from: document.getElementById("center-btn-language-name"),
+      to: {
+        node: () => document.getElementById("central-btn-14chapter"),
+        translation: [-1, 0],
+        direction: DIRECTION.LEFT,
       },
       head: {
         func: HEAD.VEE,
@@ -187,6 +264,12 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSixChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSevenChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFNineChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTenChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFElevenChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
 
   },
   beforeDestroy() {
