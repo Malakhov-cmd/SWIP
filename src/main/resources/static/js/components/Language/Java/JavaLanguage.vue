@@ -35,7 +35,8 @@
       <template #overlay>
         <div class="text-center">
           <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
-          <p id="cancel-label">Please wait...</p>
+          <p>Подождите...</p>
+          <p>Происходит оптимизация roadmap под размеры вашего экрана.</p>
         </div>
       </template>
 

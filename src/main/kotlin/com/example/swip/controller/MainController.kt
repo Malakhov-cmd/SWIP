@@ -1,7 +1,9 @@
 package com.example.swip.controller
 
+import com.example.swip.domain.Chapter
+import com.example.swip.domain.JavaLanguage
 import com.example.swip.domain.User
-import com.example.swip.repo.UserDetailsRepo
+import com.example.swip.repo.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
@@ -16,13 +18,21 @@ import java.util.function.Supplier
 @Controller
 @RequestMapping()
 class MainController(@Autowired
-                     var userDetailsRepo: UserDetailsRepo) {
+                     var userDetailsRepo: UserDetailsRepo,
+                     @Autowired
+                     var javaLanguagesRepo: JavaLanguagesRepo,
+                     @Autowired
+                     var chapterRepo: ChapterRepo,
+                     @Autowired
+                     var themeRepo: ThemeRepo,
+                     @Autowired
+                     var taskRepo: TaskRepo) {
     @Value("\${spring.profiles.active}")
     private val profile: String? = null
 
     @GetMapping("/")
     fun initialIndex(model: Model,
-                        principal: Principal): String {
+                     principal: Principal): String {
 
         val principalSTR: String = principal.toString()
 
@@ -35,18 +45,28 @@ class MainController(@Autowired
         val userId: String = userIdRegex.find(principalSTR)!!.value.substring(4)
         val userName = nameRegex.find(principalSTR)?.value?.substring(6)
         val preUserEmail = emailRegex.find(principalSTR)?.value?.substring(7)
-        val userEmail = preUserEmail?.substring(0, preUserEmail.length-3)
+        val userEmail = preUserEmail?.substring(0, preUserEmail.length - 3)
         val userLocale = localeRegex.find(principalSTR)?.value?.substring(8)
         val preuserpic = userpicRegex.find(principalSTR)?.value
-        val userpic = preuserpic?.substring(9, preuserpic.length-1)
+        val userpic = preuserpic?.substring(9, preuserpic.length - 1)
 
-        val user: User = userDetailsRepo.findById(userId).orElseGet( Supplier {
+        val user: User = userDetailsRepo.findById(userId).orElseGet(Supplier {
             val newUser = User()
             newUser.id = userId
             newUser.name = userName
             newUser.email = userEmail
             newUser.locale = userLocale
             newUser.userpic = userpic
+
+            val javaLanguage = JavaLanguage()
+            javaLanguage.name = "java"
+            javaLanguage.progress = 0.0
+            chapterInitial(javaLanguage)
+            javaLanguage.owner = newUser
+
+            userDetailsRepo.save<User>(newUser)
+            javaLanguagesRepo.save(javaLanguage)
+
             newUser
         })
         user.lastVisit = LocalDateTime.now()
@@ -59,5 +79,17 @@ class MainController(@Autowired
         model.addAttribute("frontendData", data)
         model.addAttribute("isDevMode", "dev".equals(profile));
         return "index"
+    }
+
+    fun chapterInitial(lang: JavaLanguage) {
+        var chapters: MutableList<Chapter>
+       for(i in 1..14){
+           var chapter = Chapter()
+           chapter.nameChapter = "ВВведение в Java"
+           chapter.numberChapter = 1
+           chapter.chapterProgress = 0.0
+           
+        }
+
     }
 }
