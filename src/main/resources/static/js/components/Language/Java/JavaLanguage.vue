@@ -1,7 +1,9 @@
 <template>
   <b-row class="language-main-row" id="language-main-row-content">
-    <div class="language-main-row-content" v-on:scroll="funk()">
-      <div class="chapter-left-side">
+    <b-overlay :show="show" rounded="sm">
+
+    <div class="language-main-row-content" v-on:scroll="funk()" :aria-hidden="show ? 'true' : null">
+      <div class="chapter-left-side" id="java-left-side-roadmap">
         <IntroduceInJava/>
         <LanguageConstructions/>
         <o-o-p/>
@@ -29,6 +31,16 @@
         <modules/>
       </div>
     </div>
+
+      <template #overlay>
+        <div class="text-center">
+          <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
+          <p id="cancel-label">Please wait...</p>
+        </div>
+      </template>
+
+    </b-overlay>
+
   </b-row>
 </template>
 
@@ -64,7 +76,8 @@ export default {
   data() {
     return {
       dialog: false,
-      showLogos: true
+      showLogos: true,
+      show: true
     }
 
   },
@@ -84,6 +97,14 @@ export default {
     }
   },
   mounted() {
+    let leftSideRoadMap = document.getElementById('java-left-side-roadmap')
+
+    setInterval(() => {
+      if (leftSideRoadMap.clientHeight > 22000) {
+        this.show = false
+      }
+    }, 100)
+
     var scr = $(".language-main-row-content");
     scr.mousedown(function () {
       var startX = this.scrollLeft + event.pageX;
