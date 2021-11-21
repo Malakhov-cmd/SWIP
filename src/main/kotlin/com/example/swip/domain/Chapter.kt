@@ -15,9 +15,10 @@ class Chapter {
     @JoinColumn(name = "lang_id")
     var language: JavaLanguage? = null
 
-    @OneToMany()
-    @JoinColumn(name = "lang_theme_id")
-    var listThemes: MutableList<Theme>? = null
+    @OneToMany(cascade = [CascadeType.ALL])
+    @JoinTable(name = "java_chapter_themes_list",
+            joinColumns = [JoinColumn(name = "java_chapter_themes_list_id")])
+    var listThemes: MutableList<Theme> = mutableListOf()
 
     var chapterProgress: Double = 0.0
     var numberChapter: Int?= null

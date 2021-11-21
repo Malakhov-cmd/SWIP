@@ -15,7 +15,7 @@ class Theme {
     @JoinColumn(name = "chapter_id")
     var chapter: Chapter? = null
 
-    @OneToOne()
+    @OneToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "javaThemeTask")
     var task: Task? = null
 

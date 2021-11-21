@@ -36,10 +36,9 @@ class ChapterFuller(
             when (i) {
                 1 -> {
                     fullingFirstChapter(chapterId!!)
-                    lang.chapters?.add(chapterRepo.findById(chapter.id!!).get())
+                    lang.chapters.add(chapterRepo.findById(chapterId).get())
                     javaLanguagesRepo.save(lang)
                 }
-
             }
         }
     }
@@ -76,7 +75,7 @@ class ChapterFuller(
 
             themeRepo.save(themeSaved)
 
-            chapter.listThemes?.add(themeSaved)
+            chapter.listThemes.add(themeSaved)
 
             chapterRepo.save(chapter)
         }

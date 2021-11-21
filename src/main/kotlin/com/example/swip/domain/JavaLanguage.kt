@@ -15,9 +15,10 @@ class JavaLanguage : Serializable {
     var name: String = "Java"
     var progress: Double = 0.0
 
-    @OneToMany()
-    @JoinColumn(name = "lang_chapter_id")
-    var chapters: MutableList<Chapter>? = null
+    @OneToMany(cascade = [CascadeType.ALL])
+    @JoinTable(name = "java_language_chapters",
+            joinColumns = [JoinColumn(name = "java_language_chapters_id")])
+    var chapters: MutableList<Chapter> =  mutableListOf()
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")

@@ -55,14 +55,17 @@
         </b-form-invalid-feedback>
 
         <!-- This is a form text block (formerly known as help block) -->
-        <b-form-text id="input-live-help">Введите ваше имя</b-form-text>
+        <b-form-text id="input-live-help">Введите ваше мнение</b-form-text>
       </div>
-      <b-btn class="my-b-btn page-theme-btn-submit">Отправить</b-btn>
+      <b-btn class="my-b-btn page-theme-btn-submit" v-on:click="postRequest">Отправить</b-btn>
     </b-jumbotron>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
+
 export default {
   name: "ProgramPlatform",
   computed: {
@@ -73,6 +76,23 @@ export default {
   data() {
     return {
       name: ''
+    }
+  },
+  methods: {
+    postRequest() {
+      axios.get('http://localhost:9000/java/firstchapter/', {
+        params: {
+          numberTheme: 1,
+          answer: this.name,
+          userId: window.frontendData.profile.id
+        }
+      })
+          .then(function (response) {
+            console.log(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
   }
 }
