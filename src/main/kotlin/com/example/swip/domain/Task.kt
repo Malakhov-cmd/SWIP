@@ -5,14 +5,14 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "javaLanguageRoadThemes")
+@Table(name = "javaLanguageRoadTask")
 @Data
 class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = 0
 
-    @OneToOne
+    @OneToOne()
     @JoinColumn(name = "theme_id")
     var theme: Theme? = null
 

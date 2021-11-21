@@ -1,9 +1,8 @@
 package com.example.swip.controller
 
-import com.example.swip.domain.Chapter
-import com.example.swip.domain.JavaLanguage
-import com.example.swip.domain.User
+import com.example.swip.domain.*
 import com.example.swip.repo.*
+import com.example.swip.service.ChapterFuller
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import java.security.Principal
 import java.time.LocalDateTime
 import java.util.function.Supplier
-
+import kotlin.collections.MutableList
 
 @Controller
 @RequestMapping()
@@ -22,11 +21,7 @@ class MainController(@Autowired
                      @Autowired
                      var javaLanguagesRepo: JavaLanguagesRepo,
                      @Autowired
-                     var chapterRepo: ChapterRepo,
-                     @Autowired
-                     var themeRepo: ThemeRepo,
-                     @Autowired
-                     var taskRepo: TaskRepo) {
+                     var chapterFuller: ChapterFuller) {
     @Value("\${spring.profiles.active}")
     private val profile: String? = null
 
@@ -61,12 +56,12 @@ class MainController(@Autowired
             val javaLanguage = JavaLanguage()
             javaLanguage.name = "java"
             javaLanguage.progress = 0.0
-            chapterInitial(javaLanguage)
             javaLanguage.owner = newUser
 
             userDetailsRepo.save<User>(newUser)
-            javaLanguagesRepo.save(javaLanguage)
 
+
+            chapterFuller.chapterInitial(javaLanguagesRepo.save(javaLanguage).id)
             newUser
         })
         user.lastVisit = LocalDateTime.now()
@@ -79,17 +74,5 @@ class MainController(@Autowired
         model.addAttribute("frontendData", data)
         model.addAttribute("isDevMode", "dev".equals(profile));
         return "index"
-    }
-
-    fun chapterInitial(lang: JavaLanguage) {
-        var chapters: MutableList<Chapter>
-       for(i in 1..14){
-           var chapter = Chapter()
-           chapter.nameChapter = "ВВведение в Java"
-           chapter.numberChapter = 1
-           chapter.chapterProgress = 0.0
-           
-        }
-
     }
 }

@@ -11,15 +11,13 @@ class Chapter {
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = 0
 
-    var nameChapter: String? = null
-
-    @OneToOne
+    @OneToOne()
     @JoinColumn(name = "lang_id")
-    var language: JavaLanguage?= null
+    var language: JavaLanguage? = null
 
-    @OneToMany
+    @OneToMany()
     @JoinColumn(name = "lang_theme_id")
-    var listThemes: List<Theme>? = null
+    var listThemes: MutableList<Theme>? = null
 
     var chapterProgress: Double = 0.0
     var numberChapter: Int?= null

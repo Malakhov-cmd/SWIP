@@ -11,13 +11,11 @@ class Theme {
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = 0
 
-    var themeName: String? = null
-
-    @OneToOne
+    @OneToOne()
     @JoinColumn(name = "chapter_id")
     var chapter: Chapter? = null
 
-    @OneToOne
+    @OneToOne()
     @JoinColumn(name = "javaThemeTask")
     var task: Task? = null
 
