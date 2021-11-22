@@ -73,7 +73,13 @@ export default {
     Threads,
     Collections,
     GenericProgramming,
-    Exeption, InterfaceLyambdaAndInner, Inheritance, OOP, LanguageConstructions, IntroduceInJava, ThemeButton},
+    Exeption,
+    InterfaceLyambdaAndInner,
+    Inheritance,
+    OOP,
+    LanguageConstructions,
+    IntroduceInJava,
+    ThemeButton},
   data() {
     return {
       dialog: false,
@@ -292,7 +298,6 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
-
   },
   beforeDestroy() {
     let massiveArrows = document.getElementsByClassName("arrow")

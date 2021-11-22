@@ -207,6 +207,7 @@ export default {
     }
   },
   mounted() {
+    this.$eventBus.$on('redirectToJavaRoad', this.chooserContainer(1))
   }
 }
 </script>

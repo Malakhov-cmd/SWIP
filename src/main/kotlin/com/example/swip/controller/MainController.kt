@@ -1,8 +1,11 @@
 package com.example.swip.controller
 
-import com.example.swip.domain.*
-import com.example.swip.repo.*
+import com.example.swip.domain.JavaLanguage
+import com.example.swip.domain.User
+import com.example.swip.repo.JavaLanguagesRepo
+import com.example.swip.repo.UserDetailsRepo
 import com.example.swip.service.ChapterFuller
+import com.google.gson.Gson
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import java.security.Principal
 import java.time.LocalDateTime
 import java.util.function.Supplier
-import kotlin.collections.MutableList
+
 
 @Controller
 @RequestMapping()
@@ -70,6 +73,7 @@ class MainController(@Autowired
         val data = HashMap<Any, Any>()
 
         data["profile"] = user
+        data["language"] = javaLanguagesRepo.findByOwner(user)
 
         model.addAttribute("frontendData", data)
         model.addAttribute("isDevMode", "dev".equals(profile));

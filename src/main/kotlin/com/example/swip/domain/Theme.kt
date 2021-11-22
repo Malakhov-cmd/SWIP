@@ -1,5 +1,6 @@
 package com.example.swip.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import lombok.Data
 import javax.persistence.*
 
@@ -11,6 +12,7 @@ class Theme {
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = 0
 
+    @JsonIgnore
     @OneToOne()
     @JoinColumn(name = "chapter_id")
     var chapter: Chapter? = null
