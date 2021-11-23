@@ -68,6 +68,8 @@
         </p>
       </div>
 
+      <div class="box animate" style="" v-show="animationOn">Успех</div>
+
       <b-btn class="my-b-btn page-theme-btn-submit" v-on:click="Request" v-show="showInput">Отправить</b-btn>
     </b-jumbotron>
   </div>
@@ -98,7 +100,8 @@ export default {
       name: '',
       showInput: true,
       answer: [],
-      allowSend: false
+      allowSend: false,
+      animationOn: false
     }
   },
   methods: {
@@ -117,7 +120,7 @@ export default {
               window.frontendData.language.chapters[0].listThemes[0].finished = true
 
               tempAnswer = response.data
-              console.log( '  1  ' + tempAnswer)
+              console.log('  1  ' + tempAnswer)
 
               isSendedandrecived = true
             })
@@ -129,7 +132,7 @@ export default {
             this.answer = window.frontendData.language.chapters[0].listThemes[0].task.answer
 
             console.log(this.answer + ' 2  ' + tempAnswer)
-
+            this.animationOn = isSendedandrecived
             this.showInput = false
 
             clearInterval(interval)
@@ -152,15 +155,6 @@ export default {
     },
   },
   mounted() {
-    window.frontendData.language.chapters[0].listThemes.sort(function (a, b) {
-      if (a.number > b.number) {
-        return 1;
-      }
-      if (a.number < b.number) {
-        return -1;
-      }
-      return 0;
-    });
 
     if (window.frontendData.language.chapters[0].listThemes[0].finished) {
       this.showInput = false
