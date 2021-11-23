@@ -21,15 +21,21 @@ class FirstChapterController(
     @GetMapping()
     fun answersFirstChapter(@RequestParam(required = true) numberTheme: Int,
                             @RequestParam(required = true) answer: String,
-                            @RequestParam(required = true) userId: String): String {
-        firstChapterAnswers(numberTheme, answer, userId)
-        return "Слышу вас"
-    }
+                            @RequestParam(required = true) userId: String): String
+    = firstChapterAnswers(numberTheme, answer, userId)
 
-    fun firstChapterAnswers(numberTheme: Int, answer: String, userId: String) {
+
+    fun firstChapterAnswers(numberTheme: Int, answer: String, userId: String) : String{
+        var approvedResult = ""
+
         val user = userDetailsRepo.findById(userId).get()
         val javaLanguage = javaLanguagesRepo.findByOwner(user)
+
+        javaLanguage.chapters.sortBy { it.numberChapter }
+
         val firstChapter = javaLanguage.chapters[0]
+
+        firstChapter.listThemes.sortBy { it.number }
 
         when (numberTheme) {
             1 -> {
@@ -44,7 +50,10 @@ class FirstChapterController(
                 chapterRepo.save(firstChapter)
                 themeRepo.save(themeOne)
                 taskRepo.save(taskOne!!)
+
+                approvedResult = answer
             }
         }
+        return approvedResult
     }
 }

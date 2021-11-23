@@ -22,6 +22,10 @@ export default {
     Started
   },
   mounted() {
+    console.log("first")
+
+
+
     axios.get('http://localhost:9000/api/userinfo', {
       params: {
         userId: window.frontendData.profile.id

@@ -64,7 +64,7 @@
 
       <div v-show="!showInput">
         <p class="page-theme-theory-text">
-          Your answer is: "{{ answer }}"
+          Ваш ответ: "{{ answer }}"
         </p>
       </div>
 
@@ -76,14 +76,16 @@
 <script>
 import axios from "axios";
 
+let tempAnswer = []
+let isSendedandrecived = false
 export default {
   name: "ProgramPlatform",
   computed: {
     nameState() {
-      if (this.name.length > 2){
+      if (this.name.length > 2) {
         const answerPattern = /([A-Za-zА-Яа-я 1-9]{1})*/;
 
-        if(this.name.match(answerPattern)[0].length === this.name.length){
+        if (this.name.match(answerPattern)[0].length === this.name.length) {
           this.allowSend = true
           return true
         }
@@ -95,7 +97,7 @@ export default {
     return {
       name: '',
       showInput: true,
-      answer: "",
+      answer: [],
       allowSend: false
     }
   },
@@ -110,26 +112,56 @@ export default {
           }
         })
             .then(function (response) {
-              console.log(response.data);
+              window.frontendData.language.chapters[0].listThemes[0].task.answer = response.data
+              window.frontendData.language.chapters[0].chapterProgress = 33.3
+              window.frontendData.language.chapters[0].listThemes[0].finished = true
+
+              tempAnswer = response.data
+              console.log( '  1  ' + tempAnswer)
+
+              isSendedandrecived = true
             })
             .catch(function (error) {
               console.log(error);
-            });
-        this.showInput = false
+            })
+        const interval = setInterval(() => {
+          if (isSendedandrecived) {
+            this.answer = window.frontendData.language.chapters[0].listThemes[0].task.answer
+
+            console.log(this.answer + ' 2  ' + tempAnswer)
+
+            this.showInput = false
+
+            clearInterval(interval)
+          }
+        }, 100);
       } else {
-        console.log("here")
-        this._vm.$bvToast.toast(`Toast body content`, {
-          title: `Toaster b-toaster-bottom-right`,
-          toaster: 'b-toaster-bottom-right',
-          solid: true,
-          appendToast: true,
-          variant: 'warning',
-          autoHideDelay: 5000000,
-        })
+        this.$toasted.error("Некоректные данные", {
+          theme: "toasted-primary",
+          position: 'top-right',
+          duration: 5000,
+          fullWidth: false,
+          action: {
+            text: 'Cancel',
+            onClick: (e, toastObject) => {
+              toastObject.goAway(0);
+            }
+          },
+        });
       }
     },
   },
   mounted() {
+    window.frontendData.language.chapters[0].listThemes.sort(function (a, b) {
+      if (a.number > b.number) {
+        return 1;
+      }
+      if (a.number < b.number) {
+        return -1;
+      }
+      return 0;
+    });
+
     if (window.frontendData.language.chapters[0].listThemes[0].finished) {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[0].listThemes[0].task.answer
