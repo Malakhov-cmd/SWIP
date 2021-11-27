@@ -55,10 +55,10 @@ export default {
     }
 
     if (window.frontendData.language.chapters[0].chapterProgress > 0 &&
-        window.frontendData.language.chapters[0].chapterProgress < 100) {
+        window.frontendData.language.chapters[0].chapterProgress < 99) {
       document.getElementById("central-btn-1chapter").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (window.frontendData.language.chapters[0].chapterProgress === 100){
+      if (window.frontendData.language.chapters[0].chapterProgress >= 99){
         document.getElementById("central-btn-1chapter").setAttribute("style", "background: #28a745; border: green;")
       }
     }

@@ -1,3 +1,19 @@
+p {
+    text-indent: 45px;
+}
+
+.table{
+    color: #eeeeee;
+}
+
+.answers-input-option{
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+    margin-left: 45px;
+    margin-top: 15px;
+}
+
 .jumbotron {
     background: linear-gradient(to right, #d72d2d, #0e3154);
     max-height: 80vh;

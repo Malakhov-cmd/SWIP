@@ -61,15 +61,14 @@ class ChapterFuller(
                     task.answer = "Да"
                 }
                 2 -> {
-                    task.answer = "Второе задание"
+                    task.answer = "8"
                 }
                 3 -> {
-                    task.answer = "Третье задание"
+                    task.answer = "Динамический компилятор"
                 }
             }
             val taskId = taskRepo.save(task).id
 
-            //theme.task = task
             val themeSaved = themeRepo.findById(themeId).get()
             themeSaved.task = taskRepo.findById(taskId!!).get()
 
