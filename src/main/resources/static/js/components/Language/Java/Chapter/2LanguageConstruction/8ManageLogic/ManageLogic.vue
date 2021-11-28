@@ -1,17 +1,17 @@
 <template>
   <div class="chapter-level-2">
     <div class="theme-level-2">
-      <ThemeButton theme-name="Область видимости блоков"
+      <ThemeButton class="themes-lvl-2" theme-name="Область видимости блоков"
                    path-theme="/language/java/languageconstruction/managelogic/placevisibleblock" id="java-2-chapter-8-them-1-subtheme"/>
-      <ThemeButton theme-name="Условные операторы"
+      <ThemeButton class="themes-lvl-2" theme-name="Условные операторы"
                    path-theme="/language/java/languageconstruction/managelogic/conditionaloperators" id="java-2-chapter-8-them-2-subtheme"/>
-      <ThemeButton theme-name="Неопределенные циклы "
+      <ThemeButton class="themes-lvl-2" theme-name="Неопределенные циклы "
                    path-theme="/language/java/languageconstruction/managelogic/undefindedcycle" id="java-2-chapter-8-them-3-subtheme"/>
-      <ThemeButton theme-name="Определенные циклы"
+      <ThemeButton class="themes-lvl-2" theme-name="Определенные циклы"
                    path-theme="/language/java/languageconstruction/managelogic/cycle" id="java-2-chapter-8-them-4-subtheme"/>
-      <ThemeButton theme-name="Оператор switch"
+      <ThemeButton class="themes-lvl-2" theme-name="Оператор switch"
                    path-theme="/language/java/languageconstruction/managelogic/switch" id="java-2-chapter-8-them-5-subtheme"/>
-      <ThemeButton theme-name="Операторы прерывания логики"
+      <ThemeButton class="themes-lvl-2" theme-name="Операторы прерывания логики"
                    path-theme="/language/java/languageconstruction/managelogic/breaksoperation" id="java-2-chapter-8-them-6-subtheme"/>
     </div>
     <ChapterButton chapter-name="Управляющая логика" class="theme-level-2-chapter-left" id="java-2-chapter-8-theme"/>

@@ -1,9 +1,11 @@
 <template>
   <div class="chapter-level-1">
     <div class="theme-level-1">
-      <ThemeButton theme-name="Пример простой программы"
+      <ThemeButton class="themes-lvl-2"
+                   theme-name="Пример простой программы"
                    path-theme="/language/java/languageconstruction/simpleprogramexample" id="java-2-chapter-1-theme"/>
-      <ThemeButton theme-name="Комментарии" path-theme="/language/java/languageconstruction/comments"
+      <ThemeButton class="themes-lvl-2"
+                   theme-name="Комментарии" path-theme="/language/java/languageconstruction/comments"
                    id="java-2-chapter-2-theme"/>
       <DataType/>
       <TempAndConstant/>
@@ -11,7 +13,7 @@
       <SymbolStr/>
       <InputAndOutput/>
       <ManageLogic/>
-      <theme-button theme-name="Большие числа " path-theme="/language/java/languageconstruction/bigdigit"
+      <theme-button class="themes-lvl-2" theme-name="Большие числа " path-theme="/language/java/languageconstruction/bigdigit"
                     id="java-2-chapter-9-theme"/>
       <Arrays/>
     </div>
@@ -190,6 +192,22 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo10Theme.node);
+
+    let listTheme = document.getElementsByClassName("themes-lvl-2")
+    for (let i = 0; i < listTheme.length; i++) {
+      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
+        listTheme.item(i).setAttribute("style", "background: #28a745; border: green;");
+      }
+    }
+
+    if (window.frontendData.language.chapters[1].chapterProgress > 0 &&
+        window.frontendData.language.chapters[1].chapterProgress < 99) {
+      document.getElementById("central-btn-2chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[1].chapterProgress >= 99) {
+        document.getElementById("central-btn-2chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
   }
 
 }

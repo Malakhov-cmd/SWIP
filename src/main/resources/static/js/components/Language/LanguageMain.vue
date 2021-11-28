@@ -208,15 +208,28 @@ export default {
   },
   mounted() {
     //TODO global sorting
-    window.frontendData.language.chapters[0].listThemes.sort(function (a, b) {
-      if (a.number > b.number) {
+    window.frontendData.language.chapters.sort(function (a, b) {
+      if (a.numberChapter > b.numberChapter) {
         return 1;
       }
-      if (a.number < b.number) {
+      if (a.numberChapter < b.numberChapter) {
         return -1;
       }
       return 0;
     });
+
+    for (let i = 0; i < 14; i++) {
+      window.frontendData.language.chapters[i].listThemes.sort(function (a, b) {
+        if (a.number > b.number) {
+          return 1;
+        }
+        if (a.number < b.number) {
+          return -1;
+        }
+        return 0;
+      });
+
+    }
 
     this.$eventBus.$on('redirectToJavaRoad', this.chooserContainer(1))
   }

@@ -62,8 +62,6 @@ export default {
         document.getElementById("central-btn-1chapter").setAttribute("style", "background: #28a745; border: green;")
       }
     }
-  },
-  beforeDestroy() {
   }
 }
 </script>

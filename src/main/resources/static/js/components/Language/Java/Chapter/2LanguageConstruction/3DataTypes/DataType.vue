@@ -1,15 +1,15 @@
 <template>
   <div class="chapter-level-2">
     <div class="theme-level-2">
-      <ThemeButton theme-name="Целочисленные типы данных"
+      <ThemeButton class="themes-lvl-2" theme-name="Целочисленные типы данных"
                    path-theme="/language/java/languageconstruction/datatype/int" id="java-2-chapter-3-them-1-subtheme"/>
-      <ThemeButton theme-name="Числовые типы данных с плавающей точкой"
+      <ThemeButton class="themes-lvl-2" theme-name="Числовые типы данных с плавающей точкой"
                    path-theme="/language/java/languageconstruction/datatype/float"
                    id="java-2-chapter-3-them-2-subtheme"/>
-      <ThemeButton theme-name="Тип данных char"
+      <ThemeButton class="themes-lvl-2" theme-name="Тип данных char"
                    path-theme="/language/java/languageconstruction/datatype/char"
                    id="java-2-chapter-3-them-3-subtheme"/>
-      <ThemeButton theme-name="Тип данных boolean"
+      <ThemeButton class="themes-lvl-2" theme-name="Тип данных boolean"
                    path-theme="/language/java/languageconstruction/datatype/boolean"
                    id="java-2-chapter-3-them-4-subtheme"/>
     </div>

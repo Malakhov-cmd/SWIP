@@ -14,6 +14,11 @@ p {
     margin-top: 15px;
 }
 
+.CodeMirror{
+    text-align: left;
+    margin-top: 25px;
+}
+
 .jumbotron {
     background: linear-gradient(to right, #d72d2d, #0e3154);
     max-height: 80vh;

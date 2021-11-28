@@ -1,28 +1,28 @@
 <template>
   <div class="chapter-level-2">
     <div class="theme-level-2">
-      <ThemeButton theme-name="Подстроки"
+      <ThemeButton class="themes-lvl-2" theme-name="Подстроки"
                    path-theme="/language/java/languageconstruction/symbol/substr"
                    id="java-2-chapter-6-them-1-subtheme"/>
-      <ThemeButton theme-name="Сцепление строк"
+      <ThemeButton class="themes-lvl-2" theme-name="Сцепление строк"
                    path-theme="/language/java/languageconstruction/symbol/concatinationstr"
                    id="java-2-chapter-6-them-2-subtheme"/>
-      <ThemeButton theme-name="Принцип постоянства символьных строк"
+      <ThemeButton class="themes-lvl-2" theme-name="Принцип постоянства символьных строк"
                    path-theme="/language/java/languageconstruction/symbol/constantlysymbolstr"
                    id="java-2-chapter-6-them-3-subtheme"/>
-      <ThemeButton theme-name="Проверка символьных строк на равенство"
+      <ThemeButton class="themes-lvl-2" theme-name="Проверка символьных строк на равенство"
                    path-theme="/language/java/languageconstruction/symbol/checkingsymbolequality"
                    id="java-2-chapter-6-them-4-subtheme"/>
-      <ThemeButton theme-name="Пустые и нулевые строки"
+      <ThemeButton class="themes-lvl-2" theme-name="Пустые и нулевые строки"
                    path-theme="/language/java/languageconstruction/symbol/emptyzerostr"
                    id="java-2-chapter-6-them-5-subtheme"/>
-      <ThemeButton theme-name="Кодовые точки и единицы"
+      <ThemeButton class="themes-lvl-2" theme-name="Кодовые точки и единицы"
                    path-theme="/language/java/languageconstruction/symbol/codepoint"
                    id="java-2-chapter-6-them-6-subtheme"/>
-      <ThemeButton theme-name="API класса String"
+      <ThemeButton class="themes-lvl-2" theme-name="API класса String"
                    path-theme="/language/java/languageconstruction/symbol/apistr"
                    id="java-2-chapter-6-them-7-subtheme"/>
-      <ThemeButton theme-name="Построение символьных строк "
+      <ThemeButton class="themes-lvl-2" theme-name="Построение символьных строк "
                    path-theme="/language/java/languageconstruction/symbol/buildingstr"
                    id="java-2-chapter-6-them-8-subtheme"/>
     </div>

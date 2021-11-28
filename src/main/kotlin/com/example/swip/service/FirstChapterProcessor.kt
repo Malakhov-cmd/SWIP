@@ -1,7 +1,5 @@
 package com.example.swip.service
 
-import com.example.swip.domain.Chapter
-import com.example.swip.domain.JavaLanguage
 import com.example.swip.repo.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

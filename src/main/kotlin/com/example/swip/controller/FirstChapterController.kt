@@ -12,7 +12,9 @@ class FirstChapterController(
         var firstChapterProcessor: FirstChapterProcessor
 ) {
     @GetMapping()
-    fun answersFirstChapter(@RequestParam(required = true) numberTheme: Int,
-                            @RequestParam(required = true) answer: String,
-                            @RequestParam(required = true) userId: String): String = firstChapterProcessor.firstChapterAnswers(numberTheme, answer, userId)
+    fun answersFirstChapter(
+            @RequestParam(required = true) numberTheme: Int,
+            @RequestParam(required = true) answer: String,
+            @RequestParam(required = true) userId: String
+    ): String = firstChapterProcessor.firstChapterAnswers(numberTheme, answer, userId)
 }

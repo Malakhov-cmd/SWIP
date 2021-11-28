@@ -1,14 +1,14 @@
 <template>
   <div class="chapter-level-2">
     <div class="theme-level-2">
-      <ThemeButton theme-name="Объявление переменных"
+      <ThemeButton class="themes-lvl-2" theme-name="Объявление переменных"
                    path-theme="/language/java/languageconstruction/themeandconstant/introductiontemp"
       id="java-2-chapter-4-them-1-subtheme"/>
-      <ThemeButton theme-name="Инициализация переменных"
+      <ThemeButton class="themes-lvl-2" theme-name="Инициализация переменных"
                    path-theme="/language/java/languageconstruction/themeandconstant/initializetemp"  id="java-2-chapter-4-them-2-subtheme"/>
-      <ThemeButton theme-name="Константы"
+      <ThemeButton class="themes-lvl-2" theme-name="Константы"
                    path-theme="/language/java/languageconstruction/themeandconstant/constants"  id="java-2-chapter-4-them-3-subtheme"/>
-      <ThemeButton theme-name="Перечислимые типы"
+      <ThemeButton class="themes-lvl-2" theme-name="Перечислимые типы"
                    path-theme="/language/java/languageconstruction/themeandconstant/enum"  id="java-2-chapter-4-them-4-subtheme"/>
     </div>
     <ChapterButton chapter-name="Переменные и константы" class="theme-level-2-chapter-left"
