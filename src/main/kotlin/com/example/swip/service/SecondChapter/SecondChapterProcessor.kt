@@ -1,8 +1,14 @@
-package com.example.swip.service
+package com.example.swip.service.SecondChapter
 
 import com.example.swip.repo.*
+import groovy.lang.GroovyShell
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.io.ByteArrayOutputStream
+import java.io.PrintStream
+
+
+
 
 @Service
 class SecondChapterProcessor(
@@ -31,7 +37,7 @@ class SecondChapterProcessor(
 
         when (numberTheme) {
             1 -> {
-                approvedResult = checkerUserAnswerFirstTheme(javaLanguage.id!!, secondChapter.id!!, 0, answer )
+                approvedResult = checkerUserAnswerFirstTheme(javaLanguage.id!!, secondChapter.id!!, 0, answer)
             }
             2 -> {
                 approvedResult = checkerUserAnswer(javaLanguage.id!!, secondChapter.id!!, 1, answer)
@@ -72,7 +78,7 @@ class SecondChapterProcessor(
         return result
     }
 
-    fun checkerUserAnswerFirstTheme(languageId: Long,
+    /*fun checkerUserAnswerFirstTheme(languageId: Long,
                           chapterId: Long,
                           themeNumber: Int,
                           answer: String): String {
@@ -105,6 +111,54 @@ class SecondChapterProcessor(
                 result = "Incorrect answer"
             }
         }
+        return result
+    }*/
+
+    fun checkerUserAnswerFirstTheme(languageId: Long,
+                                    chapterId: Long,
+                                    themeNumber: Int,
+                                    answer: String): String {
+        var result = ""
+
+        val language = javaLanguagesRepo.findById(languageId).get()
+        val chapter = language.chapters[1]
+
+        val theme = chapter.listThemes[themeNumber]
+        val taskThree = theme.task
+
+        val binding = groovy.lang.Binding()
+        val shell = GroovyShell(binding)
+
+        //перенаправим потоки вывода
+        val buffer = ByteArrayOutputStream()
+        val saveSystemOut = System.out
+        System.setOut(PrintStream(buffer))
+
+        shell.evaluate(answer)
+
+        //вернем все на место
+        System.setOut(saveSystemOut)
+
+        var compiledValue = buffer.toString()
+        compiledValue = compiledValue.subSequence(0, compiledValue.length-2).toString()
+        println("this the answer $compiledValue")
+
+        if (compiledValue == "It's Java") {
+            taskThree?.answer = answer
+            theme.isFinished = true
+
+            chapter.chapterProgress = chapter.chapterProgress + 2.2
+
+            javaLanguagesRepo.save(language)
+            chapterRepo.save(chapter)
+            themeRepo.save(theme)
+            taskRepo.save(taskThree!!)
+
+            result = answer
+        } else {
+            result = "Incorrect answer"
+        }
+        println("result $result")
         return result
     }
 }

@@ -25,6 +25,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.5.5")
 
+    // https://mvnrepository.com/artifact/org.codehaus.groovy/groovy
+    implementation("org.codehaus.groovy:groovy:3.0.8")
+
+
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.12")
 

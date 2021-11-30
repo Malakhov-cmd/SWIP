@@ -208,21 +208,7 @@ public class FirstSample
         <p class="page-theme-theory-text">
           Ваш ответ:
         </p>
-        <pre class="hljs"
-             style="display: block; overflow-x: auto; background: rgb(22, 27, 29); color: rgb(126, 162, 180); padding: 0.5em; text-align: left;"><span
-            class="hljs-keyword" style="color: rgb(107, 107, 184);">public</span> <span class="hljs-class"><span
-            class="hljs-keyword" style="color: rgb(107, 107, 184);">class</span> <span class="hljs-title"
-                                                                                       style="color: rgb(37, 127, 173);">FirstSample</span>
-</span>{
-   <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(107, 107, 184);">public</span> <span
-       class="hljs-keyword" style="color: rgb(107, 107, 184);">static</span> <span class="hljs-keyword"
-                                                                                   style="color: rgb(107, 107, 184);">void</span> <span
-       class="hljs-title" style="color: rgb(37, 127, 173);">main</span><span class="hljs-params"
-                                                                             style="color: rgb(147, 92, 37);">(String[] args)</span>
-   </span>{
-      System.out.println(<span class="hljs-string" style="color: rgb(86, 140, 59);">"It's Java"</span>);
-   }
-}</pre>
+        <textarea id="codeContentIdAnswered"></textarea>
       </div>
 
       <div class="box animate" style="" v-show="animationOn">Успех</div>
@@ -256,7 +242,8 @@ export default {
       showInput: true,
       answer: [],
       animationOn: false,
-      codeContent: null
+      codeContent: null,
+      codeAnsweredContent: null
     }
   },
   methods: {
@@ -271,7 +258,6 @@ export default {
       })
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
-              console.log(response.data + ' - data  ')
               window.frontendData.language.chapters[1].listThemes[0].task.answer = response.data
               window.frontendData.language.chapters[1].chapterProgress += 2.2
               window.frontendData.language.chapters[1].listThemes[0].finished = true
@@ -287,17 +273,15 @@ export default {
       const interval = setInterval(() => {
         if (isSendedandrecived) {
 
-          console.log('if')
-
           this.answer = window.frontendData.language.chapters[1].listThemes[0].task.answer
+
+          this.codeAnsweredContent.setValue(this.answer)
 
           this.animationOn = isSendedandrecived
           this.showInput = false
 
           clearInterval(interval)
         } else {
-
-          console.log('else')
 
           this.$toasted.error("Неверный ответ", {
             theme: "toasted-primary",
@@ -313,7 +297,7 @@ export default {
           })
           clearInterval(interval)
         }
-      }, 500)
+      }, 1000)
     },
   },
   mounted() {
@@ -321,15 +305,26 @@ export default {
     if (window.frontendData.language.chapters[1].listThemes[0].finished) {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[1].listThemes[0].task.answer
-
-      this.codeContent.setValue(this.answer)
     }
 
 
     this.codeContent = CodeMirror.fromTextArea(document.getElementById('codeContentId'), {
       mode: 'javascript',
       lineNumbers: true,
-      theme: 'dracula'
+      theme: 'dracula',
+      autoRefresh: true
+    });
+
+    this.codeAnsweredContent = CodeMirror.fromTextArea(document.getElementById('codeContentIdAnswered'), {
+      mode: 'javascript',
+      lineNumbers: true,
+      theme: 'dracula',
+      autoRefresh: true,
+    });
+    //this.codeContent.setValue(this.answer)
+    this.codeAnsweredContent.setValue(this.answer)
+    $('.CodeMirror').each(function(i, el){
+      el.CodeMirror.refresh();
     });
 
     this.codeContent.on('change', function (cm) {
