@@ -207,7 +207,6 @@ export default {
     }
   },
   mounted() {
-    //TODO global sorting
     window.frontendData.language.chapters.sort(function (a, b) {
       if (a.numberChapter > b.numberChapter) {
         return 1;
@@ -228,7 +227,6 @@ export default {
         }
         return 0;
       });
-
     }
 
     this.$eventBus.$on('redirectToJavaRoad', this.chooserContainer(1))

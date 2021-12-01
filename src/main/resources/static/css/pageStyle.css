@@ -17,6 +17,7 @@ p {
 .CodeMirror{
     text-align: left;
     margin-top: 25px;
+    margin-bottom: 35px;
 }
 
 .jumbotron {

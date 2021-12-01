@@ -205,6 +205,9 @@ public class FirstSample
       </div>
 
       <div v-show="!showInput">
+        <label class="page-theme-question-text">
+          Видоизмените программу так, чтобы она выводила "It's Java"
+        </label>
         <p class="page-theme-theory-text">
           Ваш ответ:
         </p>
@@ -223,7 +226,7 @@ import axios from "axios";
 import * as CodeMirror from "codemirror"
 import "codemirror/lib/codemirror.css"
 import "codemirror/theme/dracula.css"
-import "codemirror/mode/jsx/jsx"
+import "codemirror/mode/jsx/jsx.js"
 
 let tempAnswer = []
 let tempValue = 'public class FirstSample\n' +
@@ -282,7 +285,6 @@ export default {
 
           clearInterval(interval)
         } else {
-
           this.$toasted.error("Неверный ответ", {
             theme: "toasted-primary",
             position: 'top-right',
@@ -298,6 +300,11 @@ export default {
           clearInterval(interval)
         }
       }, 1000)
+      setTimeout(() => {
+        $('.CodeMirror').each(function(i, el){
+          el.CodeMirror.refresh();
+        });
+      }, 1000)
     },
   },
   mounted() {
@@ -307,31 +314,35 @@ export default {
       this.answer = window.frontendData.language.chapters[1].listThemes[0].task.answer
     }
 
-
     this.codeContent = CodeMirror.fromTextArea(document.getElementById('codeContentId'), {
-      mode: 'javascript',
+      mode: 'jsx',
       lineNumbers: true,
       theme: 'dracula',
-      autoRefresh: true
     });
 
     this.codeAnsweredContent = CodeMirror.fromTextArea(document.getElementById('codeContentIdAnswered'), {
-      mode: 'javascript',
+      mode: 'jsx',
       lineNumbers: true,
       theme: 'dracula',
-      autoRefresh: true,
     });
-    //this.codeContent.setValue(this.answer)
-    this.codeAnsweredContent.setValue(this.answer)
-    $('.CodeMirror').each(function(i, el){
-      el.CodeMirror.refresh();
-    });
+
+    if (this.answer.length !== 0) {
+      this.codeContent.setValue(this.answer)
+      this.codeAnsweredContent.setValue(this.answer)
+    }
 
     this.codeContent.on('change', function (cm) {
       tempValue = cm.getValue();
     })
+
+    setTimeout(() => {
+      $('.CodeMirror').each(function(i, el){
+        el.CodeMirror.refresh();
+      });
+    }, 1000)
   }
 }
+//TODO поправить scaling +-
 </script>
 
 <style scoped>

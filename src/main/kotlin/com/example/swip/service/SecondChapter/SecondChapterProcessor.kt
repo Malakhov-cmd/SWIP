@@ -2,12 +2,11 @@ package com.example.swip.service.SecondChapter
 
 import com.example.swip.repo.*
 import groovy.lang.GroovyShell
+import org.codehaus.groovy.control.CompilationFailedException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
-
-
 
 
 @Service
@@ -134,13 +133,21 @@ class SecondChapterProcessor(
         val saveSystemOut = System.out
         System.setOut(PrintStream(buffer))
 
-        shell.evaluate(answer)
+        try {
+            shell.evaluate(answer)
+        } catch (e: Error) {
+            System.setOut(saveSystemOut)
+            return "Incorrect answer"
+        } catch (e: Exception){
+            System.setOut(saveSystemOut)
+            return "Incorrect answer"
+        }
 
         //вернем все на место
         System.setOut(saveSystemOut)
 
         var compiledValue = buffer.toString()
-        compiledValue = compiledValue.subSequence(0, compiledValue.length-2).toString()
+        compiledValue = compiledValue.subSequence(0, compiledValue.length - 2).toString()
         println("this the answer $compiledValue")
 
         if (compiledValue == "It's Java") {

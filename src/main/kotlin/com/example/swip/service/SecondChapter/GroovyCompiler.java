@@ -13,4 +13,17 @@ public class GroovyCompiler {
 
         return String.valueOf(shell.evaluate("System.out.println(\"Привет вот данные\" + userData);"));
     }
+
+    public static void main(String[] args) {
+        Binding binding = new Binding();
+        GroovyShell shell = new GroovyShell(binding);
+
+        shell.evaluate("public class FirstSample\n" +
+                "{\n" +
+                "   public static void main(String[] args)\n" +
+                "   {\n" +
+                "      System.out.println(\"We wid!'\");\n" +
+                "   \n" +
+                "}");
+    }
 }
