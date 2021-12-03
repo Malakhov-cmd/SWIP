@@ -154,7 +154,7 @@ export default {
   components: {JavaLanguage, KotlinLanguage, JSLanguage},
   data() {
     return {
-      chooser: 0,
+      chooser: 1,
       isShow: true,
       scale: 1,
       margining: 50
@@ -175,7 +175,8 @@ export default {
         this.margining += 50
         let chapterBtns = document.getElementsByClassName('my-b-btn')
         for (let i = 0; i < chapterBtns.length; i++) {
-          chapterBtns.item(i).setAttribute("style", "transform: scale(" + this.scale + ");" +
+          let oldStyles = chapterBtns.item(i).getAttribute('style')
+          chapterBtns.item(i).setAttribute("style", oldStyles + "transform: scale(" + this.scale + ");" +
               "margin: " + this.margining + "px;");
         }
       }
@@ -186,7 +187,8 @@ export default {
         this.margining -= 50
         let chapterBtns = document.getElementsByClassName('my-b-btn')
         for (let i = 0; i < chapterBtns.length; i++) {
-          chapterBtns.item(i).setAttribute("style", "transform: scale(" + this.scale + ");" +
+          let oldStyles = chapterBtns.item(i).getAttribute('style')
+          chapterBtns.item(i).setAttribute("style", oldStyles + "transform: scale(" + this.scale + ");" +
               "margin: " + this.margining + "px;");
         }
       } else {
@@ -195,7 +197,8 @@ export default {
           this.margining > 0 ? this.margining-=20 : this.margining = 0
           let chapterBtns = document.getElementsByClassName('my-b-btn')
           for (let i = 0; i < chapterBtns.length; i++) {
-            chapterBtns.item(i).setAttribute("style", "transform: scale(" + this.scale + ");" +
+            let oldStyles = chapterBtns.item(i).getAttribute('style')
+            chapterBtns.item(i).setAttribute("style", oldStyles + "transform: scale(" + this.scale + ");" +
                 "margin: " + this.margining + "px;");
           }
         }
@@ -203,10 +206,12 @@ export default {
     },
     centered() {
       let container = document.getElementsByClassName('language-main-row-content').item(0)
-      container.scrollTo(500,0)
+      let centralBtn = document.getElementById('center-btn-language-name')
+      container.scrollTo(centralBtn.getBoundingClientRect().x-150,  centralBtn.getBoundingClientRect().y)
     }
   },
   mounted() {
+
     window.frontendData.language.chapters.sort(function (a, b) {
       if (a.numberChapter > b.numberChapter) {
         return 1;
