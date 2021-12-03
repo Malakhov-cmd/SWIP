@@ -219,6 +219,9 @@
       </div>
 
       <div v-show="!showInput">
+        <label class="page-theme-question-text">
+          Что позволяет современной версии Java не уступать по производительности C++
+        </label>
         <p class="page-theme-theory-text">
           Ваш ответ: "{{ answer }}"
         </p>
@@ -280,8 +283,6 @@ export default {
       const interval = setInterval(() => {
         if (isSendedandrecived) {
 
-          console.log('if')
-
           this.answer = window.frontendData.language.chapters[0].listThemes[2].task.answer
 
           this.animationOn = isSendedandrecived
@@ -289,9 +290,6 @@ export default {
 
           clearInterval(interval)
         } else {
-
-          console.log('else')
-
           this.$toasted.error("Неверный ответ", {
             theme: "toasted-primary",
             position: 'top-right',

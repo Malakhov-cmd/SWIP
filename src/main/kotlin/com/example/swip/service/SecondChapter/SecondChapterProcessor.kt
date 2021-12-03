@@ -39,7 +39,7 @@ class SecondChapterProcessor(
                 approvedResult = checkerUserAnswerFirstTheme(javaLanguage.id!!, secondChapter.id!!, 0, answer)
             }
             2 -> {
-                approvedResult = checkerUserAnswer(javaLanguage.id!!, secondChapter.id!!, 1, answer)
+                approvedResult = checkerUserAnswerSecondTheme(javaLanguage.id!!, secondChapter.id!!, 1, answer)
             }
             3 -> {
                 approvedResult = checkerUserAnswer(javaLanguage.id!!, secondChapter.id!!, 2, answer)
@@ -138,7 +138,7 @@ class SecondChapterProcessor(
         } catch (e: Error) {
             System.setOut(saveSystemOut)
             return "Incorrect answer"
-        } catch (e: Exception){
+        } catch (e: Exception) {
             System.setOut(saveSystemOut)
             return "Incorrect answer"
         }
@@ -167,6 +167,28 @@ class SecondChapterProcessor(
         }
         println("result $result")
         return result
+    }
+
+    fun checkerUserAnswerSecondTheme(languageId: Long,
+                                     chapterId: Long,
+                                     themeNumber: Int,
+                                     answer: String): String {
+        val language = javaLanguagesRepo.findById(languageId).get()
+        val chapter = language.chapters[1]
+
+        val theme = chapter.listThemes[themeNumber]
+        val taskThree = theme.task
+        taskThree?.answer = answer
+        theme.isFinished = true
+
+        chapter.chapterProgress = chapter.chapterProgress + 2.2
+
+        javaLanguagesRepo.save(language)
+        chapterRepo.save(chapter)
+        themeRepo.save(theme)
+        taskRepo.save(taskThree!!)
+
+        return answer;
     }
 }
 

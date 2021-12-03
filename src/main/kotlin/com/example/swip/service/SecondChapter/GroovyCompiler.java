@@ -15,7 +15,7 @@ public class GroovyCompiler {
     }
 
     public static void main(String[] args) {
-        Binding binding = new Binding();
+        /*Binding binding = new Binding();
         GroovyShell shell = new GroovyShell(binding);
 
         shell.evaluate("public class FirstSample\n" +
@@ -24,6 +24,6 @@ public class GroovyCompiler {
                 "   {\n" +
                 "      System.out.println(\"We wid!'\");\n" +
                 "   \n" +
-                "}");
+                "}");*/
     }
 }
