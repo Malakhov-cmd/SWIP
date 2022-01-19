@@ -15,11 +15,6 @@ import java.util.Arrays;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http.csrf().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and().oauth2Login();*/
-
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/home/**", "/login**", "/static/**").permitAll()
@@ -34,7 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
         // CORS configuration
-
         // This value must be parameterized according to your application needs
         final String corsOrigin="http://localhost:8080";
         // The idea is to insert the CORS filter before the filter injected by

@@ -140,6 +140,8 @@ import "codemirror/mode/jsx/jsx.js"
 
 let tempAnswer = []
 let tempValue = ''
+let isSendedandrecived = false
+
 export default {
   name: "Comments",
   data() {

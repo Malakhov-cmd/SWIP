@@ -1,6 +1,6 @@
-package com.example.swip.controller
+package com.example.swip.controller.chapterController
 
-import com.example.swip.service.SecondChapter.SecondChapterProcessor
+import com.example.swip.service.chapters.SecondChapterProcessor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

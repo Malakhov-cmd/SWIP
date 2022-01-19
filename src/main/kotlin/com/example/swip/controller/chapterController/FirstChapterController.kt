@@ -1,9 +1,11 @@
-package com.example.swip.controller
+package com.example.swip.controller.chapterController
 
-import com.example.swip.repo.*
-import com.example.swip.service.FirstChapterProcessor
+import com.example.swip.service.chapters.FirstChapterProcessor
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/java/firstchapter/")
