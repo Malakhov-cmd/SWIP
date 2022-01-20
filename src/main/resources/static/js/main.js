@@ -38,8 +38,6 @@ import InitializeTemp
 import IntroductionTemp
     from "./components/Language/Java/Chapter/2LanguageConstruction/4TempAndConstant/Theme/IntroductionTemp.vue";
 //2.5
-import ArithmeticOperation
-    from "./components/Language/Java/Chapter/2LanguageConstruction/5Operations/Theme/ArithmeticOperation.vue";
 import BitwiseOperation
     from "./components/Language/Java/Chapter/2LanguageConstruction/5Operations/Theme/BitwiseOperation.vue";
 import BringingType from "./components/Language/Java/Chapter/2LanguageConstruction/5Operations/Theme/BringingType.vue";
@@ -636,7 +634,6 @@ const routes = [
     {path: '/language/java/languageconstruction/themeandconstant/introductiontemp', component: IntroductionTemp},
 
     //2.5
-    {path: '/language/java/languageconstruction/operations/arithmeticoperation', component: ArithmeticOperation},
     {path: '/language/java/languageconstruction/operations/bitwise', component: BitwiseOperation},
     {path: '/language/java/languageconstruction/operations/bringingtype', component: BringingType},
     {

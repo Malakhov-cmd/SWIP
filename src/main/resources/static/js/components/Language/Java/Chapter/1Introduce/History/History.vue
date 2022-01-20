@@ -159,6 +159,8 @@
       </div>
 
       <div v-show="!showInput">
+        <label class="page-theme-question-text">В какой версии языка был введен стиль "функционального
+          программирования"?</label>
         <p class="page-theme-theory-text">
           Ваш ответ: "{{ answer }}"
         </p>

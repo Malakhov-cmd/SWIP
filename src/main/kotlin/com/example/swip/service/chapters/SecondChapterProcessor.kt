@@ -5,6 +5,7 @@ import com.example.swip.domain.JavaLanguage
 import com.example.swip.domain.Task
 import com.example.swip.domain.Theme
 import com.example.swip.repo.*
+import com.example.swip.service.ChapterFuller
 import com.example.swip.service.groovyCompiler.GroovyCompiler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -39,42 +40,85 @@ class SecondChapterProcessor(
 
         when (numberTheme) {
             1 -> {
-                approvedResult = checkerUserAnswerFirstTheme(javaLanguage.id!!, secondChapter.id!!, 0, answer)
+                approvedResult = checkerUserAnswerFirstTheme(javaLanguage.id!!, 0, answer)
             }
             2 -> {
-                approvedResult = checkerUserAnswerSecondTheme(javaLanguage.id!!, secondChapter.id!!, 1, answer)
+                approvedResult = checkerUserAnswerSecondTheme(javaLanguage.id!!, 1, answer)
             }
             3 -> {
-                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, secondChapter.id!!, 2, answer)
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 2, answer)
+            }
+            4 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 3, answer)
+            }
+            5 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 4, answer)
+            }
+            6 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 5, answer)
+            }
+            7 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 6, answer)
+            }
+            8 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 7, answer)
+            }
+            9 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 8, answer)
+            }
+            10 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 9, answer)
+            }
+            11 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 10, answer)
+            }
+            12 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 11, answer)
+            }
+            13 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 12, answer)
+            }
+            14 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 13, answer)
+            }
+            15 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 14, answer)
+            }
+            16 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 15, answer)
+            }
+            17 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 16, answer)
+            }
+            18 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 17, answer)
             }
         }
         return approvedResult
     }
 
-    fun checkerUserAnswerIfDefaultBehavior(
+    private fun checkerUserAnswerIfDefaultBehavior(
             languageId: Long,
-            chapterId: Long,
             themeNumber: Int,
             answer: String
     ): String {
-        var result = ""
+        val result: String
 
         val language = javaLanguagesRepo.findById(languageId).get()
         val chapter = language.chapters[1]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task
-        if (answer == task?.answer) {
-            result = recordSuccess(task, theme, chapter, language, answer)
+        result = if (answer == task?.answer) {
+            recordSuccess(task, theme, chapter, language, answer)
         } else {
-            result = "Incorrect answer"
+            "Incorrect answer"
         }
         return result
     }
 
-    fun checkerUserAnswerFirstTheme(
+    private fun checkerUserAnswerFirstTheme(
             languageId: Long,
-            chapterId: Long,
             themeNumber: Int,
             answer: String
     ): String {
@@ -96,10 +140,11 @@ class SecondChapterProcessor(
         return result
     }
 
-    fun checkerUserAnswerSecondTheme(languageId: Long,
-                                     chapterId: Long,
-                                     themeNumber: Int,
-                                     answer: String): String {
+    private fun checkerUserAnswerSecondTheme(
+            languageId: Long,
+            themeNumber: Int,
+            answer: String
+    ): String {
         val language = javaLanguagesRepo.findById(languageId).get()
         val chapter = language.chapters[1]
 

@@ -1,9 +1,6 @@
 <template>
   <div class="chapter-level-2">
     <div class="theme-level-2">
-      <ThemeButton class="themes-lvl-2" theme-name="Арифметические операции"
-                   path-theme="/language/java/languageconstruction/operations/arithmeticoperation"
-      id="java-2-chapter-5-them-1-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name=" Математические функции и константы"
                    path-theme="/language/java/languageconstruction/operations/mathfunction" id="java-2-chapter-5-them-2-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Преобразование числовых типов"
@@ -34,20 +31,6 @@ export default {
   name: "Operation",
   components: {ChapterButton, ThemeButton},
   mounted() {
-    const arrowFromChapter2Theme5SubTheme1 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-2-chapter-5-theme"),
-        direction: DIRECTION.TOP,
-      },
-      to: {
-        node: () => document.getElementById("java-2-chapter-5-them-1-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
     const arrowFromChapter2Theme5SubTheme2 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-5-theme"),
@@ -161,7 +144,6 @@ export default {
       },
     });
 
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme4.node);
@@ -170,7 +152,6 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme7.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme8.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme9.node);
-
   }
 }
 </script>

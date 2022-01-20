@@ -102,55 +102,55 @@ class ChapterFuller(
                     task.answer = "System.out.println(\"It's Java\");"
                 }
                 2 -> {
-                    task.answer = "Да"
+                    task.answer = "Yes"
                 }
                 3 -> {
-                    task.answer = "Да"
+                    task.answer = "25"
                 }
                 4 -> {
-                    task.answer = "Да"
+                    task.answer = "Infinity"
                 }
                 5 -> {
-                    task.answer = "Да"
+                    task.answer = "e"
                 }
                 6 -> {
-                    task.answer = "Да"
+                    task.answer = "more"
                 }
                 7 -> {
-                    task.answer = "Да"
+                    task.answer = "Type"
                 }
                 8 -> {
-                    task.answer = "Да"
+                    task.answer = "Two"
                 }
                 9 -> {
-                    task.answer = "Да"
+                    task.answer = "One"
                 }
                 10 -> {
-                    task.answer = "Да"
+                    task.answer = "USA"
                 }
                 11 -> {
-                    task.answer = "Да"
+                    task.answer = "Two"
                 }
                 12 -> {
-                    task.answer = "Да"
+                    task.answer = "double"
                 }
                 13 -> {
-                    task.answer = "Да"
+                    task.answer = "less"
                 }
                 14 -> {
-                    task.answer = "Да"
+                    task.answer = "Twenty"
                 }
                 15 -> {
-                    task.answer = "Да"
+                    task.answer = "Four"
                 }
                 16 -> {
-                    task.answer = "Д�"
+                    task.answer = "Equal"
                 }
                 17 -> {
-                    task.answer = "Да"
+                    task.answer = "Eight"
                 }
                 18 -> {
-                    task.answer = "Да"
+                    task.answer = "More"
                 }
                 19 -> {
                     task.answer = "Да"
