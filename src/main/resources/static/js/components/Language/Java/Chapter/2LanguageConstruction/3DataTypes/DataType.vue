@@ -87,8 +87,26 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme3SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme3SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme3SubTheme4.node);
-  }
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 2; i < 6; i++) {
+      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
+        let k = i - 1
+        document.getElementById("java-2-chapter-3-them-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 2.2;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 8) {
+      document.getElementById("java-2-chapter-3-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 8)
+        document.getElementById("java-2-chapter-3-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
+  }
 }
 </script>
 

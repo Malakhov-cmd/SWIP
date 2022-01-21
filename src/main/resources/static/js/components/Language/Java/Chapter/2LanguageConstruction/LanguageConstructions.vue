@@ -13,7 +13,8 @@
       <SymbolStr/>
       <InputAndOutput/>
       <ManageLogic/>
-      <theme-button class="themes-lvl-2" theme-name="Большие числа " path-theme="/language/java/languageconstruction/bigdigit"
+      <theme-button class="themes-lvl-2" theme-name="Большие числа "
+                    path-theme="/language/java/languageconstruction/bigdigit"
                     id="java-2-chapter-9-theme"/>
       <Arrays/>
     </div>
@@ -193,12 +194,18 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo10Theme.node);
 
-    let listTheme = document.getElementsByClassName("themes-lvl-2")
-    for (let i = 0; i < listTheme.length; i++) {
-      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
-        listTheme.item(i).setAttribute("style", "background: #28a745; border: green;");
-      }
+    //проверка решенгия первой задачи
+    if (window.frontendData.language.chapters[1].listThemes[0].finished) {
+      document.getElementById("java-2-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
     }
+    //проверка решенгия второй задачи
+    if (window.frontendData.language.chapters[1].listThemes[1].finished) {
+      document.getElementById("java-2-chapter-2-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+
+    //TODO сделать такую проверку для java-2-chapter-9-theme
 
     if (window.frontendData.language.chapters[1].chapterProgress > 0 &&
         window.frontendData.language.chapters[1].chapterProgress < 99) {

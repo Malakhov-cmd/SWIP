@@ -26,7 +26,6 @@
               справа налево, а следовательно, выражение а += b += с означает а += (Ь += с). В данном случае значение
               выражения b += с (т.е. значение переменной b после прибавления к нему значения переменной с) прибавляется
               к значению переменной а.
-
             </p>
             <div>
               <b-table :bordered="true" hover :items="items" class="page-theme-theory-text" caption-top></b-table>
@@ -266,6 +265,10 @@ export default {
         el.CodeMirror.refresh();
       });
     }, 1000)
+  },
+  beforeDestroy() {
+    let container = document.getElementsByClassName('language-main-row-content').item(0)
+    container.scrollTo(50, 5000)
   }
 }
 </script>

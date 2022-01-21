@@ -107,10 +107,8 @@ export default {
     let leftSideRoadMap = document.getElementById('java-left-side-roadmap')
 
     setInterval(() => {
-      if (leftSideRoadMap.clientHeight > 22000) {
         this.show = false
-      }
-    }, 100)
+    }, 1000)
 
     var scr = $(".language-main-row-content");
     scr.mousedown(function () {
@@ -284,20 +282,21 @@ export default {
       }
     });
 
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFirstChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSecondChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirdChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourthChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFifthChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSixChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSevenChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFNineChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTenChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFElevenChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
+
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFirstChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSecondChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirdChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourthChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFifthChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSixChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSevenChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFNineChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTenChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFElevenChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
+      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
   },
   beforeDestroy() {
     let massiveArrows = document.getElementsByClassName("arrow")

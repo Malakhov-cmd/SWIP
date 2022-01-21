@@ -47,19 +47,22 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
 
-    let listTheme = document.getElementsByClassName("themes-lvl-1")
-    for (let i = 0; i < listTheme.length; i++) {
-      if (window.frontendData.language.chapters[0].listThemes[i].finished) {
-        listTheme.item(i).setAttribute("style", "background: #28a745; border: green;");
+
+    for (let i = 1; i < 4; i++) {
+      if (window.frontendData.language.chapters[0].listThemes[i-1].finished) {
+        document.getElementById("java-1-chapter-" + i + "-theme")
+            .setAttribute("style", "background: #28a745; border: green;");
       }
     }
 
     if (window.frontendData.language.chapters[0].chapterProgress > 0 &&
         window.frontendData.language.chapters[0].chapterProgress < 99) {
-      document.getElementById("central-btn-1chapter").setAttribute("style", " background: #dbcc16; border: green;")
+      document.getElementById("central-btn-1chapter")
+          .setAttribute("style", " background: #dbcc16; border: green;")
     } else {
       if (window.frontendData.language.chapters[0].chapterProgress >= 99){
-        document.getElementById("central-btn-1chapter").setAttribute("style", "background: #28a745; border: green;")
+        document.getElementById("central-btn-1chapter")
+            .setAttribute("style", "background: #28a745; border: green;")
       }
     }
   }

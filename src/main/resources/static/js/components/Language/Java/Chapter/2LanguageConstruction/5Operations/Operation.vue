@@ -2,23 +2,31 @@
   <div class="chapter-level-2">
     <div class="theme-level-2">
       <ThemeButton class="themes-lvl-2" theme-name=" Математические функции и константы"
-                   path-theme="/language/java/languageconstruction/operations/mathfunction" id="java-2-chapter-5-them-2-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/mathfunction"
+                   id="java-2-chapter-5-them-2-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Преобразование числовых типов"
-                   path-theme="/language/java/languageconstruction/operations/transformationdigittype" id="java-2-chapter-5-them-3-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/transformationdigittype"
+                   id="java-2-chapter-5-them-3-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Приведение типов"
-                   path-theme="/language/java/languageconstruction/operations/bringingtype" id="java-2-chapter-5-them-4-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/bringingtype"
+                   id="java-2-chapter-5-them-4-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Сочетание арифметических операций с присваиванием"
-                   path-theme="/language/java/languageconstruction/operations/combinationarithmetoper" id="java-2-chapter-5-them-5-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/combinationarithmetoper"
+                   id="java-2-chapter-5-them-5-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Операции инкремента и декремента"
-                   path-theme="/language/java/languageconstruction/operations/incrementdecrement" id="java-2-chapter-5-them-6-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/incrementdecrement"
+                   id="java-2-chapter-5-them-6-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name=" Операции отношения и логические операции "
-                   path-theme="/language/java/languageconstruction/operations/relationshionshipoperation" id="java-2-chapter-5-them-7-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/relationshionshipoperation"
+                   id="java-2-chapter-5-them-7-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Поразрядные логические операции"
-                   path-theme="/language/java/languageconstruction/operations/bitwise" id="java-2-chapter-5-them-8-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/bitwise"
+                   id="java-2-chapter-5-them-8-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Круглые скобки и иерархия операций"
-                   path-theme="/language/java/languageconstruction/operations/hierarchyoperation" id="java-2-chapter-5-them-9-subtheme"/>
+                   path-theme="/language/java/languageconstruction/operations/hierarchyoperation"
+                   id="java-2-chapter-5-them-9-subtheme"/>
     </div>
-    <ChapterButton chapter-name="Операции" class="theme-level-2-chapter-left" id="java-2-chapter-5-theme" />
+    <ChapterButton chapter-name="Операции" class="theme-level-2-chapter-left" id="java-2-chapter-5-theme"/>
   </div>
 </template>
 
@@ -152,6 +160,26 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme7.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme8.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme5SubTheme9.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 10; i < 18; i++) {
+      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
+        let k = i - 8
+        console.log(k)
+        document.getElementById("java-2-chapter-5-them-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 2.2;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 17) {
+      document.getElementById("java-2-chapter-5-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 17)
+        document.getElementById("java-2-chapter-5-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

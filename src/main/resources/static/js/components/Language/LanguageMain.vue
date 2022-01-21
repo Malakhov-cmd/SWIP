@@ -152,7 +152,7 @@ import JSLanguage from "./JS/JSLanguage.vue";
 export default {
   name: "LanguageMain",
   components: {JavaLanguage, KotlinLanguage, JSLanguage},
-  data() {
+  data: function () {
     return {
       chooser: 1,
       isShow: true,
@@ -162,7 +162,9 @@ export default {
   },
   methods: {
     chooserContainer(a) {
-      if (a === 1) this.chooser = 1
+      if (a === 1) {
+        this.chooser = 1
+      }
       if (a === 2) this.chooser = 2
       if (a === 3) this.chooser = 3
     },
@@ -171,7 +173,7 @@ export default {
     },
     zoomIn() {
       if (this.margining < 300) {
-        this.scale < 1 ? this.scale = 1 : this.scale+=0.5
+        this.scale < 1 ? this.scale = 1 : this.scale += 0.5
         this.margining += 50
         let chapterBtns = document.getElementsByClassName('my-b-btn')
         for (let i = 0; i < chapterBtns.length; i++) {
@@ -194,7 +196,7 @@ export default {
       } else {
         if (this.scale > 0.3) {
           this.scale -= 0.2
-          this.margining > 0 ? this.margining-=20 : this.margining = 0
+          this.margining > 0 ? this.margining -= 20 : this.margining = 0
           let chapterBtns = document.getElementsByClassName('my-b-btn')
           for (let i = 0; i < chapterBtns.length; i++) {
             let oldStyles = chapterBtns.item(i).getAttribute('style')
@@ -206,12 +208,15 @@ export default {
     },
     centered() {
       let container = document.getElementsByClassName('language-main-row-content').item(0)
-      let centralBtn = document.getElementById('center-btn-language-name')
-      container.scrollTo(centralBtn.getBoundingClientRect().x-150,  centralBtn.getBoundingClientRect().y)
+      //let centralBtn = document.getElementById('center-btn-language-name')
+      container.scrollTo(1000, 0)
+      //container.scrollTo(centralBtn.getBoundingClientRect().x - 150, centralBtn.getBoundingClientRect().y)
     }
   },
   mounted() {
-
+    this.$eventBus.$on('redirectToJavaRoad', this.chooserContainer(1))
+  },
+  beforeCreate() {
     window.frontendData.language.chapters.sort(function (a, b) {
       if (a.numberChapter > b.numberChapter) {
         return 1;
@@ -233,8 +238,6 @@ export default {
         return 0;
       });
     }
-
-    this.$eventBus.$on('redirectToJavaRoad', this.chooserContainer(1))
   }
 }
 </script>
