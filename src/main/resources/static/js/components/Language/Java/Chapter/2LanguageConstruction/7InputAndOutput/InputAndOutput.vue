@@ -3,10 +3,8 @@
     <div class="theme-level-2">
       <ThemeButton class="themes-lvl-2" theme-name="Чтение вводимых данных"
                    path-theme="/language/java/languageconstruction/inputoutput/readinputdata" id="java-2-chapter-7-them-1-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name=" Форматирование выводимых данных"
-                   path-theme="/language/java/languageconstruction/inputoutput/formattingoutputdata" id="java-2-chapter-7-them-2-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Файловый ввод и вывод"
-                   path-theme="/language/java/languageconstruction/inputoutput/fileoutputdata" id="java-2-chapter-7-them-3-subtheme"/>
+                   path-theme="/language/java/languageconstruction/inputoutput/fileoutputdata" id="java-2-chapter-7-them-2-subtheme"/>
     </div>
     <ChapterButton chapter-name="Ввод и вывод" class="theme-level-2-chapter-left" id="java-2-chapter-7-theme"/>
   </div>
@@ -49,7 +47,7 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter2Theme7SubTheme3 = arrowCreate({
+    /*const arrowFromChapter2Theme7SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-7-theme"),
         direction: DIRECTION.BOTTOM,
@@ -62,12 +60,11 @@ export default {
       head: {
         func: HEAD.VEE,
       },
-    });
+    });*/
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme2.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme3.node);
-
+    //document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme3.node);
   }
 }
 </script>

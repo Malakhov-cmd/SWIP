@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource'
 import VueRouter from "vue-router"
 import vuetify from "./plugin/vuetify";
 //import './plugin/bootstrap'
@@ -54,24 +53,18 @@ import RoundBraceAndHierarchyOperattion
 import TransformationDigitType
     from "./components/Language/Java/Chapter/2LanguageConstruction/5Operations/Theme/TransformationDigitType.vue";
 //2.6
-import API_Str from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/API_Str.vue";
 import BuildingSymbolStr
     from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/BuildingSymbolStr.vue";
 import CheckingSymbolStrOnEquality
     from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/CheckingSymbolStrOnEquality.vue";
-import CodePointAndUnits
-    from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/CodePointAndUnits.vue";
 import ConcatinationStr
     from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/ConcatinationStr.vue";
 import ConstantlySymbolStr
     from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/ConstantlySymbolStr.vue";
-import EmptyZeroStr from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/EmptyZeroStr.vue";
 import SubStr from "./components/Language/Java/Chapter/2LanguageConstruction/6SymbolStr/Theme/SubStr.vue";
 //2.7
 import FileInputOutputData
     from "./components/Language/Java/Chapter/2LanguageConstruction/7InputAndOutput/Theme/FileInputOutputData.vue";
-import FormattingOutputData
-    from "./components/Language/Java/Chapter/2LanguageConstruction/7InputAndOutput/Theme/FormattingOutputData.vue";
 import ReadInputData
     from "./components/Language/Java/Chapter/2LanguageConstruction/7InputAndOutput/Theme/ReadInputData.vue";
 //2.8
@@ -88,18 +81,15 @@ import UndefindedCycle
 //2.9
 import BigDigit from "./components/Language/Java/Chapter/2LanguageConstruction/9BigDigit/BigDigit.vue";
 //2.10
-import AccessToElement
-    from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/AccessToElement.vue";
+
 import CopyingMassive from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/CopyingMassive.vue";
 import ForEachStyle from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/ForEachStyle.vue";
 import IntroductionArray
     from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/IntroductionArray.vue";
 import MultidimensionalMassive
     from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/MultidimensionalMassive.vue";
-import ParamethersComandLines
-    from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/ParamethersComandLines.vue";
+
 import SortingMassive from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/SortingMassive.vue";
-import UnevenMassive from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/UnevenMassive.vue";
 //3.1
 import Classes from "./components/Language/Java/Chapter/3OOP/1IntroOOP/Theme/Classes.vue";
 import IdentificationClasses from "./components/Language/Java/Chapter/3OOP/1IntroOOP/Theme/IdentificationClasses.vue";
@@ -336,7 +326,8 @@ import HashMap from "./components/Language/Java/Chapter/8Collections/3TypeCollec
 import LinkedList from "./components/Language/Java/Chapter/8Collections/3TypeCollections/Theme/LinkedList.vue";
 import ListMassive from "./components/Language/Java/Chapter/8Collections/3TypeCollections/Theme/ListMassive.vue";
 import OneAndTwoQuequ from "./components/Language/Java/Chapter/8Collections/3TypeCollections/Theme/OneAndTwoQuequ.vue";
-import QuequOnPriority from "./components/Language/Java/Chapter/8Collections/3TypeCollections/Theme/QuequOnPriority.vue";
+import QuequOnPriority
+    from "./components/Language/Java/Chapter/8Collections/3TypeCollections/Theme/QuequOnPriority.vue";
 import TreeMap from "./components/Language/Java/Chapter/8Collections/3TypeCollections/Theme/TreeMap.vue";
 //8.4
 import EnumCollectionsAndReflection
@@ -363,7 +354,8 @@ import SortingAndReplacement
 import WriteOwnAlgorithm from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/WriteOwnAlgorithm.vue";
 //8.6
 import BitMap from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/BitMap.vue";
-import ClassHashtable from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/ClassHashtable.vue";
+import ClassHashtable
+    from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/ClassHashtable.vue";
 import Enums from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/Enums.vue";
 import Stacks from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/Stacks.vue";
 import TablesProperties
@@ -378,8 +370,10 @@ import NewThreads from "./components/Language/Java/Chapter/9Threads/2ConditionTh
 import Thread from "./components/Language/Java/Chapter/9Threads/2ConditionThreads/Theme/Thread.vue";
 //9.3
 import DemonThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/DemonThreads.vue";
-import HandlerUnproccessException from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/HandlerUnproccessException.vue";
-import InterruptedThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/InterruptedThreads.vue";
+import HandlerUnproccessException
+    from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/HandlerUnproccessException.vue";
+import InterruptedThreads
+    from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/InterruptedThreads.vue";
 import PriorityThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/PriorityThreads.vue";
 import NamingThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/NamingThreads.vue";
 //9.4
@@ -395,7 +389,8 @@ import ExplanationRaceCondition
 import IfBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/IfBlocks.vue";
 import KeyWorkSynchrinized
     from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/KeyWorkSynchrinized.vue";
-import LocalTempsInThread from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/LocalTempsInThread.vue";
+import LocalTempsInThread
+    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/LocalTempsInThread.vue";
 import MonitorPrincep from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/MonitorPrincep.vue";
 import SynchroBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/SynchroBlocks.vue";
 import TypeFinal from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/TypeFinal.vue";
@@ -422,11 +417,13 @@ import ArchitectureForkLink
 import Executions from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/Executions.vue";
 import InterfacesCallableAndFuture
     from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/InterfacesCallableAndFuture.vue";
-import ManagerGroupTask from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/ManagerGroupTask.vue";
+import ManagerGroupTask
+    from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/ManagerGroupTask.vue";
 //9.7
 import EndingFutureActions
     from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/EndingFutureActions.vue";
-import LongTaskInGUI from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/LongTaskInBackcallGUI.vue";
+import LongTaskInGUI
+    from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/LongTaskInBackcallGUI.vue";
 import MakingFutureEndingActions
     from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/MakingFutureEndingActions.vue";
 //9.8
@@ -447,7 +444,8 @@ import SimpleMethodsGrouping
     from "./components/Language/Java/Chapter/10Streams/6SimpleMethodsGrouping/SimpleMethodsGrouping.vue";
 //10.7
 import FactoryUnnessary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FactoryUnnessary.vue";
-import FormingUnnessasary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FormingUnnessasary.vue";
+import FormingUnnessasary
+    from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FormingUnnessasary.vue";
 import GettingUnnesaryResults
     from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/GettingUnnesaryResults.vue";
 import OptinalToStream from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/OptinalToStream.vue";
@@ -455,7 +453,8 @@ import UsingUnnesary from "./components/Language/Java/Chapter/10Streams/7TypeOpt
 import WarningProcessingUnnessasary
     from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/WarningProcessingUnnessasary.vue";
 //10.8-10.14
-import AccumulationResults from "./components/Language/Java/Chapter/10Streams/8AccumulationResults/AccumulationResults.vue";
+import AccumulationResults
+    from "./components/Language/Java/Chapter/10Streams/8AccumulationResults/AccumulationResults.vue";
 import AccumulationInReflection
     from "./components/Language/Java/Chapter/10Streams/9AccumulationInReflection/AccumulationInReflection.vue";
 import GroupingAndRegrouping
@@ -474,7 +473,8 @@ import InputText from "./components/Language/Java/Chapter/11InputOutput/1InputOu
 import MixingFiltersStreamsInputOutput
     from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/MixingFiltersStreamsInputOutput.vue";
 import OutputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/OutputText.vue";
-import ReadAndWriteBites from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/ReadAndWriteBites.vue";
+import ReadAndWriteBites
+    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/ReadAndWriteBites.vue";
 import SaveObjectInTextFormat
     from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/SaveObjectInTextFormat.vue";
 //11.2
@@ -500,16 +500,19 @@ import CopingTempAndDeleteFiles
 import CreationFilesAndCatalogies
     from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/CreationFilesAndCatalogies.vue";
 import FilePath from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/FilePath.vue";
-import GettingFileInfo from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/GettingFileInfo.vue";
+import GettingFileInfo
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/GettingFileInfo.vue";
 import LookingElementCatalogies
     from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/LookingElementCatalogies.vue";
 import ReadAndWriteInFiles
     from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ReadAndWriteInFiles.vue";
 import UseCatalogiesStreams
     from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/UseCatalogiesStreams.vue";
-import ZIPSystemFiles from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ZIPSystemFiles.vue";
+import ZIPSystemFiles
+    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ZIPSystemFiles.vue";
 //11.5
-import BlockingFiles from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/BlockingFiles.vue";
+import BlockingFiles
+    from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/BlockingFiles.vue";
 import DataBufferStructure
     from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/DataBufferStructure.vue";
 import EffictiveFilesIntoMemory
@@ -520,13 +523,15 @@ import FindinManySaneInString
     from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/FindinManySaneInString.vue";
 import ItemingStringToSeparator
     from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/ItemingStringToSeparator.vue";
-import SameWithString from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/SameWithString.vue";
+import SameWithString
+    from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/SameWithString.vue";
 //12.1-3
 import IntroductionToXML from "./components/Language/Java/Chapter/12XML/1IntroductionToXML/IntroductionToXML.vue";
 import StructureXML from "./components/Language/Java/Chapter/12XML/2StructureXML/StructureXML.vue";
 import SyntaxAnalizeXMLDoc from "./components/Language/Java/Chapter/12XML/3SyntaxAnalizeXMLDoc/SyntaxAnalizeXMLDoc.vue";
 //12.4
-import DeclarationDocType from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/DeclarationDocType.vue";
+import DeclarationDocType
+    from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/DeclarationDocType.vue";
 import PracticUseXMLDocUse
     from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/PracticUseXMLDocUse.vue";
 import SchemaXML from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/SchemaXML.vue";
@@ -540,7 +545,8 @@ import STAXAnalizator from "./components/Language/Java/Chapter/12XML/7StreamSynt
 import FormingFileViaSVG from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/FormingFileViaSVG.vue";
 import WriteXMLDoc from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/WriteXMLDoc.vue";
 import WriteXMLViaSTAX from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/WriteXMLViaSTAX.vue";
-import XMLWithoutSpacenaming from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithoutSpacenaming.vue";
+import XMLWithoutSpacenaming
+    from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithoutSpacenaming.vue";
 import XMLWithSpacenaming from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithSpacenaming.vue";
 import TransformationXMLDocViaXSLT
     from "./components/Language/Java/Chapter/12XML/9TransformationXMLDocViaXSLT/TransformationXMLDocViaXSLT.vue";
@@ -551,11 +557,13 @@ import CompileScenario from "./components/Language/Java/Chapter/13Annotation/1Sc
 import ExeScenario from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/ExeScenario.vue";
 import InterpretatorScenario
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/InterpretatorScenario.vue";
-import RedirectInputOutput from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/RedirectInputOutput.vue";
+import RedirectInputOutput
+    from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/RedirectInputOutput.vue";
 import UseScenarioForProcessingGUI
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/UseScenarioForProcessingGUI.vue";
 //13.2
-import CallCompile from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/CallCompile.vue";
+import CallCompile
+    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/CallCompile.vue";
 import ExampleDiagnosticGeneratedJavaCode
     from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/ExampleDiagnosticGeneratedJavaCode.vue";
 import FicsationDiagnostic
@@ -569,7 +577,8 @@ import WriteBityCodeOnOperMemory
 //13.3
 import ExampleAnnotationProcessorEvent
     from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/ExampleAnnotationProcessorEvent.vue";
-import IntroInAnnotation from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/IntroInAnnotation.vue";
+import IntroInAnnotation
+    from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/IntroInAnnotation.vue";
 //13.4
 import AnnotationingAnnouncement
     from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingAnnouncement.vue";
@@ -586,9 +595,11 @@ import AnnotationForCompiling
     from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/AnnotationForCompiling.vue";
 import AnnotationForManageResource
     from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/AnnotationForManageResource.vue";
-import MetaAnnotation from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/MetaAnnotation.vue";
+import MetaAnnotation
+    from "./components/Language/Java/Chapter/13Annotation/5StandartAnnotation/Theme/MetaAnnotation.vue";
 //14.1-9
-import DeclarationModules from "./components/Language/Java/Chapter/14Modules/1DeclarationModules/DeclarationModules.vue";
+import DeclarationModules
+    from "./components/Language/Java/Chapter/14Modules/1DeclarationModules/DeclarationModules.vue";
 import NamingModules from "./components/Language/Java/Chapter/14Modules/2NamingModules/NamingModules.vue";
 import ExampleModuleHelloWorld
     from "./components/Language/Java/Chapter/14Modules/3ExampleModuleHelloWorld/ExampleModuleHelloWorld.vue";
@@ -656,18 +667,14 @@ const routes = [
     },
 
     //2.6
-    {path: '/language/java/languageconstruction/symbol/apistr', component: API_Str},
     {path: '/language/java/languageconstruction/symbol/buildingstr', component: BuildingSymbolStr},
     {path: '/language/java/languageconstruction/symbol/checkingsymbolequality', component: CheckingSymbolStrOnEquality},
-    {path: '/language/java/languageconstruction/symbol/codepoint', component: CodePointAndUnits},
     {path: '/language/java/languageconstruction/symbol/concatinationstr', component: ConcatinationStr},
     {path: '/language/java/languageconstruction/symbol/constantlysymbolstr', component: ConstantlySymbolStr},
-    {path: '/language/java/languageconstruction/symbol/emptyzerostr', component: EmptyZeroStr},
     {path: '/language/java/languageconstruction/symbol/substr', component: SubStr},
 
     //2.7
     {path: '/language/java/languageconstruction/inputoutput/fileoutputdata', component: FileInputOutputData},
-    {path: '/language/java/languageconstruction/inputoutput/formattingoutputdata', component: FormattingOutputData},
     {path: '/language/java/languageconstruction/inputoutput/readinputdata', component: ReadInputData},
 
     //2.8
@@ -682,14 +689,11 @@ const routes = [
     {path: '/language/java/languageconstruction/bigdigit', component: BigDigit},
 
     //2.10
-    {path: '/language/java/languageconstruction/arrays/accesstoelement', component: AccessToElement},
     {path: '/language/java/languageconstruction/arrays/copymassive', component: CopyingMassive},
     {path: '/language/java/languageconstruction/arrays/foreach', component: ForEachStyle},
     {path: '/language/java/languageconstruction/arrays/introductionarray', component: IntroductionArray},
     {path: '/language/java/languageconstruction/arrays/multidimentionalmassive', component: MultidimensionalMassive},
-    {path: '/language/java/languageconstruction/arrays/parametherscmd', component: ParamethersComandLines},
     {path: '/language/java/languageconstruction/arrays/sortingmassive', component: SortingMassive},
-    {path: '/language/java/languageconstruction/arrays/unevenmassive', component: UnevenMassive},
 
     //3.1
     {path: '/language/java/oop/intro/classes', component: Classes},

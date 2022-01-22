@@ -275,7 +275,6 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-
           this.answer = window.frontendData.language.chapters[1].listThemes[0].task.answer
 
           this.codeAnsweredContent.setValue(this.answer)

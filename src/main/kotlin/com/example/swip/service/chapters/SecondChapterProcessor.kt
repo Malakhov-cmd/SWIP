@@ -5,11 +5,9 @@ import com.example.swip.domain.JavaLanguage
 import com.example.swip.domain.Task
 import com.example.swip.domain.Theme
 import com.example.swip.repo.*
-import com.example.swip.service.ChapterFuller
 import com.example.swip.service.groovyCompiler.GroovyCompiler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-
 
 @Service
 class SecondChapterProcessor(
@@ -40,10 +38,10 @@ class SecondChapterProcessor(
 
         when (numberTheme) {
             1 -> {
-                approvedResult = checkerUserAnswerFirstTheme(javaLanguage.id!!, 0, answer)
+                approvedResult = checkerUserAnswerCompileTask(javaLanguage.id!!, 0, answer)
             }
             2 -> {
-                approvedResult = checkerUserAnswerSecondTheme(javaLanguage.id!!, 1, answer)
+                approvedResult = checkerUserAnswerWithoutCheck(javaLanguage.id!!, 1, answer)
             }
             3 -> {
                 approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 2, answer)
@@ -93,6 +91,63 @@ class SecondChapterProcessor(
             18 -> {
                 approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 17, answer)
             }
+            19 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 18, answer)
+            }
+            20 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 19, answer)
+            }
+            21 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 20, answer)
+            }
+            22 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 21, answer)
+            }
+            23 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 22, answer)
+            }
+            24 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 23, answer)
+            }
+            25 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 24, answer)
+            }
+            26 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 25, answer)
+            }
+            27 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 26, answer)
+            }
+            28 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 26, answer)
+            }
+            29 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 28, answer)
+            }
+            30 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 29, answer)
+            }
+            31 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 30, answer)
+            }
+            32 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 31, answer)
+            }
+            33 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 32, answer)
+            }
+            34 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 33, answer)
+            }
+            35 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 34, answer)
+            }
+            36 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 34, answer)
+            }
+            37 -> {
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 35, answer)
+            }
         }
         return approvedResult
     }
@@ -117,7 +172,7 @@ class SecondChapterProcessor(
         return result
     }
 
-    private fun checkerUserAnswerFirstTheme(
+    private fun checkerUserAnswerCompileTask(
             languageId: Long,
             themeNumber: Int,
             answer: String
@@ -132,15 +187,16 @@ class SecondChapterProcessor(
 
         val compiledValue = groovyCompiler.execute(answer)
 
-        if (compiledValue == "It's Java") {
-            result = recordSuccess(task!!, theme, chapter, language, answer)
+        if (compiledValue == task?.answer) {
+            recordSuccess(task, theme, chapter, language, task.answer!!)
+            return answer;
         } else {
             result = "Incorrect answer"
         }
         return result
     }
 
-    private fun checkerUserAnswerSecondTheme(
+    private fun checkerUserAnswerWithoutCheck(
             languageId: Long,
             themeNumber: Int,
             answer: String

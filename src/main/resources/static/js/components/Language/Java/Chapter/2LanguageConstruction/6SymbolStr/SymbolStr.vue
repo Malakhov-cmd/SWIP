@@ -13,18 +13,10 @@
       <ThemeButton class="themes-lvl-2" theme-name="Проверка символьных строк на равенство"
                    path-theme="/language/java/languageconstruction/symbol/checkingsymbolequality"
                    id="java-2-chapter-6-them-4-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name="Пустые и нулевые строки"
-                   path-theme="/language/java/languageconstruction/symbol/emptyzerostr"
-                   id="java-2-chapter-6-them-5-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name="Кодовые точки и единицы"
-                   path-theme="/language/java/languageconstruction/symbol/codepoint"
-                   id="java-2-chapter-6-them-6-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name="API класса String"
-                   path-theme="/language/java/languageconstruction/symbol/apistr"
-                   id="java-2-chapter-6-them-7-subtheme"/>
+
       <ThemeButton class="themes-lvl-2" theme-name="Построение символьных строк "
                    path-theme="/language/java/languageconstruction/symbol/buildingstr"
-                   id="java-2-chapter-6-them-8-subtheme"/>
+                   id="java-2-chapter-6-them-5-subtheme"/>
     </div>
     <ChapterButton chapter-name="Символьные строки" class="theme-level-2-chapter-left" id="java-2-chapter-6-theme"/>
   </div>

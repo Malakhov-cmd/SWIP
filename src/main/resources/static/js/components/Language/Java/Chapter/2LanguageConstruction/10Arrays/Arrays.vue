@@ -3,20 +3,17 @@
     <div class="theme-level-2">
       <ThemeButton class="themes-lvl-2" theme-name="Объявление массивов"
                    path-theme="/language/java/languageconstruction/arrays/introductionarray" id="java-2-chapter-10-them-1-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name="Доступ к элементам массива "
-                   path-theme="/language/java/languageconstruction/arrays/accesstoelement" id="java-2-chapter-10-them-2-subtheme"/>
+
       <ThemeButton class="themes-lvl-2" theme-name="Цикл в стиле for each"
                    path-theme="/language/java/languageconstruction/arrays/foreach" id="java-2-chapter-10-them-3-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Копирование массивов"
                    path-theme="/language/java/languageconstruction/arrays/copymassive" id="java-2-chapter-10-them-4-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name="Параметры командной строки"
-                   path-theme="/language/java/languageconstruction/arrays/parametherscmd" id="java-2-chapter-10-them-5-subtheme"/>
+
       <ThemeButton class="themes-lvl-2" theme-name="Сортировка массивов"
                    path-theme="/language/java/languageconstruction/arrays/sortingmassive" id="java-2-chapter-10-them-6-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Многомерные массивы"
                    path-theme="/language/java/languageconstruction/arrays/multidimentionalmassive" id="java-2-chapter-10-them-7-subtheme"/>
-      <ThemeButton class="themes-lvl-2" theme-name="Неровные массивы"
-                   path-theme="/language/java/languageconstruction/arrays/unevenmassive" id="java-2-chapter-10-them-8-subtheme"/>
+
     </div>
     <ChapterButton chapter-name="Массивы" class="theme-level-2-chapter-left" id="java-2-chapter-10-theme"/>
   </div>

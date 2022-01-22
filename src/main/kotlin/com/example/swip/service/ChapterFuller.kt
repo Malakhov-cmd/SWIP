@@ -99,7 +99,7 @@ class ChapterFuller(
             task.theme = themeRepo.findById(themeId!!).get()
             when (i) {
                 1 -> {
-                    task.answer = "System.out.println(\"It's Java\");"
+                    task.answer = "It's Java"
                 }
                 2 -> {
                     task.answer = "Yes"
@@ -153,85 +153,61 @@ class ChapterFuller(
                     task.answer = "More"
                 }
                 19 -> {
-                    task.answer = "Да"
+                    task.answer = "spaceJava"
                 }
                 20 -> {
-                    task.answer = "Да"
+                    task.answer = "Hello_Java_is_Hard_way_"
                 }
                 21 -> {
-                    task.answer = "Да"
+                    task.answer = "UniteAddressSpace"
                 }
                 22 -> {
-                    task.answer = "Да"
+                    task.answer = "false"
                 }
                 23 -> {
-                    task.answer = "Да"
+                    task.answer = "lets_start"
                 }
                 24 -> {
-                    task.answer = "Да"
+                    task.answer = "Awesome"
                 }
                 25 -> {
-                    task.answer = "Да"
+                    task.answer = "System_use"
                 }
                 26 -> {
-                    task.answer = "Да"
+                    task.answer = "Exception"
                 }
                 27 -> {
-                    task.answer = "Да"
+                    task.answer = "more"
                 }
                 28 -> {
-                    task.answer = "Да"
+                    task.answer = "Five"
                 }
                 29 -> {
-                    task.answer = "Да"
+                    task.answer = "Five"
                 }
                 30 -> {
-                    task.answer = "Да"
+                    task.answer = "UZB"
                 }
                 31 -> {
-                    task.answer = "Да"
+                    task.answer = "Six"
                 }
                 32 -> {
-                    task.answer = "Да"
+                    task.answer = "Two"
                 }
                 33 -> {
-                    task.answer = "Да"
+                    task.answer = "Exception"
                 }
                 34 -> {
-                    task.answer = "Да"
+                    task.answer = "Zero"
                 }
                 35 -> {
-                    task.answer = "Да"
+                    task.answer = "FiftyFive"
                 }
                 36 -> {
-                    task.answer = "Да"
+                    task.answer = "Twenty"
                 }
                 37 -> {
-                    task.answer = "Да"
-                }
-                38 -> {
-                    task.answer = "�а"
-                }
-                39 -> {
-                    task.answer = "Да"
-                }
-                40 -> {
-                    task.answer = "Да"
-                }
-                41 -> {
-                    task.answer = "Да"
-                }
-                42 -> {
-                    task.answer = "Да"
-                }
-                43 -> {
-                    task.answer = "Да"
-                }
-                44 -> {
-                    task.answer = "Да"
-                }
-                45 -> {
-                    task.answer = "Да"
+                    task.answer = "FortyFive"
                 }
             }
             val taskId = taskRepo.save(task).id
