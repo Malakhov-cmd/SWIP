@@ -2,7 +2,8 @@
   <div class="chapter-level-2">
     <div class="theme-level-2">
       <ThemeButton class="themes-lvl-2" theme-name="Целочисленные типы данных"
-                   path-theme="/language/java/languageconstruction/datatype/int" id="java-2-chapter-3-them-1-subtheme"/>
+                   path-theme="/language/java/languageconstruction/datatype/int"
+                   id="java-2-chapter-3-them-1-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Числовые типы данных с плавающей точкой"
                    path-theme="/language/java/languageconstruction/datatype/float"
                    id="java-2-chapter-3-them-2-subtheme"/>

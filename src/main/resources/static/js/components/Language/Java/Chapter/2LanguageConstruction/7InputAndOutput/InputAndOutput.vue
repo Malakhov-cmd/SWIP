@@ -2,9 +2,11 @@
   <div class="chapter-level-2">
     <div class="theme-level-2">
       <ThemeButton class="themes-lvl-2" theme-name="Чтение вводимых данных"
-                   path-theme="/language/java/languageconstruction/inputoutput/readinputdata" id="java-2-chapter-7-them-1-subtheme"/>
+                   path-theme="/language/java/languageconstruction/inputoutput/readinputdata"
+                   id="java-2-chapter-7-them-1-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Файловый ввод и вывод"
-                   path-theme="/language/java/languageconstruction/inputoutput/fileoutputdata" id="java-2-chapter-7-them-2-subtheme"/>
+                   path-theme="/language/java/languageconstruction/inputoutput/fileoutputdata"
+                   id="java-2-chapter-7-them-2-subtheme"/>
     </div>
     <ChapterButton chapter-name="Ввод и вывод" class="theme-level-2-chapter-left" id="java-2-chapter-7-theme"/>
   </div>

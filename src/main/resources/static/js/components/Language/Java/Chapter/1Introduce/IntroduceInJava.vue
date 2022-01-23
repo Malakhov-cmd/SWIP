@@ -2,11 +2,15 @@
   <div class="chapter-level-1 ">
     <div class="theme-level-1">
       <ThemeButton class="themes-lvl-1" theme-name="Программная платформа"
-                   path-theme="/language/java/introduceinjava/programplatform" id="java-1-chapter-1-theme"/>
-      <ThemeButton class="themes-lvl-1" theme-name="История языка" path-theme="/language/java/introduceinjava/history"
+                   path-theme="/language/java/introduceinjava/programplatform"
+                   id="java-1-chapter-1-theme"/>
+      <ThemeButton class="themes-lvl-1" theme-name="История языка"
+                   path-theme="/language/java/introduceinjava/history"
                    id="java-1-chapter-2-theme"/>
-      <ThemeButton class="themes-lvl-1" theme-name="Заблуждения о языке"
-                   path-theme="/language/java/introduceinjava/delusions" id="java-1-chapter-3-theme"/>
+      <ThemeButton class="themes-lvl-1"
+                   theme-name="Заблуждения о языке"
+                   path-theme="/language/java/introduceinjava/delusions"
+                   id="java-1-chapter-3-theme"/>
     </div>
     <ChapterButton chapter-name="Введение в язык Java" class="theme-level-1-chapter-left" id="central-btn-1chapter"/>
   </div>
@@ -49,7 +53,7 @@ export default {
 
 
     for (let i = 1; i < 4; i++) {
-      if (window.frontendData.language.chapters[0].listThemes[i-1].finished) {
+      if (window.frontendData.language.chapters[0].listThemes[i - 1].finished) {
         document.getElementById("java-1-chapter-" + i + "-theme")
             .setAttribute("style", "background: #28a745; border: green;");
       }
@@ -60,7 +64,7 @@ export default {
       document.getElementById("central-btn-1chapter")
           .setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (window.frontendData.language.chapters[0].chapterProgress >= 99){
+      if (window.frontendData.language.chapters[0].chapterProgress >= 99) {
         document.getElementById("central-btn-1chapter")
             .setAttribute("style", "background: #28a745; border: green;")
       }

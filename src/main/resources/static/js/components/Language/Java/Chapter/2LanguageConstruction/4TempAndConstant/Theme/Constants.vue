@@ -123,7 +123,7 @@
           Для чего в коде используются константы?
         </label>
         <p class="page-theme-theory-text">
-          Ваш ответ: {{ answer }}
+          Ваш ответ: Для обозначения значений неизменяемых величин
         </p>
       </div>
 
@@ -211,6 +211,23 @@ export default {
     if (window.frontendData.language.chapters[1].listThemes[8].finished) {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[1].listThemes[8].task.answer
+    }
+  },
+  beforeDestroy() {
+    let container = document.getElementsByClassName('language-main-row-content').item(0)
+
+    let themeToClose = document.getElementById('java-2-chapter-4-them-3-subtheme');
+
+    let topPosOfClosingElement = themeToClose.offsetTop;
+    let leftPosOfClosingElement = themeToClose.offsetLeft;
+
+    const pageWidth = document.documentElement.scrollWidth
+    const pageHeight = document.documentElement.scrollHeight
+
+    if(pageWidth > leftPosOfClosingElement) {
+      container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
+    } else {
+      container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)
     }
   }
 }

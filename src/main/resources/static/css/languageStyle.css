@@ -51,6 +51,7 @@
     justify-content: center;
     align-items: flex-end;
     margin-right: 75px;
+    min-width: 2000px;
 }
 
 .chapter-right-side {
@@ -60,6 +61,7 @@
     justify-content: center;
     align-items: flex-start;
     margin-left: 75px;
+    min-width: 2000px;
 }
 
 .chapter-level-1 {
@@ -215,4 +217,14 @@
     background-color: white;
     border-radius: 5px;
     height: 27px;
+}
+
+@media (max-width: 1500px) {
+    .chapter-left-side {
+        min-width: 3000px;
+    }
+
+    .chapter-right-side {
+        min-width: 3000px;
+    }
 }

@@ -139,7 +139,7 @@
           Какова цель создания данных классов?
         </label>
         <p class="page-theme-theory-text">
-          Ваш ответ: {{ answer }}
+          Ваш ответ: Сбережение примитивных типов от лишних нагрузок
         </p>
       </div>
 
@@ -229,7 +229,20 @@ export default {
   },
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)
-    //container.scrollTo(50, 5000)
+
+    let themeToClose = document.getElementById('java-2-chapter-9-theme');
+
+    let topPosOfClosingElement = themeToClose.offsetTop;
+    let leftPosOfClosingElement = themeToClose.offsetLeft;
+
+    const pageWidth = document.documentElement.scrollWidth
+    const pageHeight = document.documentElement.scrollHeight
+
+    if(pageWidth > leftPosOfClosingElement) {
+      container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
+    } else {
+      container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)
+    }
   }
 }
 </script>

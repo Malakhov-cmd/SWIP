@@ -158,7 +158,7 @@ export default {
           el.CodeMirror.refresh();
         });
       }, 1000)
-    },
+    }
   },
   mounted() {
     if (window.frontendData.language.chapters[1].listThemes[5].finished) {
@@ -195,6 +195,23 @@ export default {
         el.CodeMirror.refresh();
       });
     }, 1000)
+  },
+  beforeDestroy() {
+    let container = document.getElementsByClassName('language-main-row-content').item(0)
+
+    let themeToClose = document.getElementById('java-2-chapter-3-them-4-subtheme');
+
+    let topPosOfClosingElement = themeToClose.offsetTop;
+    let leftPosOfClosingElement = themeToClose.offsetLeft;
+
+    const pageWidth = document.documentElement.scrollWidth
+    const pageHeight = document.documentElement.scrollHeight
+
+    if(pageWidth > leftPosOfClosingElement) {
+      container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
+    } else {
+      container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)
+    }
   }
 }
 </script>

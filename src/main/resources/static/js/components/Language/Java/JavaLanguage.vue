@@ -2,35 +2,35 @@
   <b-row class="language-main-row" id="language-main-row-content">
     <b-overlay :show="show" rounded="sm">
 
-    <div class="language-main-row-content" v-on:scroll="funk()" :aria-hidden="show ? 'true' : null">
-      <div class="chapter-left-side" id="java-left-side-roadmap">
-        <IntroduceInJava/>
-        <LanguageConstructions/>
-        <o-o-p/>
-        <inheritance/>
-        <interface-lyambda-and-inner/>
-        <exeption/>
-        <generic-programming/>
-        <collections/>
-      </div>
-      <div>
-        <b-btn
-            id="center-btn-language-name"
-            class="btn-language-name my-b-btn"
-            @click="hidden = !hidden"
-        >
-          Java
-        </b-btn>
+      <div class="language-main-row-content" v-on:scroll="funk()" :aria-hidden="show ? 'true' : null">
+        <div class="chapter-left-side" id="java-left-side-roadmap">
+          <IntroduceInJava/>
+          <LanguageConstructions/>
+          <o-o-p/>
+          <inheritance/>
+          <interface-lyambda-and-inner/>
+          <exeption/>
+          <generic-programming/>
+          <collections/>
         </div>
-      <div class="chapter-right-side">
-        <threads/>
-        <streams/>
-        <input-output/>
-        <x-m-l/>
-        <annotation/>
-        <modules/>
+        <div>
+          <b-btn
+              id="center-btn-language-name"
+              class="btn-language-name my-b-btn"
+              @click="hidden = !hidden"
+          >
+            Java
+          </b-btn>
+        </div>
+        <div class="chapter-right-side">
+          <threads/>
+          <streams/>
+          <input-output/>
+          <x-m-l/>
+          <annotation/>
+          <modules/>
+        </div>
       </div>
-    </div>
 
       <template #overlay>
         <div class="text-center">
@@ -79,7 +79,8 @@ export default {
     OOP,
     LanguageConstructions,
     IntroduceInJava,
-    ThemeButton},
+    ThemeButton
+  },
   data() {
     return {
       dialog: false,
@@ -104,11 +105,13 @@ export default {
     }
   },
   mounted() {
-    let leftSideRoadMap = document.getElementById('java-left-side-roadmap')
+    setTimeout(() => {
+      this.show = false
 
-    setInterval(() => {
-        this.show = false
-    }, 1000)
+      let container = document.getElementsByClassName('language-main-row-content').item(0)
+      container.scrollBy(1,1)
+      console.log("boom")
+    }, 4000)
 
     var scr = $(".language-main-row-content");
     scr.mousedown(function () {
@@ -282,21 +285,20 @@ export default {
       }
     });
 
-
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFirstChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSecondChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirdChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourthChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFifthChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSixChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSevenChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFNineChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTenChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFElevenChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
-      document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFirstChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSecondChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirdChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourthChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFifthChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSixChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFSevenChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFNineChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTenChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFElevenChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
+    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
   },
   beforeDestroy() {
     let massiveArrows = document.getElementsByClassName("arrow")

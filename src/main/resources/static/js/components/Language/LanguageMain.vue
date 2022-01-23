@@ -208,9 +208,20 @@ export default {
     },
     centered() {
       let container = document.getElementsByClassName('language-main-row-content').item(0)
-      //let centralBtn = document.getElementById('center-btn-language-name')
-      container.scrollTo(1000, 0)
-      //container.scrollTo(centralBtn.getBoundingClientRect().x - 150, centralBtn.getBoundingClientRect().y)
+
+      let themeToClose = document.getElementById('center-btn-language-name');
+
+      let topPosOfClosingElement = themeToClose.offsetTop;
+      let leftPosOfClosingElement = themeToClose.offsetLeft;
+
+      const pageWidth = document.documentElement.scrollWidth
+      const pageHeight = document.documentElement.scrollHeight
+
+      if(pageWidth > leftPosOfClosingElement) {
+        container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
+      } else {
+        container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)
+      }
     }
   },
   mounted() {

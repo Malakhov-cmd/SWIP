@@ -276,15 +276,32 @@ export default {
           })
           clearInterval(interval)
         }
-      }, 300)}
+      }, 300)
+    }
   },
-mounted()
-{
-  if (window.frontendData.language.chapters[0].listThemes[1].finished) {
-    this.showInput = false
-    this.answer = window.frontendData.language.chapters[0].listThemes[1].task.answer
+  mounted() {
+    if (window.frontendData.language.chapters[0].listThemes[1].finished) {
+      this.showInput = false
+      this.answer = window.frontendData.language.chapters[0].listThemes[1].task.answer
+    }
+  },
+  beforeDestroy() {
+    let container = document.getElementsByClassName('language-main-row-content').item(0)
+
+    let themeToClose = document.getElementById('java-1-chapter-2-theme');
+
+    let topPosOfClosingElement = themeToClose.offsetTop;
+    let leftPosOfClosingElement = themeToClose.offsetLeft;
+
+    const pageWidth = document.documentElement.scrollWidth
+    const pageHeight = document.documentElement.scrollHeight
+
+    if (pageWidth > leftPosOfClosingElement) {
+      container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
+    } else {
+      container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)
+    }
   }
-}
 }
 
 </script>

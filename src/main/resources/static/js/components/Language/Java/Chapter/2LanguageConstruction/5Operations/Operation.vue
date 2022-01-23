@@ -84,7 +84,7 @@ export default {
     const arrowFromChapter2Theme5SubTheme5 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-5-theme"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-2-chapter-5-them-5-subtheme"),

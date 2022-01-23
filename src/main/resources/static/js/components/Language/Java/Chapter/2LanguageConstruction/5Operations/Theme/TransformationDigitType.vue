@@ -175,6 +175,23 @@ export default {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[1].listThemes[11].task.answer
     }
+  },
+  beforeDestroy() {
+    let container = document.getElementsByClassName('language-main-row-content').item(0)
+
+    let themeToClose = document.getElementById('java-2-chapter-5-them-3-subtheme');
+
+    let topPosOfClosingElement = themeToClose.offsetTop;
+    let leftPosOfClosingElement = themeToClose.offsetLeft;
+
+    const pageWidth = document.documentElement.scrollWidth
+    const pageHeight = document.documentElement.scrollHeight
+
+    if(pageWidth > leftPosOfClosingElement) {
+      container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
+    } else {
+      container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)
+    }
   }
 }
 </script>
