@@ -219,6 +219,22 @@
     height: 27px;
 }
 
+/*Кастомизация для popover*/
+.popover-header{
+    background: #a82020;
+}
+.popover-body{
+    background: #1f2121;
+    color: #fffffe;
+    border-color: #1f2121;
+}
+.popover-head-text{
+    font-family: "Roboto", sans-serif;
+}
+.popover-body-text{
+    font-family: "Roboto", serif;
+}
+
 @media (max-width: 1500px) {
     .chapter-left-side {
         min-width: 3000px;

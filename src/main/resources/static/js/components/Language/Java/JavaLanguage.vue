@@ -17,7 +17,7 @@
           <b-btn
               id="center-btn-language-name"
               class="btn-language-name my-b-btn"
-              @click="hidden = !hidden"
+              data-toggle="popover"
           >
             Java
           </b-btn>
@@ -299,6 +299,18 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let dataPopover = `С уэтого места начинается ваш путь, удачи`
+      $("#center-btn-language-name").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Приветствие</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
   },
   beforeDestroy() {
     let massiveArrows = document.getElementsByClassName("arrow")

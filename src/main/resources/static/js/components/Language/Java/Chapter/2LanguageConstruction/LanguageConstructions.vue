@@ -18,7 +18,9 @@
                     id="java-2-chapter-9-theme"/>
       <Arrays/>
     </div>
-    <ChapterButton chapter-name="Языковые конструкции" class="theme-level-1-chapter-left" id="central-btn-2chapter"/>
+    <ChapterButton chapter-name="Языковые конструкции"
+                   class="theme-level-1-chapter-left"
+                   id="central-btn-2chapter"/>
   </div>
 </template>
 
@@ -114,7 +116,7 @@ export default {
     const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-2chapter"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-2-chapter-6-theme"),
@@ -219,6 +221,24 @@ export default {
         document.getElementById("central-btn-2chapter").setAttribute("style", "background: #28a745; border: green;")
       }
     }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[1].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn-2chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 2</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
   }
 
 }
