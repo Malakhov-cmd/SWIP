@@ -22,7 +22,7 @@ export default {
     const arrowFromChapter2Theme7SubTheme1 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-7-theme"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.LEFT,
       },
       to: {
         node: () => document.getElementById("java-2-chapter-7-them-1-subtheme"),
@@ -47,24 +47,28 @@ export default {
         func: HEAD.VEE,
       },
     });
-    /*const arrowFromChapter2Theme7SubTheme3 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-2-chapter-7-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-2-chapter-7-them-3-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });*/
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme2.node);
-    //document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme7SubTheme3.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 23; i < 25; i++) {
+      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
+        let k = i - 22
+        document.getElementById("java-2-chapter-7-them-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 5) {
+      document.getElementById("java-2-chapter-7-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 5)
+        document.getElementById("java-2-chapter-7-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

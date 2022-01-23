@@ -166,18 +166,17 @@ export default {
     for (let i = 10; i < 18; i++) {
       if (window.frontendData.language.chapters[1].listThemes[i].finished) {
         let k = i - 8
-        console.log(k)
         document.getElementById("java-2-chapter-5-them-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 2.2;
+        countProgressLocalTheme = countProgressLocalTheme + 2.7;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 17) {
+        countProgressLocalTheme < 21) {
       document.getElementById("java-2-chapter-5-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 17)
+      if (countProgressLocalTheme > 21)
         document.getElementById("java-2-chapter-5-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }

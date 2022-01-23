@@ -3,17 +3,14 @@
     <div class="theme-level-2">
       <ThemeButton class="themes-lvl-2" theme-name="Объявление массивов"
                    path-theme="/language/java/languageconstruction/arrays/introductionarray" id="java-2-chapter-10-them-1-subtheme"/>
-
       <ThemeButton class="themes-lvl-2" theme-name="Цикл в стиле for each"
-                   path-theme="/language/java/languageconstruction/arrays/foreach" id="java-2-chapter-10-them-3-subtheme"/>
+                   path-theme="/language/java/languageconstruction/arrays/foreach" id="java-2-chapter-10-them-2-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Копирование массивов"
-                   path-theme="/language/java/languageconstruction/arrays/copymassive" id="java-2-chapter-10-them-4-subtheme"/>
-
+                   path-theme="/language/java/languageconstruction/arrays/copymassive" id="java-2-chapter-10-them-3-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Сортировка массивов"
-                   path-theme="/language/java/languageconstruction/arrays/sortingmassive" id="java-2-chapter-10-them-6-subtheme"/>
+                   path-theme="/language/java/languageconstruction/arrays/sortingmassive" id="java-2-chapter-10-them-4-subtheme"/>
       <ThemeButton class="themes-lvl-2" theme-name="Многомерные массивы"
-                   path-theme="/language/java/languageconstruction/arrays/multidimentionalmassive" id="java-2-chapter-10-them-7-subtheme"/>
-
+                   path-theme="/language/java/languageconstruction/arrays/multidimentionalmassive" id="java-2-chapter-10-them-5-subtheme"/>
     </div>
     <ChapterButton chapter-name="Массивы" class="theme-level-2-chapter-left" id="java-2-chapter-10-theme"/>
   </div>
@@ -59,7 +56,7 @@ export default {
     const arrowFromChapter2Theme10SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-10-theme"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.LEFT,
       },
       to: {
         node: () => document.getElementById("java-2-chapter-10-them-3-subtheme"),
@@ -73,7 +70,7 @@ export default {
     const arrowFromChapter2Theme10SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-10-theme"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-2-chapter-10-them-4-subtheme"),
@@ -87,52 +84,10 @@ export default {
     const arrowFromChapter2Theme10SubTheme5 = arrowCreate({
       from: {
         node: () => document.getElementById("java-2-chapter-10-theme"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-2-chapter-10-them-5-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter2Theme10SubTheme6 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-2-chapter-10-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-2-chapter-10-them-6-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter2Theme10SubTheme7 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-2-chapter-10-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-2-chapter-10-them-7-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter2Theme10SubTheme8 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-2-chapter-10-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-2-chapter-10-them-8-subtheme"),
         direction: DIRECTION.RIGHT,
         translation: [1, 0]
       },
@@ -146,10 +101,26 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme10SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme10SubTheme4.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme10SubTheme5.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme10SubTheme6.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme10SubTheme7.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme10SubTheme8.node);
-  }
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 32; i < 37; i++) {
+      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
+        let k = i - 31
+        document.getElementById("java-2-chapter-10-them-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 13) {
+      document.getElementById("java-2-chapter-10-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 13)
+        document.getElementById("java-2-chapter-10-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
+    }
 }
 </script>
 

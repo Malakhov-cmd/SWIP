@@ -205,7 +205,11 @@ export default {
           .setAttribute("style", "background: #28a745; border: green;");
     }
 
-    //TODO сделать такую проверку для java-2-chapter-9-theme
+    //проверка решенгия второй задачи
+    if (window.frontendData.language.chapters[1].listThemes[31].finished) {
+      document.getElementById("java-2-chapter-9-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
 
     if (window.frontendData.language.chapters[1].chapterProgress > 0 &&
         window.frontendData.language.chapters[1].chapterProgress < 99) {

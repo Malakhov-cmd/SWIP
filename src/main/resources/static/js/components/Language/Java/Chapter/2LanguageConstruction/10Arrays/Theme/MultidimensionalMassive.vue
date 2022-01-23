@@ -29,7 +29,8 @@
             <pre class="hljs"
                  style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(0, 0, 0); color: rgb(248, 248, 248);">balances = <span
                 class="hljs-keyword" style="color: rgb(150, 203, 254);">new</span> <span class="hljs-keyword"
-                                                                                         style="color: rgb(150, 203, 254);">double</span>[NYEARS][NRATES];</pre>
+                                                                                         style="color: rgb(150, 203, 254);">double</span>[NYEARS][NRATES];
+            </pre>
             <p>
               В других случаях, когда элементы массива известны заранее, можно воспользоваться сокращенной записью для
               его инициализации, не прибегая к операции new.
@@ -55,7 +56,8 @@
                   class="hljs-number" style="color: rgb(255, 115, 253);">15</span>, <span class="hljs-number"
                                                                                           style="color: rgb(255, 115, 253);">14</span>, <span
                   class="hljs-number" style="color: rgb(255, 115, 253);">1</span>}
-                };</pre>
+                };
+            </pre>
             <p>
               После инициализации массива к его отдельным элементам можно обращаться,
               используя две пары квадратных скобок, например balances [i] [ j ].
@@ -73,7 +75,8 @@
                 class="hljs-number" style="color: rgb(255, 115, 253);">0</span>; j &lt; balances[<span
                 class="hljs-number" style="color: rgb(255, 115, 253);">0</span>].length; j++)
      balances[<span class="hljs-number" style="color: rgb(255, 115, 253);">0</span>][j] = <span class="hljs-number"
-                                                                                                style="color: rgb(255, 115, 253);">10000</span>;</pre>
+                                                                                                style="color: rgb(255, 115, 253);">10000</span>;
+            </pre>
             <p>
               Затем подсчитывается содержимое остальных строк, как показано ниже.
             </p>
@@ -205,9 +208,13 @@
         </label>
 
         <textarea id="codeContentId" readonly>
-public class Main {
+ public class Main {
     public static void main(String[] args) {
-        int[][] a = {{1,2,3}, {4,5,6}, {7,8,9}};
+        int[][] a = {
+          {1,2,3},
+          {4,5,6},
+          {7,8,9}
+          };
         int temp = 0;
 
         for (int i = 0; i < a.length; i++) {
@@ -255,6 +262,7 @@ public class Main {
 
 <script>
 import axios from "axios";
+import * as CodeMirror from "codemirror"
 import "codemirror/lib/codemirror.css"
 import "codemirror/theme/dracula.css"
 import "codemirror/mode/jsx/jsx.js"
@@ -291,7 +299,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[1].listThemes[36].task.answer = response.data
-              window.frontendData.language.chapters[1].chapterProgress += 2.2
+              window.frontendData.language.chapters[1].chapterProgress += 2.7
               window.frontendData.language.chapters[1].listThemes[36].finished = true
 
               isSendedandrecived = true

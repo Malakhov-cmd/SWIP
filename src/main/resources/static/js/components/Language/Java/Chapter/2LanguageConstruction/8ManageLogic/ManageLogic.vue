@@ -118,6 +118,25 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme8SubTheme4.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme8SubTheme5.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter2Theme8SubTheme6.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 25; i < 31; i++) {
+      if (window.frontendData.language.chapters[1].listThemes[i].finished) {
+        let k = i - 24
+        document.getElementById("java-2-chapter-8-them-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 16) {
+      document.getElementById("java-2-chapter-8-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 16)
+        document.getElementById("java-2-chapter-8-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

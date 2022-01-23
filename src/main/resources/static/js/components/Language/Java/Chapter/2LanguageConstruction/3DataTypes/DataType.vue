@@ -95,15 +95,15 @@ export default {
         let k = i - 1
         document.getElementById("java-2-chapter-3-them-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 2.2;
+        countProgressLocalTheme = countProgressLocalTheme + 2.7;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 8) {
+        countProgressLocalTheme < 10) {
       document.getElementById("java-2-chapter-3-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 8)
+      if (countProgressLocalTheme > 10)
         document.getElementById("java-2-chapter-3-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }

@@ -120,6 +120,7 @@ public class Main {
 
 <script>
 import axios from "axios";
+import * as CodeMirror from "codemirror"
 import "codemirror/lib/codemirror.css"
 import "codemirror/theme/dracula.css"
 import "codemirror/mode/jsx/jsx.js"
@@ -156,7 +157,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[1].listThemes[21].task.answer = response.data
-              window.frontendData.language.chapters[1].chapterProgress += 2.2
+              window.frontendData.language.chapters[1].chapterProgress += 2.7
               window.frontendData.language.chapters[1].listThemes[21].finished = true
 
               isSendedandrecived = true

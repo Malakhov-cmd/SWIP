@@ -119,7 +119,7 @@ class SecondChapterProcessor(
                 approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 26, answer)
             }
             28 -> {
-                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 26, answer)
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 27, answer)
             }
             29 -> {
                 approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 28, answer)
@@ -143,10 +143,10 @@ class SecondChapterProcessor(
                 approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 34, answer)
             }
             36 -> {
-                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 34, answer)
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 35, answer)
             }
             37 -> {
-                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 35, answer)
+                approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, 36, answer)
             }
         }
         return approvedResult
@@ -188,8 +188,7 @@ class SecondChapterProcessor(
         val compiledValue = groovyCompiler.execute(answer)
 
         if (compiledValue == task?.answer) {
-            recordSuccess(task, theme, chapter, language, task.answer!!)
-            return answer;
+            result = recordSuccess(task, theme, chapter, language, answer)
         } else {
             result = "Incorrect answer"
         }
@@ -220,7 +219,7 @@ class SecondChapterProcessor(
         task.answer = answer
         theme.isFinished = true
 
-        chapter.chapterProgress = chapter.chapterProgress + 2.2
+        chapter.chapterProgress = chapter.chapterProgress + 2.7
 
         javaLanguagesRepo.save(language)
         chapterRepo.save(chapter)
