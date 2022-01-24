@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import VueRouter from "vue-router"
 import vuetify from "./plugin/vuetify";
-//import './plugin/bootstrap'
+
 import './plugin/bootstrap-vue'
 import App from "pages/App.vue";
-import HomeMain from "./components/Home/HomeMain.vue";
+import InfoMain from "./components/Info/InfoMain.vue";
 import LanguageMain from "./components/Language/LanguageMain.vue";
-import IntellectTrainingMain from "./components/IntellectTraining/IntellectTrainingMain.vue";
+import HomeMain from "./components/Home/HomeMain.vue"
 import MessageMain from "./components/Message/MessageMain.vue";
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
 import LoginMain from "./components/Login/LoginMain.vue";
 import test from "./components/Language/Kotlin/Test/test.vue";
+/*Languages*/
 import JavaLanguage from "./components/Language/Java/JavaLanguage.vue";
 import KotlinLanguage from "./components/Language/Kotlin/KotlinLanguage.vue";
 import JSLanguage from "./components/Language/JS/JSLanguage.vue";
@@ -617,9 +618,10 @@ Vue.prototype.$eventBus = new Vue();
 Vue.config.productionTip = false
 
 const routes = [
-    {path: '/home', component: HomeMain},
+    {path: '/info', component: InfoMain},
     {path: '/language', component: LanguageMain},
     {path: '/language/java', component: JavaLanguage},
+    {path: '/home', component: HomeMain},
     /*Java paths*/
     //1 chapter
     {path: '/language/java/introduceinjava/programplatform', component: ProgramPlatform},
@@ -1174,7 +1176,6 @@ const routes = [
     //test
     {path: '/language/kotlin/1', component: test},
 
-    {path: '/intellecttraining', component: IntellectTrainingMain},
     {path: '/message', component: MessageMain},
     {path: '/friend', component: FriendMain},
     {path: '/settings', component: SettingsMain},

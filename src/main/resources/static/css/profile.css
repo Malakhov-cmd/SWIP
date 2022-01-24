@@ -1,0 +1,59 @@
+.profile-main {
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+
+.neomorphism {
+    border-radius: 50px;
+
+    box-shadow: 10px 10px 21px #000000,
+    -10px -10px 21px #3d3c3c;
+}
+
+.profile-header-avatar {
+    margin-left: 55px;
+}
+
+.profile-header-avatar-img {
+    max-width: 250px;
+    border-radius: 50%;
+    max-height: 250px;
+    margin-top: 35px;
+    margin-left: 35px;
+}
+
+.carousel {
+    border-radius: 50px;
+}
+
+.carousel-inner {
+    margin-top: 75px;
+    border-radius: 50px;
+}
+
+.profile-create-post {
+    padding: 25px;
+    margin-top: 75px;
+}
+
+
+@media (max-width: 800px) {
+    .profile-header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-header-avatar {
+        margin-left: 0;
+    }
+
+    .profile-header-avatar-img {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .profile-header-description-txt {
+        text-indent: 0;
+    }
+}
