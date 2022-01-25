@@ -1,6 +1,8 @@
 .profile-main {
-    padding-top: 85px;
-    padding-bottom: 85px;
+    overflow-y: scroll;
+    max-height: 85vh;
+
+    padding: 85px 20px 85px 35px;
 }
 
 .neomorphism {
@@ -60,6 +62,46 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 25px;
+}
+
+.profile-post-footer-icons,
+.profile-post-footer-icons:hover,
+.profile-post-footer-icons:focus{
+    background: none;
+    border: none;
+}
+
+.profile-post-footer-time-creation{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 17px;
+}
+
+.profile-main::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.profile-main::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.profile-main::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.profile-main::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.profile-main::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
 }
 
 @media (max-width: 800px) {

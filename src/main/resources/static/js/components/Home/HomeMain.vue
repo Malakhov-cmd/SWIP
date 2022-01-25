@@ -106,7 +106,7 @@
                 </div>
                 <div class="profile-post-footer-icons-line-comments">
                   <div>
-                    <b-button
+                    <b-button class="profile-post-footer-icons"
                         :class="getCollapse(index) ?'collapsed': null"
                         :aria-expanded="getCollapse(index) ?  'false': 'true'"
                         aria-controls="collapse-4"
@@ -119,8 +119,15 @@
               </div>
               <div class="profile-post-comment">
                 <b-collapse id="collapse-4" :visible="getCollapse(index)" class="mt-2 profile-post-comment">
-                  <b-card>I should start open!</b-card>
+                  <div class="profile-post-comment-input-new-comment">
+                    <b-form-textarea v-model="postTest" debounce="500" rows="3" max-rows="5"
+                                     placeholder="Введите текст комментария"></b-form-textarea>
+                    <b-btn class="my-b-btn" v-on:click="requestCreatePost">Оставить</b-btn>
+                  </div>
                 </b-collapse>
+              </div>
+              <div class="profile-post-footer-time-creation">
+                {{value.postDate}}
               </div>
             </div>
           </div>
@@ -186,11 +193,26 @@ export default {
       const interval = setInterval(() => {
         if (isSendedandrecived) {
           this.wallData = window.frontendData.wall
+          this.postHeader = ""
+          this.postTest = ""
+
+          this.sortingPost()
 
           isSendedandrecived = false
           clearInterval(interval)
         }
       }, 500)
+    },
+    sortingPost(){
+      window.frontendData.wall.posts.sort(function (a, b) {
+        if (a.id < b.id) {
+          return 1;
+        }
+        if (a.id > b.id) {
+          return -1;
+        }
+        return 0;
+      });
     }
   },
   mounted() {
@@ -207,6 +229,7 @@ export default {
     for (let i = 0; i < this.wallData.posts.length; i++) {
       this.expandedArray[i] = false
     }
+    this.sortingPost()
   }
 }
 </script>
