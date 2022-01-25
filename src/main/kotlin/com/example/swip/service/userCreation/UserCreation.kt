@@ -2,7 +2,9 @@ package com.example.swip.service.userCreation
 
 import com.example.swip.domain.JavaLanguage
 import com.example.swip.domain.User
+import com.example.swip.domain.postBoard.HomeWall
 import com.example.swip.repo.*
+import com.example.swip.repo.postBoard.HomeWallRepo
 import com.example.swip.service.ChapterFuller
 import com.example.swip.service.userCreation.userDTO.UserData
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,7 +22,9 @@ class UserCreation(
         @Autowired
         var chapterRepo: ChapterRepo,
         @Autowired
-        var chapterFuller: ChapterFuller
+        var chapterFuller: ChapterFuller,
+        @Autowired
+        var homeWallRepo: HomeWallRepo
 ) {
     private val userIdRegex = """(sub=)\d*""".toRegex()
     private val nameRegex = """\s(name=)[А-Яа-яA-Za-z0-9�]*\s*[А-Яа-яA-Za-z0-9�]*""".toRegex()
@@ -52,13 +56,16 @@ class UserCreation(
     }
 
     private fun createAndSaveUser(userDTO: UserData): User{
-        val user: User = userDetailsRepo.findById(userDTO.userId).orElseGet(Supplier {
+        val user: User = userDetailsRepo.findById(userDTO.userId).orElseGet {
             val newUser = User()
             newUser.id = userDTO.userId
             newUser.name = userDTO.userName
             newUser.email = userDTO.userEmail
             newUser.locale = userDTO.userLocale
             newUser.userpic = userDTO.userPic
+
+            val homeWall = HomeWall()
+            homeWall.owner = newUser
 
             val javaLanguage = JavaLanguage()
             javaLanguage.name = "java"
@@ -67,9 +74,11 @@ class UserCreation(
 
             userDetailsRepo.save<User>(newUser)
 
+            homeWallRepo.save(homeWall)
+
             chapterFuller.chapterInitial(javaLanguagesRepo.save(javaLanguage).id)
             newUser
-        })
+        }
 
         user.lastVisit = LocalDateTime.now()
         userDetailsRepo.save<User>(user)

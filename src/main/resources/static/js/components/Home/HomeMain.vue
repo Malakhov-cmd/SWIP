@@ -8,9 +8,10 @@
                :src="userProfilePhoto"/>
         </div>
         <div class="col-md-6 px-0">
-          <h1 class="display-4 fst-italic">{{userName}}</h1>
-            <p class="lead my-3 profile-header-description-txt">{{userSelfDescription}}</p>
-            <p class="lead mb-0 profile-header-description-txt"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+          <h1 class="display-4 fst-italic">{{ userName }}</h1>
+          <p class="lead my-3 profile-header-description-txt">{{ userSelfDescription }}</p>
+          <p class="lead mb-0 profile-header-description-txt"><a href="#" class="text-white fw-bold">Continue
+            reading...</a></p>
         </div>
       </div>
     </div>
@@ -74,27 +75,67 @@
     <div class="profile-main-content language-container">
       <div class="profile-create-post neomorphism">
         <div>
-          <p class="lead my-3">Создайте ваш собственный пост</p>
+          <p class="lead my-3 profile-create-post-welcome-header">Создайте ваш собственный пост</p>
           <div class="profile-create-post-header">
-
             <b-form-input v-model="postHeader" placeholder="Введите заголовок"></b-form-input>
-            <div class="mt-2">Value: {{ postHeader }}</div>
           </div>
           <div class="profile-create-post-text-area">
-            <b-form-textarea v-model="postTest" debounce="500" rows="3" max-rows="5" placeholder="Введите текст поста"></b-form-textarea>
-            <pre class="mt-2 mb-0">{{ postTest }}</pre>
+            <b-form-textarea v-model="postTest" debounce="500" rows="3" max-rows="5"
+                             placeholder="Введите текст поста"></b-form-textarea>
           </div>
-          <b-btn class="my-b-btn">Создать
+          <b-btn class="my-b-btn" v-on:click="requestCreatePost">Создать
           </b-btn>
         </div>
       </div>
 
+      <div class="profile-main-posts" v-show="existingPost">
+        <div class="profile-main-posts-iterable" v-for="(value, index) in existingPost? wallData.posts: null">
+          <div class="profile-post neomorphism">
+            <div>
+              <div class="profile-post-header">
+                <p>{{ value.header }}</p>
+              </div>
+              <div class="profile-post-text-area">
+                <p>{{ value.text }}</p>
+              </div>
+            </div>
+            <div class="profile-post-footer">
+              <div class="profile-post-footer-icons-line">
+                <div class="profile-post-footer-icons-line-likes">
+                  <b-icon-heart-fill font-scale="2"></b-icon-heart-fill>
+                </div>
+                <div class="profile-post-footer-icons-line-comments">
+                  <div>
+                    <b-button
+                        :class="getCollapse(index) ?'collapsed': null"
+                        :aria-expanded="getCollapse(index) ?  'false': 'true'"
+                        aria-controls="collapse-4"
+                        @click="setCollapse(index)"
+                    >
+                      <b-icon-chat-right-dots-fill font-scale="2"></b-icon-chat-right-dots-fill>
+                    </b-button>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-post-comment">
+                <b-collapse id="collapse-4" :visible="getCollapse(index)" class="mt-2 profile-post-comment">
+                  <b-card>I should start open!</b-card>
+                </b-collapse>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-footer"></div>
     </div>
-    <div class="profile-footer"></div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
+let isSendedandrecived = false
+
 export default {
   name: "HomeMain",
   data() {
@@ -105,7 +146,11 @@ export default {
       slide: 0,
       sliding: null,
       postTest: '',
-      postHeader: ''
+      postHeader: '',
+      existingPost: false,
+      wallData: {},
+
+      expandedArray: []
     }
   },
   methods: {
@@ -114,12 +159,54 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false
+    },
+    getCollapse(index){
+      return this.expandedArray[index]
+    },
+    setCollapse(index){
+      this.expandedArray[index] = !this.expandedArray[index]
+    },
+    requestCreatePost() {
+      axios.get('http://localhost:9000/home/post/creation', {
+        params: {
+          wallId: this.wallData.id,
+          authorId: window.frontendData.profile.id,
+          header: this.postHeader,
+          text: this.postTest
+        }
+      })
+          .then(function (response) {
+            window.frontendData.wall = response.data
+
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          this.wallData = window.frontendData.wall
+
+          isSendedandrecived = false
+          clearInterval(interval)
+        }
+      }, 500)
     }
   },
   mounted() {
     this.userName = window.frontendData.profile.name
     this.userSelfDescription = "Software developer"
     this.userProfilePhoto = frontendData.profile.userpic
+
+    this.wallData = window.frontendData.wall
+
+    if (this.wallData.posts.length > 0){
+      this.existingPost = true
+    }
+
+    for (let i = 0; i < this.wallData.posts.length; i++) {
+      this.expandedArray[i] = false
+    }
   }
 }
 </script>

@@ -1,6 +1,7 @@
 package com.example.swip.controller
 
 import com.example.swip.repo.JavaLanguagesRepo
+import com.example.swip.repo.postBoard.HomeWallRepo
 import com.example.swip.service.userCreation.UserCreation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -18,6 +19,8 @@ class MainController(
         var userCreation: UserCreation,
         @Autowired
         var javaLanguagesRepo: JavaLanguagesRepo,
+        @Autowired
+        var homeWallRepo: HomeWallRepo
 ) {
     @Value("\${spring.profiles.active}")
     private val profile: String? = null
@@ -31,6 +34,7 @@ class MainController(
 
         data["profile"] = user
         data["language"] = javaLanguagesRepo.findByOwner(user)
+        data["wall"] = homeWallRepo.findByOwner(user)
 
         model.addAttribute("frontendData", data)
         model.addAttribute("isDevMode", "dev".equals(profile));

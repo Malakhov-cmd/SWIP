@@ -36,6 +36,31 @@
     margin-top: 75px;
 }
 
+.profile-create-post-text-area{
+    margin-top: 45px;
+}
+
+.profile-main-posts{
+    margin-top: 95px;
+    padding: 55px;
+}
+
+.profile-post{
+    margin-top: 55px;
+    padding: 35px;
+}
+
+.profile-post-header,
+.profile-post-text-area{
+    margin-bottom: 45px;
+}
+
+.profile-post-footer-icons-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px;
+}
 
 @media (max-width: 800px) {
     .profile-header-content {
@@ -53,7 +78,8 @@
         margin-left: 0;
     }
 
-    .profile-header-description-txt {
+    .profile-header-description-txt,
+    .profile-create-post-welcome-header{
         text-indent: 0;
     }
 }

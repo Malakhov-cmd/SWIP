@@ -31,7 +31,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.session/spring-session-jdbc
     //implementation("org.springframework.session:spring-session-jdbc:2.3.0.RELEASE")
 
-// https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+    // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
     implementation("org.flywaydb:flyway-core:8.0.2")
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
