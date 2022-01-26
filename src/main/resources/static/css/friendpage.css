@@ -1,0 +1,18 @@
+.friend-finder-input-neo {
+    padding: 35px;
+}
+
+.btn-find-friend-collapsed {
+    overflow-anchor: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+
+    border-radius: 50px;
+}
+
+.friend-finder-input {
+    margin-top: 37px;
+    margin-bottom: 17px;
+}

@@ -357,6 +357,8 @@ export default {
       this.expandedArray[i] = false
       this.commentsText[i] = ''
     }
+
+    //TODO добавь валидацию
   }
 }
 </script>
