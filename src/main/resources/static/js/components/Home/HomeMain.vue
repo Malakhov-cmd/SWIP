@@ -115,7 +115,10 @@
             <div class="profile-post-footer">
               <div class="profile-post-footer-icons-line">
                 <div class="profile-post-footer-icons-line-likes">
-                  <b-icon-heart-fill font-scale="2"></b-icon-heart-fill>
+                  <b-btn class="like-button profile-post-footer-icons"
+                         v-on:click="requestLike(value.id, index)">
+                    <b-icon-heart-fill font-scale="2"></b-icon-heart-fill> {{value.likes.length}}
+                  </b-btn>
                 </div>
                 <div class="profile-post-footer-icons-line-comments">
                   <div>
@@ -225,6 +228,9 @@ export default {
     isMyComment(commentOwner) {
       return commentOwner === window.frontendData.profile.id
     },
+    checkCommentExisting(index) {
+      return frontendData.wall.posts[index].comments.length > 0;
+    },
     requestCreatePost() {
       axios.get('http://localhost:9000/home/post/creation', {
         params: {
@@ -256,9 +262,6 @@ export default {
         }
       }, 500)
     },
-    checkCommentExisting(index) {
-      return frontendData.wall.posts[index].comments.length > 0;
-    },
     requestCreateComment(index) {
       axios.get('http://localhost:9000/home/comment/creation', {
         params: {
@@ -281,6 +284,30 @@ export default {
 
           this.commentsText[index] = ''
 
+          this.sortingComments()
+
+          isSendedandrecived = false
+          clearInterval(interval)
+        }
+      }, 500)
+    },
+    requestLike(postId, index) {
+      axios.get('http://localhost:9000/home/post/like', {
+        params: {
+          postId: postId,
+          likerId: window.frontendData.profile.id,
+        }
+      })
+          .then(function (response) {
+            window.frontendData.wall.posts[index].likes = response.data
+
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
           isSendedandrecived = false
           clearInterval(interval)
         }
@@ -296,6 +323,19 @@ export default {
         }
         return 0;
       });
+    },
+    sortingComments() {
+      for (const comments of window.frontendData.wall.posts) {
+          comments.comments.sort(function (a, b) {
+            if (a.id < b.id) {
+              return 1;
+            }
+            if (a.id > b.id) {
+              return -1;
+            }
+            return 0;
+          });
+      }
     }
   },
   mounted() {
@@ -310,6 +350,7 @@ export default {
     if (this.wallData.posts.length > 0) {
       this.existingPost = true
       this.sortingPost()
+      this.sortingComments()
     }
 
     for (let i = 0; i < this.wallData.posts.length; i++) {
