@@ -2,13 +2,15 @@ create sequence hibernate_sequence start 1 increment 1;
 create table home_wall
 (
     id       int8 not null,
-    owner_id varchar(255),
+    owner_id varchar(1024),
     primary key (id)
 );
 create table home_wall_post_comment
 (
     id           int8 not null,
-    author       varchar(255),
+    author       varchar(256),
+    author_id    varchar(512),
+    author_img   varchar(4096),
     comment_date timestamp,
     text         varchar(255),
     post_id      int8,
@@ -24,12 +26,14 @@ create table home_wall_post_likes
 );
 create table home_wall_posts
 (
-    id        int8 not null,
-    author_id varchar(255),
-    header    varchar(255),
-    post_date timestamp,
-    text      varchar(255),
-    wall_id   int8,
+    id         int8 not null,
+    author_id  varchar(1024),
+    author     varchar(512),
+    author_img varchar(4096),
+    header     varchar(255),
+    post_date  timestamp,
+    text       varchar(255),
+    wall_id    int8,
     primary key (id)
 );
 create table java_chapter_themes_list
@@ -159,4 +163,4 @@ alter table post_likes
 alter table posts_list
     add constraint FK2korod2vk2hgxtmf3lx7w5ftb foreign key (posts_id) references home_wall_posts;
 alter table posts_list
-    add constraint FKc4egkad93sxsyxkbdv95qpinx foreign key (posts_list_id) references home_wall
+    add constraint FKc4egkad93sxsyxkbdv95qpinx foreign key (posts_list_id) references home_wall;

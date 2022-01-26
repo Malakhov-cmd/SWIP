@@ -91,9 +91,22 @@
       <div class="profile-main-posts" v-show="existingPost">
         <div class="profile-main-posts-iterable" v-for="(value, index) in existingPost? wallData.posts: null">
           <div class="profile-post neomorphism">
+            <div class="profile-post-header-main-info">
+              <div class="profile-post-header-author-info">
+                <img class="profile-post-header-author-info-avatar-img"
+                     width="75" height="75"
+                     :src="value.authorImg"/>
+                <div class="profile-post-header-author-info-name">
+                  {{ value.author }}
+                </div>
+              </div>
+              <div class="profile-post-header-time-creation">
+                {{ value.postDate }}
+              </div>
+            </div>
             <div>
               <div class="profile-post-header">
-                <p>{{ value.header }}</p>
+                <p class="profile-post-header-txt">{{ value.header }}</p>
               </div>
               <div class="profile-post-text-area">
                 <p>{{ value.text }}</p>
@@ -107,10 +120,10 @@
                 <div class="profile-post-footer-icons-line-comments">
                   <div>
                     <b-button class="profile-post-footer-icons"
-                        :class="getCollapse(index) ?'collapsed': null"
-                        :aria-expanded="getCollapse(index) ?  'false': 'true'"
-                        aria-controls="collapse-4"
-                        @click="setCollapse(index)"
+                              :class="getCollapse(index) ?'collapsed': null"
+                              :aria-expanded="getCollapse(index) ?  'false': 'true'"
+                              aria-controls="collapse-4"
+                              @click="setCollapse(index)"
                     >
                       <b-icon-chat-right-dots-fill font-scale="2"></b-icon-chat-right-dots-fill>
                     </b-button>
@@ -120,14 +133,47 @@
               <div class="profile-post-comment">
                 <b-collapse id="collapse-4" :visible="getCollapse(index)" class="mt-2 profile-post-comment">
                   <div class="profile-post-comment-input-new-comment">
-                    <b-form-textarea v-model="postTest" debounce="500" rows="3" max-rows="5"
+                    <b-form-textarea v-model="commentsText[index]" debounce="500" rows="3" max-rows="5"
                                      placeholder="Введите текст комментария"></b-form-textarea>
-                    <b-btn class="my-b-btn" v-on:click="requestCreatePost">Оставить</b-btn>
+                    <b-btn class="my-b-btn" v-on:click="requestCreateComment(index)">Оставить</b-btn>
+                  </div>
+                  <div class="profile-post-comment-section">
+                    <div class="profile-comments"
+                         v-for="(valueComment, indexComment) in checkCommentExisting(index)? value.comments: null">
+                      <div class="profile-comment-data">
+                        <div class="profile-comment-data-my-comment"
+                             v-show="isMyComment(valueComment.authorId)">
+                          <div class="profile-comment-data-my-comment-img-with-message">
+                            <img class="profile-comment-data-my-comment-avatar-img"
+                                 width="35" height="35"
+                                 :src="valueComment.authorImg"/>
+                            <div class="bubble-message theme bubble-message-left"
+                                 :data-time=valueComment.commentDate>
+                              {{ valueComment.text }}
+                            </div>
+                          </div>
+                          {{ valueComment.author }}
+                        </div>
+
+                        <div class="profile-comment-data-stranger-comment"
+                             v-show="!isMyComment(valueComment.authorId)">
+                          <div class="bubble-message theme" :data-time=valueComment.commentDate>
+                            {{ valueComment.text }}
+                          </div>
+                          {{ valueComment.author }}
+                        </div>
+
+                        <svg height="0" width="0">
+                          <defs>
+                            <clipPath id="svgPath">
+                              <path fill="#FFFFFF" d="M20,20H0V0H0A20,20,0,0,0,20,20Z"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </b-collapse>
-              </div>
-              <div class="profile-post-footer-time-creation">
-                {{value.postDate}}
               </div>
             </div>
           </div>
@@ -155,8 +201,11 @@ export default {
       postTest: '',
       postHeader: '',
       existingPost: false,
+      existingComment: false,
       wallData: {},
+      currentUser: null,
 
+      commentsText: [],
       expandedArray: []
     }
   },
@@ -167,11 +216,14 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false
     },
-    getCollapse(index){
+    getCollapse(index) {
       return this.expandedArray[index]
     },
-    setCollapse(index){
+    setCollapse(index) {
       this.expandedArray[index] = !this.expandedArray[index]
+    },
+    isMyComment(commentOwner) {
+      return commentOwner === window.frontendData.profile.id
     },
     requestCreatePost() {
       axios.get('http://localhost:9000/home/post/creation', {
@@ -196,6 +248,7 @@ export default {
           this.postHeader = ""
           this.postTest = ""
 
+          this.existingPost = true
           this.sortingPost()
 
           isSendedandrecived = false
@@ -203,7 +256,37 @@ export default {
         }
       }, 500)
     },
-    sortingPost(){
+    checkCommentExisting(index) {
+      return frontendData.wall.posts[index].comments.length > 0;
+    },
+    requestCreateComment(index) {
+      axios.get('http://localhost:9000/home/comment/creation', {
+        params: {
+          authorId: window.frontendData.profile.id,
+          postId: window.frontendData.wall.posts[index].id,
+          text: this.commentsText[index]
+        }
+      })
+          .then(function (response) {
+            window.frontendData.wall.posts[index] = response.data
+
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          this.wallData.posts[index] = window.frontendData.wall.posts[index]
+
+          this.commentsText[index] = ''
+
+          isSendedandrecived = false
+          clearInterval(interval)
+        }
+      }, 500)
+    },
+    sortingPost() {
       window.frontendData.wall.posts.sort(function (a, b) {
         if (a.id < b.id) {
           return 1;
@@ -216,20 +299,23 @@ export default {
     }
   },
   mounted() {
-    this.userName = window.frontendData.profile.name
-    this.userSelfDescription = "Software developer"
-    this.userProfilePhoto = frontendData.profile.userpic
+    this.currentUser = window.frontendData.profile
 
     this.wallData = window.frontendData.wall
 
-    if (this.wallData.posts.length > 0){
+    this.userName = frontendData.wall.owner.name
+    this.userSelfDescription = "Software developer"
+    this.userProfilePhoto = frontendData.wall.owner.userpic
+
+    if (this.wallData.posts.length > 0) {
       this.existingPost = true
+      this.sortingPost()
     }
 
     for (let i = 0; i < this.wallData.posts.length; i++) {
       this.expandedArray[i] = false
+      this.commentsText[i] = ''
     }
-    this.sortingPost()
   }
 }
 </script>

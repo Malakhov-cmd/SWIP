@@ -31,6 +31,8 @@ class Post {
     var likes: MutableList<LikePost> = mutableListOf()
 
     var authorId: String = ""
+    var author: String = ""
+    var authorImg: String = ""
 
     var header: String = ""
     var text: String= ""

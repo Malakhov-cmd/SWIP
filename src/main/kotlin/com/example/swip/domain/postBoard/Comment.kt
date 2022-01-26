@@ -26,6 +26,8 @@ class Comment {
     var likes: MutableList<LikeComment> = mutableListOf()
 
     var author: String = ""
+    var authorImg: String = ""
+    var authorId: String = ""
 
     var text: String = ""
 
