@@ -191,26 +191,23 @@
     </div>
     <div class="my-friend-list" v-show="existingAnyFriend">
       <div class="friend-card" v-for="(value, index) in existingAnyFriend? friendList: null">
-        <div>
-          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
-            <b-row no-gutters>
-              <b-col md="6">
-                <b-card-img :src="value.frienduserpic" alt="Image" class="rounded-0">
-                </b-card-img>
-              </b-col>
-              <b-col md="6">
-                <b-card-body :title="value.friendname">
-                  <b-card-text>
-                    Software Developer
-                  </b-card-text>
-                </b-card-body>
-              </b-col>
+        <div class="finded-potential-friend-item neomorphism">
+          <div class="finded-potential-friend-item-header">
+            <div class="finded-potential-friend-item-header-personal-data">
+              <img class="profile-post-header-author-info-avatar-img"
+                   width="75" height="75"
+                   :src="value.frienduserpic"/>
+              <div class="finded-potential-friend-item-header-name">
+                <router-link :to="/page/ + value.friendId">{{ value.friendname }}</router-link>
+              </div>
+            </div>
+            <div class="finded-potential-friend-item-buttons">
               <b-btn class="like-button profile-post-footer-icons"
                      v-on:click="requestDeleteExistingFriend(value.friendId, index)">
                 <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
               </b-btn>
-            </b-row>
-          </b-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>

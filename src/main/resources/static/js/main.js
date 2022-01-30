@@ -6,7 +6,8 @@ import './plugin/bootstrap-vue'
 import App from "pages/App.vue";
 import InfoMain from "./components/Info/InfoMain.vue";
 import LanguageMain from "./components/Language/LanguageMain.vue";
-import HomeMain from "./components/Home/HomeMain.vue"
+import HomeMain from "./components/Home/HomeMain.vue";
+import AnotherUserPage from "./components/Home/AnotherUserPage.vue"
 import MessageMain from "./components/Message/MessageMain.vue";
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
@@ -622,6 +623,9 @@ const routes = [
     {path: '/language', component: LanguageMain},
     {path: '/language/java', component: JavaLanguage},
     {path: '/home', component: HomeMain},
+
+    {path: '/page/:id', component: AnotherUserPage},
+
     /*Java paths*/
     //1 chapter
     {path: '/language/java/introduceinjava/programplatform', component: ProgramPlatform},

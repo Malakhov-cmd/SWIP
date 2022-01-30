@@ -1,5 +1,8 @@
 <template>
   <div class="profile-main">
+
+    <div>Пользователь {{ $route.params.id }}</div>
+
     <div class="profile-header">
       <div class="p-4 p-md-5 mb-4 text-white row neomorphism profile-header-content">
         <div class="profile-header-avatar">
@@ -92,7 +95,7 @@
 
       <div class="profile-main-posts" v-show="existingPost">
         <div class="profile-main-posts-iterable"
-             v-for="(value, index) in existingPost? wallData.posts: null">
+             v-for="(value, index) in existingPost? owner.posts: null">
           <div class="profile-post neomorphism">
             <div class="profile-post-header-main-info">
               <div class="profile-post-header-author-info">
@@ -194,11 +197,15 @@
 import axios from "axios";
 
 let isSendedandrecived = false
+let tempWallData = null
+
 
 export default {
-  name: "HomeMain",
+  name: "AnotherUserPage",
   data() {
     return {
+      owner: null,
+
       userName: "",
       userSelfDescription: "",
       userProfilePhoto: "",
@@ -208,12 +215,16 @@ export default {
       postHeader: '',
       existingPost: false,
       existingComment: false,
-      wallData: {},
       currentUser: null,
 
       commentsText: [],
       expandedArray: []
     }
+  },
+  computed: {
+    id() {
+      return this.$route.params.id;
+    },
   },
   methods: {
     onSlideStart(slide) {
@@ -232,19 +243,19 @@ export default {
       return commentOwner === window.frontendData.profile.id
     },
     checkCommentExisting(index) {
-      return frontendData.wall.posts[index].comments.length > 0;
+      return this.owner.posts[index].comments.length > 0;
     },
     requestCreatePost() {
       axios.get('http://localhost:9000/home/post/creation', {
         params: {
-          wallId: this.wallData.id,
+          wallId: this.owner.id,
           authorId: window.frontendData.profile.id,
           header: this.postHeader,
           text: this.postTest
         }
       })
           .then(function (response) {
-            window.frontendData.wall = response.data
+            tempWallData = response.data
 
             isSendedandrecived = true
           })
@@ -253,7 +264,7 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-          this.wallData = window.frontendData.wall
+          this.owner = tempWallData
           this.postHeader = ""
           this.postTest = ""
 
@@ -269,12 +280,12 @@ export default {
       axios.get('http://localhost:9000/home/comment/creation', {
         params: {
           authorId: window.frontendData.profile.id,
-          postId: window.frontendData.wall.posts[index].id,
+          postId: this.owner.posts[index].id,
           text: this.commentsText[index]
         }
       })
           .then(function (response) {
-            window.frontendData.wall.posts[index] = response.data
+            tempWallData.posts[index] = response.data
 
             isSendedandrecived = true
           })
@@ -283,7 +294,7 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-          this.wallData.posts[index] = window.frontendData.wall.posts[index]
+          this.owner.posts[index] = tempWallData.posts[index]
 
           this.commentsText[index] = ''
 
@@ -302,7 +313,7 @@ export default {
         }
       })
           .then(function (response) {
-            window.frontendData.wall.posts[index].likes = response.data
+            tempWallData.posts[index].likes = response.data
 
             isSendedandrecived = true
           })
@@ -311,13 +322,15 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
+          this.owner.posts[index].likes = tempWallData.posts[index].likes
+
           isSendedandrecived = false
           clearInterval(interval)
         }
       }, 500)
     },
     sortingPost() {
-      window.frontendData.wall.posts.sort(function (a, b) {
+      this.owner.posts.sort(function (a, b) {
         if (a.id < b.id) {
           return 1;
         }
@@ -328,40 +341,61 @@ export default {
       });
     },
     sortingComments() {
-      for (const comments of window.frontendData.wall.posts) {
-          comments.comments.sort(function (a, b) {
-            if (a.id < b.id) {
-              return 1;
-            }
-            if (a.id > b.id) {
-              return -1;
-            }
-            return 0;
-          });
+      for (const comments of this.owner.posts) {
+        comments.comments.sort(function (a, b) {
+          if (a.id < b.id) {
+            return 1;
+          }
+          if (a.id > b.id) {
+            return -1;
+          }
+          return 0;
+        });
       }
     }
   },
   mounted() {
-    this.currentUser = window.frontendData.profile
+    axios.get('http://localhost:9000/api/userinfo/wall', {
+      params: {
+        userId: this.id
+      }
+    })
+        .then(function (response) {
+          tempWallData = response.data
 
-    this.wallData = window.frontendData.wall
+          isSendedandrecived = true
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    const interval = setInterval(() => {
+      if (isSendedandrecived) {
+        isSendedandrecived = false
 
-    this.userName = frontendData.wall.owner.name
-    this.userSelfDescription = "Software developer"
-    this.userProfilePhoto = frontendData.wall.owner.userpic
+        this.owner = tempWallData
 
-    if (this.wallData.posts.length > 0) {
-      this.existingPost = true
-      this.sortingPost()
-      this.sortingComments()
-    }
+        this.currentUser = window.frontendData.profile
 
-    for (let i = 0; i < this.wallData.posts.length; i++) {
-      this.expandedArray[i] = false
-      this.commentsText[i] = ''
-    }
+        this.userName = this.owner.owner.name
+        this.userSelfDescription = "Software developer"
+        this.userProfilePhoto = this.owner.owner.userpic
 
-    //TODO добавь валидацию
+        if (this.owner.posts.length > 0) {
+          this.existingPost = true
+          this.sortingPost()
+          this.sortingComments()
+        }
+
+        for (let i = 0; i < this.owner.posts.length; i++) {
+          this.expandedArray[i] = false
+          this.commentsText[i] = ''
+        }
+
+        clearInterval(interval)
+      }
+    }, 200)
+
+    //TODO добавь валидацию + rendering
   }
 }
 </script>
