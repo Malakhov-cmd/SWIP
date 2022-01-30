@@ -110,18 +110,29 @@ create table usr
 );
 create table usr_friend_list
 (
-    usr_friend_list_id varchar(255) not null,
-    friend_list_id     varchar(255) not null
+    usr_friend_list_id varchar(512) not null,
+    friend_list_id     int8         not null
 );
 create table usr_income_friend_list
 (
-    usr_income_friend_list_id       varchar(255) not null,
-    friend_incoming_request_list_id varchar(255) not null
+    usr_income_friend_list_id       varchar(512) not null,
+    friend_incoming_request_list_id int8         not null
 );
 create table usr_outgo_friend_list
 (
-    usr_outgo_friend_list_id        varchar(255) not null,
-    friend_outgoing_request_list_id varchar(255) not null
+    usr_outgo_friend_list_id        varchar(512) not null,
+    friend_outgoing_request_list_id int8         not null
+);
+create table usr_friend
+(
+    id            int8 not null,
+    friend_id     varchar(512),
+    friendemail   varchar(255),
+    friendlocale  varchar(255),
+    friendname    varchar(255),
+    frienduserpic varchar(255),
+    usr_id        varchar(255),
+    primary key (id)
 );
 
 alter table java_chapter_themes_list
@@ -180,27 +191,24 @@ alter table posts_list
     add constraint FK2korod2vk2hgxtmf3lx7w5ftb foreign key (posts_id) references home_wall_posts;
 alter table posts_list
     add constraint FKc4egkad93sxsyxkbdv95qpinx foreign key (posts_list_id) references home_wall;
-/*alter table usr_friend_list
-    drop constraint UK_bg4twtbywjtlllf1rvcv96not;*/
+
 alter table usr_friend_list
     add constraint UK_bg4twtbywjtlllf1rvcv96not unique (friend_list_id);
-/*alter table usr_income_friend_list
-    drop constraint UK_4tsscvmx290pud48d5mbxsl2g;*/
 alter table usr_income_friend_list
     add constraint UK_4tsscvmx290pud48d5mbxsl2g unique (friend_incoming_request_list_id);
-/*alter table usr_outgo_friend_list
-    drop constraint UK_c0mmup4i9qvj11t25k0hd3tic;*/
 alter table usr_outgo_friend_list
     add constraint UK_c0mmup4i9qvj11t25k0hd3tic unique (friend_outgoing_request_list_id);
 alter table usr_friend_list
-    add constraint FKspnqk93q2y6j28ewo9cx2o113 foreign key (friend_list_id) references usr;
+    add constraint FKn2xw2dw92ggide3dekuwyi3bb foreign key (friend_list_id) references usr_friend;
 alter table usr_friend_list
     add constraint FKoenri9gqv7qej7kpli6m0pj1 foreign key (usr_friend_list_id) references usr;
 alter table usr_income_friend_list
-    add constraint FKc4gqe11x093nq44nwmluxhbwo foreign key (friend_incoming_request_list_id) references usr;
+    add constraint FKgfhmit7fdnooc7lg272o0p2sr foreign key (friend_incoming_request_list_id) references usr_friend;
 alter table usr_income_friend_list
     add constraint FK8q14eq5v4r2i0he1rs87sj6w9 foreign key (usr_income_friend_list_id) references usr;
 alter table usr_outgo_friend_list
-    add constraint FKimmms0kya09jo735is778wdjf foreign key (friend_outgoing_request_list_id) references usr;
+    add constraint FKqv0frfb2mihekux97x7w7o0pe foreign key (friend_outgoing_request_list_id) references usr_friend;
 alter table usr_outgo_friend_list
     add constraint FKmpwcq5hqc560614ifxff8idfk foreign key (usr_outgo_friend_list_id) references usr;
+alter table usr_friend
+    add constraint FKpl2q8n8rdqym2j2vv2orb1hh7 foreign key (usr_id) references usr;

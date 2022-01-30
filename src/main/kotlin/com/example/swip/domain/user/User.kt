@@ -1,5 +1,6 @@
-package com.example.swip.domain
+package com.example.swip.domain.user
 
+import com.example.swip.domain.user.typeOfFriends.Friend
 import com.fasterxml.jackson.annotation.JsonFormat
 import lombok.Data
 import java.io.Serializable
@@ -21,17 +22,17 @@ class User : Serializable {
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinTable(name = "usr_friend_list",
             joinColumns = [JoinColumn(name = "usr_friend_list_id")])
-    var friendList: MutableList<User> = mutableListOf()
+    var friendList = mutableListOf<Friend>()
 
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinTable(name = "usr_income_friend_list",
             joinColumns = [JoinColumn(name = "usr_income_friend_list_id")])
-    var friendIncomingRequestList: MutableList<User> = mutableListOf()
+    var friendIncomingRequestList = mutableListOf<Friend>()
 
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinTable(name = "usr_outgo_friend_list",
             joinColumns = [JoinColumn(name = "usr_outgo_friend_list_id")])
-    var friendOutgoingRequestList: MutableList<User> = mutableListOf()
+    var friendOutgoingRequestList = mutableListOf<Friend>()
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     var lastVisit: LocalDateTime? = null

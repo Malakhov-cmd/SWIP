@@ -1,7 +1,7 @@
 package com.example.swip.domain.component
 
 import com.example.swip.domain.Chapter
-import com.example.swip.domain.User
+import com.example.swip.domain.user.User
 
 open class Language {
     open var name: String = ""

@@ -1,6 +1,6 @@
 package com.example.swip.domain.postBoard
 
-import com.example.swip.domain.User
+import com.example.swip.domain.user.User
 import lombok.Data
 import java.io.Serializable
 import javax.persistence.*

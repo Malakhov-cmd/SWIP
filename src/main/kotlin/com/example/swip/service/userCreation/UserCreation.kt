@@ -1,7 +1,7 @@
 package com.example.swip.service.userCreation
 
 import com.example.swip.domain.JavaLanguage
-import com.example.swip.domain.User
+import com.example.swip.domain.user.User
 import com.example.swip.domain.postBoard.HomeWall
 import com.example.swip.repo.*
 import com.example.swip.repo.postBoard.HomeWallRepo
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.security.Principal
 import java.time.LocalDateTime
-import java.util.function.Supplier
 
 @Service
 class UserCreation(
@@ -55,7 +54,7 @@ class UserCreation(
         return UserData(userId, userName, userEmail, userLocale, userPic)
     }
 
-    private fun createAndSaveUser(userDTO: UserData): User{
+    private fun createAndSaveUser(userDTO: UserData): User {
         val user: User = userDetailsRepo.findById(userDTO.userId).orElseGet {
             val newUser = User()
             newUser.id = userDTO.userId

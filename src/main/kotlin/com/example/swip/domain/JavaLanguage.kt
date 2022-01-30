@@ -1,5 +1,6 @@
 package com.example.swip.domain
 
+import com.example.swip.domain.user.User
 import lombok.Data
 import java.io.Serializable
 import javax.persistence.*
