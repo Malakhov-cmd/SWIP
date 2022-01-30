@@ -15,11 +15,13 @@ class FriendFindController(
 ) {
     @GetMapping("/name")
     fun findByName(
-            @RequestParam(required = true) friendName: String,
-    ) = friendFinder.findUserByName(friendName)
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) friendName: String
+    ) = friendFinder.findUserByName(userId, friendName)
 
     @GetMapping("/id")
     fun findBIdy(
-            @RequestParam(required = true) friendId: String,
-    ) = friendFinder.findUserById(friendId)
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) friendId: String
+    ) = friendFinder.findUserById(userId, friendId)
 }

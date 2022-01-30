@@ -251,6 +251,8 @@ export default {
   data() {
     return {
       currentUser: null,
+      profileDataUpdater: null,
+
       nameFeatureFriend: '',
       idFeatureFriend: '',
       findedUser: [],
@@ -269,8 +271,11 @@ export default {
   },
   methods: {
     requestFindFriendByName() {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/find/name', {
         params: {
+          userId: window.frontendData.profile.id,
           friendName: this.nameFeatureFriend
         }
       })
@@ -295,8 +300,11 @@ export default {
       }, 500)
     },
     requestFindFriendById() {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/find/id', {
         params: {
+          userId: window.frontendData.profile.id,
           friendId: this.idFeatureFriend
         }
       })
@@ -309,8 +317,6 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-          console.log(potentialFriend)
-
           this.potentialFriendFinded = potentialFriend
 
           this.filterFriend()
@@ -321,6 +327,8 @@ export default {
       }, 500)
     },
     requestFriendAdding(friendId, index) {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/add', {
         params: {
           userId: window.frontendData.profile.id,
@@ -344,6 +352,8 @@ export default {
       }, 500)
     },
     requestOutgoingDelete(friendId, index) {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/delete', {
         params: {
           userId: window.frontendData.profile.id,
@@ -367,6 +377,8 @@ export default {
       }, 500)
     },
     requestIncomesDelete(friendId, index) {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/delete/from/incomes', {
         params: {
           userId: window.frontendData.profile.id,
@@ -390,6 +402,8 @@ export default {
       }, 500)
     },
     requestIncomesAdd(friendId, index) {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/add/incomes', {
         params: {
           userId: window.frontendData.profile.id,
@@ -413,6 +427,8 @@ export default {
       }, 500)
     },
     requestDeleteExistingFriend(friendId, index) {
+      this.flagsOff()
+
       axios.get('http://localhost:9000/home/friend/delete/from/friendlist', {
         params: {
           userId: window.frontendData.profile.id,
@@ -436,60 +452,72 @@ export default {
       }, 500)
     },
     filterFriend() {
-      let index = 0
+      this.findedUser = []
       for (let i = 0; i < potentialFriend.length; i++) {
-        if (potentialFriend[i].id !== window.frontendData.profile.id) {
-          this.findedUser[index] = potentialFriend[i]
-          index++
-        }
+        this.findedUser[i] = potentialFriend[i]
       }
       this.potentialFriendFinded = this.findedUser.length > 0;
+
+      this.dataUpdate()
     },
     dataUpdate() {
       this.currentUser = window.frontendData.profile
 
-      this.potentialFriendFinded = false
-
       if (this.currentUser.friendIncomingRequestList.length > 0) {
         this.incomeRequest = this.currentUser.friendIncomingRequestList
         this.existIncomingRequest = true
+      } else {
+        this.existIncomingRequest = false
       }
 
       if (this.currentUser.friendOutgoingRequestList.length > 0) {
         this.outGoingRequest = this.currentUser.friendOutgoingRequestList
         this.existingOutgoingRequest = true
+      } else {
+        this.existingOutgoingRequest = false
       }
 
       if (this.currentUser.friendList.length > 0) {
         this.friendList = this.currentUser.friendList
         this.existingAnyFriend = true
+      } else {
+        this.existingAnyFriend = false
       }
+    },
+    flagsOff() {
+      this.potentialFriendFinded = false
+      this.existIncomingRequest = false
+      this.existingOutgoingRequest = false
+      this.existingAnyFriend = false
+
+      this.findedUser = []
+      this.incomeRequest = []
+      this.outGoingRequest = []
+      this.friendList = []
+    },
+    profileDataUpdate() {
+      this.profileDataUpdater = setInterval(() => {
+        axios.get('http://localhost:9000/api/userinfo', {
+          params: {
+            userId: window.frontendData.profile.id
+          }
+        })
+            .then(function (response) {
+              window.frontendData.profile = response.data
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        this.dataUpdate()
+      }, 5000)
     }
   },
   mounted() {
-    /*this.currentUser = window.frontendData.profile
-
-    this.potentialFriendFinded = false
-
-    if (this.currentUser.friendIncomingRequestList.length > 0) {
-      this.incomeRequest = this.currentUser.friendIncomingRequestList
-      this.existIncomingRequest = true
-    }
-
-    if (this.currentUser.friendOutgoingRequestList.length > 0) {
-      this.outGoingRequest = this.currentUser.friendOutgoingRequestList
-      this.existingOutgoingRequest = true
-    }
-
-    if (this.currentUser.friendList.length > 0){
-      this.friendList = this.currentUser.friendList
-      this.existingAnyFriend = true
-    }*/
-
     this.dataUpdate()
+    this.profileDataUpdate()
   },
   beforeDestroy() {
-    this.potentialFriendFinded = false
+    clearInterval(this.profileDataUpdater)
   }
 }
 </script>

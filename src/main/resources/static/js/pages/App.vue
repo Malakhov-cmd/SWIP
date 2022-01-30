@@ -20,19 +20,6 @@ export default {
   },
   components: {
     Started
-  },
-  mounted() {
-    axios.get('http://localhost:9000/api/userinfo', {
-      params: {
-        userId: window.frontendData.profile.id
-      }
-    })
-        .then(function (response) {
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
   }
 }
 </script>

@@ -11,11 +11,55 @@ class FriendFinder(
         @Autowired
         var userDetailsRepo: UserDetailsRepo
 ) {
-    fun findUserByName(friendName: String): MutableList<User> {
-        return userDetailsRepo.findByName(friendName)
+    fun findUserByName(
+            userId: String,
+            friendName: String
+    ) = sorterPotentialFriend(userId, userDetailsRepo.findByName(friendName))
+
+
+    fun findUserById(
+            userId: String,
+            friendId: String
+    ) = sortById(userId, friendId)
+
+
+    private fun sorterPotentialFriend(
+            userId: String,
+            potentialFriends: MutableList<User>
+    ): MutableList<User> {
+        potentialFriends.removeIf {
+            it.id == userId
+        }
+
+        val user = userDetailsRepo.findById(userId).get()
+
+        user.friendList.stream().forEach { friend ->
+            potentialFriends.removeIf {
+                it.id == friend.friendId
+            }
+        }
+
+        user.friendIncomingRequestList.stream().forEach { income ->
+            potentialFriends.removeIf {
+                it.id == income.friendId
+            }
+        }
+
+        user.friendOutgoingRequestList.stream().forEach { outgo ->
+            potentialFriends.removeIf {
+                it.id == outgo.friendId
+            }
+        }
+
+        return potentialFriends
     }
 
-    fun findUserById(friendId: String): Optional<User> {
-        return userDetailsRepo.findById(friendId)
+    private fun sortById(
+            userId: String,
+            friendId: String
+    ): Optional<User>? {
+        if (userId != friendId)
+            return userDetailsRepo.findById(friendId)
+        return null
     }
 }
