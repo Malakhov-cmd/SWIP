@@ -40,6 +40,12 @@ class CommentCreation(
 
         post.comments.add(comment)
 
-        return postRepo.save(post)
+        postRepo.save(post)
+
+        post.comments.sortByDescending {
+            it.id
+        }
+
+        return post
     }
 }

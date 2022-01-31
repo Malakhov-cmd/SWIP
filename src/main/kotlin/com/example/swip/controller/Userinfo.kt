@@ -3,6 +3,7 @@ package com.example.swip.controller
 import com.example.swip.repo.JavaLanguagesRepo
 import com.example.swip.repo.UserDetailsRepo
 import com.example.swip.repo.postBoard.HomeWallRepo
+import com.example.swip.service.api.WallService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
@@ -13,7 +14,7 @@ class Userinfo(
         @Autowired
         var userDetailsRepo: UserDetailsRepo,
         @Autowired
-        var homeWallRepo: HomeWallRepo
+        var homeWallService: WallService
 ) {
     @GetMapping()
     fun addFriend(
@@ -23,5 +24,5 @@ class Userinfo(
     @GetMapping("/wall")
     fun getWallByAuthor(
             @RequestParam(required = true) userId: String
-    ) = homeWallRepo.findByOwner(userDetailsRepo.findById(userId).get())
+    ) = homeWallService.getSortedWall(userId)
 }

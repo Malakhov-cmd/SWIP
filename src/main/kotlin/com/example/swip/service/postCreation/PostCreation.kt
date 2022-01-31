@@ -25,7 +25,6 @@ class PostCreation(
             text: String
     ): HomeWall {
         val author = userDetailsRepo.findById(authorId).get()
-
         val wall = homeWallRepo.findById(wallId).get()
 
         val newPost = Post()
@@ -41,6 +40,10 @@ class PostCreation(
         postRepo.save(newPost)
 
         wall.posts.add(newPost)
-        return homeWallRepo.save(wall)
+        homeWallRepo.save(wall)
+
+        wall.posts.sortByDescending { it.postDate }
+
+        return wall
     }
 }

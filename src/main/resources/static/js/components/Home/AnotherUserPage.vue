@@ -1,8 +1,5 @@
 <template>
   <div class="profile-main">
-
-    <div>Пользователь {{ $route.params.id }}</div>
-
     <div class="profile-header">
       <div class="p-4 p-md-5 mb-4 text-white row neomorphism profile-header-content">
         <div class="profile-header-avatar">
@@ -88,7 +85,8 @@
             <b-form-textarea v-model="postTest" debounce="500" rows="3" max-rows="5"
                              placeholder="Введите текст поста"></b-form-textarea>
           </div>
-          <b-btn class="my-b-btn" v-on:click="requestCreatePost">Создать
+          <b-btn class="my-b-btn" v-on:click="requestCreatePost">
+            Создать
           </b-btn>
         </div>
       </div>
@@ -123,7 +121,8 @@
                 <div class="profile-post-footer-icons-line-likes">
                   <b-btn class="like-button profile-post-footer-icons"
                          v-on:click="requestLike(value.id, index)">
-                    <b-icon-heart-fill font-scale="2"></b-icon-heart-fill> {{value.likes.length}}
+                    <b-icon-heart-fill font-scale="2"></b-icon-heart-fill>
+                    {{ value.likes.length }}
                   </b-btn>
                 </div>
                 <div class="profile-post-footer-icons-line-comments">
@@ -205,6 +204,7 @@ export default {
   data() {
     return {
       owner: null,
+      dataUpdater: null,
 
       userName: "",
       userSelfDescription: "",
@@ -269,12 +269,11 @@ export default {
           this.postTest = ""
 
           this.existingPost = true
-          this.sortingPost()
 
           isSendedandrecived = false
           clearInterval(interval)
         }
-      }, 500)
+      }, 200)
     },
     requestCreateComment(index) {
       axios.get('http://localhost:9000/home/comment/creation', {
@@ -298,12 +297,10 @@ export default {
 
           this.commentsText[index] = ''
 
-          this.sortingComments()
-
           isSendedandrecived = false
           clearInterval(interval)
         }
-      }, 500)
+      }, 200)
     },
     requestLike(postId, index) {
       axios.get('http://localhost:9000/home/post/like', {
@@ -327,31 +324,37 @@ export default {
           isSendedandrecived = false
           clearInterval(interval)
         }
-      }, 500)
+      }, 200)
     },
-    sortingPost() {
-      this.owner.posts.sort(function (a, b) {
-        if (a.id < b.id) {
-          return 1;
-        }
-        if (a.id > b.id) {
-          return -1;
-        }
-        return 0;
-      });
-    },
-    sortingComments() {
-      for (const comments of this.owner.posts) {
-        comments.comments.sort(function (a, b) {
-          if (a.id < b.id) {
-            return 1;
+    dataUpdate() {
+      this.dataUpdater = setInterval(() => {
+        axios.get('http://localhost:9000/api/userinfo/wall', {
+          params: {
+            userId: this.id
           }
-          if (a.id > b.id) {
-            return -1;
+        })
+            .then(function (response) {
+              tempWallData = response.data
+
+              isSendedandrecived = true
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        const interval = setInterval(() => {
+          if (isSendedandrecived) {
+            isSendedandrecived = false
+
+            this.owner = tempWallData
+
+            if (this.owner.posts.length > 0) {
+              this.existingPost = true
+            }
           }
-          return 0;
-        });
-      }
+
+          clearInterval(interval)
+        }, 3000)
+      }, 3000)
     }
   },
   mounted() {
@@ -382,8 +385,6 @@ export default {
 
         if (this.owner.posts.length > 0) {
           this.existingPost = true
-          this.sortingPost()
-          this.sortingComments()
         }
 
         for (let i = 0; i < this.owner.posts.length; i++) {
@@ -395,7 +396,12 @@ export default {
       }
     }, 200)
 
+    this.dataUpdate()
+
     //TODO добавь валидацию + rendering
+  },
+  beforeDestroy() {
+    clearInterval(this.dataUpdater)
   }
 }
 </script>

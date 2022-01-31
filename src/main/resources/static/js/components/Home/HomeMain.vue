@@ -120,7 +120,8 @@
                 <div class="profile-post-footer-icons-line-likes">
                   <b-btn class="like-button profile-post-footer-icons"
                          v-on:click="requestLike(value.id, index)">
-                    <b-icon-heart-fill font-scale="2"></b-icon-heart-fill> {{value.likes.length}}
+                    <b-icon-heart-fill font-scale="2"></b-icon-heart-fill>
+                    {{ value.likes.length }}
                   </b-btn>
                 </div>
                 <div class="profile-post-footer-icons-line-comments">
@@ -209,6 +210,7 @@ export default {
       existingPost: false,
       existingComment: false,
       wallData: {},
+      dataUpdater: null,
       currentUser: null,
 
       commentsText: [],
@@ -253,17 +255,18 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
+          //this.sortingPost()
+
           this.wallData = window.frontendData.wall
           this.postHeader = ""
           this.postTest = ""
 
           this.existingPost = true
-          this.sortingPost()
 
           isSendedandrecived = false
           clearInterval(interval)
         }
-      }, 500)
+      }, 200)
     },
     requestCreateComment(index) {
       axios.get('http://localhost:9000/home/comment/creation', {
@@ -283,16 +286,16 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
+          //this.sortingComments()
+
           this.wallData.posts[index] = window.frontendData.wall.posts[index]
 
           this.commentsText[index] = ''
 
-          this.sortingComments()
-
           isSendedandrecived = false
           clearInterval(interval)
         }
-      }, 500)
+      }, 200)
     },
     requestLike(postId, index) {
       axios.get('http://localhost:9000/home/post/like', {
@@ -311,57 +314,92 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
+          this.wallData.posts[index].likes = window.frontendData.wall.posts[index].likes
+
           isSendedandrecived = false
           clearInterval(interval)
         }
-      }, 500)
+      }, 200)
     },
-    sortingPost() {
-      window.frontendData.wall.posts.sort(function (a, b) {
-        if (a.id < b.id) {
-          return 1;
-        }
-        if (a.id > b.id) {
-          return -1;
-        }
-        return 0;
-      });
-    },
-    sortingComments() {
-      for (const comments of window.frontendData.wall.posts) {
-          comments.comments.sort(function (a, b) {
-            if (a.id < b.id) {
-              return 1;
+    dataUpdate() {
+      this.dataUpdater = setInterval(() => {
+        axios.get('http://localhost:9000/api/userinfo/wall', {
+          params: {
+            userId: window.frontendData.profile.id
+          }
+        })
+            .then(function (response) {
+              window.frontendData.wall = response.data
+
+              isSendedandrecived = true
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        const interval = setInterval(() => {
+          if (isSendedandrecived) {
+            isSendedandrecived = false
+
+            //this.sortingPost()
+            //this.sortingComments()
+
+            this.wallData = window.frontendData.wall
+
+            if (window.frontendData.wall.posts.length > 0) {
+              this.existingPost = true
             }
-            if (a.id > b.id) {
-              return -1;
-            }
-            return 0;
-          });
-      }
+
+            clearInterval(interval)
+          }
+        }, 3000)
+      }, 3000)
     }
   },
   mounted() {
     this.currentUser = window.frontendData.profile
 
-    this.wallData = window.frontendData.wall
-
     this.userName = frontendData.wall.owner.name
     this.userSelfDescription = "Software developer"
     this.userProfilePhoto = frontendData.wall.owner.userpic
 
-    if (this.wallData.posts.length > 0) {
-      this.existingPost = true
-      this.sortingPost()
-      this.sortingComments()
-    }
+      axios.get('http://localhost:9000/api/userinfo/wall', {
+        params: {
+          userId: window.frontendData.profile.id
+        }
+      })
+          .then(function (response) {
+            window.frontendData.wall = response.data
 
-    for (let i = 0; i < this.wallData.posts.length; i++) {
-      this.expandedArray[i] = false
-      this.commentsText[i] = ''
-    }
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          isSendedandrecived = false
+
+          this.wallData = window.frontendData.wall
+
+          if (window.frontendData.wall.posts.length > 0) {
+            this.existingPost = true
+          }
+
+          for (let i = 0; i < this.wallData.posts.length; i++) {
+            this.expandedArray[i] = false
+            this.commentsText[i] = ''
+          }
+
+          clearInterval(interval)
+        }
+      }, 1000)
+
+    this.dataUpdate()
 
     //TODO добавь валидацию
+  },
+  beforeDestroy() {
+    clearInterval(this.dataUpdater)
   }
 }
 </script>
