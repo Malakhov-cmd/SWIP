@@ -146,10 +146,10 @@
                   </div>
                   <div class="profile-post-comment-section">
                     <div class="profile-comments"
-                         v-for="(valueComment, indexComment) in checkCommentExisting(index)? value.comments: null">
+                         v-for="(valueComment) in checkCommentExisting(index)? value.comments: null">
                       <div class="profile-comment-data">
                         <div class="profile-comment-data-my-comment"
-                             v-show="isMyComment(valueComment.authorId)">
+                             v-show="!isMyComment(valueComment.authorId)">
                           <div class="profile-comment-data-my-comment-img-with-message">
                             <img class="profile-comment-data-my-comment-avatar-img"
                                  width="35" height="35"
@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="profile-comment-data-stranger-comment"
-                             v-show="!isMyComment(valueComment.authorId)">
+                             v-show="isMyComment(valueComment.authorId)">
                           <div class="bubble-message theme" :data-time=valueComment.commentDate>
                             {{ valueComment.text }}
                           </div>

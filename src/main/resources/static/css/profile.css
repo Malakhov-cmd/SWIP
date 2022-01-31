@@ -130,12 +130,42 @@
 }
 
 .profile-post-comment-section {
+    max-height: 250px!important;
+    overflow-y: auto;
+
     display: flex;
     width: 100%;
     flex-direction: column;
     margin: 0 auto;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
+}
+
+.profile-post-comment-section::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.profile-post-comment-section::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.profile-post-comment-section::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.profile-post-comment-section::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.profile-post-comment-section::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
 }
 
 .profile-comment-data-my-comment {
