@@ -1,0 +1,94 @@
+.dialog-main{
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+}
+
+.dialog-message-main{
+    min-height: 60vh;
+    overflow-x: auto;
+}
+
+.dialog-input-area{
+    display: flex;
+}
+
+.dialog-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px;
+}
+
+.dialog-info-users{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    overflow-x: auto;
+    max-width: 45vw;
+}
+
+.dialog-info-header{
+    margin-left: 25px;
+}
+
+.dialog-info-header-item-avatar{
+    margin-bottom: 11px;
+}
+
+
+.dialog-info-users::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.dialog-info-users::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.dialog-info-users::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.dialog-info-users::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.dialog-info-users::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
+
+.dialog-message-main::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.dialog-message-main::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.dialog-message-main::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.dialog-message-main::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.dialog-message-main::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}

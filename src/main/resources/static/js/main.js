@@ -9,6 +9,7 @@ import LanguageMain from "./components/Language/LanguageMain.vue";
 import HomeMain from "./components/Home/HomeMain.vue";
 import AnotherUserPage from "./components/Home/AnotherUserPage.vue"
 import MessageMain from "./components/Message/MessageMain.vue";
+import Dialog from "./components/Message/Dialog.vue"
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
 import LoginMain from "./components/Login/LoginMain.vue";
@@ -625,6 +626,7 @@ const routes = [
     {path: '/home', component: HomeMain},
 
     {path: '/page/:id', component: AnotherUserPage},
+    {path: '/dialog/:dialogid/user/:userid', component: Dialog},
 
     /*Java paths*/
     //1 chapter

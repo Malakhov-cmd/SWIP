@@ -193,6 +193,11 @@
                    v-on:click="requestDeleteChat(value.id)">
               <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
             </b-btn>
+            <div class="finded-potential-friend-item-header-name">
+              <router-link :to="/dialog/ + value.id + /user/ + profileData.id">
+                <b-icon-box-arrow-in-down-right font-scale="2"></b-icon-box-arrow-in-down-right>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>

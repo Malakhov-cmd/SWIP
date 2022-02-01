@@ -17,7 +17,7 @@ class Dialog {
     var members: MutableList<Member> = mutableListOf()
 
     @OneToMany(cascade = [CascadeType.ALL])
-    @JoinTable(name = "dialog_message",
-            joinColumns = [JoinColumn(name = "dialog_message_id")])
+    @JoinTable(name = "dialog_messages",
+            joinColumns = [JoinColumn(name = "dialog_messages_id")])
     var messageList: MutableList<Message> = mutableListOf()
 }

@@ -100,12 +100,13 @@ create table posts_list
 );
 create table usr
 (
-    id         varchar(1024) not null,
-    email      varchar(512),
-    last_visit timestamp,
-    locale     varchar(255),
-    name       varchar(1024),
-    userpic    varchar(4096),
+    id               varchar(1024) not null,
+    email            varchar(512),
+    last_visit       timestamp,
+    locale           varchar(255),
+    name             varchar(1024),
+    userpic          varchar(4096),
+    self_description varchar(4096),
     primary key (id)
 );
 create table usr_friend_list
@@ -135,6 +136,7 @@ create table usr_friend
     primary key (id)
 );
 
+
 create table dialog
 (
     id int8 not null,
@@ -145,9 +147,9 @@ create table dialog_member
     id               int8 not null,
     member_id        varchar(512),
     memberemail      varchar(512),
-    memberlocale     varchar(36),
+    memberlocale     varchar(10),
     membername       varchar(512),
-    memberuserpic    varchar(4026),
+    memberuserpic    varchar(4056),
     dialog_member_id int8,
     usr_id           varchar(512),
     primary key (id)
@@ -160,19 +162,23 @@ create table dialog_members
 create table dialog_message
 (
     id                       int8 not null,
-    text                     varchar(4096),
+    text                     varchar(255),
     time_sent                timestamp,
     dialog_message_member_id int8,
     dialog_message_root_id   int8,
-    dialog_message_id        int8 not null,
-    message_list_id          int8 not null,
     primary key (id)
+);
+create table dialog_messages
+(
+    dialog_messages_id int8 not null,
+    message_list_id    int8 not null
 );
 create table usr_dialog_list
 (
     usr_dialog_list_id varchar(255) not null,
     dialog_list_id     int8         not null
 );
+
 alter table java_chapter_themes_list
     add constraint UK_a3ffkpvrr6wghiuwfkxtdi402 unique (list_themes_id);
 alter table java_language_chapters
@@ -250,12 +256,18 @@ alter table usr_outgo_friend_list
 alter table usr_friend
     add constraint FKpl2q8n8rdqym2j2vv2orb1hh7 foreign key (usr_id) references usr;
 
-alter table usr
-    add column self_description varchar(255);
+/*alter table dialog_members
+    drop constraint UK_hdflnchpregquwel7h8g8wgxe;*/
 alter table dialog_members
     add constraint UK_hdflnchpregquwel7h8g8wgxe unique (members_id);
-alter table dialog_message
-    add constraint UK_oh54ckrlbk2luyjslqqukbc21 unique (message_list_id);
+/*alter table dialog_messages
+    drop constraint UK_7t5yibq8hoqqr9n51scipcnia;*/
+alter table dialog_messages
+    add constraint UK_7t5yibq8hoqqr9n51scipcnia unique (message_list_id);
+/*alter table usr_dialog_list
+    drop constraint UK_ne0tns04t8oqj3wgi44wuxrc;*/
+/*alter table usr_dialog_list
+    add constraint UK_ne0tns04t8oqj3wgi44wuxrc unique (dialog_list_id);*/
 alter table dialog_member
     add constraint FK9r2gfmhysrfxs0332uxoxwa18 foreign key (dialog_member_id) references dialog;
 alter table dialog_member
@@ -268,10 +280,10 @@ alter table dialog_message
     add constraint FKsc0asfd5gxoy9lsmmlqqf4oo1 foreign key (dialog_message_member_id) references dialog_member;
 alter table dialog_message
     add constraint FK5a49jw1d8ujdhgedx2r7q6pf8 foreign key (dialog_message_root_id) references dialog;
-alter table dialog_message
-    add constraint FKjrgksmb47xtsjmpu6xhsxaetn foreign key (message_list_id) references dialog_message;
-alter table dialog_message
-    add constraint FK9qdpknm90cbfsi0hkgxd2c3rm foreign key (dialog_message_id) references dialog;
+alter table dialog_messages
+    add constraint FKrh7jsn8lralw5va90ryyts1kp foreign key (message_list_id) references dialog_message;
+alter table dialog_messages
+    add constraint FKbex23apu6bfpvev3v246pcar2 foreign key (dialog_messages_id) references dialog;
 alter table usr_dialog_list
     add constraint FKq9g0f0oil4mdawy363xhsitlp foreign key (dialog_list_id) references dialog;
 alter table usr_dialog_list
