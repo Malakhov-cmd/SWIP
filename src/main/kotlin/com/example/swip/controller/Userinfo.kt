@@ -1,12 +1,12 @@
 package com.example.swip.controller
 
-import com.example.swip.repo.JavaLanguagesRepo
 import com.example.swip.repo.UserDetailsRepo
-import com.example.swip.repo.postBoard.HomeWallRepo
 import com.example.swip.service.api.WallService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.*
-import java.security.Principal
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/userinfo")
