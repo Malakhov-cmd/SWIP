@@ -154,8 +154,49 @@
       </div>
 
     </div>
-    <div class="chats">
+    <div class="chats" v-show="isDialogExist">
+    <div class="chats-iterable"
+         v-for="(value) in isDialogExist? profileData.dialogList: null">
+      <div class="chat neomorphism">
+        <div class="finded-potential-friend-item-header">
+          <div class="finded-potential-friend-item-header-personal-data"
+          v-for="(member, memberIndex) in value.members">
 
+            <div class="chat-member-iterable-variant-a"
+            v-show="value.members.length < 3">
+              <div class="chat-member-iterable"
+                   v-show="member.memberId !== profileData.id">
+                <img class="profile-post-header-author-info-avatar-img"
+                     width="75" height="75"
+                     :src="member.memberuserpic"/>
+                <div class="finded-potential-friend-item-header-name">
+                  <router-link :to="/page/ + member.memberId">{{ member.membername }}</router-link>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-member-iterable-variant-a"
+                 v-show="value.members.length > 3">
+              <div class="chat-member-iterable"
+                   v-show="member.memberId !== profileData.id && memberIndex < 3">
+                <img class="profile-post-header-author-info-avatar-img"
+                     width="75" height="75"
+                     :src="member.memberuserpic"/>
+                <div class="finded-potential-friend-item-header-name">
+                  <router-link :to="/page/ + member.memberId">{{ member.membername }}</router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="finded-potential-friend-item-buttons">
+            <b-btn class="like-button profile-post-footer-icons"
+                   v-on:click="requestDeleteChat(value.id)">
+              <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
+            </b-btn>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </template>
@@ -182,11 +223,15 @@ export default {
     },
     rowsFriendList() {
       return this.myFriends.length
+    },
+    isDialogExist() {
+      return window.frontendData.profile.dialogList.length > 0
     }
   },
   data() {
     return {
       profileData: null,
+      dataUpdater: null,
 
       nameFeatureFriend: '',
       idFeatureFriend: '',
@@ -279,10 +324,64 @@ export default {
         if (isSendedandrecived) {
           this.profileData = window.frontendData.profile
 
+          this.addedToCreationGroupChat = []
+
           isSendedandrecived = false
           clearInterval(interval)
         }
       }, 500)
+    },
+    requestDeleteChat(dialogId) {
+      this.potentialFriendFinded = false
+
+      axios.get('http://localhost:9000/dialog/delete', {
+        params: {
+          userId: window.frontendData.profile.id,
+          dialogId: dialogId
+        }
+      })
+          .then(function (response) {
+            window.frontendData.profile = response.data
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          this.profileData = window.frontendData.profile
+
+          isSendedandrecived = false
+          clearInterval(interval)
+        }
+      }, 500)
+    },
+    dataUpdate() {
+      this.dataUpdater = setInterval(() => {
+        axios.get('http://localhost:9000/api/userinfo', {
+          params: {
+            userId: window.frontendData.profile.id
+          }
+        })
+            .then(function (response) {
+              window.frontendData.profile = response.data
+
+              isSendedandrecived = true
+            })
+            .catch(function (error) {
+              console.log(error);
+            })
+        const interval = setInterval(() => {
+          if (isSendedandrecived) {
+            isSendedandrecived = false
+
+            this.profileData = window.frontendData.profile
+            this.myFriends = window.frontendData.profile.friendList
+
+            clearInterval(interval)
+          }
+        }, 3000)
+      }, 3000)
     },
     addToGroupChatFromSearch(userId) {
       if (this.addedToCreationGroupChat.length > 0) {
@@ -351,6 +450,12 @@ export default {
         clearInterval(interval)
       }
     }, 200)
+
+    this.dataUpdate()
+    //TODO сделать сортировку по последнему сообщению
+  },
+  beforeDestroy() {
+    clearInterval(this.dataUpdater)
   }
 }
 </script>
