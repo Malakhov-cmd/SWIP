@@ -186,8 +186,9 @@
           </div>
         </b-collapse>
       </div>
-
-
+    </div>
+    <div>
+      ДРУЗЬЯ
     </div>
     <div class="my-friend-list" v-show="existingAnyFriend">
       <div class="friend-card" v-for="(value, index) in existingAnyFriend? friendList: null">

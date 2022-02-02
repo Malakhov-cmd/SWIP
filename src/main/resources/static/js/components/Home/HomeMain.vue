@@ -7,11 +7,9 @@
                width="175" height="170"
                :src="userProfilePhoto"/>
         </div>
-        <div class="col-md-6 px-0">
+        <div class="col-md-6 px-0 profile-header-user-txt-info">
           <h1 class="display-4 fst-italic">{{ userName }}</h1>
           <p class="lead my-3 profile-header-description-txt">{{ userSelfDescription }}</p>
-          <p class="lead mb-0 profile-header-description-txt"><a href="#" class="text-white fw-bold">Continue
-            reading...</a></p>
         </div>
       </div>
     </div>
@@ -90,6 +88,10 @@
         </div>
       </div>
 
+      <div class="publication-lable">
+        ПУБЛИКАЦИИ
+      </div>
+
       <div class="profile-main-posts" v-show="existingPost">
         <div class="profile-main-posts-iterable"
              v-for="(value, index) in existingPost? wallData.posts: null">
@@ -112,7 +114,7 @@
                 <p class="profile-post-header-txt">{{ value.header }}</p>
               </div>
               <div class="profile-post-text-area">
-                <p>{{ value.text }}</p>
+                <p class="profile-post-text-area-txt">{{ value.text }}</p>
               </div>
             </div>
             <div class="profile-post-footer">
@@ -359,7 +361,7 @@ export default {
     this.currentUser = window.frontendData.profile
 
     this.userName = frontendData.wall.owner.name
-    this.userSelfDescription = "Software developer"
+    this.userSelfDescription = frontendData.wall.owner.selfDescription
     this.userProfilePhoto = frontendData.wall.owner.userpic
 
       axios.get('http://localhost:9000/api/userinfo/wall', {

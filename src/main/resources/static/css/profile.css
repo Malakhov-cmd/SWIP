@@ -43,7 +43,7 @@
 }
 
 .profile-main-posts {
-    margin-top: 95px;
+    margin-top: 45px;
     padding: 55px;
 }
 
@@ -78,8 +78,34 @@
     margin-bottom: 45px;
 }
 
+.profile-post-text-area-txt {
+    background: #e0e0e0;
+    min-height: 85px;
+    border-radius: 55px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-family: "montserrat", serif;
+    font-size: 18px;
+    padding: 17px;
+}
+
 .profile-post-header-txt {
     text-indent: 0;
+
+    background: #e0e0e0;
+    min-height: 45px;
+    border-radius: 55px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "montserrat", serif;
+    font-size: 18px;
+    padding: 12px;
 }
 
 .profile-post-footer-icons-line {
@@ -94,6 +120,10 @@
 .profile-post-footer-icons:focus {
     background: none;
     border: none;
+}
+
+.publication-lable {
+    margin-top: 35px;
 }
 
 .like-button {
@@ -130,7 +160,7 @@
 }
 
 .profile-post-comment-section {
-    max-height: 250px!important;
+    max-height: 250px !important;
     overflow-y: auto;
 
     display: flex;

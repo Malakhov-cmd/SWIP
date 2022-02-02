@@ -8,6 +8,12 @@
     padding: 35px;
 }
 
+.profile-header-user-txt-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .btn-find-friend-collapsed {
     overflow-anchor: none;
     display: flex;
