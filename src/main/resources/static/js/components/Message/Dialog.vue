@@ -62,11 +62,10 @@
           id="chat-textarea textarea-no-resize"
           rows="3"
           no-resize
-          :state="messageText.length >= 1"
           v-model="messageText"
       ></b-form-textarea>
       <b-btn class="like-button profile-post-footer-icons"
-             v-on:click="sendMessage()">
+             v-on:click="sendMessage()" onclick="this.blur()">
         <b-icon-arrow-right-circle-fill font-scale="3"></b-icon-arrow-right-circle-fill>
       </b-btn>
     </div>
@@ -123,17 +122,24 @@ export default {
         if (isSendedandrecived) {
           isSendedandrecived = false
 
+          this.messageText = ""
+
           this.profileData = window.frontendData.profile
 
           for (let i = 0; i < this.profileData.dialogList.length; i++) {
-            if (this.profileData.dialogList[i].id == this.chatId){
+            if (this.profileData.dialogList[i].id == this.chatId) {
               this.dialogData = this.profileData.dialogList[i]
             }
           }
 
+          this.sorting()
+          this.scroll()
+
           clearInterval(interval)
         }
-      }, 200)
+      }, 100)
+
+
     },
     dataUpdate() {
       this.dataUpdater = setInterval(() => {
@@ -152,23 +158,47 @@ export default {
             })
         const interval = setInterval(() => {
           if (isSendedandrecived) {
-            isSendedandrecived = false
-
             this.profileData = window.frontendData.profile
 
             for (let i = 0; i < this.profileData.dialogList.length; i++) {
-              if (this.profileData.dialogList[i].id == this.chatId){
+              if (this.profileData.dialogList[i].id == this.chatId) {
                 this.dialogData = this.profileData.dialogList[i]
               }
             }
 
+            this.sorting()
+
+            isSendedandrecived = false
+
             clearInterval(interval)
           }
-        }, 3000)
-      }, 3000)
+        }, 1000)
+      }, 1000)
     },
     isMyMessage(messageAuthorId) {
       return messageAuthorId === this.profileData.id
+    },
+    sorting() {
+      this.dialogData.messageList.sort(function (a, b) {
+        if (a.id > b.id) {
+          return 1;
+        }
+        if (a.id < b.id) {
+          return -1;
+        }
+        return 0;
+      });
+    },
+    scroll() {
+      let container = document.getElementsByClassName('dialog-message-main').item(0)
+
+      let containerHeight = container.scrollHeight
+      let isChanged = setInterval(() => {
+        if (containerHeight !== container.clientHeight){
+          container.scrollTop = container.scrollHeight
+          clearInterval(isChanged)
+        }
+      }, 10)
     }
   },
   mounted() {
@@ -192,14 +222,17 @@ export default {
         this.profileData = window.frontendData.profile
 
         for (let i = 0; i < this.profileData.dialogList.length; i++) {
-          if (this.profileData.dialogList[i].id == this.chatId){
+          if (this.profileData.dialogList[i].id == this.chatId) {
             this.dialogData = this.profileData.dialogList[i]
           }
         }
 
+        this.sorting()
+        this.scroll()
+
         clearInterval(interval)
       }
-    }, 200)
+    }, 100)
 
     this.dataUpdate()
   },
