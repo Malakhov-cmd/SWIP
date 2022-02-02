@@ -42,6 +42,34 @@
     margin-bottom: 11px;
 }
 
+.chat-member-iterable{
+    margin-left: 25px;
+}
+
+.chats-member-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.chat-member-users-name{
+    text-indent: 0;
+}
+
+.last-message-in-chat-p-text{
+    text-indent: 0;
+}
+
+.profile-post-header-author-info-avatar-img{
+    margin-bottom: 7px;
+}
+
+.finded-potential-friend-item-buttons-go-delete{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .dialog-info-users::-webkit-scrollbar {
     width: 7px;

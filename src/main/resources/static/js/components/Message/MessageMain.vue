@@ -87,10 +87,10 @@
               <div class="dialog-finded-user-added-list">
                 <b-btn class="my-b-btn"
                        v-on:click="requestCreateChat()">
-                  Создать чат <b-badge variant="light">{{addedToCreationGroupChat.length}}</b-badge>
+                  Создать чат
+                  <b-badge variant="light">{{ addedToCreationGroupChat.length }}</b-badge>
                 </b-btn>
               </div>
-
             </div>
           </b-collapse>
         </div>
@@ -146,7 +146,8 @@
             <div class="dialog-finded-user-added-list">
               <b-btn class="my-b-btn"
                      v-on:click="requestCreateChat()">
-                Создать чат <b-badge variant="light">{{addedToCreationGroupChat.length}}</b-badge>
+                Создать чат
+                <b-badge variant="light">{{ addedToCreationGroupChat.length }}</b-badge>
               </b-btn>
             </div>
           </b-collapse>
@@ -154,54 +155,75 @@
       </div>
 
     </div>
-    <div class="chats" v-show="isDialogExist">
-    <div class="chats-iterable"
-         v-for="(value) in isDialogExist? profileData.dialogList: null">
-      <div class="chat neomorphism">
-        <div class="finded-potential-friend-item-header">
-          <div class="finded-potential-friend-item-header-personal-data"
-          v-for="(member, memberIndex) in value.members">
+    <div class="chats" v-if="profileData !== null">
+      <div class="chats-iterable"
+           v-for="(value) in isDialogExist? profileData.dialogList: null">
+        <div class="chat neomorphism">
+          <div class="finded-potential-friend-item-header">
+            <div class="chats-member-list">
+              <div class="finded-potential-friend-item-header-personal-data"
+                   v-for="(member, memberIndex) in value.members">
 
-            <div class="chat-member-iterable-variant-a"
-            v-show="value.members.length < 3">
-              <div class="chat-member-iterable"
-                   v-show="member.memberId !== profileData.id">
-                <img class="profile-post-header-author-info-avatar-img"
-                     width="75" height="75"
-                     :src="member.memberuserpic"/>
-                <div class="finded-potential-friend-item-header-name">
-                  <router-link :to="/page/ + member.memberId">{{ member.membername }}</router-link>
+                <div class="chat-member-iterable-variant-a"
+                     v-if="value.members.length < 3 && member.memberId !== profileData.id">
+                  <div class="chat-member-iterable"
+                  >
+                    <router-link :to="/page/ + member.memberId">
+                      <img class="profile-post-header-author-info-avatar-img"
+                           width="75" height="75"
+                           :src="member.memberuserpic"/>
+                      <div class="finded-potential-friend-item-header-name">
+                        <p class="chat-member-users-name">
+                          {{ member.membername }}
+                        </p>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+
+                <div class="chat-member-iterable-variant-a"
+                     v-show="value.members.length > 3">
+                  <div class="chat-member-iterable"
+                       v-if="member.memberId !== profileData.id && memberIndex < 3">
+                    <router-link :to="/page/ + member.memberId">
+                      <img class="profile-post-header-author-info-avatar-img"
+                           width="75" height="75"
+                           :src="member.memberuserpic"/>
+                      <div class="finded-potential-friend-item-header-name">
+                        <p class="chat-member-users-name">
+                          {{ member.membername }}
+                        </p>
+                      </div>
+                    </router-link>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="chat-member-iterable-variant-a"
-                 v-show="value.members.length > 3">
-              <div class="chat-member-iterable"
-                   v-show="member.memberId !== profileData.id && memberIndex < 3">
-                <img class="profile-post-header-author-info-avatar-img"
-                     width="75" height="75"
-                     :src="member.memberuserpic"/>
-                <div class="finded-potential-friend-item-header-name">
-                  <router-link :to="/page/ + member.memberId">{{ member.membername }}</router-link>
-                </div>
+            <div class="last-message-in-chat">
+              <div v-if="value.messageList.length > 0">
+                <p class="last-message-in-chat-p-text">{{value.messageList[0].text}}</p>
+                <p class="last-message-in-chat-p-text">{{value.messageList[0].timeSent}}</p>
+              </div>
+              <div v-if="value.messageList.length < 1">
+                <p class="last-message-in-chat-p-text">Здесь пока нет сообщений</p>
               </div>
             </div>
-          </div>
-          <div class="finded-potential-friend-item-buttons">
-            <b-btn class="like-button profile-post-footer-icons"
-                   v-on:click="requestDeleteChat(value.id)">
-              <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
-            </b-btn>
-            <div class="finded-potential-friend-item-header-name">
-              <router-link :to="/dialog/ + value.id + /user/ + profileData.id">
-                <b-icon-box-arrow-in-down-right font-scale="2"></b-icon-box-arrow-in-down-right>
-              </router-link>
+
+            <div class="finded-potential-friend-item-buttons-go-delete">
+              <b-btn class="like-button profile-post-footer-icons"
+                     v-on:click="requestDeleteChat(value.id)">
+                <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
+              </b-btn>
+              <div class="finded-potential-friend-item-header-name">
+                <router-link :to="/dialog/ + value.id + /user/ + profileData.id">
+                  <b-icon-box-arrow-in-down-right font-scale="2"></b-icon-box-arrow-in-down-right>
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -268,8 +290,6 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-          console.log(potentialFriend)
-
           this.findedUser = potentialFriend
 
           if (this.findedUser.length > 0) {
@@ -329,6 +349,8 @@ export default {
         if (isSendedandrecived) {
           this.profileData = window.frontendData.profile
 
+          this.sorting()
+
           this.addedToCreationGroupChat = []
 
           isSendedandrecived = false
@@ -383,6 +405,8 @@ export default {
             this.profileData = window.frontendData.profile
             this.myFriends = window.frontendData.profile.friendList
 
+            this.sorting()
+
             clearInterval(interval)
           }
         }, 3000)
@@ -399,7 +423,7 @@ export default {
       let counter = 0
 
       for (let i = 0; i < this.findedUser.length; i++) {
-        if (this.findedUser[i].id !== userId){
+        if (this.findedUser[i].id !== userId) {
           tmpFindedUser[counter] = this.findedUser[i]
           counter++
         }
@@ -420,7 +444,7 @@ export default {
       let counter = 0
 
       for (let i = 0; i < this.myFriends.length; i++) {
-        if (this.myFriends[i].friendId !== userId){
+        if (this.myFriends[i].friendId !== userId) {
           tmpFindedUser[counter] = this.myFriends[i]
           counter++
         }
@@ -429,6 +453,37 @@ export default {
       this.myFriends = tmpFindedUser
 
       console.log(this.addedToCreationGroupChat)
+    },
+    sorting() {
+      this.profileData.dialogList.forEach(
+          function(item) {
+            item.messageList.sort(function (a,b){
+              if (a.id < b.id) {
+                return 1;
+              }
+              if (a.id > b.id) {
+                return -1;
+              }
+              return 0;
+            })
+          }
+      )
+
+      this.profileData.dialogList.sort(function (a, b) {
+        if (a.messageList.length === 0){
+          return 1;
+        }
+        if (b.messageList.length === 0){
+          return -1;
+        }
+        if (a.messageList[0].id < b.messageList[0].id ) {
+          return 1;
+        }
+        if (a.messageList[0].id  > b.messageList[0].id ) {
+          return -1;
+        }
+        return 0;
+      });
     }
   },
   mounted() {
@@ -452,12 +507,13 @@ export default {
         this.profileData = window.frontendData.profile
         this.myFriends = window.frontendData.profile.friendList
 
+        this.sorting()
+
         clearInterval(interval)
       }
     }, 200)
 
     this.dataUpdate()
-    //TODO сделать сортировку по последнему сообщению
   },
   beforeDestroy() {
     clearInterval(this.dataUpdater)

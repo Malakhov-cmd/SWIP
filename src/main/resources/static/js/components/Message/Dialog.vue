@@ -1,9 +1,9 @@
 <template>
   <div class="dialog-main">
-    <div class="dialog-info neomorphism" v-show="dialogData != null">
+    <div class="dialog-info neomorphism" v-if="dialogData != null">
       <div class="dialog-info-users">
         <div class="dialog-info-header"
-             v-for="(value, index) in dialogData.members">
+             v-for="(value) in dialogData.members">
           <div class="member-info-iterable" v-show="value.memberId !== profileData.id">
             <router-link :to="/page/ + value.memberId">
               <div class="dialog-info-header-item">
@@ -22,7 +22,7 @@
         Участников {{ dialogData.members.length }}
       </div>
     </div>
-    <div class="dialog-message-main">
+    <div class="dialog-message-main" v-if="profileData !== null">
       <div class="profile-comments"
            v-for="(valueMessage) in dialogData.messageList">
         <div class="profile-comment-data">
