@@ -67,7 +67,7 @@
                   <div class="finded-potential-friend-item-buttons">
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestFriendAdding(value.id, index)">
-                      <b-icon-plus-square-fill font-scale="2"></b-icon-plus-square-fill>
+                      <b-icon-person-plus-fill font-scale="2"></b-icon-person-plus-fill>
                     </b-btn>
                   </div>
                 </div>
@@ -112,11 +112,11 @@
                   <div class="finded-potential-friend-item-buttons">
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestIncomesAdd(value.friendId, index)">
-                      <b-icon-plus-square-fill font-scale="2"></b-icon-plus-square-fill>
+                      <b-icon-person-plus-fill font-scale="2"></b-icon-person-plus-fill>
                     </b-btn>
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestIncomesDelete(value.friendId, index)">
-                      <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
+                      <b-icon-person-dash-fill font-scale="2"></b-icon-person-dash-fill>
                     </b-btn>
                   </div>
                 </div>
@@ -164,7 +164,7 @@
                   <div class="finded-potential-friend-item-buttons">
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestOutgoingDelete(value.friendId, index)">
-                      <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
+                      <b-icon-person-dash-fill font-scale="2"></b-icon-person-dash-fill>
                     </b-btn>
                   </div>
                 </div>
@@ -193,18 +193,25 @@
       <div class="friend-card" v-for="(value, index) in existingAnyFriend? friendList: null">
         <div class="finded-potential-friend-item neomorphism">
           <div class="finded-potential-friend-item-header">
-            <div class="finded-potential-friend-item-header-personal-data">
-              <img class="profile-post-header-author-info-avatar-img"
-                   width="75" height="75"
-                   :src="value.frienduserpic"/>
-              <div class="finded-potential-friend-item-header-name">
-                <router-link :to="/page/ + value.friendId">{{ value.friendname }}</router-link>
-              </div>
+            <div class="finded-potential-friend-item-header-personal-data-controll">
+              <router-link :to="/page/ + value.friendId">
+                <div class="finded-potential-friend-item-header-personal-data">
+                  <img class="profile-post-header-author-info-avatar-img"
+                       width="75" height="75"
+                       :src="value.frienduserpic"/>
+                  <div class="finded-potential-friend-item-header-name">
+                    <p>
+                      {{ value.friendname }}
+                    </p>
+                  </div>
+                </div>
+              </router-link>
             </div>
+
             <div class="finded-potential-friend-item-buttons">
               <b-btn class="like-button profile-post-footer-icons"
                      v-on:click="requestDeleteExistingFriend(value.friendId, index)">
-                <b-icon-file-excel-fill font-scale="2"></b-icon-file-excel-fill>
+                <b-icon-person-x-fill font-scale="2"></b-icon-person-x-fill>
               </b-btn>
             </div>
           </div>
@@ -423,7 +430,7 @@ export default {
         }
       }, 500)
     },
-    requestDeleteExistingFriend(friendId, index) {
+    requestDeleteExistingFriend(friendId) {
       this.flagsOff()
 
       axios.get('http://localhost:9000/home/friend/delete/from/friendlist', {
@@ -506,7 +513,7 @@ export default {
               console.log(error);
             })
         this.dataUpdate()
-      }, 5000)
+      }, 3000)
     }
   },
   mounted() {
