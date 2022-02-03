@@ -9,7 +9,6 @@ import com.example.swip.repo.postBoard.CommentRepo
 import com.example.swip.repo.postBoard.HomeWallRepo
 import com.example.swip.repo.postBoard.PostRepo
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.security.web.util.matcher.RequestMatcher
 import org.springframework.stereotype.Service
 
 @Service

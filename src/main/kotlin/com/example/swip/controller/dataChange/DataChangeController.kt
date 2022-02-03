@@ -1,5 +1,6 @@
 package com.example.swip.controller.dataChange
 
+import com.example.swip.service.dataChange.DataChangeSelfDescriptionService
 import com.example.swip.service.dataChange.DataChangeService
 import com.example.swip.service.dataChange.DataChangerImgService
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/data/change")
 class DataChangeController(
+        @Autowired
         var dataChangeService: DataChangeService,
         @Autowired
-        var dataChangerImgService: DataChangerImgService
+        var dataChangerImgService: DataChangerImgService,
+        @Autowired
+        var dataChangeSelfDescriptionService: DataChangeSelfDescriptionService
 ) {
     @GetMapping("/name")
     fun changeName(
@@ -26,4 +30,10 @@ class DataChangeController(
             @RequestParam(required = true) userId: String,
             @RequestParam(required = true) newIngLink: String
     ) = dataChangerImgService.changeImg(userId, newIngLink)
+
+    @GetMapping("/self/description")
+    fun changeSelfDescription(
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true)  newDescription: String
+    ) = dataChangeSelfDescriptionService.changeDescription(userId,  newDescription)
 }
