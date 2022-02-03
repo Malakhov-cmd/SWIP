@@ -1,4 +1,4 @@
-package com.example.swip.service.api
+package com.example.swip.service.dataChange
 
 import com.example.swip.domain.user.User
 import com.example.swip.repo.FriendRepo
