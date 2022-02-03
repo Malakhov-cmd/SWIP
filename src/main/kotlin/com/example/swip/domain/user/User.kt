@@ -23,8 +23,6 @@ class User : Serializable {
     var selfDescription: String = "Software developer"
 
     var gitLink: String = ""
-    var vkLink: String = ""
-    var telegramLink: String = ""
     var instagramLink: String = ""
     var faceBookLink: String = ""
 

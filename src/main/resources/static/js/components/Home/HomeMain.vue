@@ -10,6 +10,17 @@
         <div class="col-md-6 px-0 profile-header-user-txt-info">
           <h1 class="display-4 fst-italic">{{ userName }}</h1>
           <p class="lead my-3 profile-header-description-txt">{{ userSelfDescription }}</p>
+          <div class="profile-social-links">
+            <div v-if="userGitLink !== ''" class="profile-social-link profile-social-links-git">
+              <a :href="userGitLink"><b-icon-github font-scale="2"></b-icon-github> {{userGitLink}}</a>
+            </div>
+            <div v-if="userInstaLink !== ''" class="profile-social-link profile-social-links-insta">
+              <a :href="userInstaLink"><b-icon-instagram font-scale="2"></b-icon-instagram> {{userInstaLink}}</a>
+            </div>
+            <div v-if="userFacebookLink !== ''" class="profile-social-link profile-social-links-facebook">
+              <a :href="userFacebookLink"><b-icon-facebook font-scale="2"></b-icon-facebook> {{userFacebookLink}}</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -88,11 +99,11 @@
         </div>
       </div>
 
-      <div class="publication-lable">
-        ПУБЛИКАЦИИ
-      </div>
-
       <div class="profile-main-posts" v-show="existingPost">
+        <div class="publication-lable">
+          ПУБЛИКАЦИИ
+        </div>
+
         <div class="profile-main-posts-iterable"
              v-for="(value, index) in existingPost? wallData.posts: null">
           <div class="profile-post neomorphism">
@@ -205,6 +216,11 @@ export default {
       userName: "",
       userSelfDescription: "",
       userProfilePhoto: "",
+
+      userGitLink: "",
+      userInstaLink: "",
+      userFacebookLink: "",
+
       slide: 0,
       sliding: null,
       postTest: '',
@@ -342,9 +358,6 @@ export default {
           if (isSendedandrecived) {
             isSendedandrecived = false
 
-            //this.sortingPost()
-            //this.sortingComments()
-
             this.wallData = window.frontendData.wall
 
             if (window.frontendData.wall.posts.length > 0) {
@@ -354,6 +367,10 @@ export default {
             this.userName = frontendData.wall.owner.name
             this.userSelfDescription = frontendData.wall.owner.selfDescription
             this.userProfilePhoto = frontendData.wall.owner.userpic
+
+            this.userGitLink = frontendData.wall.owner.gitLink
+            this.userInstaLink = frontendData.wall.owner.instagramLink
+            this.userFacebookLink = frontendData.wall.owner.faceBookLink
 
             clearInterval(interval)
           }
@@ -368,37 +385,41 @@ export default {
     this.userSelfDescription = frontendData.wall.owner.selfDescription
     this.userProfilePhoto = frontendData.wall.owner.userpic
 
-      axios.get('http://localhost:9000/api/userinfo/wall', {
-        params: {
-          userId: window.frontendData.profile.id
+    this.userGitLink = frontendData.wall.owner.gitLink
+    this.userInstaLink = frontendData.wall.owner.instagramLink
+    this.userFacebookLink = frontendData.wall.owner.faceBookLink
+
+    axios.get('http://localhost:9000/api/userinfo/wall', {
+      params: {
+        userId: window.frontendData.profile.id
+      }
+    })
+        .then(function (response) {
+          window.frontendData.wall = response.data
+
+          isSendedandrecived = true
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    const interval = setInterval(() => {
+      if (isSendedandrecived) {
+        isSendedandrecived = false
+
+        this.wallData = window.frontendData.wall
+
+        if (window.frontendData.wall.posts.length > 0) {
+          this.existingPost = true
         }
-      })
-          .then(function (response) {
-            window.frontendData.wall = response.data
 
-            isSendedandrecived = true
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-      const interval = setInterval(() => {
-        if (isSendedandrecived) {
-          isSendedandrecived = false
-
-          this.wallData = window.frontendData.wall
-
-          if (window.frontendData.wall.posts.length > 0) {
-            this.existingPost = true
-          }
-
-          for (let i = 0; i < this.wallData.posts.length; i++) {
-            this.expandedArray[i] = false
-            this.commentsText[i] = ''
-          }
-
-          clearInterval(interval)
+        for (let i = 0; i < this.wallData.posts.length; i++) {
+          this.expandedArray[i] = false
+          this.commentsText[i] = ''
         }
-      }, 1000)
+
+        clearInterval(interval)
+      }
+    }, 1000)
 
     this.dataUpdate()
 

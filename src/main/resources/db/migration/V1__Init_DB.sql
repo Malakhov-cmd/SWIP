@@ -108,8 +108,6 @@ create table usr
     userpic          varchar(5256),
     self_description varchar(4096),
     git_link         varchar(2056),
-    vk_link          varchar(2056),
-    telegram_link    varchar(2056),
     instagram_link   varchar(2056),
     face_book_link    varchar(2056),
     primary key (id)

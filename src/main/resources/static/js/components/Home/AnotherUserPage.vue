@@ -10,6 +10,17 @@
         <div class="col-md-6 px-0 profile-header-user-txt-info">
           <h1 class="display-4 fst-italic">{{ userName }}</h1>
           <p class="lead my-3 profile-header-description-txt">{{ userSelfDescription }}</p>
+          <div class="profile-social-links">
+            <div v-if="userGitLink !== ''" class="profile-social-link profile-social-links-git">
+              <a :href="userGitLink"><b-icon-github font-scale="2"></b-icon-github> {{userGitLink}}</a>
+            </div>
+            <div v-if="userInstaLink !== ''" class="profile-social-link profile-social-links-insta">
+              <a :href="userInstaLink"><b-icon-instagram font-scale="2"></b-icon-instagram> {{userInstaLink}}</a>
+            </div>
+            <div v-if="userFacebookLink !== ''" class="profile-social-link profile-social-links-facebook">
+              <a :href="userFacebookLink"><b-icon-facebook font-scale="2"></b-icon-facebook> {{userFacebookLink}}</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -89,11 +100,11 @@
         </div>
       </div>
 
-      <div class="publication-lable">
-        ПУБЛИКАЦИИ
-      </div>
-
       <div class="profile-main-posts" v-show="existingPost">
+        <div class="publication-lable">
+          ПУБЛИКАЦИИ
+        </div>
+
         <div class="profile-main-posts-iterable"
              v-for="(value, index) in existingPost? owner.posts: null">
           <div class="profile-post neomorphism">
@@ -211,6 +222,11 @@ export default {
       userName: "",
       userSelfDescription: "",
       userProfilePhoto: "",
+
+      userGitLink: "",
+      userInstaLink: "",
+      userFacebookLink: "",
+
       slide: 0,
       sliding: null,
       postTest: '',
@@ -358,6 +374,10 @@ export default {
           this.userSelfDescription = this.owner.owner.selfDescription
           this.userProfilePhoto = this.owner.owner.userpic
 
+          this.userGitLink = this.owner.owner.gitLink
+          this.userInstaLink = this.owner.owner.instagramLink
+          this.userFacebookLink = this.owner.owner.faceBookLink
+
           clearInterval(interval)
         }, 3000)
       }, 3000)
@@ -388,6 +408,10 @@ export default {
         this.userName = this.owner.owner.name
         this.userSelfDescription = this.owner.owner.selfDescription
         this.userProfilePhoto = this.owner.owner.userpic
+
+        this.userGitLink = this.owner.owner.gitLink
+        this.userInstaLink = this.owner.owner.instagramLink
+        this.userFacebookLink = this.owner.owner.faceBookLink
 
         if (this.owner.posts.length > 0) {
           this.existingPost = true

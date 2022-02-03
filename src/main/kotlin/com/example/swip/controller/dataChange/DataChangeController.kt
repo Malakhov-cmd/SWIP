@@ -34,6 +34,24 @@ class DataChangeController(
     @GetMapping("/self/description")
     fun changeSelfDescription(
             @RequestParam(required = true) userId: String,
-            @RequestParam(required = true)  newDescription: String
-    ) = dataChangeSelfDescriptionService.changeDescription(userId,  newDescription)
+            @RequestParam(required = true) newDescription: String
+    ) = dataChangeSelfDescriptionService.changeDescription(userId, newDescription)
+
+    @GetMapping("/git")
+    fun changeGit(
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) newGitLink: String
+    ) = dataChangeSelfDescriptionService.changeGitLink(userId, newGitLink)
+
+    @GetMapping("/insta")
+    fun changeInsta(
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) newInstaLink: String
+    ) = dataChangeSelfDescriptionService.changeInstaLink(userId, newInstaLink)
+
+    @GetMapping("/facebook")
+    fun changeFacebook(
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) newFaceBookLink: String
+    ) = dataChangeSelfDescriptionService.changeFaceBookLink(userId, newFaceBookLink)
 }

@@ -5,7 +5,7 @@
         Изменение ваших данных
       </p>
     </div>
-    <div class="settings-change">
+    <div class="settings-change neomorphism">
       <div>
         <b-input-group
             class="mb-3"
@@ -15,7 +15,8 @@
                         :state="checkCorrectName"></b-form-input>
           <b-input-group-append>
             <b-button text="Изменить" v-on:click="changeName"
-                      :disabled="!checkCorrectName">Изменить</b-button>
+                      :disabled="!checkCorrectName">Изменить
+            </b-button>
           </b-input-group-append>
         </b-input-group>
       </div>
@@ -29,7 +30,8 @@
                         :state="checkCorrectLink"></b-form-input>
           <b-input-group-append>
             <b-button text="Изменить" v-on:click="changeLink"
-                      :disabled="!checkCorrectLink">Изменить</b-button>
+                      :disabled="!checkCorrectLink">Изменить
+            </b-button>
           </b-input-group-append>
         </b-input-group>
       </div>
@@ -43,14 +45,90 @@
                         :state="checkCorrectSelfDescription"></b-form-input>
           <b-input-group-append>
             <b-button text="Изменить" v-on:click="changeSelfDescription"
-                      :disabled="!checkCorrectSelfDescription">Изменить</b-button>
+                      :disabled="!checkCorrectSelfDescription">Изменить
+            </b-button>
+          </b-input-group-append>
+        </b-input-group>
+      </div>
+    </div>
+
+    <div class="setting-social-links neomorphism">
+      <div>
+        <b-input-group class="mb-3">
+          <div class="settings-social-links-icon">
+            <b-icon-github font-scale="2"></b-icon-github>
+          </div>
+          <b-form-input v-model="gitLinkInputed"
+                        :state="checkCorrectGitLink"></b-form-input>
+          <b-input-group-append>
+            <b-button text="Изменить" v-on:click="changeGitLink"
+                      :disabled="!checkCorrectGitLink">
+              Изменить
+            </b-button>
+          </b-input-group-append>
+        </b-input-group>
+      </div>
+
+      <div>
+        <b-input-group class="mb-3">
+          <div class="settings-social-links-icon">
+            <b-icon-instagram font-scale="2"></b-icon-instagram>
+          </div>
+          <b-form-input v-model="instagramLinlInputed"
+                        :state="checkCorrectInstagramLink"></b-form-input>
+          <b-input-group-append>
+            <b-button text="Изменить" v-on:click="changeInstaLink"
+                      :disabled="!checkCorrectInstagramLink">
+              Изменить
+            </b-button>
+          </b-input-group-append>
+        </b-input-group>
+      </div>
+
+      <div>
+        <b-input-group class="mb-3">
+          <div class="settings-social-links-icon">
+            <b-icon-facebook font-scale="2"></b-icon-facebook>
+          </div>
+          <b-form-input v-model="faceBookLinkInputed"
+                        :state="checkCorrectFacebookLink"></b-form-input>
+          <b-input-group-append>
+            <b-button text="Изменить" v-on:click="changeFacebookLink"
+                      :disabled="!checkCorrectFacebookLink">
+              Изменить
+            </b-button>
           </b-input-group-append>
         </b-input-group>
       </div>
     </div>
 
     <div class="settings-privat-info">
+      <div class="personal-data neomorphism">
+        <b-card
+            class="personal-data-card-main"
+            overlay
+            img-src="https://i.imgur.com/l5YPsNf.jpg"
+            img-alt="Card Image"
+            img-class="personal-data-card-main-img"
+            text-variant="white"
+            title="Ваши персональные данные"
+            sub-title="останутся только с вами"
+        >
+          <div class="card-include-info" v-if="profileData !== null">
+            <p>id: {{profileData.id}}</p>
+            <p>имя: {{profileData.name}}</p>
+            <p>email: {{profileData.email}}</p>
+            <p>locale: {{profileData.locale}}</p>
+            <p>avatar: {{profileData.userpic}}</p>
+            <p>описание: {{profileData.selfDescription}}</p>
 
+            <p>git: {{gitDisplaying}}</p>
+            <p>instagram: {{instaDisplaying}}</p>
+            <p>facebook: {{facebookDisplaying}}</p>
+          </div>
+
+        </b-card>
+      </div>
     </div>
   </div>
 </template>
@@ -69,8 +147,26 @@ export default {
     checkCorrectLink() {
       return this.linkToPictureInputed.length > 10 && this.linkToPictureInputed.length < 4000
     },
-    checkCorrectSelfDescription(){
+    checkCorrectSelfDescription() {
       return this.aboutSelfInputed.length > 4 && this.aboutSelfInputed.length < 4000
+    },
+    checkCorrectGitLink() {
+      return this.gitLinkInputed.length > 5 && this.gitLinkInputed.length < 1000
+    },
+    checkCorrectInstagramLink() {
+      return this.instagramLinlInputed.length > 5 && this.instagramLinlInputed.length < 1000
+    },
+    checkCorrectFacebookLink() {
+      return this.faceBookLinkInputed.length > 5 && this.faceBookLinkInputed.length < 1000
+    },
+    gitDisplaying(){
+      return this.profileData.gitLink === ""? 'Отсутствует': this.profileData.gitLink
+    },
+    instaDisplaying(){
+      return this.profileData.instagramLink === ""? 'Отсутствует': this.profileData.instagramLink
+    },
+    facebookDisplaying(){
+      return this.profileData.faceBookLink === ""? 'Отсутствует': this.profileData.faceBookLink
     }
   },
   data() {
@@ -80,7 +176,11 @@ export default {
 
       newNameInputed: "",
       linkToPictureInputed: "",
-      aboutSelfInputed: ""
+      aboutSelfInputed: "",
+
+      gitLinkInputed: "",
+      instagramLinlInputed: "",
+      faceBookLinkInputed: ""
     }
   },
   methods: {
@@ -216,6 +316,168 @@ export default {
 
             this.profileData = window.frontendData.profile
             this.aboutSelfInputed = ""
+
+            this.$toasted.success("Данные успешно изменены", {
+              theme: "toasted-primary",
+              position: 'top-right',
+              duration: 5000,
+              fullWidth: false,
+              action: {
+                text: 'Cancel',
+                onClick: (e, toastObject) => {
+                  toastObject.goAway(0);
+                }
+              },
+            })
+          } else {
+            this.$toasted.error("Данные не изменены, убедитесь в корректности заполнения", {
+              theme: "toasted-primary",
+              position: 'top-right',
+              duration: 5000,
+              fullWidth: false,
+              action: {
+                text: 'Cancel',
+                onClick: (e, toastObject) => {
+                  toastObject.goAway(0);
+                }
+              },
+            })
+          }
+          clearInterval(interval)
+        }
+      }, 200)
+    },
+    changeGitLink() {
+      axios.get('http://localhost:9000/data/change/git', {
+        params: {
+          userId: window.frontendData.profile.id,
+          newGitLink: this.gitLinkInputed
+        }
+      })
+          .then(function (response) {
+            window.frontendData.profile = response.data
+
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          isSendedandrecived = false
+
+          if (this.profileData.gitLink !== window.frontendData.profile.gitLink) {
+
+            this.profileData = window.frontendData.profile
+            this.gitLinkInputed = ""
+
+            this.$toasted.success("Данные успешно изменены", {
+              theme: "toasted-primary",
+              position: 'top-right',
+              duration: 5000,
+              fullWidth: false,
+              action: {
+                text: 'Cancel',
+                onClick: (e, toastObject) => {
+                  toastObject.goAway(0);
+                }
+              },
+            })
+          } else {
+            this.$toasted.error("Данные не изменены, убедитесь в корректности заполнения", {
+              theme: "toasted-primary",
+              position: 'top-right',
+              duration: 5000,
+              fullWidth: false,
+              action: {
+                text: 'Cancel',
+                onClick: (e, toastObject) => {
+                  toastObject.goAway(0);
+                }
+              },
+            })
+          }
+          clearInterval(interval)
+        }
+      }, 200)
+    },
+    changeInstaLink() {
+      axios.get('http://localhost:9000/data/change/insta', {
+        params: {
+          userId: window.frontendData.profile.id,
+          newInstaLink: this.instagramLinlInputed
+        }
+      })
+          .then(function (response) {
+            window.frontendData.profile = response.data
+
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          isSendedandrecived = false
+
+          if (this.profileData.instagramLink !== window.frontendData.profile.instagramLink) {
+
+            this.profileData = window.frontendData.profile
+            this.instagramLinlInputed = ""
+
+            this.$toasted.success("Данные успешно изменены", {
+              theme: "toasted-primary",
+              position: 'top-right',
+              duration: 5000,
+              fullWidth: false,
+              action: {
+                text: 'Cancel',
+                onClick: (e, toastObject) => {
+                  toastObject.goAway(0);
+                }
+              },
+            })
+          } else {
+            this.$toasted.error("Данные не изменены, убедитесь в корректности заполнения", {
+              theme: "toasted-primary",
+              position: 'top-right',
+              duration: 5000,
+              fullWidth: false,
+              action: {
+                text: 'Cancel',
+                onClick: (e, toastObject) => {
+                  toastObject.goAway(0);
+                }
+              },
+            })
+          }
+          clearInterval(interval)
+        }
+      }, 200)
+    },
+    changeFacebookLink() {
+      axios.get('http://localhost:9000/data/change/facebook', {
+        params: {
+          userId: window.frontendData.profile.id,
+          newFaceBookLink: this.faceBookLinkInputed
+        }
+      })
+          .then(function (response) {
+            window.frontendData.profile = response.data
+
+            isSendedandrecived = true
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      const interval = setInterval(() => {
+        if (isSendedandrecived) {
+          isSendedandrecived = false
+
+          if (this.profileData.faceBookLink !== window.frontendData.profile.faceBookLink) {
+
+            this.profileData = window.frontendData.profile
+            this.faceBookLinkInputed= ""
 
             this.$toasted.success("Данные успешно изменены", {
               theme: "toasted-primary",

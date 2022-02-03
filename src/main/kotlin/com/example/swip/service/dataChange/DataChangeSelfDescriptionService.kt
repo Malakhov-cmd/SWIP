@@ -10,10 +10,31 @@ class DataChangeSelfDescriptionService(
         @Autowired
         var userDetailsRepo: UserDetailsRepo
 ) {
-    fun changeDescription(userId: String, newDescription: String) : User{
+    fun changeDescription(userId: String, newDescription: String): User {
         val user = userDetailsRepo.findById(userId).get()
 
         user.selfDescription = newDescription
+        return userDetailsRepo.save(user)
+    }
+
+    fun changeGitLink(userId: String, newGitLink: String): User {
+        val user = userDetailsRepo.findById(userId).get()
+
+        user.gitLink = newGitLink
+        return userDetailsRepo.save(user)
+    }
+
+    fun changeInstaLink(userId: String, newInstaLink: String): User {
+        val user = userDetailsRepo.findById(userId).get()
+
+        user.instagramLink = newInstaLink
+        return userDetailsRepo.save(user)
+    }
+
+    fun changeFaceBookLink(userId: String, newFaceBookLink: String): User {
+        val user = userDetailsRepo.findById(userId).get()
+
+        user.faceBookLink = newFaceBookLink
         return userDetailsRepo.save(user)
     }
 }
