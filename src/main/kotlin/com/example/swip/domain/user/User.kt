@@ -22,6 +22,12 @@ class User : Serializable {
 
     var selfDescription: String = "Software developer"
 
+    var gitLink: String = ""
+    var vkLink: String = ""
+    var telegramLink: String = ""
+    var instagramLink: String = ""
+    var faceBookLink: String = ""
+
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinTable(name = "usr_friend_list",
             joinColumns = [JoinColumn(name = "usr_friend_list_id")])

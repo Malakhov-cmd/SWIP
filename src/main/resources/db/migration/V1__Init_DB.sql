@@ -8,18 +8,18 @@ create table home_wall
 create table home_wall_post_comment
 (
     id           int8 not null,
-    author       varchar(256),
+    author       varchar(512),
     author_id    varchar(512),
-    author_img   varchar(4096),
+    author_img   varchar(5256),
     comment_date timestamp,
-    text         varchar(255),
+    text         varchar(4096),
     post_id      int8,
     primary key (id)
 );
 create table home_wall_post_likes
 (
     id         int8 not null,
-    liker      varchar(255),
+    liker      varchar(512),
     comment_id int8,
     post_id    int8,
     primary key (id)
@@ -29,10 +29,10 @@ create table home_wall_posts
     id         int8 not null,
     author_id  varchar(1024),
     author     varchar(512),
-    author_img varchar(4096),
-    header     varchar(255),
+    author_img varchar(5256),
+    header     varchar(512),
     post_date  timestamp,
-    text       varchar(255),
+    text       varchar(12000),
     wall_id    int8,
     primary key (id)
 );
@@ -100,13 +100,18 @@ create table posts_list
 );
 create table usr
 (
-    id               varchar(1024) not null,
+    id               varchar(512) not null,
     email            varchar(512),
     last_visit       timestamp,
-    locale           varchar(255),
-    name             varchar(1024),
-    userpic          varchar(4096),
+    locale           varchar(32),
+    name             varchar(512),
+    userpic          varchar(5256),
     self_description varchar(4096),
+    git_link         varchar(2056),
+    vk_link          varchar(2056),
+    telegram_link    varchar(2056),
+    instagram_link   varchar(2056),
+    face_book_link    varchar(2056),
     primary key (id)
 );
 create table usr_friend_list
@@ -128,11 +133,11 @@ create table usr_friend
 (
     id            int8 not null,
     friend_id     varchar(512),
-    friendemail   varchar(255),
-    friendlocale  varchar(255),
-    friendname    varchar(255),
-    frienduserpic varchar(255),
-    usr_id        varchar(255),
+    friendemail   varchar(512),
+    friendlocale  varchar(36),
+    friendname    varchar(512),
+    frienduserpic varchar(5256),
+    usr_id        varchar(512),
     primary key (id)
 );
 
@@ -147,9 +152,9 @@ create table dialog_member
     id               int8 not null,
     member_id        varchar(512),
     memberemail      varchar(512),
-    memberlocale     varchar(10),
+    memberlocale     varchar(36),
     membername       varchar(512),
-    memberuserpic    varchar(4056),
+    memberuserpic    varchar(5256),
     dialog_member_id int8,
     usr_id           varchar(512),
     primary key (id)
@@ -162,7 +167,7 @@ create table dialog_members
 create table dialog_message
 (
     id                       int8 not null,
-    text                     varchar(255),
+    text                     varchar(4096),
     time_sent                timestamp,
     dialog_message_member_id int8,
     dialog_message_root_id   int8,
@@ -255,19 +260,10 @@ alter table usr_outgo_friend_list
     add constraint FKmpwcq5hqc560614ifxff8idfk foreign key (usr_outgo_friend_list_id) references usr;
 alter table usr_friend
     add constraint FKpl2q8n8rdqym2j2vv2orb1hh7 foreign key (usr_id) references usr;
-
-/*alter table dialog_members
-    drop constraint UK_hdflnchpregquwel7h8g8wgxe;*/
 alter table dialog_members
     add constraint UK_hdflnchpregquwel7h8g8wgxe unique (members_id);
-/*alter table dialog_messages
-    drop constraint UK_7t5yibq8hoqqr9n51scipcnia;*/
 alter table dialog_messages
     add constraint UK_7t5yibq8hoqqr9n51scipcnia unique (message_list_id);
-/*alter table usr_dialog_list
-    drop constraint UK_ne0tns04t8oqj3wgi44wuxrc;*/
-/*alter table usr_dialog_list
-    add constraint UK_ne0tns04t8oqj3wgi44wuxrc unique (dialog_list_id);*/
 alter table dialog_member
     add constraint FK9r2gfmhysrfxs0332uxoxwa18 foreign key (dialog_member_id) references dialog;
 alter table dialog_member
