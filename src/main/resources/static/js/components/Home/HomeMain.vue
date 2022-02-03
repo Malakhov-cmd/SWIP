@@ -351,6 +351,10 @@ export default {
               this.existingPost = true
             }
 
+            this.userName = frontendData.wall.owner.name
+            this.userSelfDescription = frontendData.wall.owner.selfDescription
+            this.userProfilePhoto = frontendData.wall.owner.userpic
+
             clearInterval(interval)
           }
         }, 3000)

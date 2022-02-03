@@ -354,6 +354,10 @@ export default {
             }
           }
 
+          this.userName = this.owner.owner.name
+          this.userSelfDescription = this.owner.owner.selfDescription
+          this.userProfilePhoto = this.owner.owner.userpic
+
           clearInterval(interval)
         }, 3000)
       }, 3000)

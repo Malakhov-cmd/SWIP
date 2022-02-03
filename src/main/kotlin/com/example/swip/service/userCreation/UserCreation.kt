@@ -44,7 +44,7 @@ class UserCreation(
         val userName = nameRegex.find(principalSTR)?.value!!.substring(6)
 
         val preUserEmail = emailRegex.find(principalSTR)?.value!!.substring(7)
-        val userEmail = preUserEmail?.substring(0, preUserEmail.length - 3)
+        val userEmail = preUserEmail.substring(0, preUserEmail.length - 3)
 
         val userLocale = localeRegex.find(principalSTR)?.value!!.substring(8)
 
