@@ -248,6 +248,11 @@ export default {
       answer: [],
       animationOn: false,
       selected: 'Современный синтаксис',
+
+      timeStarted: 0,
+      timeEndeded: 0,
+      timeSpended: 0,
+
       options: [
         {item: 'Современный синтаксис', name: 'Современный синтаксис'},
         {item: 'Интерпретатор на C++', name: 'Интерпретатор на C++'},
@@ -258,11 +263,15 @@ export default {
   },
   methods: {
     Request() {
+      this.timeEndeded = Date.now()
+      this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
+
       axios.get('http://localhost:9000/java/firstchapter/', {
         params: {
           numberTheme: 3,
           answer: this.selected,
-          userId: window.frontendData.profile.id
+          userId: window.frontendData.profile.id,
+          timeSpend: this.timeSpended
         }
       })
           .then(function (response) {
@@ -282,15 +291,22 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-
           this.answer = window.frontendData.language.chapters[0].listThemes[2].task.answer
+
+          window.frontendData.language.chapters[0].listThemes[2].task.tryCount++
+          window.frontendData.language.chapters[0].listThemes[2].task.timeOnSolutionInSeconds += this.timeSpended
 
           this.animationOn = isSendedandrecived
           this.showInput = false
 
           clearInterval(interval)
         } else {
-          this.$toasted.error("Неверный ответ", {
+          window.frontendData.language.chapters[0].listThemes[2].task.tryCount++
+          window.frontendData.language.chapters[0].listThemes[2].task.timeOnSolutionInSeconds += this.timeSpended
+
+          this.$toasted.error("Некоректные данные \n" +
+              "Время на решение \n" + this.timeSpended +
+              "Номер попытки \n" + window.frontendData.language.chapters[0].listThemes[2].task.tryCount, {
             theme: "toasted-primary",
             position: 'top-right',
             duration: 5000,
@@ -312,6 +328,8 @@ export default {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[0].listThemes[2].task.answer
     }
+
+    this.timeStarted = Date.now()
   },
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)

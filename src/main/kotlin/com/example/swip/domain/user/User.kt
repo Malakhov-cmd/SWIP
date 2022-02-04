@@ -1,5 +1,6 @@
 package com.example.swip.domain.user
 
+import com.example.swip.domain.achive.Achive
 import com.example.swip.domain.dialog.Dialog
 import com.example.swip.domain.user.typeOfFriends.Friend
 import com.fasterxml.jackson.annotation.JsonFormat
@@ -45,6 +46,12 @@ class User : Serializable {
     @JoinTable(name = "usr_dialog_list",
             joinColumns = [JoinColumn(name = "usr_dialog_list_id")])
     var dialogList = mutableListOf<Dialog>()
+
+
+    @OneToMany(cascade = [CascadeType.ALL])
+    @JoinTable(name = "usr_achives_list",
+            joinColumns = [JoinColumn(name = "usr_achives_list_id")])
+    var achivesList= mutableListOf<Achive>()
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     var lastVisit: LocalDateTime? = null

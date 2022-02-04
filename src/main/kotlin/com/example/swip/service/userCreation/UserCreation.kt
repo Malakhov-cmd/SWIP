@@ -4,6 +4,7 @@ import com.example.swip.domain.JavaLanguage
 import com.example.swip.domain.user.User
 import com.example.swip.domain.postBoard.HomeWall
 import com.example.swip.repo.*
+import com.example.swip.repo.achive.AchiveRepo
 import com.example.swip.repo.postBoard.HomeWallRepo
 import com.example.swip.service.ChapterFuller
 import com.example.swip.service.userCreation.userDTO.UserData
@@ -23,7 +24,9 @@ class UserCreation(
         @Autowired
         var chapterFuller: ChapterFuller,
         @Autowired
-        var homeWallRepo: HomeWallRepo
+        var homeWallRepo: HomeWallRepo,
+        @Autowired
+        var achiveRepo: AchiveRepo
 ) {
     private val userIdRegex = """(sub=)\d*""".toRegex()
     private val nameRegex = """\s(name=)[А-Яа-яA-Za-z0-9�]*\s*[А-Яа-яA-Za-z0-9�]*""".toRegex()
@@ -62,6 +65,7 @@ class UserCreation(
             newUser.email = userDTO.userEmail
             newUser.locale = userDTO.userLocale
             newUser.userpic = userDTO.userPic
+            newUser.achivesList.add(achiveRepo.findByName("startedAchive"))
 
             val homeWall = HomeWall()
             homeWall.owner = newUser

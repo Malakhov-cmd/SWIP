@@ -64,9 +64,12 @@ create table java_language_road_chapter
 );
 create table java_language_road_task
 (
-    id       int8 not null,
-    answer   varchar(4256),
-    theme_id int8,
+    id                          int8 not null,
+    answer                      varchar(4256),
+    theme_id                    int8,
+    time_on_solution_in_seconds int4 not null,
+    try_count                   int4 not null,
+
     primary key (id)
 );
 create table java_language_road_themes
@@ -109,7 +112,7 @@ create table usr
     self_description varchar(4096),
     git_link         varchar(2056),
     instagram_link   varchar(2056),
-    face_book_link    varchar(2056),
+    face_book_link   varchar(2056),
     primary key (id)
 );
 create table usr_friend_list
@@ -180,6 +183,21 @@ create table usr_dialog_list
 (
     usr_dialog_list_id varchar(255) not null,
     dialog_list_id     int8         not null
+);
+
+create table achive
+(
+    id          int8 not null,
+    name        varchar(256),
+    description varchar(1024),
+    img_link    varchar(5256),
+    primary key (id)
+);
+
+create table usr_achives_list
+(
+    usr_achives_list_id varchar(255) not null,
+    achives_list_id     int8         not null
 );
 
 alter table java_chapter_themes_list
@@ -282,3 +300,50 @@ alter table usr_dialog_list
     add constraint FKq9g0f0oil4mdawy363xhsitlp foreign key (dialog_list_id) references dialog;
 alter table usr_dialog_list
     add constraint FK4e9lx2pufd70qkukkvibhs57 foreign key (usr_dialog_list_id) references usr;
+
+alter table usr_achives_list
+    add constraint FKgcdbp59mr14wk8yd7t8iku5kp foreign key (achives_list_id) references achive;
+alter table usr_achives_list
+    add constraint FK1o8gxoggr3ersait8oyi1m1mc foreign key (usr_achives_list_id) references usr;
+
+insert into achive (id, name, description, img_link)
+VALUES (0, 'startedAchive', 'Вы начали путь освоения программирования. Так держать!', ''),
+       (1, 'endedChapter1', 'Вы успешно освоили вводную часть. Так держать!', ''),
+       (2, 'endedChapter2', 'Вы успешно освоили языковые конструкции. Так держать!', ''),
+       (3, 'endedChapter3', 'Вы успешно освоили ООП. Так держать!', ''),
+       (4, 'endedChapter4', 'Вы успешно освоили принцип наследование. Так держать!', ''),
+       (5, 'endedChapter5', 'Вы успешно освоили интерфейсы и функциональный подход. Так держать!', ''),
+       (6, 'endedChapter6', 'Вы успешно освоили исключения. Так держать!', ''),
+       (7, 'endedChapter7', 'Вы успешно освоили обобщенное программирование. Так держать!', ''),
+       (8, 'endedChapter8', 'Вы успешно освоили collection framework. Так держать!', ''),
+       (9, 'endedChapter9', 'Вы успешно освоили потоки. Так держать!', ''),
+       (10, 'endedChapter10', 'Вы успешно освоили streams. Так держать!', ''),
+       (11, 'endedChapter11', 'Вы успешно освоили потоки ввода вывода. Так держать!', ''),
+       (12, 'endedChapter12', 'Вы успешно освоили XML. Так держать!', ''),
+       (13, 'endedChapter13', 'Вы успешно освоили написание сценариев. Так держать!', ''),
+       (14, 'endedChapter14', 'Вы успешно освоили модули. Так держать!', ''),
+       (15, 'totalEnded25', 'Вы прошли 25 процентов. Так держать!', ''),
+       (16, 'totalEnded50', 'Вы прошли 50 процентов. Так держать!', ''),
+       (17, 'totalEnded75', 'Вы прошли 75 процентов. Так держать!', ''),
+       (18, 'totalEnded100', 'Вы прошли 100 процентов. Так держать!', ''),
+       (19, 'endedWithoutException1', 'Вы завершили главу 1 без единой ошибки. Так держать!', ''),
+       (20, 'endedWithoutException2', 'Вы завершили главу 2 без единой ошибки. Так держать!', ''),
+       (21, 'endedWithoutException3', 'Вы завершили главу 3 без единой ошибки. Так держать!', ''),
+       (22, 'endedWithoutException4', 'Вы завершили главу 4 без единой ошибки. Так держать!', ''),
+       (23, 'endedWithoutException5', 'Вы завершили главу 5 без единой ошибки. Так держать!', ''),
+       (24, 'endedWithoutException6', 'Вы завершили главу 6 без единой ошибки. Так держать!', ''),
+       (25, 'endedWithoutException7', 'Вы завершили главу 7 без единой ошибки. Так держать!', ''),
+       (26, 'endedWithoutException8', 'Вы завершили главу 8 без единой ошибки. Так держать!', ''),
+       (27, 'endedWithoutException9', 'Вы завершили главу 9 без единой ошибки. Так держать!', ''),
+       (28, 'endedWithoutException10', 'Вы завершили главу 10 без единой ошибки. Так держать!', ''),
+       (29, 'endedWithoutException11', 'Вы завершили главу 11 без единой ошибки. Так держать!', ''),
+       (30, 'endedWithoutException12', 'Вы завершили главу 12 без единой ошибки. Так держать!', ''),
+       (31, 'endedWithoutException13', 'Вы завершили главу 13 без единой ошибки. Так держать!', ''),
+       (32, 'endedWithoutException14', 'Вы завершили главу 14 без единой ошибки. Так держать!', ''),
+       (33, 'specialAchevi1', 'Специальное достижение номер 1', ''),
+       (34, 'specialAchevi2', 'Специальное достижение номер 2', ''),
+       (35, 'specialAchevi3', 'Специальное достижение номер 3', ''),
+       (36, 'specialAchevi4', 'Специальное достижение номер 4', ''),
+       (37, 'specialAchevi5', 'Специальное достижение номер 5', ''),
+       (38, 'specialAchevi6', 'Специальное достижение номер 6', ''),
+       (39, 'specialAchevi7', 'Специальное достижение номер 7', '');

@@ -18,14 +18,20 @@
         <b-collapse visible id="collapse-3">
           <div class="page-theme-theory-text">
             <p>Java никогда не был только языком.
-            Хорошие языки — не редкость, а появление некоторых из них вызвало в свое время
-            настоящую сенсацию в области вычислительной техники. В отличие от них, Java —
-            это программная платформа, включающая в себя мощную библиотеку, большой объем кода, пригодного для повторного использования, а также среду для выполнения
-              программ, которая обеспечивает безопасность, независимость от операционной системы и автоматическую сборку "мусора".</p>
+              Хорошие языки — не редкость, а появление некоторых из них вызвало в свое время
+              настоящую сенсацию в области вычислительной техники. В отличие от них, Java —
+              это программная платформа, включающая в себя мощную библиотеку, большой объем кода, пригодного для
+              повторного использования, а также среду для выполнения
+              программ, которая обеспечивает безопасность, независимость от операционной системы и автоматическую сборку
+              "мусора".</p>
             <p>Программистам нужны языки с четкими синтаксическими правилами и понятной
-            семантикой (т.е. определенно не C++). Такому требованию, помимо Java, отвечают
-            десятки языков. Некоторые из них даже обеспечивают переносимость и "сборку мусора", но их библиотеки оставляют желать много лучшего. В итоге программисты вынуждены самостоятельно реализовывать графические операции, доступ к сети и базе
-              данных и другие часто встречающиеся процедуры. Java объединяет в себе прекрасный язык, высококачественную среду выполнения программ и обширную библиотеку. В результате многие программисты остановили свой выбор именно на Java</p>
+              семантикой (т.е. определенно не C++). Такому требованию, помимо Java, отвечают
+              десятки языков. Некоторые из них даже обеспечивают переносимость и "сборку мусора", но их библиотеки
+              оставляют желать много лучшего. В итоге программисты вынуждены самостоятельно реализовывать графические
+              операции, доступ к сети и базе
+              данных и другие часто встречающиеся процедуры. Java объединяет в себе прекрасный язык, высококачественную
+              среду выполнения программ и обширную библиотеку. В результате многие программисты остановили свой выбор
+              именно на Java</p>
           </div>
           <div class="page-theme-author-text text-white-50">
             Приведенный материал был взят из книги "Java. Библиотека профессионала, том 1.", написанной Кейем С.
@@ -95,17 +101,25 @@ export default {
       showInput: true,
       answer: [],
       allowSend: false,
-      animationOn: false
+      animationOn: false,
+
+      timeStarted: 0,
+      timeEndeded: 0,
+      timeSpended: 0
     }
   },
   methods: {
     Request() {
       if (this.allowSend === true) {
+        this.timeEndeded = Date.now()
+        this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
+
         axios.get('http://localhost:9000/java/firstchapter/', {
           params: {
             numberTheme: 1,
             answer: this.name,
-            userId: window.frontendData.profile.id
+            userId: window.frontendData.profile.id,
+            timeSpend: this.timeSpended
           }
         })
             .then(function (response) {
@@ -124,6 +138,9 @@ export default {
           if (isSendedandrecived) {
             this.answer = window.frontendData.language.chapters[0].listThemes[0].task.answer
 
+            window.frontendData.language.chapters[0].listThemes[0].task.tryCount++
+            window.frontendData.language.chapters[0].listThemes[0].task.timeOnSolutionInSeconds += this.timeSpended
+
             this.animationOn = isSendedandrecived
             this.showInput = false
 
@@ -131,7 +148,12 @@ export default {
           }
         }, 100);
       } else {
-        this.$toasted.error("Некоректные данные", {
+        window.frontendData.language.chapters[0].listThemes[0].task.tryCount++
+        window.frontendData.language.chapters[0].listThemes[0].task.timeOnSolutionInSeconds += this.timeSpended
+
+        this.$toasted.error("Некоректные данные " +
+            "Время на решение " + this.timeSpended +
+            "Номер попытки " + window.frontendData.language.chapters[0].listThemes[0].task.tryCount, {
           theme: "toasted-primary",
           position: 'top-right',
           duration: 5000,
@@ -151,6 +173,8 @@ export default {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[0].listThemes[0].task.answer
     }
+
+    this.timeStarted = Date.now()
   },
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)
@@ -163,7 +187,7 @@ export default {
     const pageWidth = document.documentElement.scrollWidth
     const pageHeight = document.documentElement.scrollHeight
 
-    if(pageWidth > leftPosOfClosingElement) {
+    if (pageWidth > leftPosOfClosingElement) {
       container.scrollTo(0, topPosOfClosingElement - pageHeight / 2)
     } else {
       container.scrollTo(leftPosOfClosingElement - pageWidth, topPosOfClosingElement - pageHeight / 2)

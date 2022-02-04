@@ -186,6 +186,11 @@ export default {
       showInput: true,
       answer: [],
       animationOn: false,
+
+      timeStarted: 0,
+      timeEndeded: 0,
+      timeSpended: 0,
+
       items: [
         {Версия: 1.0, Год_выпуска: 1996, Новые_языковые_средства: 'Выпуск самого языка'},
         {Версия: 1.1, Год_выпуска: 1997, Новые_языковые_средства: 'Внутренние классы'},
@@ -225,11 +230,15 @@ export default {
   },
   methods: {
     Request() {
+      this.timeEndeded = Date.now()
+      this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
+
       axios.get('http://localhost:9000/java/firstchapter/', {
         params: {
           numberTheme: 2,
           answer: this.selected,
-          userId: window.frontendData.profile.id
+          userId: window.frontendData.profile.id,
+          timeSpend: this.timeSpended
         }
       })
           .then(function (response) {
@@ -249,20 +258,22 @@ export default {
           })
       const interval = setInterval(() => {
         if (isSendedandrecived) {
-
-          console.log('if')
-
           this.answer = window.frontendData.language.chapters[0].listThemes[1].task.answer
+
+          window.frontendData.language.chapters[0].listThemes[1].task.tryCount++
+          window.frontendData.language.chapters[0].listThemes[1].task.timeOnSolutionInSeconds += this.timeSpended
 
           this.animationOn = isSendedandrecived
           this.showInput = false
 
           clearInterval(interval)
         } else {
+          window.frontendData.language.chapters[0].listThemes[1].task.tryCount++
+          window.frontendData.language.chapters[0].listThemes[1].task.timeOnSolutionInSeconds += this.timeSpended
 
-          console.log('else')
-
-          this.$toasted.error("Неверный ответ", {
+          this.$toasted.error("Некоректные данные \n" +
+              "Время на решение \n" + this.timeSpended +
+              "Номер попытки \n" + window.frontendData.language.chapters[0].listThemes[1].task.tryCount, {
             theme: "toasted-primary",
             position: 'top-right',
             duration: 5000,
@@ -284,6 +295,8 @@ export default {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[0].listThemes[1].task.answer
     }
+
+    this.timeStarted = Date.now()
   },
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)

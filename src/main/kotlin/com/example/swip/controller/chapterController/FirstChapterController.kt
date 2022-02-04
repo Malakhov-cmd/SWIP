@@ -17,6 +17,7 @@ class FirstChapterController(
     fun answersFirstChapter(
             @RequestParam(required = true) numberTheme: Int,
             @RequestParam(required = true) answer: String,
-            @RequestParam(required = true) userId: String
-    ): String = firstChapterProcessor.firstChapterAnswers(numberTheme, answer, userId)
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) timeSpend: Int
+    ): String = firstChapterProcessor.firstChapterAnswers(numberTheme, answer, userId, timeSpend)
 }

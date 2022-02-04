@@ -19,4 +19,8 @@ class Task {
     var theme: Theme? = null
 
     var answer: String? = null
+
+    var tryCount = 0
+
+    var timeOnSolutionInSeconds = 0
 }
