@@ -271,9 +271,8 @@ export default {
           window.frontendData.language.chapters[0].listThemes[1].task.tryCount++
           window.frontendData.language.chapters[0].listThemes[1].task.timeOnSolutionInSeconds += this.timeSpended
 
-          this.$toasted.error("Некоректные данные \n" +
-              "Время на решение \n" + this.timeSpended +
-              "Номер попытки \n" + window.frontendData.language.chapters[0].listThemes[1].task.tryCount, {
+          this.$toasted.error("Некоректные данные! Время на решение: " + this.timeSpended +
+              " c. Номер попытки: " + window.frontendData.language.chapters[0].listThemes[1].task.tryCount + ".", {
             theme: "toasted-primary",
             position: 'top-right',
             duration: 5000,

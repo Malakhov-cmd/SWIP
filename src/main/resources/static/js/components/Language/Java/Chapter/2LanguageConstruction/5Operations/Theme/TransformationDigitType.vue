@@ -113,6 +113,11 @@ export default {
       animationOn: false,
       codeContent: null,
       codeAnsweredContent: null,
+
+      timeStarted: 0,
+      timeEndeded: 0,
+      timeSpended: 0,
+
       selected: 'int',
       options: [
         {item: 'int', name: 'int'},
@@ -124,11 +129,15 @@ export default {
   },
   methods: {
     Request() {
+      this.timeEndeded = Date.now()
+      this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
+
       axios.get('http://localhost:9000/java/secondchapter/', {
         params: {
           numberTheme: 12,
           answer: this.selected,
-          userId: window.frontendData.profile.id
+          userId: window.frontendData.profile.id,
+          timeSpend: this.timeSpended
         }
       })
           .then(function (response) {
@@ -148,12 +157,19 @@ export default {
 
           this.answer = window.frontendData.language.chapters[1].listThemes[11].task.answer
 
+          window.frontendData.language.chapters[1].listThemes[11].task.tryCount++
+          window.frontendData.language.chapters[1].listThemes[11].task.timeOnSolutionInSeconds += this.timeSpended
+
           this.animationOn = isSendedandrecived
           this.showInput = false
 
           clearInterval(interval)
         } else {
-          this.$toasted.error("Неверный ответ", {
+          window.frontendData.language.chapters[1].listThemes[11].task.tryCount++
+          window.frontendData.language.chapters[1].listThemes[11].task.timeOnSolutionInSeconds += this.timeSpended
+
+          this.$toasted.error("Некоректные данные! Время на решение: " + this.timeSpended +
+              " c. Номер попытки: " + window.frontendData.language.chapters[1].listThemes[11].task.tryCount + ".",{
             theme: "toasted-primary",
             position: 'top-right',
             duration: 5000,
@@ -175,6 +191,8 @@ export default {
       this.showInput = false
       this.answer = window.frontendData.language.chapters[1].listThemes[11].task.answer
     }
+
+    this.timeStarted = Date.now()
   },
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)

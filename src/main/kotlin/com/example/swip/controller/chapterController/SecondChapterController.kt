@@ -17,6 +17,7 @@ class SecondChapterController(
     fun answersSecondChapter(
             @RequestParam(required = true) numberTheme: Int,
             @RequestParam(required = true) answer: String,
-            @RequestParam(required = true) userId: String
-    ): String = secondChapterProcessor.secondChapterAnswers(numberTheme, answer, userId)
+            @RequestParam(required = true) userId: String,
+            @RequestParam(required = true) timeSpend: Int
+    ): String = secondChapterProcessor.secondChapterAnswers(numberTheme, answer, userId,timeSpend)
 }

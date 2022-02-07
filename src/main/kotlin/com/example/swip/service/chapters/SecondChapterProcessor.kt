@@ -5,6 +5,7 @@ import com.example.swip.domain.JavaLanguage
 import com.example.swip.domain.Task
 import com.example.swip.domain.Theme
 import com.example.swip.repo.*
+import com.example.swip.repo.achive.AchiveRepo
 import com.example.swip.service.groovyCompiler.GroovyCompiler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -22,9 +23,16 @@ class SecondChapterProcessor(
         @Autowired
         var taskRepo: TaskRepo,
         @Autowired
-        var groovyCompiler: GroovyCompiler
+        var groovyCompiler: GroovyCompiler,
+        @Autowired
+        var achiveRepo: AchiveRepo
 ) {
-    fun secondChapterAnswers(numberTheme: Int, answer: String, userId: String): String {
+    fun secondChapterAnswers(
+            numberTheme: Int,
+            answer: String,
+            userId: String,
+            timeSpend: Int
+    ): String {
         var approvedResult = ""
 
         val user = userDetailsRepo.findById(userId).get()
@@ -37,9 +45,9 @@ class SecondChapterProcessor(
         secondChapter.listThemes.sortBy { it.number }
 
         when (numberTheme) {
-            1 -> approvedResult = checkerUserAnswerCompileTask(javaLanguage.id!!, 0, answer)
-            2 -> approvedResult = checkerUserAnswerWithoutCheck(javaLanguage.id!!, 1, answer)
-            else -> approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, numberTheme - 1, answer)
+            1 -> approvedResult = checkerUserAnswerCompileTask(javaLanguage.id!!, 0, answer, timeSpend)
+            2 -> approvedResult = checkerUserAnswerWithoutCheck(javaLanguage.id!!, 1, answer, timeSpend)
+            else -> approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, numberTheme - 1, answer, timeSpend)
         }
         return approvedResult
     }
@@ -47,7 +55,8 @@ class SecondChapterProcessor(
     private fun checkerUserAnswerIfDefaultBehavior(
             languageId: Long,
             themeNumber: Int,
-            answer: String
+            answer: String,
+            timeSpend: Int
     ): String {
         val result: String
 
@@ -55,10 +64,14 @@ class SecondChapterProcessor(
         val chapter = language.chapters[1]
 
         val theme = chapter.listThemes[themeNumber]
-        val task = theme.task
-        result = if (answer == task?.answer) {
-            recordSuccess(task, theme, chapter, language, answer)
+        val task = theme.task!!
+        result = if (answer == task.answer) {
+            recordSuccess(task, theme, chapter, language, answer, timeSpend)
         } else {
+            task.tryCount = task.tryCount + 1
+            task.timeOnSolutionInSeconds = task.timeOnSolutionInSeconds + timeSpend
+            taskRepo.save(task)
+
             "Incorrect answer"
         }
         return result
@@ -67,7 +80,8 @@ class SecondChapterProcessor(
     private fun checkerUserAnswerCompileTask(
             languageId: Long,
             themeNumber: Int,
-            answer: String
+            answer: String,
+            timeSpend: Int
     ): String {
         var result = ""
 
@@ -75,13 +89,17 @@ class SecondChapterProcessor(
         val chapter = language.chapters[1]
 
         val theme = chapter.listThemes[themeNumber]
-        val task = theme.task
+        val task = theme.task!!
 
         val compiledValue = groovyCompiler.execute(answer)
 
-        if (compiledValue == task?.answer) {
-            result = recordSuccess(task, theme, chapter, language, answer)
+        if (compiledValue == task.answer) {
+            result = recordSuccess(task, theme, chapter, language, answer, timeSpend)
         } else {
+            task.tryCount = task.tryCount + 1
+            task.timeOnSolutionInSeconds = task.timeOnSolutionInSeconds + timeSpend
+            taskRepo.save(task)
+
             result = "Incorrect answer"
         }
         return result
@@ -90,7 +108,8 @@ class SecondChapterProcessor(
     private fun checkerUserAnswerWithoutCheck(
             languageId: Long,
             themeNumber: Int,
-            answer: String
+            answer: String,
+            timeSpend: Int
     ): String {
         val language = javaLanguagesRepo.findById(languageId).get()
         val chapter = language.chapters[1]
@@ -98,7 +117,7 @@ class SecondChapterProcessor(
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task
 
-        return recordSuccess(task!!, theme, chapter, language, answer);
+        return recordSuccess(task!!, theme, chapter, language, answer, timeSpend)
     }
 
     private fun recordSuccess(
@@ -106,9 +125,14 @@ class SecondChapterProcessor(
             theme: Theme,
             chapter: Chapter,
             language: JavaLanguage,
-            answer: String
+            answer: String,
+            timeSpend: Int
     ): String {
         task.answer = answer
+
+        task.timeOnSolutionInSeconds = task.timeOnSolutionInSeconds + timeSpend
+        task.tryCount = task.tryCount + 1
+
         theme.isFinished = true
 
         chapter.chapterProgress = chapter.chapterProgress + 2.7
@@ -118,7 +142,23 @@ class SecondChapterProcessor(
         themeRepo.save(theme)
         taskRepo.save(task)
 
+        checkToAddAchive(chapter, language.owner!!.id)
+
         return answer
+    }
+
+    private fun checkToAddAchive(
+            chapter: Chapter,
+            userId: String,
+    ) {
+        val user = userDetailsRepo.findById(userId).get()
+
+        if (chapter.chapterProgress > 99) {
+            if(user.achivesList.stream().filter{ it.name == "endedChapter2"  }.count() == 0L){
+                user.achivesList.add(achiveRepo.findByName("endedChapter2"))
+                userDetailsRepo.save(user)
+            }
+        }
     }
 }
 
