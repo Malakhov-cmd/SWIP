@@ -57,6 +57,7 @@
                    v-for="(value, index) in potentialFriendFinded? findedUser: null">
                 <div class="finded-potential-friend-item neomorphism">
                   <div class="finded-potential-friend-item-header">
+                    <router-link :to="/page/ + value.id">
                     <div class="finded-potential-friend-item-header-personal-data">
                       <img class="profile-post-header-author-info-avatar-img"
                            width="75" height="75"
@@ -65,6 +66,7 @@
                         {{ value.name }}
                       </div>
                     </div>
+                    </router-link>
                     <div class="finded-potential-friend-item-buttons">
                       <b-btn class="like-button profile-post-footer-icons"
                              v-on:click="addToGroupChatFromSearch(value.id)">
@@ -110,6 +112,7 @@
                    v-for="(value, index) in myFriends.length> 0? myFriends: null">
                 <div class="finded-potential-friend-item neomorphism">
                   <div class="finded-potential-friend-item-header">
+                    <router-link :to="/page/ + value.friendId">
                     <div class="finded-potential-friend-item-header-personal-data">
                       <img class="profile-post-header-author-info-avatar-img"
                            width="75" height="75"
@@ -118,6 +121,7 @@
                         {{ value.friendname }}
                       </div>
                     </div>
+                    </router-link>
                     <div class="finded-potential-friend-item-buttons">
                       <b-btn class="like-button profile-post-footer-icons"
                              v-on:click="addToGroupChatFromFriendList(value.friendId)">

@@ -56,6 +56,7 @@
                  v-for="(value, index) in potentialFriendFinded? findedUser: null">
               <div class="finded-potential-friend-item neomorphism">
                 <div class="finded-potential-friend-item-header">
+                  <router-link :to="/page/ + value.id">
                   <div class="finded-potential-friend-item-header-personal-data">
                     <img class="profile-post-header-author-info-avatar-img"
                          width="75" height="75"
@@ -64,6 +65,7 @@
                       {{ value.name }}
                     </div>
                   </div>
+                  </router-link>
                   <div class="finded-potential-friend-item-buttons">
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestFriendAdding(value.id, index)">
@@ -101,6 +103,7 @@
                  v-for="(value, index) in existIncomingRequest?  incomeRequest: null">
               <div class="finded-potential-friend-item neomorphism">
                 <div class="finded-potential-friend-item-header">
+                  <router-link :to="/page/ + value.friendId">
                   <div class="finded-potential-friend-item-header-personal-data">
                     <img class="profile-post-header-author-info-avatar-img"
                          width="75" height="75"
@@ -109,6 +112,7 @@
                       {{ value.friendname }}
                     </div>
                   </div>
+                  </router-link>
                   <div class="finded-potential-friend-item-buttons">
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestIncomesAdd(value.friendId, index)">
@@ -153,6 +157,7 @@
                  v-for="(value, index) in existingOutgoingRequest?  outGoingRequest: null">
               <div class="finded-potential-friend-item neomorphism">
                 <div class="finded-potential-friend-item-header">
+                  <router-link :to="/page/ + value.friendId">
                   <div class="finded-potential-friend-item-header-personal-data">
                     <img class="profile-post-header-author-info-avatar-img"
                          width="75" height="75"
@@ -161,6 +166,7 @@
                       {{ value.friendname }}
                     </div>
                   </div>
+                  </router-link>
                   <div class="finded-potential-friend-item-buttons">
                     <b-btn class="like-button profile-post-footer-icons"
                            v-on:click="requestOutgoingDelete(value.friendId, index)">
