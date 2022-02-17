@@ -202,6 +202,46 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo10Theme.node);
 
+    /*
+    * Проверка решания глав где всего одна тема
+    * */
+    /*if (window.frontendData.language.chapters[2].listThemes[1].finished) {
+      document.getElementById("java-2-chapter-2-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+
+    if (window.frontendData.language.chapters[2].listThemes[31].finished) {
+      document.getElementById("java-2-chapter-9-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }*/
+
+    if (window.frontendData.language.chapters[2].chapterProgress > 0 &&
+        window.frontendData.language.chapters[2].chapterProgress < 99) {
+      document.getElementById("central-btn-3chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[2].chapterProgress >= 99) {
+        document.getElementById("central-btn-3chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[2].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn-3chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 3</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
+
   }
 }
 </script>

@@ -99,14 +99,10 @@ import IdentificationClasses from "./components/Language/Java/Chapter/3OOP/1Intr
 import Objects from "./components/Language/Java/Chapter/3OOP/1IntroOOP/Theme/Objects.vue";
 import RelationBetweenClasses from "./components/Language/Java/Chapter/3OOP/1IntroOOP/Theme/RelationBetweenClasses.vue";
 //3.2
-import ConfigurationMethods
-    from "./components/Language/Java/Chapter/3OOP/2TempRemakeClass/Theme/ConfigurationMethods.vue";
 import LocalDate from "./components/Language/Java/Chapter/3OOP/2TempRemakeClass/Theme/LocalDate.vue";
 import ObjectsAndObjectsTemp
     from "./components/Language/Java/Chapter/3OOP/2TempRemakeClass/Theme/ObjectsAndObjectsTemp.vue";
 //3.3
-import AnalizeClassEmployee
-    from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/AnalizeClassEmployee.vue";
 import ClassEmployee from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/ClassEmployee.vue";
 import ClosedMethods from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/ClosedMethods.vue";
 import Constructor from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/Constructor.vue";
@@ -114,13 +110,6 @@ import ExplicitAndUnexplicitParamethers
     from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/ExplicitAndUnexplicitParamethers.vue";
 import IncapsulationBenefits
     from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/IncapsulationBenefits.vue";
-import NullLinlOnObjects
-    from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/NullLinlOnObjects.vue";
-import PrivelegeAccessToDataInClass
-    from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/PrivelegeAccessToDataInClass.vue";
-import UsesOfSeveralSoursesCode
-    from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/UsesOfSeveralSoursesCode.vue";
-import VarTemp from "./components/Language/Java/Chapter/3OOP/3DefindingOwnClasses/Theme/VarTemp.vue";
 //3.4
 import FabricMethods from "./components/Language/Java/Chapter/3OOP/4StaticFieldAndMethod/Theme/FabricMethods.vue";
 import MethodMain from "./components/Language/Java/Chapter/3OOP/4StaticFieldAndMethod/Theme/MethodMain.vue";
@@ -710,27 +699,19 @@ const routes = [
     {path: '/language/java/oop/intro/relationclasses', component: RelationBetweenClasses},
 
     //3.2
-    {path: '/language/java/oop/tempremake/configurationmethod', component: ConfigurationMethods},
     {path: '/language/java/oop/tempremake/localdate', component: LocalDate},
     {path: '/language/java/oop/tempremake/objectsandobjectstemp', component: ObjectsAndObjectsTemp},
 
     //3.3
-    {path: '/language/java/oop/defindingownclasses/AnalizeClassEmployee', component: AnalizeClassEmployee},
     {path: '/language/java/oop/defindingownclasses/classyemployee', component: ClassEmployee},
     {path: '/language/java/oop/defindingownclasses/closedMethods', component: ClosedMethods},
     {path: '/language/java/oop/defindingownclasses/constructor', component: Constructor},
-    {path: '/language/java/oop/defindingownclasses/EndedField', component: AnalizeClassEmployee},
     {
         path: '/language/java/oop/defindingownclasses/ExplicitAndUnexplicitParamethers',
         component: ExplicitAndUnexplicitParamethers
     },
     {path: '/language/java/oop/defindingownclasses/incapsulationBenefits', component: IncapsulationBenefits},
     {path: '/language/java/oop/defindingownclasses/NullLinlOnObjects', component: NullLinlOnObjects},
-    {
-        path: '/language/java/oop/defindingownclasses/PrivelegeAccessToDataInClass',
-        component: PrivelegeAccessToDataInClass
-    },
-    {path: '/language/java/oop/defindingownclasses/UsesOfSeveralSoursesCode', component: UsesOfSeveralSoursesCode},
     {path: '/language/java/oop/defindingownclasses/VarTemp', component: VarTemp},
 
     //3.4

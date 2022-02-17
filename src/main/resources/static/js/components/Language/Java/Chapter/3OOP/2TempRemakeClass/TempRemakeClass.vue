@@ -5,8 +5,6 @@
                     path-theme="/language/java/oop/tempremake/objectsandobjectstemp" id="java-3-chapter-2-theme-1-subtheme"/>
       <theme-button theme-name="LocalDate"
                     path-theme="/language/java/oop/tempremake/localdate" id="java-3-chapter-2-theme-2-subtheme"/>
-      <theme-button theme-name="Модифицирующие методы и методы доступа"
-                    path-theme="/language/java/oop/tempremake/configurationmethod" id="java-3-chapter-2-theme-3-subtheme"/>
     </div>
     <chapter-button chapter-name="Применение предопределенных классов" class="theme-level-3-chapter-left" id="java-3-chapter-2-theme"/>
   </div>
@@ -48,25 +46,28 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter3Theme2SubTheme3 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-3-chapter-2-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-3-chapter-2-theme-3-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter3Theme2SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter3Theme2SubTheme2.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter3Theme2SubTheme3.node);
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 4; i < 6; i++) {
+      if (window.frontendData.language.chapters[2].listThemes[i].finished) {
+        let k = i -3
+        document.getElementById("java-3-chapter-2-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 10) {
+      document.getElementById("java-3-chapter-2-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 10)
+        document.getElementById("java-3-chapter-2-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

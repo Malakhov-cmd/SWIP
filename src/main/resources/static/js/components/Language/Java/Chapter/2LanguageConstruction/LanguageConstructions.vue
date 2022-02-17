@@ -196,18 +196,18 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo10Theme.node);
 
-    //проверка решенгия первой задачи
+    //проверка решения первой задачи
     if (window.frontendData.language.chapters[1].listThemes[0].finished) {
       document.getElementById("java-2-chapter-1-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
-    //проверка решенгия второй задачи
+    //проверка решения второй задачи
     if (window.frontendData.language.chapters[1].listThemes[1].finished) {
       document.getElementById("java-2-chapter-2-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
 
-    //проверка решенгия второй задачи
+    //проверка решения 31 задачи
     if (window.frontendData.language.chapters[1].listThemes[31].finished) {
       document.getElementById("java-2-chapter-9-theme")
           .setAttribute("style", "background: #28a745; border: green;");
