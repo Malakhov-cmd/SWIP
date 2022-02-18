@@ -37,8 +37,8 @@ GregorianCalendar calendar =
                   class="hljs-number" style="color: rgb(159, 113, 60);">1</span>, day);
 hireDay = calendar. getTimeO;
 }</pre>
-            <p>Как видите, имя конструктора совпадает с именем класса. Этот конструктор выполняется при создании
-              объекта типа Employee, заполняя поля экземпляра заданными значениями. Например, при создании экземпляра
+            <p>Как видите, имя конструктора совпадает с именем класса. Этот конструктор выполняется при создании
+              объекта типа Employee, заполняя поля экземпляра заданными значениями. Например, при создании экземпляра
               класса Employee с помощью
               оператора
             </p>
@@ -77,7 +77,7 @@ hireDay = January <span class="hljs-number" style="color: rgb(159, 113, 60);">1<
                                                                                        style="color: rgb(120, 135, 125);">// ОШИБКА!</span>
 </pre>
             <p>
-              Мы еще вернемся в этой главе к конструкторам. А до тех пор запомните следующее.
+              Мы еще вернемся в этой главе к конструкторам. А до тех пор запомните следующее.
             </p>
 
             <ul>
@@ -89,7 +89,7 @@ hireDay = January <span class="hljs-number" style="color: rgb(159, 113, 60);">1<
               <li>
                 <p>
                   Класс может иметь несколько конструкторов.
-                </p>>
+                </p>
               </li>
               <li>
                 <p>
@@ -251,7 +251,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[2].listThemes[7].task.answer = response.data
-              window.frontendData.language.chapters[2].chapterProgress += 2.7
+              window.frontendData.language.chapters[2].chapterProgress += 4.34
               window.frontendData.language.chapters[2].listThemes[7].finished = true
 
               isSendedandrecived = true
@@ -374,7 +374,7 @@ export default {
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)
 
-    let themeToClose = document.getElementById('java-3-chapter-3-theme-4-subtheme');
+    let themeToClose = document.getElementById('java-3-chapter-3-theme-2-subtheme');
 
     let topPosOfClosingElement = themeToClose.offsetTop;
     let leftPosOfClosingElement = themeToClose.offsetLeft;

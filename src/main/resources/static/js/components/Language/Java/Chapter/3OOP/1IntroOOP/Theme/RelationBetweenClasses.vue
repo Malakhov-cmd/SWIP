@@ -29,7 +29,7 @@
               <li>
                 <p>
                   Агрегирование ("содержит — что-то").
-                </p>>
+                </p>
               </li>
               <li>
                 <p>
@@ -156,7 +156,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[2].listThemes[3].task.answer = response.data
-              window.frontendData.language.chapters[2].chapterProgress += 2.7
+              window.frontendData.language.chapters[2].chapterProgress += 4.34
               window.frontendData.language.chapters[2].listThemes[3].finished = true
 
               isSendedandrecived = true

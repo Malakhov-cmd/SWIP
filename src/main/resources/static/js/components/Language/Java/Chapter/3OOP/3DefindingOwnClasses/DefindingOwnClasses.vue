@@ -6,19 +6,19 @@
                     id="java-3-chapter-3-theme-1-subtheme"/>
       <theme-button theme-name="Знакомство с конструкторами"
                     path-theme="/language/java/oop/defindingownclasses/constructor"
-                    id="java-3-chapter-3-theme-4-subtheme"/>
+                    id="java-3-chapter-3-theme-2-subtheme"/>
       <theme-button theme-name="Явные и неявные параметры"
                     path-theme="/language/java/oop/defindingownclasses/ExplicitAndUnexplicitParamethers"
-                    id="java-3-chapter-3-theme-7-subtheme"/>
+                    id="java-3-chapter-3-theme-3-subtheme"/>
       <theme-button theme-name="Преимущества инкапсуляции"
                     path-theme="/language/java/oop/defindingownclasses/incapsulationBenefits"
-                    id="java-3-chapter-3-theme-8-subtheme"/>
+                    id="java-3-chapter-3-theme-4-subtheme"/>
       <theme-button theme-name="Закрытые методы"
                     path-theme="/language/java/oop/defindingownclasses/closedMethods"
-                    id="java-3-chapter-3-theme-10-subtheme"/>
+                    id="java-3-chapter-3-theme-5-subtheme"/>
       <theme-button theme-name="Конечные поля экземпляра"
                     path-theme="/language/java/oop/defindingownclasses/EndedField"
-                    id="java-3-chapter-3-theme-11-subtheme"/>
+                    id="java-3-chapter-3-theme-6-subtheme"/>
 
     </div>
     <chapter-button chapter-name="Определение собственных классов" class="theme-level-3-chapter-left"
@@ -55,7 +55,7 @@ export default {
         direction: DIRECTION.TOP,
       },
       to: {
-        node: () => document.getElementById("java-3-chapter-3-theme-4-subtheme"),
+        node: () => document.getElementById("java-3-chapter-3-theme-2-subtheme"),
         direction: DIRECTION.RIGHT,
         translation: [1, 0]
       },
@@ -66,10 +66,10 @@ export default {
     const arrowFromChapter3Theme3SubTheme7 = arrowCreate({
       from: {
         node: () => document.getElementById("java-3-chapter-3-theme"),
-        direction: DIRECTION.BOTTOM,
+        direction: DIRECTION.TOP,
       },
       to: {
-        node: () => document.getElementById("java-3-chapter-3-theme-7-subtheme"),
+        node: () => document.getElementById("java-3-chapter-3-theme-3-subtheme"),
         direction: DIRECTION.RIGHT,
         translation: [1, 0]
       },
@@ -83,7 +83,7 @@ export default {
         direction: DIRECTION.BOTTOM,
       },
       to: {
-        node: () => document.getElementById("java-3-chapter-3-theme-8-subtheme"),
+        node: () => document.getElementById("java-3-chapter-3-theme-4-subtheme"),
         direction: DIRECTION.RIGHT,
         translation: [1, 0]
       },
@@ -97,7 +97,7 @@ export default {
         direction: DIRECTION.BOTTOM,
       },
       to: {
-        node: () => document.getElementById("java-3-chapter-3-theme-10-subtheme"),
+        node: () => document.getElementById("java-3-chapter-3-theme-5-subtheme"),
         direction: DIRECTION.RIGHT,
         translation: [1, 0]
       },
@@ -111,7 +111,7 @@ export default {
         direction: DIRECTION.BOTTOM,
       },
       to: {
-        node: () => document.getElementById("java-3-chapter-3-theme-11-subtheme"),
+        node: () => document.getElementById("java-3-chapter-3-theme-6-subtheme"),
         direction: DIRECTION.RIGHT,
         translation: [1, 0]
       },
@@ -127,22 +127,22 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter3Theme3SubTheme11.node);
 
     let countProgressLocalTheme = 0
-//TODO здесь будут проблемы с индексами
-    for (let i = 7; i < 13; i++) {
+
+    for (let i = 6; i < 12; i++) {
       if (window.frontendData.language.chapters[2].listThemes[i].finished) {
-        let k = i -6
-        document.getElementById("java-3-chapter-2-theme-" + k + "-subtheme")
+        let k = i - 5
+        document.getElementById("java-3-chapter-3-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+        countProgressLocalTheme = countProgressLocalTheme + 4.34;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 10) {
-      document.getElementById("java-3-chapter-2-theme").setAttribute("style", " background: #dbcc16; border: green;")
+        countProgressLocalTheme < 26) {
+      document.getElementById("java-3-chapter-3-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 10)
-        document.getElementById("java-3-chapter-2-theme").setAttribute("style", "background: #28a745; border: green;")
+      if (countProgressLocalTheme > 26)
+        document.getElementById("java-3-chapter-3-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 
   }

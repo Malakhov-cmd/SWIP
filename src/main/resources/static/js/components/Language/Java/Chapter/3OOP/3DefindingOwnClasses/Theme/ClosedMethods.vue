@@ -217,7 +217,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[2].listThemes[10].task.answer = response.data
-              window.frontendData.language.chapters[2].chapterProgress += 2.7
+              window.frontendData.language.chapters[2].chapterProgress += 4.34
               window.frontendData.language.chapters[2].listThemes[10].finished = true
 
               isSendedandrecived = true
@@ -375,7 +375,7 @@ export default {
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)
 
-    let themeToClose = document.getElementById('java-3-chapter-3-theme-10-subtheme');
+    let themeToClose = document.getElementById('java-3-chapter-3-theme-5-subtheme');
 
     let topPosOfClosingElement = themeToClose.offsetTop;
     let leftPosOfClosingElement = themeToClose.offsetLeft;

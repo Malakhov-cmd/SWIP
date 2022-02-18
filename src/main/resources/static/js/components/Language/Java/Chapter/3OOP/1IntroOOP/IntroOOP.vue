@@ -91,15 +91,15 @@ export default {
         let k = i + 1
         document.getElementById("java-3-chapter-1-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+        countProgressLocalTheme = countProgressLocalTheme + 4.34;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 10) {
+        countProgressLocalTheme < 17) {
       document.getElementById("java-3-chapter-1-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 10)
+      if (countProgressLocalTheme > 17)
         document.getElementById("java-3-chapter-1-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 

@@ -278,79 +278,37 @@ class ChapterFuller(
                     task.answer = "Exception"
                 }
                 13 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "8.9"
                 }
                 14 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "24"
                 }
                 15 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Точкой входа в программу"
                 }
                 16 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "216"
                 }
                 17 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Second cube is bigger"
                 }
                 18 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Cube"
                 }
                 19 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Cube"
                 }
                 20 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Использование классов находящихся в других папках"
                 }
                 21 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "@author"
                 }
                 22 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Да"
                 }
                 23 -> {
-                    task.answer = "tempAnswer"
-                }
-                24 -> {
-                    task.answer = "tempAnswer"
-                }
-                25 -> {
-                    task.answer = "tempAnswer"
-                }
-                26 -> {
-                    task.answer = "tempAnswer"
-                }
-                27 -> {
-                    task.answer = "tempAnswer"
-                }
-                28 -> {
-                    task.answer = "tempAnswer"
-                }
-                29 -> {
-                    task.answer = "tempAnswer"
-                }
-                30 -> {
-                    task.answer = "tempAnswer"
-                }
-                31 -> {
-                    task.answer = "tempAnswer"
-                }
-                32 -> {
-                    task.answer = "tempAnswer"
-                }
-                33 -> {
-                    task.answer = "tempAnswer"
-                }
-                34 -> {
-                    task.answer = "tempAnswer"
-                }
-                35 -> {
-                    task.answer = "tempAnswer"
-                }
-                36 -> {
-                    task.answer = "tempAnswer"
-                }
-                37 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Разбить на несколько классов"
                 }
             }
             val taskId = taskRepo.save(task).id

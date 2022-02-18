@@ -2,11 +2,13 @@
   <div class="chapter-level-2">
     <div class="theme-level-2">
       <theme-button theme-name="Объекты и объектные переменные"
-                    path-theme="/language/java/oop/tempremake/objectsandobjectstemp" id="java-3-chapter-2-theme-1-subtheme"/>
+                    path-theme="/language/java/oop/tempremake/objectsandobjectstemp"
+                    id="java-3-chapter-2-theme-1-subtheme"/>
       <theme-button theme-name="LocalDate"
                     path-theme="/language/java/oop/tempremake/localdate" id="java-3-chapter-2-theme-2-subtheme"/>
     </div>
-    <chapter-button chapter-name="Применение предопределенных классов" class="theme-level-3-chapter-left" id="java-3-chapter-2-theme"/>
+    <chapter-button chapter-name="Применение предопределенных классов" class="theme-level-3-chapter-left"
+                    id="java-3-chapter-2-theme"/>
   </div>
 </template>
 
@@ -14,6 +16,7 @@
 import ChapterButton from "../../../../Blocks/ChapterButton.vue";
 import ThemeButton from "../../../../Blocks/ThemeButton.vue";
 import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
+
 export default {
   name: "TenpRemakeClass",
   components: {ThemeButton, ChapterButton},
@@ -35,7 +38,7 @@ export default {
     const arrowFromChapter3Theme2SubTheme2 = arrowCreate({
       from: {
         node: () => document.getElementById("java-3-chapter-2-theme"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-3-chapter-2-theme-2-subtheme"),
@@ -54,18 +57,18 @@ export default {
 
     for (let i = 4; i < 6; i++) {
       if (window.frontendData.language.chapters[2].listThemes[i].finished) {
-        let k = i -3
+        let k = i - 3
         document.getElementById("java-3-chapter-2-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 2.7;
+        countProgressLocalTheme = countProgressLocalTheme + 4.34;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 10) {
+        countProgressLocalTheme < 8) {
       document.getElementById("java-3-chapter-2-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 10)
+      if (countProgressLocalTheme > 8)
         document.getElementById("java-3-chapter-2-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }
