@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ThirdChapterProcessor(
+class FourthChapterProcessor(
         @Autowired
         var userDetailsRepo: UserDetailsRepo,
         @Autowired
@@ -27,7 +27,7 @@ class ThirdChapterProcessor(
         @Autowired
         var achiveRepo: AchiveRepo
 ) {
-    fun thirdChapterAnswers(
+    fun fourthChapterAnswers(
             numberTheme: Int,
             answer: String,
             userId: String,
@@ -40,9 +40,9 @@ class ThirdChapterProcessor(
 
         javaLanguage.chapters.sortBy { it.numberChapter }
 
-        val thirdChapter = javaLanguage.chapters[2]
+        val fourthChapter = javaLanguage.chapters[3]
 
-        thirdChapter.listThemes.sortBy { it.number }
+        fourthChapter.listThemes.sortBy { it.number }
 
         approvedResult = checkerUserAnswerIfDefaultBehavior(javaLanguage.id!!, numberTheme - 1, answer, timeSpend)
         return approvedResult
@@ -57,7 +57,7 @@ class ThirdChapterProcessor(
         val result: String
 
         val language = javaLanguagesRepo.findById(languageId).get()
-        val chapter = language.chapters[2]
+        val chapter = language.chapters[3]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task!!
@@ -82,7 +82,7 @@ class ThirdChapterProcessor(
         var result = ""
 
         val language = javaLanguagesRepo.findById(languageId).get()
-        val chapter = language.chapters[2]
+        val chapter = language.chapters[3]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task!!
@@ -108,7 +108,7 @@ class ThirdChapterProcessor(
             timeSpend: Int
     ): String {
         val language = javaLanguagesRepo.findById(languageId).get()
-        val chapter = language.chapters[2]
+        val chapter = language.chapters[3]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task
@@ -150,8 +150,8 @@ class ThirdChapterProcessor(
         val user = userDetailsRepo.findById(userId).get()
 
         if (chapter.chapterProgress > 99) {
-            if(user.achivesList.stream().filter{ it.name == "endedChapter3"  }.count() == 0L){
-                user.achivesList.add(achiveRepo.findByName("endedChapter3"))
+            if(user.achivesList.stream().filter{ it.name == "endedChapter4"  }.count() == 0L){
+                user.achivesList.add(achiveRepo.findByName("endedChapter4"))
                 userDetailsRepo.save(user)
             }
         }

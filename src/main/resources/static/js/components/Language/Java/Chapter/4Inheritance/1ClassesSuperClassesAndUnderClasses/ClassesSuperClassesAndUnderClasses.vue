@@ -3,10 +3,6 @@
     <div class="theme-level-2">
       <theme-button theme-name="Определение подклассов"
                     path-theme="/language/java/inheritance/DefenitionUnderClasses" id="java-4-chapter-1-theme-1-subtheme"/>
-      <theme-button theme-name="Переопределение методов"
-                    path-theme="/language/java/inheritance/RedefenitionMethods" id="java-4-chapter-1-theme-2-subtheme"/>
-      <theme-button theme-name="Конструктор подклассов"
-                    path-theme="/language/java/inheritance/ConstructionUnderclasses" id="java-4-chapter-1-theme-3-subtheme"/>
       <theme-button theme-name="Иерархии наследования"
                     path-theme="/language/java/inheritance/HierarchyInheritance" id="java-4-chapter-1-theme-4-subtheme"/>
       <theme-button theme-name="Полиморфизм"
@@ -19,8 +15,7 @@
                     path-theme="/language/java/inheritance/BringingTypes" id="java-4-chapter-1-theme-8-subtheme"/>
       <theme-button theme-name="Абстрактные классы"
                     path-theme="/language/java/inheritance/AbstractClasses" id="java-4-chapter-1-theme-9-subtheme"/>
-      <theme-button theme-name="Защищенный доступ"
-                    path-theme="/language/java/inheritance/DefensiveAccess" id="java-4-chapter-1-theme-10-subtheme"/>
+
     </div>
     <chapter-button chapter-name="Классы, суперклассы и подклассы" class="theme-level-4-chapter-left" id="java-4-chapter-1-theme"/>
   </div>
@@ -49,34 +44,7 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter4Theme1SubTheme2 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-4-chapter-1-theme"),
-        direction: DIRECTION.TOP,
-      },
-      to: {
-        node: () => document.getElementById("java-4-chapter-1-theme-2-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter4Theme1SubTheme3 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-4-chapter-1-theme"),
-        direction: DIRECTION.TOP,
-      },
-      to: {
-        node: () => document.getElementById("java-4-chapter-1-theme-3-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
     const arrowFromChapter4Theme1SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-4-chapter-1-theme"),
@@ -161,31 +129,35 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter4Theme1SubTheme10 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-4-chapter-1-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-4-chapter-1-theme-10-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme1.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme2.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme4.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme5.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme6.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme7.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme8.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme9.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme1SubTheme10.node);
+
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 0; i < 7; i++) {
+      if (window.frontendData.language.chapters[3].listThemes[i].finished) {
+        let k = i + 1
+        document.getElementById("java-3-chapter-1-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 4.34;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 17) {
+      document.getElementById("java-3-chapter-1-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 17)
+        document.getElementById("java-3-chapter-1-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
 
   }
 }

@@ -138,20 +138,17 @@ import AbstractClasses
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/AbstractClasses.vue";
 import CallingMethods
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/CallingMethods.vue";
-import ConstructionUnderclasses
-    from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/ConstructionUnderclasses.vue";
+
 import DefenitionUnderClasses
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/DefenitionUnderClasses.vue";
-import DefensiveAccess
-    from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/DefensiveAccess.vue";
+
 import HierarchyInheritance
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/HierarchyInheritance.vue";
 import Polymorfizm
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/Polymorfizm.vue";
 import PreventionInheritance
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/PreventionInheritance.vue";
-import RedefenitionMethods
-    from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/RedefenitionMethods.vue";
+
 //4.2
 import ExaminationObjectOnEqualAndInheritance
     from "./components/Language/Java/Chapter/4Inheritance/2ClassObject/Theme/ExaminationObjectOnEqualAndInheritance.vue";
@@ -717,13 +714,13 @@ const routes = [
     {path: '/language/java/inheritance/AbstractClasses', component: AbstractClasses},
     {path: '/language/java/inheritance/BringingTypes', component: BringingType},
     {path: '/language/java/inheritance/CallingMethods', component: CallingMethods},
-    {path: '/language/java/inheritance/ConstructionUnderclasses', component: ConstructionUnderclasses},
+
     {path: '/language/java/inheritance/DefenitionUnderClasses', component: DefenitionUnderClasses},
-    {path: '/language/java/inheritance/DefensiveAccess', component: DefensiveAccess},
+
     {path: '/language/java/inheritance/HierarchyInheritance', component: HierarchyInheritance},
     {path: '/language/java/inheritance/Polymorfizm', component: Polymorfizm},
     {path: '/language/java/inheritance/PreventionInheritance', component: PreventionInheritance},
-    {path: '/language/java/inheritance/RedefenitionMethods', component: RedefenitionMethods},
+
 
     //4.2
     {

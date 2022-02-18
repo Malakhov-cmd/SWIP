@@ -155,6 +155,50 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
 
+    /*
+    * Проверка решания глав где всего одна тема
+    *
+    if (window.frontendData.language.chapters[2].listThemes[15].finished) {
+      document.getElementById("java-3-chapter-5-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+
+    if (window.frontendData.language.chapters[2].listThemes[19].finished) {
+      document.getElementById("java-3-chapter-7-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[2].listThemes[22].finished) {
+      document.getElementById("java-3-chapter-9-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }*/
+
+    if (window.frontendData.language.chapters[3].chapterProgress > 0 &&
+        window.frontendData.language.chapters[3].chapterProgress < 99) {
+      document.getElementById("central-btn-4chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[3].chapterProgress >= 99) {
+        document.getElementById("central-btn-4chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[3].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn-3chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 4</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
+
   }
 }
 </script>
