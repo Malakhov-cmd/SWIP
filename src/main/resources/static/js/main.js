@@ -136,8 +136,6 @@ import RecomendationDevelopmentClasses
 //4.1
 import AbstractClasses
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/AbstractClasses.vue";
-import CallingMethods
-    from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/CallingMethods.vue";
 
 import DefenitionUnderClasses
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/DefenitionUnderClasses.vue";
@@ -713,7 +711,6 @@ const routes = [
     //4.1
     {path: '/language/java/inheritance/AbstractClasses', component: AbstractClasses},
     {path: '/language/java/inheritance/BringingTypes', component: BringingType},
-    {path: '/language/java/inheritance/CallingMethods', component: CallingMethods},
 
     {path: '/language/java/inheritance/DefenitionUnderClasses', component: DefenitionUnderClasses},
 

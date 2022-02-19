@@ -346,19 +346,19 @@ class ChapterFuller(
                     task.answer = "16"
                 }
                 2 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Любое количество"
                 }
                 3 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Square bigger"
                 }
                 4 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Exception"
                 }
                 5 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "not acceptable"
                 }
                 6 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "8 4"
                 }
                 7 -> {
                     task.answer = "tempAnswer"
