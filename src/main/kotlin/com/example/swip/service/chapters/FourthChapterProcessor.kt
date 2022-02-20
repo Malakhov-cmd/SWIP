@@ -131,7 +131,7 @@ class FourthChapterProcessor(
 
         theme.isFinished = true
 
-        chapter.chapterProgress = chapter.chapterProgress + 4.34
+        chapter.chapterProgress = chapter.chapterProgress + 6.6
 
         javaLanguagesRepo.save(language)
         chapterRepo.save(chapter)
@@ -149,7 +149,7 @@ class FourthChapterProcessor(
     ) {
         val user = userDetailsRepo.findById(userId).get()
 
-        if (chapter.chapterProgress > 99) {
+        if (chapter.chapterProgress > 98) {
             if(user.achivesList.stream().filter{ it.name == "endedChapter4"  }.count() == 0L){
                 user.achivesList.add(achiveRepo.findByName("endedChapter4"))
                 userDetailsRepo.save(user)

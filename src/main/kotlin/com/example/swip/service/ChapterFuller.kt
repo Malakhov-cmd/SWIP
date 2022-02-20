@@ -361,55 +361,31 @@ class ChapterFuller(
                     task.answer = "8 4"
                 }
                 7 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "5"
                 }
                 8 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "true"
                 }
                 9 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Для сравния объектов с учетом равенства всех полей"
                 }
                 10 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "hash code is equal"
                 }
                 11 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "x value is 2 h value is 5"
                 }
                 12 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Для использования примитивных типов в качестве объектов"
                 }
                 13 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Последнем"
                 }
                 14 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Texas"
                 }
                 15 -> {
-                    task.answer = "tempAnswer"
-                }
-                16 -> {
-                    task.answer = "tempAnswer"
-                }
-                17 -> {
-                    task.answer = "tempAnswer"
-                }
-                18 -> {
-                    task.answer = "tempAnswer"
-                }
-                19 -> {
-                    task.answer = "tempAnswer"
-                }
-                20 -> {
-                    task.answer = "tempAnswer"
-                }
-                21 -> {
-                    task.answer = "tempAnswer"
-                }
-                22 -> {
-                    task.answer = "tempAnswer"
-                }
-                23 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Излишняя затратность операций"
                 }
             }
             val taskId = taskRepo.save(task).id

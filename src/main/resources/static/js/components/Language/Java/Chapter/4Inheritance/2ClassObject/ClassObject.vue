@@ -6,13 +6,17 @@
       <theme-button theme-name="Метод equals()"
                     path-theme="/language/java/inheritance/MethodsEqual" id="java-4-chapter-2-theme-2-subtheme"/>
       <theme-button theme-name="Проверка объектов на равенство и наследование"
-                    path-theme="/language/java/inheritance/ExaminationObjectOnEqualAndInheritance" id="java-4-chapter-2-theme-3-subtheme"/>
+                    path-theme="/language/java/inheritance/ExaminationObjectOnEqualAndInheritance"
+                    id="java-4-chapter-2-theme-3-subtheme"/>
       <theme-button theme-name="Метод hashCode() "
-                    path-theme="/language/java/inheritance/MethodHashCode" id="java-4-chapter-2-theme-4-subtheme"/>
+                    path-theme="/language/java/inheritance/MethodHashCode"
+                    id="java-4-chapter-2-theme-4-subtheme"/>
       <theme-button theme-name="Метод toString()"
-                    path-theme="/language/java/inheritance/MethodTostring" id="java-4-chapter-2-theme-5-subtheme"/>
-     </div>
-    <chapter-button chapter-name="Глобальный суперкласс Object" class="theme-level-4-chapter-left" id="java-4-chapter-2-theme"/>
+                    path-theme="/language/java/inheritance/MethodTostring"
+                    id="java-4-chapter-2-theme-5-subtheme"/>
+    </div>
+    <chapter-button chapter-name="Глобальный суперкласс Object" class="theme-level-4-chapter-left"
+                    id="java-4-chapter-2-theme"/>
   </div>
 </template>
 
@@ -101,6 +105,26 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme2SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme2SubTheme4.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter4Theme2SubTheme5.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 6; i < 11; i++) {
+      if (window.frontendData.language.chapters[3].listThemes[i].finished) {
+        let k = i - 5
+        document.getElementById("java-4-chapter-2-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 6.6;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 32) {
+      document.getElementById("java-4-chapter-2-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 32)
+        document.getElementById("java-4-chapter-2-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
+
   }
 }
 </script>

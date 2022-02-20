@@ -136,17 +136,15 @@ import RecomendationDevelopmentClasses
 //4.1
 import AbstractClasses
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/AbstractClasses.vue";
-
 import DefenitionUnderClasses
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/DefenitionUnderClasses.vue";
-
 import HierarchyInheritance
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/HierarchyInheritance.vue";
 import Polymorfizm
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/Polymorfizm.vue";
 import PreventionInheritance
     from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/PreventionInheritance.vue";
-
+import BringingTypes from "./components/Language/Java/Chapter/4Inheritance/1ClassesSuperClassesAndUnderClasses/Theme/BringingTypes.vue"
 //4.2
 import ExaminationObjectOnEqualAndInheritance
     from "./components/Language/Java/Chapter/4Inheritance/2ClassObject/Theme/ExaminationObjectOnEqualAndInheritance.vue";
@@ -155,10 +153,7 @@ import MethodsEqual from "./components/Language/Java/Chapter/4Inheritance/2Class
 import MethodTostring from "./components/Language/Java/Chapter/4Inheritance/2ClassObject/Theme/MethodTostring.vue";
 import TempObjectType from "./components/Language/Java/Chapter/4Inheritance/2ClassObject/Theme/TempObjectType.vue";
 //4.3
-import AccessToElementLinkMassive
-    from "./components/Language/Java/Chapter/4Inheritance/3ListingMassive/Theme/AccessToElementLinkMassive.vue";
-import AnnouncementLinkMassive
-    from "./components/Language/Java/Chapter/4Inheritance/3ListingMassive/Theme/AnnouncementLinkMassive.vue";
+
 //4.4
 import ObjectShellAndAutoPacking
     from "./components/Language/Java/Chapter/4Inheritance/4ObjectShellAndAutoPacking/ObjectShellAndAutoPacking.vue";
@@ -168,16 +163,7 @@ import TempCountParamethersOfMethod
 //4.6
 import EnumClasses from "./components/Language/Java/Chapter/4Inheritance/6EnumClasses/EnumClasses.vue";
 //4.7
-import AnalyzeFunctionalOprrtunityOfReflection
-    from "./components/Language/Java/Chapter/4Inheritance/7Reflection/Theme/AnalyzeFunctionalOprrtunityOfReflection.vue";
-import AnalyzeObjectOnProcessingByReflection
-    from "./components/Language/Java/Chapter/4Inheritance/7Reflection/Theme/AnalyzeObjectOnProcessingByReflection.vue";
-import BasementProccessException
-    from "./components/Language/Java/Chapter/4Inheritance/7Reflection/Theme/BasementProccessException.vue";
-import CallingMethodsAndConstructors
-    from "./components/Language/Java/Chapter/4Inheritance/7Reflection/Theme/CallingMethodsAndConstructors.vue";
-import ClassClass from "./components/Language/Java/Chapter/4Inheritance/7Reflection/Theme/ClassClass.vue";
-import Resource from "./components/Language/Java/Chapter/4Inheritance/7Reflection/Theme/Resource.vue";
+
 //4.8
 import RecomendationUseInheritance
     from "./components/Language/Java/Chapter/4Inheritance/8RecomendationUseInheritance/RecomendationUseInheritance.vue";
@@ -710,7 +696,7 @@ const routes = [
 
     //4.1
     {path: '/language/java/inheritance/AbstractClasses', component: AbstractClasses},
-    {path: '/language/java/inheritance/BringingTypes', component: BringingType},
+    {path: '/language/java/inheritance/BringingTypes', component: BringingTypes},
 
     {path: '/language/java/inheritance/DefenitionUnderClasses', component: DefenitionUnderClasses},
 
@@ -730,8 +716,6 @@ const routes = [
     {path: '/language/java/inheritance/TempObjectType', component: TempObjectType},
 
     //4.3
-    {path: '/language/java/inheritance/AccessToElementLinkMassive', component: AccessToElementLinkMassive},
-    {path: '/language/java/inheritance/AnnouncementLinkMassive', component: AnnouncementLinkMassive},
 
     //4.4
     {path: '/language/java/inheritance/ObjectShellAndAutoPacking', component: ObjectShellAndAutoPacking},
@@ -743,18 +727,6 @@ const routes = [
     {path: '/language/java/inheritance/EnumClasses', component: EnumClasses},
 
     //4.7
-    {
-        path: '/language/java/inheritance/AnalyzeFunctionalOprrtunityOfReflection',
-        component: AnalyzeFunctionalOprrtunityOfReflection
-    },
-    {
-        path: '/language/java/inheritance/AnalyzeObjectOnProcessingByReflection',
-        component: AnalyzeObjectOnProcessingByReflection
-    },
-    {path: '/language/java/inheritance/BasementProccessException', component: BasementProccessException},
-    {path: '/language/java/inheritance/CallingMethodsAndConstructors', component: CallingMethodsAndConstructors},
-    {path: '/language/java/inheritance/ClassClass', component: ClassClass},
-    {path: '/language/java/inheritance/Resource', component: Resource},
 
     //4.8
     {path: '/language/java/inheritance/RecomendationUseInheritance', component: RecomendationUseInheritance},
