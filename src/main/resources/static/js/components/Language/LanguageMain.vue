@@ -238,7 +238,7 @@ export default {
       return 0;
     });
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       window.frontendData.language.chapters[i].listThemes.sort(function (a, b) {
         if (a.number > b.number) {
           return 1;

@@ -172,18 +172,11 @@ import ClonningObjects
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/ClonningObjects.vue";
 import ConceptInterface
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/ConceptInterface.vue";
-import InterfaceComparator
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/InterfaceComparator.vue";
+
 import InterfacesAndAbstarctClasses
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/InterfacesAndAbstarctClasses.vue";
-import InterfacesAndBackcall
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/InterfacesAndBackcall.vue";
-import MethodsWithRealizationByDefault
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/MethodsWithRealizationByDefault.vue";
-import PropertiesIntefaces
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/PropertiesIntefaces.vue";
-import StaticAndClosenMethods
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/StaticAndClosenMethods.vue";
+
+
 //5.2
 import AreaOfVizabylityTemps
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/AreaOfVizabylityTemps.vue";
@@ -734,18 +727,11 @@ const routes = [
     //5.1
     {path: '/language/java/interfacesLyambdaAndInner/ClonningObjects', component: ClonningObjects},
     {path: '/language/java/interfacesLyambdaAndInner/ConceptInterface', component: ConceptInterface},
-    {path: '/language/java/interfacesLyambdaAndInner/InterfaceComparator', component: InterfaceComparator},
+
     {
         path: '/language/java/interfacesLyambdaAndInner/InterfacesAndAbstarctClasses',
         component: InterfacesAndAbstarctClasses
     },
-    {path: '/language/java/interfacesLyambdaAndInner/InterfacesAndBackcall', component: InterfacesAndBackcall},
-    {
-        path: '/language/java/interfacesLyambdaAndInner/MethodsWithRealizationByDefault',
-        component: MethodsWithRealizationByDefault
-    },
-    {path: '/language/java/interfacesLyambdaAndInner/PropertiesIntefaces', component: PropertiesIntefaces},
-    {path: '/language/java/interfacesLyambdaAndInner/StaticAndClosenMethods', component: StaticAndClosenMethods},
 
     //5.2
     {path: '/language/java/interfacesLyambdaAndInner/AreaOfVizabylityTemps', component: AreaOfVizabylityTemps},
