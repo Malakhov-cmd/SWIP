@@ -44,7 +44,7 @@ export default {
     const arrowFromChapter5Theme1SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-5-chapter-1-theme"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.LEFT,
       },
       to: {
         node: () => document.getElementById("java-5-chapter-1-theme-2-subtheme"),
@@ -83,15 +83,15 @@ export default {
         let k = i + 1
         document.getElementById("java-5-chapter-1-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 6.6;
+        countProgressLocalTheme = countProgressLocalTheme + 10.0;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 39) {
+        countProgressLocalTheme < 29) {
       document.getElementById("java-5-chapter-1-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 39)
+      if (countProgressLocalTheme > 29)
         document.getElementById("java-5-chapter-1-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 

@@ -178,31 +178,19 @@ import InterfacesAndAbstarctClasses
 
 
 //5.2
-import AreaOfVizabylityTemps
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/AreaOfVizabylityTemps.vue";
 import FunctionalInterfaces
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/FunctionalInterfaces.vue";
-import LinkToTheConstructors
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/LinkToTheConstructors.vue";
 import LinkToTheMethods
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/LinkToTheMethods.vue";
-import ProcessingLyambda
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/ProcessingLyambda.vue";
 import ReasonsForUseLyambda
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/ReasonsForUseLyambda.vue";
-import SyntaxLyambda
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/SyntaxLyambda.vue";
 //5.3
 import AccessToConditionToInnerClasses
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/3InnerClasses/Theme/AccessToConditionToInnerClasses.vue";
-import AccessToEndedTempFromOutsideMethods
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/3InnerClasses/Theme/AccessToEndedTempFromOutsideMethods.vue";
 import AnonimusInnerClasses
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/3InnerClasses/Theme/AnonimusInnerClasses.vue";
 import LocalInnerClasses
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/3InnerClasses/Theme/LocalInnerClasses.vue";
-import SpecialSyntaxRuleForInnerClasses
-    from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/3InnerClasses/Theme/SpecialSyntaxRuleForInnerClasses.vue";
 import StaticInnerClasses
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/3InnerClasses/Theme/StaticInnerClasses.vue";
 //6.1
@@ -734,29 +722,21 @@ const routes = [
     },
 
     //5.2
-    {path: '/language/java/interfacesLyambdaAndInner/AreaOfVizabylityTemps', component: AreaOfVizabylityTemps},
+
     {path: '/language/java/interfacesLyambdaAndInner/FunctionalInterfaces', component: FunctionalInterfaces},
-    {path: '/language/java/interfacesLyambdaAndInner/LinkToTheConstructors', component: LinkToTheConstructors},
+
     {path: '/language/java/interfacesLyambdaAndInner/LinkToTheMethods', component: LinkToTheMethods},
-    {path: '/language/java/interfacesLyambdaAndInner/ProcessingLyambda', component: ProcessingLyambda},
+
     {path: '/language/java/interfacesLyambdaAndInner/ReasonsForUseLyambda', component: ReasonsForUseLyambda},
-    {path: '/language/java/interfacesLyambdaAndInner/SyntaxLyambda', component: SyntaxLyambda},
+
 
     //5.3
     {
         path: '/language/java/interfacesLyambdaAndInner/AccessToConditionToInnerClasses',
         component: AccessToConditionToInnerClasses
     },
-    {
-        path: '/language/java/interfacesLyambdaAndInner/AccessToEndedTempFromOutsideMethods',
-        component: AccessToEndedTempFromOutsideMethods
-    },
     {path: '/language/java/interfacesLyambdaAndInner/AnonimusInnerClasses', component: AnonimusInnerClasses},
     {path: '/language/java/interfacesLyambdaAndInner/LocalInnerClasses', component: LocalInnerClasses},
-    {
-        path: '/language/java/interfacesLyambdaAndInner/SpecialSyntaxRuleForInnerClasses',
-        component: SpecialSyntaxRuleForInnerClasses
-    },
     {path: '/language/java/interfacesLyambdaAndInner/StaticInnerClasses', component: StaticInnerClasses},
 
     //6.1

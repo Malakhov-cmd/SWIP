@@ -429,40 +429,25 @@ class ChapterFuller(
                     task.answer = "Equal"
                 }
                 4 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "x=1 x=3 x=4"
                 }
                 5 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "ФИ объявляет один единственный метод"
                 }
                 6 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "x=1x=2x=3x=2x=4"
                 }
                 7 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "При выделении сабсущности в классе"
                 }
                 8 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "4"
                 }
                 9 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "First module alredy to work! Second module alredy to work!"
                 }
                 10 -> {
-                    task.answer = "tempAnswer"
-                }
-                11 -> {
-                    task.answer = "tempAnswer"
-                }
-                12 -> {
-                    task.answer = "tempAnswer"
-                }
-                13 -> {
-                    task.answer = "tempAnswer"
-                }
-                14 -> {
-                    task.answer = "tempAnswer"
-                }
-                15 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "12"
                 }
             }
             val taskId = taskRepo.save(task).id
