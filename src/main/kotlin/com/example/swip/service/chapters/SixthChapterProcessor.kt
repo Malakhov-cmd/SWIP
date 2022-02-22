@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class FifthChapterProcessor(
+class SixthChapterProcessor(
         @Autowired
         var userDetailsRepo: UserDetailsRepo,
         @Autowired
@@ -27,7 +27,7 @@ class FifthChapterProcessor(
         @Autowired
         var achiveRepo: AchiveRepo
 ) {
-    fun fifthChapterAnswers(
+    fun sixthChapterAnswers(
             numberTheme: Int,
             answer: String,
             userId: String,
@@ -40,7 +40,7 @@ class FifthChapterProcessor(
 
         javaLanguage.chapters.sortBy { it.numberChapter }
 
-        val fourthChapter = javaLanguage.chapters[4]
+        val fourthChapter = javaLanguage.chapters[5]
 
         fourthChapter.listThemes.sortBy { it.number }
 
@@ -57,7 +57,7 @@ class FifthChapterProcessor(
         val result: String
 
         val language = javaLanguagesRepo.findById(languageId).get()
-        val chapter = language.chapters[4]
+        val chapter = language.chapters[5]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task!!
@@ -82,7 +82,7 @@ class FifthChapterProcessor(
         var result = ""
 
         val language = javaLanguagesRepo.findById(languageId).get()
-        val chapter = language.chapters[4]
+        val chapter = language.chapters[5]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task!!
@@ -108,7 +108,7 @@ class FifthChapterProcessor(
             timeSpend: Int
     ): String {
         val language = javaLanguagesRepo.findById(languageId).get()
-        val chapter = language.chapters[4]
+        val chapter = language.chapters[5]
 
         val theme = chapter.listThemes[themeNumber]
         val task = theme.task
@@ -131,7 +131,7 @@ class FifthChapterProcessor(
 
         theme.isFinished = true
 
-        chapter.chapterProgress = chapter.chapterProgress + 10.0
+        chapter.chapterProgress = chapter.chapterProgress + 6.6
 
         javaLanguagesRepo.save(language)
         chapterRepo.save(chapter)
@@ -150,8 +150,8 @@ class FifthChapterProcessor(
         val user = userDetailsRepo.findById(userId).get()
 
         if (chapter.chapterProgress > 98) {
-            if(user.achivesList.stream().filter{ it.name == "endedChapter5"  }.count() == 0L){
-                user.achivesList.add(achiveRepo.findByName("endedChapter5"))
+            if(user.achivesList.stream().filter{ it.name == "endedChapter6"  }.count() == 0L){
+                user.achivesList.add(achiveRepo.findByName("endedChapter6"))
                 userDetailsRepo.save(user)
             }
         }

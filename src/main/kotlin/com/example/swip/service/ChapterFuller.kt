@@ -54,6 +54,10 @@ class ChapterFuller(
                     fullingFifthChapter(chapterId!!)
                     lang.chapters.add(chapterRepo.findById(chapterId).get())
                 }
+                6 -> {
+                    fullingSixthChapter(chapterId!!)
+                    lang.chapters.add(chapterRepo.findById(chapterId).get())
+                }
             }
             javaLanguagesRepo.save(lang)
         }
@@ -238,7 +242,7 @@ class ChapterFuller(
     fun fullingThirdChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..37) {
+        for (i in 1..23) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -335,7 +339,7 @@ class ChapterFuller(
     fun fullingFourthChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..37) {
+        for (i in 1..15) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -408,7 +412,7 @@ class ChapterFuller(
     fun fullingFifthChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..37) {
+        for (i in 1..10) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -448,6 +452,53 @@ class ChapterFuller(
                 }
                 10 -> {
                     task.answer = "12"
+                }
+            }
+            val taskId = taskRepo.save(task).id
+
+            val themeSaved = themeRepo.findById(themeId).get()
+            themeSaved.task = taskRepo.findById(taskId!!).get()
+
+            themeRepo.save(themeSaved)
+
+            chapter.listThemes.add(themeSaved)
+
+            chapterRepo.save(chapter)
+        }
+    }
+
+    fun fullingSixthChapter(chapterId: Long){
+        val chapter: Chapter = chapterRepo.findById(chapterId).get()
+
+        for (i in 1..37) {
+            val theme = Theme()
+            theme.chapter = chapter
+            theme.number = i
+            theme.isFinished = false
+
+            val themeId = themeRepo.save(theme).id
+
+            val task = Task()
+            task.theme = themeRepo.findById(themeId!!).get()
+            when (i) {
+                1 -> {
+                    task.answer = "Получение подключения к базе данных"
+                }
+                2 -> {
+                    task.answer = "Выполнение метода может привести к ошибке"
+                }
+                3 -> {
+                    task.answer = "... Wrong answer ..."
+                }
+                4 -> {
+                    task.answer = "null value\n" +
+                            "request is proccessed"
+                }
+                5 -> {
+                    task.answer = "Выполнение запроса по созданию и инициализации бд"
+                }
+                6 -> {
+                    task.answer = "Подавление приводит к возникновению непредвиденных последсвий выше по стеку вызовов"
                 }
             }
             val taskId = taskRepo.save(task).id

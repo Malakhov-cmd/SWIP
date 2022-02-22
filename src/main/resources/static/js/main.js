@@ -200,20 +200,13 @@ import CreationClassesExeption
     from "./components/Language/Java/Chapter/6Exeption/1WorkingWithExeption/Theme/CreationClassesExeption.vue";
 import DeclarationProvedExeption
     from "./components/Language/Java/Chapter/6Exeption/1WorkingWithExeption/Theme/DeclarationProvedExeption.vue";
-import OrderGenerationExeption
-    from "./components/Language/Java/Chapter/6Exeption/1WorkingWithExeption/Theme/OrderGenerationExeption.vue";
 //6.2
-import AnalizeElementsTracestack
-    from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/AnalizeElementsTracestack.vue";
-import BlockFinaly from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/BlockFinaly.vue";
+
+
 import InterceptionOneExeption
     from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/InterceptionOneExeption.vue";
-import InterceptionSomeExeption
-    from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/InterceptionSomeExeption.vue";
 import OperatorTryWithResource
     from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/OperatorTryWithResource.vue";
-import RegenerationAndLinkExeptionInChain
-    from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/RegenerationAndLinkExeptionInChain.vue";
 //6.3
 import RecomendationWorkWithExeption
     from "./components/Language/Java/Chapter/6Exeption/3RecomendationWorkWithExeption/RecomendationWorkWithExeption.vue";
@@ -743,15 +736,10 @@ const routes = [
     {path: '/language/java/exeption/ClassificationExeption', component: ClassificationExeption},
     {path: '/language/java/exeption/CreationClassesExeption', component: CreationClassesExeption},
     {path: '/language/java/exeption/DeclarationProvedExeption', component: DeclarationProvedExeption},
-    {path: '/language/java/exeption/OrderGenerationExeption', component: OrderGenerationExeption},
 
     //6.2
-    {path: '/language/java/exeption/AnalizeElementsTracestack', component: AnalizeElementsTracestack},
-    {path: '/language/java/exeption/BlockFinaly', component: BlockFinaly},
     {path: '/language/java/exeption/InterceptionOneExeption', component: InterceptionOneExeption},
-    {path: '/language/java/exeption/InterceptionSomeExeption', component: InterceptionSomeExeption},
     {path: '/language/java/exeption/OperatorTryWithResource', component: OperatorTryWithResource},
-    {path: '/language/java/exeption/RegenerationAndLinkExeptionInChain', component: RegenerationAndLinkExeptionInChain},
 
     //6.3
     {path: '/language/java/exeption/RecomendationWorkWithExeption', component: RecomendationWorkWithExeption},
