@@ -599,6 +599,14 @@ public class Test {
 </template>
 
 <script>
+import axios from "axios";
+import * as CodeMirror from "codemirror"
+import "codemirror/lib/codemirror.css"
+import "codemirror/theme/dracula.css"
+import "codemirror/mode/jsx/jsx.js"
+
+let isSendedandrecived = false
+
 export default {
   name: "InterceptionOneExeption",
   data() {
@@ -642,7 +650,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[5].listThemes[3].task.answer = response.data
-              window.frontendData.language.chapters[5].chapterProgress += 10.0
+              window.frontendData.language.chapters[5].chapterProgress += 16.6
               window.frontendData.language.chapters[5].listThemes[3].finished = true
 
               isSendedandrecived = true

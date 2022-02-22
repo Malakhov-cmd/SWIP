@@ -39,7 +39,7 @@ export default {
     const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-6chapter"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-6-chapter-2-theme"),
@@ -68,6 +68,11 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo1Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
+
+    if (window.frontendData.language.chapters[5].listThemes[5].finished) {
+      document.getElementById("java-6-chapter-3-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
 
     if (window.frontendData.language.chapters[5].chapterProgress > 0 &&
         window.frontendData.language.chapters[5].chapterProgress < 98) {

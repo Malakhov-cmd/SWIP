@@ -50,9 +50,27 @@ export default {
       },
     });
 
-
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter6Theme2SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter6Theme2SubTheme5.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 3; i < 5; i++) {
+      if (window.frontendData.language.chapters[5].listThemes[i].finished) {
+        let k = i - 2
+        document.getElementById("java-6-chapter-2-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 16.6;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 32) {
+      document.getElementById("java-6-chapter-2-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 32)
+        document.getElementById("java-6-chapter-2-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>
