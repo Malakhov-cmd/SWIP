@@ -222,6 +222,8 @@ import GenericMethods from "./components/Language/Java/Chapter/7GenericProgrammi
 import LimitOnGenericType
     from "./components/Language/Java/Chapter/7GenericProgramming/4LimitOnGenericType/LimitOnGenericType.vue";
 //7.5
+import RestrictionAndLimitGeneric
+    from "./components/Language/Java/Chapter/7GenericProgramming/6RestrictionAndLimitGeneric/RestrictionAndLimitGeneric.vue"
 import ClearingTypes
     from "./components/Language/Java/Chapter/7GenericProgramming/5GenericCodeAndVirtualMachine/Theme/ClearingTypes.vue";
 import TransformationGenericExpression
@@ -760,7 +762,7 @@ const routes = [
     {path: '/language/java/generics/TransformationGenericMethods', component: TransformationGenericMethods},
 
     //7.6
-    {path: '/language/java/generics/TransformationGenericMethods', component: TransformationGenericMethods},
+    {path: '/language/java/generics/RestrictionAndLimitedGeneric', component: RestrictionAndLimitGeneric },
 
     //7.7
     {path: '/language/java/generics/RuleInhiretenceGenericType', component: RuleInhiretenceGenericType},

@@ -429,7 +429,10 @@ export default {
 
       selected: 'Создавать экземпляры переменных типа',
       options: [
-        {item: 'Создавать экземпляры переменных типа', name: 'Создавать экземпляры переменных типа'},
+        {
+          item: 'Создавать экземпляры переменных типа',
+          name: 'Создавать экземпляры переменных типа'
+        },
         {
           item: 'Инициализовать массивы параметрезированного типа',
           name: 'Инициализовать массивы параметрезированного типа'
@@ -457,7 +460,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[6].listThemes[7].task.answer = response.data
-              window.frontendData.language.chapters[6].chapterProgress += 16.6
+              window.frontendData.language.chapters[6].chapterProgress += 11.1
               window.frontendData.language.chapters[6].listThemes[7].finished = true
 
               isSendedandrecived = true

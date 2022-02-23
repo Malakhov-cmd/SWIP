@@ -131,7 +131,7 @@ class SeventhChapterProcessor(
 
         theme.isFinished = true
 
-        chapter.chapterProgress = chapter.chapterProgress + 16.6
+        chapter.chapterProgress = chapter.chapterProgress + 11.1
 
         javaLanguagesRepo.save(language)
         chapterRepo.save(chapter)
@@ -151,7 +151,7 @@ class SeventhChapterProcessor(
 
         if (chapter.chapterProgress > 98) {
             if(user.achivesList.stream().filter{ it.name == "endedChapter7"  }.count() == 0L){
-                user.achivesList.add(achiveRepo.findByName("endedChapter6"))
+                user.achivesList.add(achiveRepo.findByName("endedChapter7"))
                 userDetailsRepo.save(user)
             }
         }

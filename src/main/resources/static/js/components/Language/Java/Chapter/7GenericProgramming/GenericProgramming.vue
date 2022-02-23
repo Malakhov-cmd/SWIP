@@ -15,7 +15,7 @@
                     id="java-7-chapter-4-theme"/>
       <generic-code-and-virtual-machine/>
       <theme-button theme-name="Ограничения и пределы обобщений"
-                    path-theme="/language/java/generics/TransformationGenericMethods"
+                    path-theme="/language/java/generics/RestrictionAndLimitedGeneric"
                     id="java-7-chapter-6-theme"/>
       <theme-button theme-name="Правила наследования обобщенных типов"
                     path-theme="/language/java/generics/RuleInhiretenceGenericType"
@@ -95,7 +95,7 @@ export default {
     const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-7chapter"),
-        direction: DIRECTION.LEFT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-7-chapter-5-theme"),
@@ -145,11 +145,11 @@ export default {
 
 
     if (window.frontendData.language.chapters[6].listThemes[0].finished) {
-      document.getElementById("java-7-chapter-3-theme")
+      document.getElementById("java-7-chapter-1-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[6].listThemes[1].finished) {
-      document.getElementById("java-7-chapter-3-theme")
+      document.getElementById("java-7-chapter-2-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[6].listThemes[2].finished) {
@@ -157,15 +157,15 @@ export default {
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[6].listThemes[3].finished) {
-      document.getElementById("java-7-chapter-3-theme")
+      document.getElementById("java-7-chapter-4-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[6].listThemes[7].finished) {
-      document.getElementById("java-7-chapter-3-theme")
+      document.getElementById("java-7-chapter-6-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[6].listThemes[8].finished) {
-      document.getElementById("java-7-chapter-3-theme")
+      document.getElementById("java-7-chapter-7-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
 

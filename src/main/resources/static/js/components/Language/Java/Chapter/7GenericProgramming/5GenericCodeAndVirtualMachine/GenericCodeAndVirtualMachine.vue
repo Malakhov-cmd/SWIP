@@ -43,7 +43,7 @@ export default {
     const arrowFromChapter7Theme5SubTheme2 = arrowCreate({
       from: {
         node: () => document.getElementById("java-7-chapter-5-theme"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.LEFT,
       },
       to: {
         node: () => document.getElementById("java-7-chapter-5-theme-2-subtheme"),
@@ -76,19 +76,19 @@ export default {
     let countProgressLocalTheme = 0
 
     for (let i = 4; i < 7; i++) {
-      if (window.frontendData.language.chapters[5].listThemes[i].finished) {
+      if (window.frontendData.language.chapters[6].listThemes[i].finished) {
         let k = i - 3
         document.getElementById("java-7-chapter-5-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 16.6;
+        countProgressLocalTheme = countProgressLocalTheme + 11.1;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 39) {
+        countProgressLocalTheme < 32) {
       document.getElementById("java-7-chapter-5-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 39)
+      if (countProgressLocalTheme > 32)
         document.getElementById("java-7-chapter-5-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }
