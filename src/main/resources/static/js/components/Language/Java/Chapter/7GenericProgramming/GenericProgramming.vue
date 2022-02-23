@@ -160,11 +160,11 @@ export default {
       document.getElementById("java-7-chapter-3-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
-    if (window.frontendData.language.chapters[6].listThemes[8].finished) {
+    if (window.frontendData.language.chapters[6].listThemes[7].finished) {
       document.getElementById("java-7-chapter-3-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
-    if (window.frontendData.language.chapters[6].listThemes[9].finished) {
+    if (window.frontendData.language.chapters[6].listThemes[8].finished) {
       document.getElementById("java-7-chapter-3-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }

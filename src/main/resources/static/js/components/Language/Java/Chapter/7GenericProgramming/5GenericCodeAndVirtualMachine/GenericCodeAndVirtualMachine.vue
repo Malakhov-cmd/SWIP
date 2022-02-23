@@ -10,9 +10,6 @@
       <theme-button theme-name="Преобразование обобщенных методов"
                     path-theme="/language/java/generics/TransformationGenericMethods"
                     id="java-7-chapter-5-theme-3-subtheme"/>
-      <theme-button theme-name="Вызов унаследованного кода"
-                    path-theme="/language/java/generics/CallingInherinceCode"
-                    id="java-7-chapter-5-theme-4-subtheme"/>
     </div>
     <chapter-button chapter-name="Обобщенный код и виртуальная машина"
                     class="theme-level-7-chapter-left"
@@ -71,29 +68,14 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter7Theme5SubTheme4 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-7-chapter-5-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-7-chapter-5-theme-4-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter7Theme5SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter7Theme5SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter7Theme5SubTheme3.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter7Theme5SubTheme4.node);
 
     let countProgressLocalTheme = 0
 
-    for (let i = 4; i < 8; i++) {
+    for (let i = 4; i < 7; i++) {
       if (window.frontendData.language.chapters[5].listThemes[i].finished) {
         let k = i - 3
         document.getElementById("java-7-chapter-5-theme-" + k + "-subtheme")
@@ -103,10 +85,10 @@ export default {
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 49) {
+        countProgressLocalTheme < 39) {
       document.getElementById("java-7-chapter-5-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 49)
+      if (countProgressLocalTheme > 39)
         document.getElementById("java-7-chapter-5-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }

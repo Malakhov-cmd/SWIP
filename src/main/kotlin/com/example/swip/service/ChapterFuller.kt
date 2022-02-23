@@ -521,7 +521,7 @@ class ChapterFuller(
     fun fullingSeventhChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..37) {
+        for (i in 1..9) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -533,34 +533,31 @@ class ChapterFuller(
             task.theme = themeRepo.findById(themeId!!).get()
             when (i) {
                 1 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Для использования класса с различными типами"
                 }
                 2 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "16"
                 }
                 3 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "4 * 4"
                 }
                 4 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "9.9"
                 }
                 5 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Процесс замены < T > на тип Object"
                 }
                 6 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Возвращение типа Object и приведение его к типу присваемой переменной"
                 }
                 7 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Преобразование в тип указанный после ключевого слова extends"
                 }
                 8 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Создавать ограничение по типу \"снизу\""
                 }
                 9 -> {
-                    task.answer = "tempAnswer"
-                }
-                10 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "По степени наследования между типами используемых в обощении"
                 }
             }
             val taskId = taskRepo.save(task).id
