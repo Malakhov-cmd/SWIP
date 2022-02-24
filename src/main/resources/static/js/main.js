@@ -249,34 +249,8 @@ import TreeMap from "./components/Language/Java/Chapter/8Collections/3TypeCollec
 //8.4
 import EnumCollectionsAndReflection
     from "./components/Language/Java/Chapter/8Collections/4Reflection/Theme/EnumCollectionsAndReflection.vue";
-import LinkHashmapAndReflection
-    from "./components/Language/Java/Chapter/8Collections/4Reflection/Theme/LinkHashmapAndReflection.vue";
 import OperationOnReflection
     from "./components/Language/Java/Chapter/8Collections/4Reflection/Theme/OperationOnReflection.vue";
-import PerfomanceReflection
-    from "./components/Language/Java/Chapter/8Collections/4Reflection/Theme/PerfomanceReflection.vue";
-import UpdateRowInReflection
-    from "./components/Language/Java/Chapter/8Collections/4Reflection/Theme/UpdateRowInReflection.vue";
-import WeakReflection from "./components/Language/Java/Chapter/8Collections/4Reflection/Theme/WeakReflection.vue";
-//8.5
-import BinarySearch from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/BinarySearch.vue";
-import GroupOperations from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/GroupOperations.vue";
-import PerfomanceGenricAlgorithms
-    from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/PerfomanceGenricAlgorithms.vue";
-import RelativePerfomanceCollectionsAndArrays
-    from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/RelativePerfomanceCollectionsAndArrays.vue";
-import SimpleAlgorithm from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/SimpleAlgorithm.vue";
-import SortingAndReplacement
-    from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/SortingAndReplacement.vue";
-import WriteOwnAlgorithm from "./components/Language/Java/Chapter/8Collections/5Algorithms/Theme/WriteOwnAlgorithm.vue";
-//8.6
-import BitMap from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/BitMap.vue";
-import ClassHashtable
-    from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/ClassHashtable.vue";
-import Enums from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/Enums.vue";
-import Stacks from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/Stacks.vue";
-import TablesProperties
-    from "./components/Language/Java/Chapter/8Collections/6InherinceCollections/Theme/TablesProperties.vue";
 //9.1
 import DeclarationThread from "./components/Language/Java/Chapter/9Threads/1DeclarationThread/DeclarationThread.vue";
 //9.2
@@ -780,27 +754,7 @@ const routes = [
 
     //8.4
     {path: '/language/java/collections/EnumCollectionsAndReflection', component: EnumCollectionsAndReflection},
-    {path: '/language/java/collections/LinkHashmapAndReflection', component: LinkHashmapAndReflection},
     {path: '/language/java/collections/OperationOnReflection', component: OperationOnReflection},
-    {path: '/language/java/collections/PerfomanceReflection', component: PerfomanceReflection},
-    {path: '/language/java/collections/UpdateRowInReflection', component: UpdateRowInReflection},
-    {path: '/language/java/collections/WeakReflection', component: WeakReflection},
-
-    //8.5
-    {path: '/language/java/collections/BinarySearch', component: BinarySearch},
-    {path: '/language/java/collections/GroupOperations', component: GroupOperations},
-    {path: '/language/java/collections/PerfomanceGenricAlgorithms', component: PerfomanceGenricAlgorithms},
-    {path: '/language/java/collections/RelativePerfomanceCollectionsAndArrays', component: RelativePerfomanceCollectionsAndArrays},
-    {path: '/language/java/collections/SimpleAlgorithm', component: SimpleAlgorithm},
-    {path: '/language/java/collections/SortingAndReplacement', component: SortingAndReplacement},
-    {path: '/language/java/collections/WriteOwnAlgorithm', component: WriteOwnAlgorithm},
-
-    //8.6
-    {path: '/language/java/collections/BitMap', component: BitMap},
-    {path: '/language/java/collections/ClassHashtable', component: ClassHashtable},
-    {path: '/language/java/collections/Enums', component: Enums},
-    {path: '/language/java/collections/Stacks', component: Stacks},
-    {path: '/language/java/collections/TablesProperties', component: TablesProperties},
 
     //9.1
     {path: '/language/java/threads/DeclarationThread', component: DeclarationThread},

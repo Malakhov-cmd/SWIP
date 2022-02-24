@@ -6,8 +6,6 @@
                     path-theme="/language/java/collections/InterfacesInCarcasCollectionsInJava" id="java-8-chapter-2-theme"/>
       <type-collections/>
       <reflections/>
-      <algorithms/>
-      <inherince-collections/>
     </div>
     <chapter-button chapter-name="Коллекции" class="theme-level-1-chapter-left"
                     id="central-btn-8chapter"/>
@@ -87,44 +85,15 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-8chapter"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-8-chapter-5-theme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-8chapter"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-8-chapter-6-theme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
 
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo1Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo6Theme.node);
 
-    if (window.frontendData.language.chapters[7].listThemes[0].finished) {
-      document.getElementById("java-8-chapter-1-theme")
+    if (window.frontendData.language.chapters[7].listThemes[4].finished) {
+      document.getElementById("java-8-chapter-2-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
 

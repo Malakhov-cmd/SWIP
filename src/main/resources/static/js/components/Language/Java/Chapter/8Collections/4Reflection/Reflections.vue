@@ -4,21 +4,9 @@
       <theme-button theme-name="Основные операции над отображениями"
                     path-theme="/language/java/collections/OperationOnReflection"
                     id="java-8-chapter-4-theme-1-subtheme"/>
-      <theme-button theme-name="Обновление записей в отображении"
-                    path-theme="/language/java/collections/UpdateRowInReflection"
-                    id="java-8-chapter-4-theme-2-subtheme"/>
-      <theme-button theme-name="Представления отображений"
-                    path-theme="/language/java/collections/PerfomanceReflection"
-                    id="java-8-chapter-4-theme-3-subtheme"/>
-      <theme-button theme-name="Слабые хеш-отображения "
-                    path-theme="/language/java/collections/WeakReflection"
-                    id="java-8-chapter-4-theme-4-subtheme"/>
-      <theme-button theme-name="Связные хеш-множества и отображения"
-                    path-theme="/language/java/collections/LinkHashmapAndReflection"
-                    id="java-8-chapter-4-theme-5-subtheme"/>
       <theme-button theme-name="Перечислимые множества и отображения"
                     path-theme="/language/java/collections/EnumCollectionsAndReflection"
-                    id="java-8-chapter-4-theme-6-subtheme"/>
+                    id="java-8-chapter-4-theme-2-subtheme"/>
     </div>
     <chapter-button chapter-name="Отображения" class="theme-level-8-chapter-left"
                     id="java-8-chapter-4-theme"/>
@@ -48,10 +36,10 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter8Theme4SubTheme2 = arrowCreate({
+    const arrowFromChapter8Theme4SubTheme6 = arrowCreate({
       from: {
         node: () => document.getElementById("java-8-chapter-4-theme"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-8-chapter-4-theme-2-subtheme"),
@@ -62,69 +50,28 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter8Theme4SubTheme3 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-8-chapter-4-theme"),
-        direction: DIRECTION.LEFT,
-      },
-      to: {
-        node: () => document.getElementById("java-8-chapter-4-theme-3-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter8Theme4SubTheme4 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-8-chapter-4-theme"),
-        direction: DIRECTION.LEFT,
-      },
-      to: {
-        node: () => document.getElementById("java-8-chapter-4-theme-4-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter8Theme4SubTheme5 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-8-chapter-4-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-8-chapter-4-theme-5-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter8Theme4SubTheme6 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-8-chapter-4-theme"),
-        direction: DIRECTION.BOTTOM,
-      },
-      to: {
-        node: () => document.getElementById("java-8-chapter-4-theme-6-subtheme"),
-        direction: DIRECTION.RIGHT,
-        translation: [1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme4SubTheme1.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme4SubTheme2.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme4SubTheme3.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme4SubTheme4.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme4SubTheme5.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme4SubTheme6.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 11; i < 13; i++) {
+      if (window.frontendData.language.chapters[7].listThemes[i].finished) {
+        let k = i - 10
+        document.getElementById("java-8-chapter-4-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 32) {
+      document.getElementById("java-8-chapter-4-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 32)
+        document.getElementById("java-8-chapter-4-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
 
   }
 }

@@ -126,6 +126,25 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme3SubTheme5.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter8Theme3SubTheme6.node);
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 4; i < 10; i++) {
+      if (window.frontendData.language.chapters[7].listThemes[i].finished) {
+        let k = i - 3
+        document.getElementById("java-8-chapter-3-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 32) {
+      document.getElementById("java-8-chapter-3-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 32)
+        document.getElementById("java-8-chapter-3-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
+
   }
 }
 </script>

@@ -580,7 +580,7 @@ class ChapterFuller(
     fun fullingEighthChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..30) {
+        for (i in 1..12) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -595,91 +595,37 @@ class ChapterFuller(
                     task.answer = "Для выделение общей идеи и декларирования концепций с последующей детальной реализацией"
                 }
                 2 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Декларацией базовых принципов коллекций"
                 }
                 3 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Декларация принципов обхода коллекций"
                 }
                 4 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "Структура Map слишком отличается от реализации Collection"
                 }
                 5 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "4 * 4"
                 }
                 6 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "16 8"
                 }
                 7 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "8 16"
                 }
                 8 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "16 8 8"
                 }
                 9 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "1 1"
                 }
                 10 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "1"
                 }
                 11 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "4 + 4"
                 }
                 12 -> {
-                    task.answer = "tempAnswer"
-                }
-                13 -> {
-                    task.answer = "tempAnswer"
-                }
-                14 -> {
-                    task.answer = "tempAnswer"
-                }
-                15 -> {
-                    task.answer = "tempAnswer"
-                }
-                16 -> {
-                    task.answer = "tempAnswer"
-                }
-                17 -> {
-                    task.answer = "tempAnswer"
-                }
-                18 -> {
-                    task.answer = "tempAnswer"
-                }
-                19 -> {
-                    task.answer = "tempAnswer"
-                }
-                20 -> {
-                    task.answer = "tempAnswer"
-                }
-                21 -> {
-                    task.answer = "tempAnswer"
-                }
-                22 -> {
-                    task.answer = "tempAnswer"
-                }
-                23 -> {
-                    task.answer = "tempAnswer"
-                }
-                24 -> {
-                    task.answer = "tempAnswer"
-                }
-                25 -> {
-                    task.answer = "tempAnswer"
-                }
-                26 -> {
-                    task.answer = "tempAnswer"
-                }
-                27 -> {
-                    task.answer = "tempAnswer"
-                }
-                28 -> {
-                    task.answer = "tempAnswer"
-                }
-                29 -> {
-                    task.answer = "tempAnswer"
-                }
-                30 -> {
-                    task.answer = "tempAnswer"
+                    task.answer = "California Texas Alabama"
                 }
             }
             val taskId = taskRepo.save(task).id
