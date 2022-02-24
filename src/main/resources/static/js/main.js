@@ -172,11 +172,8 @@ import ClonningObjects
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/ClonningObjects.vue";
 import ConceptInterface
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/ConceptInterface.vue";
-
 import InterfacesAndAbstarctClasses
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/1Interfaces/Theme/InterfacesAndAbstarctClasses.vue";
-
-
 //5.2
 import FunctionalInterfaces
     from "./components/Language/Java/Chapter/5interfaceLyambdaAndInner/2Lyambda/Theme/FunctionalInterfaces.vue";
@@ -201,8 +198,6 @@ import CreationClassesExeption
 import DeclarationProvedExeption
     from "./components/Language/Java/Chapter/6Exeption/1WorkingWithExeption/Theme/DeclarationProvedExeption.vue";
 //6.2
-
-
 import InterceptionOneExeption
     from "./components/Language/Java/Chapter/6Exeption/2InterceptionExeption/Theme/InterceptionOneExeption.vue";
 import OperatorTryWithResource
