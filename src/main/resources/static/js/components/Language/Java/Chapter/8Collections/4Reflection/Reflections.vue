@@ -56,20 +56,20 @@ export default {
 
     let countProgressLocalTheme = 0
 
-    for (let i = 11; i < 13; i++) {
+    for (let i = 10; i < 12; i++) {
       if (window.frontendData.language.chapters[7].listThemes[i].finished) {
-        let k = i - 10
+        let k = i - 9
         document.getElementById("java-8-chapter-4-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 32) {
+        countProgressLocalTheme < 16) {
       document.getElementById("java-8-chapter-4-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 32)
+      if (countProgressLocalTheme > 16)
         document.getElementById("java-8-chapter-4-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 

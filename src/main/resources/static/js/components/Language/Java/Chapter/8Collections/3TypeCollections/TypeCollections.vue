@@ -133,15 +133,15 @@ export default {
         let k = i - 3
         document.getElementById("java-8-chapter-3-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 32) {
+        countProgressLocalTheme < 49) {
       document.getElementById("java-8-chapter-3-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 32)
+      if (countProgressLocalTheme > 49)
         document.getElementById("java-8-chapter-3-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 

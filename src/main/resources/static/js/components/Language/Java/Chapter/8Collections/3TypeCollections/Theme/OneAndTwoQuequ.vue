@@ -175,7 +175,7 @@ export default {
       this.timeEndeded = Date.now()
       this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
 
-      axios.get('http://localhost:9000/java/seventhchapter/', {
+      axios.get('http://localhost:9000/java/eighthchapter/', {
         params: {
           numberTheme: 9,
           answer: this.selected,
@@ -186,7 +186,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[7].listThemes[8].task.answer = response.data
-              window.frontendData.language.chapters[7].chapterProgress += 11.1
+              window.frontendData.language.chapters[7].chapterProgress += 8.3
               window.frontendData.language.chapters[7].listThemes[8].finished = true
 
               isSendedandrecived = true

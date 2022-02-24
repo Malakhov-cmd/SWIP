@@ -150,7 +150,7 @@ export default {
         {item: 'Exception', name: 'Exception'},
         {item: 'California', name: 'California'},
         {item: 'California Texas', name: 'California Texas'},
-        {item: 'California Texas Alabama ', name: 'California Texas Alabama '},
+        {item: 'California Texas Alabama', name: 'California Texas Alabama'},
       ]
     }
   },
@@ -159,7 +159,7 @@ export default {
       this.timeEndeded = Date.now()
       this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
 
-      axios.get('http://localhost:9000/java/seventhchapter/', {
+      axios.get('http://localhost:9000/java/eighthchapter/', {
         params: {
           numberTheme: 12,
           answer: this.selected,
@@ -170,7 +170,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[7].listThemes[11].task.answer = response.data
-              window.frontendData.language.chapters[7].chapterProgress += 11.1
+              window.frontendData.language.chapters[7].chapterProgress += 8.3
               window.frontendData.language.chapters[7].listThemes[11].finished = true
 
               isSendedandrecived = true

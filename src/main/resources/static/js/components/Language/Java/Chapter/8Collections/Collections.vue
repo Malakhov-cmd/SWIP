@@ -17,8 +17,7 @@ import CarcasCollectionsInJava from "./1CarcasCollectionsInJava/CarcasCollection
 import ThemeButton from "../../../Blocks/ThemeButton.vue";
 import TypeCollections from "./3TypeCollections/TypeCollections.vue";
 import Reflections from "./4Reflection/Reflections.vue";
-import Algorithms from "./5Algorithms/Algorithms.vue";
-import InherinceCollections from "./6InherinceCollections/InherinceCollections.vue";
+
 import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
 import ChapterButton from "../../../Blocks/ChapterButton.vue";
 
@@ -26,7 +25,10 @@ export default {
   name: "Collections",
   components: {
     ChapterButton,
-    InherinceCollections, Algorithms, Reflections, TypeCollections, ThemeButton, CarcasCollectionsInJava
+    Reflections,
+    TypeCollections,
+    ThemeButton,
+    CarcasCollectionsInJava
   },
   mounted() {
     const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
@@ -60,7 +62,7 @@ export default {
     const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-8chapter"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-8-chapter-3-theme"),
@@ -74,7 +76,7 @@ export default {
     const arrowFromCentralBtnChapterTo4Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-8chapter"),
-        direction: DIRECTION.TOP,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-8-chapter-4-theme"),
@@ -92,7 +94,7 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
 
-    if (window.frontendData.language.chapters[7].listThemes[4].finished) {
+    if (window.frontendData.language.chapters[7].listThemes[3].finished) {
       document.getElementById("java-8-chapter-2-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }

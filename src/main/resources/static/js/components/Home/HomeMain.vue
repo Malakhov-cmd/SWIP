@@ -362,6 +362,21 @@ export default {
     }
   },
   mounted() {
+
+    axios.get('http://localhost:9000/api/userinfo', {
+      params: {
+        userId: window.frontendData.profile.id
+      }
+    })
+        .then(function (response) {
+          window.frontendData.profile = response.data
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    this.dataUpdate();
+
+
     this.currentUser = window.frontendData.profile
 
     this.userName = frontendData.wall.owner.name

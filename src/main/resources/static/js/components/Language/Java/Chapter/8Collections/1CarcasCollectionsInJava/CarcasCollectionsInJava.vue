@@ -79,15 +79,15 @@ export default {
         let k = i + 1
         document.getElementById("java-8-chapter-1-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 32) {
+        countProgressLocalTheme < 24) {
       document.getElementById("java-8-chapter-1-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 32)
+      if (countProgressLocalTheme > 24)
         document.getElementById("java-8-chapter-1-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 
