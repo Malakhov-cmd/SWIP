@@ -160,6 +160,39 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
 
+    /*if (window.frontendData.language.chapters[8].listThemes[3].finished) {
+      document.getElementById("java-8-chapter-2-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }*/
+
+    if (window.frontendData.language.chapters[8].chapterProgress > 0 &&
+        window.frontendData.language.chapters[8].chapterProgress < 99) {
+      document.getElementById("central-btn-9chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[8].chapterProgress >= 99) {
+        document.getElementById("central-btn-9chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[8].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn-9chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 9</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
+
+
   }
 }
 </script>

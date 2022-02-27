@@ -66,6 +66,10 @@ class ChapterFuller(
                     fullingEighthChapter(chapterId!!)
                     lang.chapters.add(chapterRepo.findById(chapterId).get())
                 }
+                9 -> {
+                    fullingNinthChapter(chapterId!!)
+                    lang.chapters.add(chapterRepo.findById(chapterId).get())
+                }
             }
             javaLanguagesRepo.save(lang)
         }
@@ -626,6 +630,70 @@ class ChapterFuller(
                 }
                 12 -> {
                     task.answer = "California Texas Alabama"
+                }
+            }
+            val taskId = taskRepo.save(task).id
+
+            val themeSaved = themeRepo.findById(themeId).get()
+            themeSaved.task = taskRepo.findById(taskId!!).get()
+
+            themeRepo.save(themeSaved)
+
+            chapter.listThemes.add(themeSaved)
+
+            chapterRepo.save(chapter)
+        }
+    }
+
+    fun fullingNinthChapter(chapterId: Long){
+        val chapter: Chapter = chapterRepo.findById(chapterId).get()
+
+        for (i in 1..12) {
+            val theme = Theme()
+            theme.chapter = chapter
+            theme.number = i
+            theme.isFinished = false
+
+            val themeId = themeRepo.save(theme).id
+
+            val task = Task()
+            task.theme = themeRepo.findById(themeId!!).get()
+            when (i) {
+                1 -> {
+                    task.answer = "Функциональным интерфейсом"
+                }
+                2 -> {
+                    task.answer = "tempAnswer"
+                }
+                3 -> {
+                    task.answer = "tempAnswer"
+                }
+                4 -> {
+                    task.answer = "tempAnswer"
+                }
+                5 -> {
+                    task.answer = "tempAnswer"
+                }
+                6 -> {
+                    task.answer = "tempAnswer"
+                }
+                7 -> {
+                    task.answer = "tempAnswer"
+                }
+                8 -> {
+                    task.answer = "tempAnswer"
+                }
+                9 -> {
+                    task.answer = "tempAnswer"
+                }
+                10 -> {
+                    task.answer = "tempAnswer"
+                }
+                11 -> {
+                    task.answer = "tempAnswer"
+                }
+                12 -> {
+                    task.answer = "tempAnswer"
                 }
             }
             val taskId = taskRepo.save(task).id
