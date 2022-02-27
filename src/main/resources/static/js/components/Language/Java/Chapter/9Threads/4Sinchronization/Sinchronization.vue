@@ -6,42 +6,30 @@
       <theme-button theme-name="Пример состояния гонок"
                     path-theme="/language/java/threads/ExampleRaceCondition"
                     id="java-9-chapter-4-theme-1-subtheme"/>
-      <theme-button theme-name="Объяснение причин, приводящих к состоянию гонок"
-                    path-theme="/language/java/threads/ExplanationRaceCondition"
-                    id="java-9-chapter-4-theme-2-subtheme"/>
       <theme-button theme-name="Объекты блокировки"
                     path-theme="/language/java/threads/BlockingObject"
-                    id="java-9-chapter-4-theme-3-subtheme"/>
+                    id="java-9-chapter-4-theme-2-subtheme"/>
       <theme-button theme-name="Объекты условий"
                     path-theme="/language/java/threads/IfBlocks"
-                    id="java-9-chapter-4-theme-4-subtheme"/>
+                    id="java-9-chapter-4-theme-3-subtheme"/>
       <theme-button theme-name="Ключевое слово synchronized"
                     path-theme="/language/java/threads/KeyWorkSynchrinized"
-                    id="java-9-chapter-4-theme-5-subtheme"/>
+                    id="java-9-chapter-4-theme-4-subtheme"/>
       <theme-button theme-name="Синхронизированные блоки"
                     path-theme="/language/java/threads/SynchroBlocks"
-                    id="java-9-chapter-4-theme-6-subtheme"/>
+                    id="java-9-chapter-4-theme-5-subtheme"/>
       <theme-button theme-name="Принцип монитора"
                     path-theme="/language/java/threads/MonitorPrincep"
-                    id="java-9-chapter-4-theme-7-subtheme"/>
+                    id="java-9-chapter-4-theme-6-subtheme"/>
       <theme-button theme-name="Поля и переменные типа volatile"
                     path-theme="/language/java/threads/TypeVolatile"
-                    id="java-9-chapter-4-theme-8-subtheme"/>
-      <theme-button theme-name="Поля и переменные типа final"
-                    path-theme="/language/java/threads/TypeFinal"
-                    id="java-9-chapter-4-theme-9-subtheme"/>
+                    id="java-9-chapter-4-theme-7-subtheme"/>
       <theme-button theme-name="Атомарность операций"
                     path-theme="/language/java/threads/AtomicOperation"
-                    id="java-9-chapter-4-theme-10-subtheme"/>
-      <theme-button theme-name="Взаимные блокировки"
-                    path-theme="/language/java/threads/DeadLocks"
-                    id="java-9-chapter-4-theme-11-subtheme"/>
-      <theme-button theme-name="Локальные переменные в потоках исполнения"
-                    path-theme="/language/java/threads/LocalTempsInThread"
-                    id="java-9-chapter-4-theme-12-subtheme"/>
+                    id="java-9-chapter-4-theme-8-subtheme"/>
       <theme-button theme-name="Причины, по которым методы stop() и suspend() не рекомендованы к применению"
                     path-theme="/language/java/threads/DepricatedMethodsStopAndSuspend"
-                    id="java-9-chapter-4-theme-13-subtheme"/>
+                    id="java-9-chapter-4-theme-9-subtheme"/>
     </div>
   </div>
 </template>
@@ -181,62 +169,7 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter9Theme4SubTheme10 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-9-chapter-4-theme-10-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter9Theme4SubTheme11 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-9-chapter-4-theme-11-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter9Theme4SubTheme12 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-9-chapter-4-theme-12-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter9Theme4SubTheme13 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-9-chapter-4-theme-13-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme2.node);
@@ -247,10 +180,25 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme7.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme8.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme9.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme10.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme11.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme12.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme4SubTheme13.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 6; i < 15; i++) {
+      if (window.frontendData.language.chapters[8].listThemes[i].finished) {
+        let k = i - 5
+        document.getElementById("java-9-chapter-4-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 24) {
+      document.getElementById("java-9-chapter-4-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 24)
+        document.getElementById("java-9-chapter-4-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
 
   }
 }

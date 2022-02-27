@@ -263,28 +263,19 @@ import Thread from "./components/Language/Java/Chapter/9Threads/2ConditionThread
 import DemonThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/DemonThreads.vue";
 import HandlerUnproccessException
     from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/HandlerUnproccessException.vue";
-import InterruptedThreads
-    from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/InterruptedThreads.vue";
-import PriorityThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/PriorityThreads.vue";
-import NamingThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/NamingThreads.vue";
+
 //9.4
 import AtomicOperation from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/AtomicOperation.vue";
 import BlockingObject from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/BlockingObject.vue";
-import DeadLocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/DeadLocks.vue";
 import DepricatedMethodsStopAndSuspend
     from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/DepricatedMethodsStopAndSuspend.vue";
 import ExampleRaceCondition
     from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/ExampleRaceCondition.vue";
-import ExplanationRaceCondition
-    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/ExplanationRaceCondition.vue";
 import IfBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/IfBlocks.vue";
 import KeyWorkSynchrinized
     from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/KeyWorkSynchrinized.vue";
-import LocalTempsInThread
-    from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/LocalTempsInThread.vue";
 import MonitorPrincep from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/MonitorPrincep.vue";
 import SynchroBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/SynchroBlocks.vue";
-import TypeFinal from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/TypeFinal.vue";
 import TypeVolatile from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/TypeVolatile.vue";
 //9.5
 import AlgorithmsWorkingOnParralelMassive
@@ -768,23 +759,16 @@ const routes = [
     //9.3
     {path: '/language/java/threads/DemonThreads', component: DemonThreads},
     {path: '/language/java/threads/HandlerUnproccessException', component: HandlerUnproccessException},
-    {path: '/language/java/threads/InterruptedThreads', component: InterruptedThreads},
-    {path: '/language/java/threads/NamingThreads', component: NamingThreads},
-    {path: '/language/java/threads/PriorityThreads', component: PriorityThreads},
 
     //9.4
     {path: '/language/java/threads/AtomicOperation', component: AtomicOperation},
     {path: '/language/java/threads/BlockingObject', component: BlockingObject},
-    {path: '/language/java/threads/DeadLocks', component: DeadLocks},
     {path: '/language/java/threads/DepricatedMethodsStopAndSuspend', component: DepricatedMethodsStopAndSuspend},
     {path: '/language/java/threads/ExampleRaceCondition', component: ExampleRaceCondition},
-    {path: '/language/java/threads/ExplanationRaceCondition', component: ExplanationRaceCondition},
     {path: '/language/java/threads/IfBlocks', component: IfBlocks},
     {path: '/language/java/threads/KeyWorkSynchrinized', component: KeyWorkSynchrinized},
-    {path: '/language/java/threads/LocalTempsInThread', component: LocalTempsInThread},
     {path: '/language/java/threads/MonitorPrincep', component: MonitorPrincep},
     {path: '/language/java/threads/SynchroBlocks', component: SynchroBlocks},
-    {path: '/language/java/threads/TypeFinal', component: TypeFinal},
     {path: '/language/java/threads/TypeVolatile', component: TypeVolatile},
 
     //9.5

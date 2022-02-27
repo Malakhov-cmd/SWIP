@@ -160,10 +160,10 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
 
-    /*if (window.frontendData.language.chapters[8].listThemes[3].finished) {
-      document.getElementById("java-8-chapter-2-theme")
+    if (window.frontendData.language.chapters[8].listThemes[0].finished) {
+      document.getElementById("java-9-chapter-1-theme")
           .setAttribute("style", "background: #28a745; border: green;");
-    }*/
+    }
 
     if (window.frontendData.language.chapters[8].chapterProgress > 0 &&
         window.frontendData.language.chapters[8].chapterProgress < 99) {
