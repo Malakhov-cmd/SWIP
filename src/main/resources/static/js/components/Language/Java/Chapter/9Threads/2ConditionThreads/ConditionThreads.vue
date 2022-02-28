@@ -31,7 +31,7 @@ export default {
     const arrowFromChapter9Theme2SubTheme1 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-2-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-2-theme-1-subtheme"),
@@ -45,7 +45,7 @@ export default {
     const arrowFromChapter9Theme2SubTheme2 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-2-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-2-theme-2-subtheme"),
@@ -59,7 +59,7 @@ export default {
     const arrowFromChapter9Theme2SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-2-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-2-theme-3-subtheme"),
@@ -73,7 +73,7 @@ export default {
     const arrowFromChapter9Theme2SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-2-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-2-theme-4-subtheme"),
@@ -92,20 +92,19 @@ export default {
 
     let countProgressLocalTheme = 0
 
-    for (let i = 1; i < 4; i++) {
+    for (let i = 1; i < 5; i++) {
       if (window.frontendData.language.chapters[8].listThemes[i].finished) {
-        let k = i
-        document.getElementById("java-9-chapter-2-theme-" + k + "-subtheme")
+        document.getElementById("java-9-chapter-2-theme-" + i + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+        countProgressLocalTheme = countProgressLocalTheme + 4.54;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 24) {
+        countProgressLocalTheme < 17) {
       document.getElementById("java-9-chapter-2-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 24)
+      if (countProgressLocalTheme > 17)
         document.getElementById("java-9-chapter-2-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }

@@ -46,7 +46,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme1 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-1-subtheme"),
@@ -60,7 +60,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme2 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-2-subtheme"),
@@ -74,7 +74,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-3-subtheme"),
@@ -88,7 +88,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-4-subtheme"),
@@ -116,7 +116,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme6 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-6-subtheme"),
@@ -130,7 +130,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme7 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-7-subtheme"),
@@ -144,7 +144,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme8 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-8-subtheme"),
@@ -158,7 +158,7 @@ export default {
     const arrowFromChapter9Theme4SubTheme9 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-4-theme-9-subtheme"),
@@ -183,20 +183,20 @@ export default {
 
     let countProgressLocalTheme = 0
 
-    for (let i = 6; i < 15; i++) {
+    for (let i = 7; i < 16; i++) {
       if (window.frontendData.language.chapters[8].listThemes[i].finished) {
-        let k = i - 5
+        let k = i - 6
         document.getElementById("java-9-chapter-4-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+        countProgressLocalTheme = countProgressLocalTheme + 4.54;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 24) {
+        countProgressLocalTheme < 39) {
       document.getElementById("java-9-chapter-4-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 24)
+      if (countProgressLocalTheme > 39)
         document.getElementById("java-9-chapter-4-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 

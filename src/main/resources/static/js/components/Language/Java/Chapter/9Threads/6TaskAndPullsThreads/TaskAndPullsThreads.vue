@@ -31,7 +31,7 @@ export default {
     const arrowFromChapter9Theme6SubTheme1 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-6-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-6-theme-1-subtheme"),
@@ -45,7 +45,7 @@ export default {
     const arrowFromChapter9Theme6SubTheme2 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-6-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-6-theme-2-subtheme"),
@@ -59,7 +59,7 @@ export default {
     const arrowFromChapter9Theme6SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-6-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-6-theme-3-subtheme"),
@@ -73,7 +73,7 @@ export default {
     const arrowFromChapter9Theme6SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-9-chapter-6-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-6-theme-4-subtheme"),
@@ -92,20 +92,20 @@ export default {
 
     let countProgressLocalTheme = 0
 
-    for (let i = 15; i < 19; i++) {
+    for (let i = 16; i < 20; i++) {
       if (window.frontendData.language.chapters[8].listThemes[i].finished) {
-        let k = i - 14
+        let k = i - 15
         document.getElementById("java-9-chapter-6-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+        countProgressLocalTheme = countProgressLocalTheme + 4.54;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 24) {
+        countProgressLocalTheme < 17) {
       document.getElementById("java-9-chapter-6-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 24)
+      if (countProgressLocalTheme > 17)
         document.getElementById("java-9-chapter-6-theme").setAttribute("style", "background: #28a745; border: green;")
     }
 

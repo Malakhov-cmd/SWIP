@@ -39,7 +39,7 @@ export default {
     const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-9chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-1-theme"),
@@ -53,7 +53,7 @@ export default {
     const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-9chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-2-theme"),
@@ -67,7 +67,7 @@ export default {
     const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-9chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-3-theme"),
@@ -95,7 +95,7 @@ export default {
     const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-9chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-6-theme"),
@@ -109,7 +109,7 @@ export default {
     const arrowFromCentralBtnChapterTo7Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-9chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-9-chapter-7-theme"),

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/java/ninhthchapter/")
+@RequestMapping("/java/ninthchapter/")
 class NinthChapterController(
         @Autowired
         var ninthChapterProcessor: NinthChapterProcessor
