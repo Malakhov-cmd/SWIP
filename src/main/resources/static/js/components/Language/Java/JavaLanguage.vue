@@ -25,8 +25,6 @@
         <div class="chapter-right-side">
           <threads/>
           <streams/>
-          <input-output/>
-          <x-m-l/>
           <annotation/>
           <modules/>
         </div>
@@ -58,8 +56,6 @@ import GenericProgramming from "./Chapter/7GenericProgramming/GenericProgramming
 import Collections from "./Chapter/8Collections/Collections.vue";
 import Threads from "./Chapter/9Threads/Threads.vue";
 import Streams from "./Chapter/10Streams/Streams.vue";
-import InputOutput from "./Chapter/11InputOutput/InputOutput.vue";
-import XML from "./Chapter/12XML/XML.vue";
 import Annotation from "./Chapter/13Annotation/Annotation.vue";
 import Modules from "./Chapter/14Modules/Modules.vue";
 
@@ -67,8 +63,6 @@ export default {
   components: {
     Modules,
     Annotation,
-    XML,
-    InputOutput,
     Streams,
     Threads,
     Collections,
@@ -240,28 +234,6 @@ export default {
         func: HEAD.VEE,
       }
     });
-    const arrowFromCentralBtnToHeadOFElevenChapter = arrowCreate({
-      from: document.getElementById("center-btn-language-name"),
-      to: {
-        node: () => document.getElementById("central-btn-11chapter"),
-        translation: [-1, 0],
-        direction: DIRECTION.LEFT,
-      },
-      head: {
-        func: HEAD.VEE,
-      }
-    });
-    const arrowFromCentralBtnToHeadOFTwelveChapter = arrowCreate({
-      from: document.getElementById("center-btn-language-name"),
-      to: {
-        node: () => document.getElementById("central-btn-12chapter"),
-        translation: [-1, 0],
-        direction: DIRECTION.LEFT,
-      },
-      head: {
-        func: HEAD.VEE,
-      }
-    });
     const arrowFromCentralBtnToHeadOFThirtinChapter = arrowCreate({
       from: document.getElementById("center-btn-language-name"),
       to: {
@@ -295,8 +267,6 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFEightChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFNineChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTenChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFElevenChapter.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFTwelveChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFThirtinChapter.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnToHeadOFFourtinChapter.node);
 

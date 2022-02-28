@@ -421,7 +421,6 @@ export default {
 
     this.dataUpdate()
 
-    //TODO добавь валидацию
   },
   beforeDestroy() {
     clearInterval(this.dataUpdater)

@@ -13,7 +13,6 @@ import Dialog from "./components/Message/Dialog.vue"
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
 import LoginMain from "./components/Login/LoginMain.vue";
-import test from "./components/Language/Kotlin/Test/test.vue";
 /*Languages*/
 import JavaLanguage from "./components/Language/Java/JavaLanguage.vue";
 import KotlinLanguage from "./components/Language/Kotlin/KotlinLanguage.vue";
@@ -324,92 +323,6 @@ import AddingOperation from "./components/Language/Java/Chapter/10Streams/12Addi
 import SimpleTypeStreams from "./components/Language/Java/Chapter/10Streams/13SimpleTypeStreams/SimpleTypeStreams.vue";
 import ParallelStreamsData
     from "./components/Language/Java/Chapter/10Streams/14ParallelStreamsData/ParallelStreamsData.vue";
-//11.1
-import CodingSymbols from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/CodingSymbols.vue";
-import FullComplectInputOutputStreams
-    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/FullComplectInputOutputStreams.vue";
-import InputOutputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/InputOutputText.vue";
-import InputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/InputText.vue";
-import MixingFiltersStreamsInputOutput
-    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/MixingFiltersStreamsInputOutput.vue";
-import OutputText from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/OutputText.vue";
-import ReadAndWriteBites
-    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/ReadAndWriteBites.vue";
-import SaveObjectInTextFormat
-    from "./components/Language/Java/Chapter/11InputOutput/1InputOutput/Theme/SaveObjectInTextFormat.vue";
-//11.2
-import FilesRandomAccess
-    from "./components/Language/Java/Chapter/11InputOutput/2ReadAndWriteBitData/Theme/FilesRandomAccess.vue";
-import InterfaceDataInputDataOutput
-    from "./components/Language/Java/Chapter/11InputOutput/2ReadAndWriteBitData/Theme/InterfaceDataInputDataOutput.vue";
-import ZIPFiles from "./components/Language/Java/Chapter/11InputOutput/2ReadAndWriteBitData/Theme/ZIPFiles.vue";
-//11.3
-import ChangingSourceMechanizmSerialization
-    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/ChangingSourceMechanizmSerialization.vue";
-import ControlVertions
-    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/ControlVertions.vue";
-import DeclarationFormatFileForSerialization
-    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/DeclarationFormatFileForSerialization.vue";
-import SavingAndLoadingSerializeObject
-    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/SavingAndLoadingSerializeObject.vue";
-import UseSerializationForClonning
-    from "./components/Language/Java/Chapter/11InputOutput/3InputOutputStreamAndSerializable/Theme/UseSerializationForClonning.vue";
-//11.4
-import CopingTempAndDeleteFiles
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/CopingTempAndDeleteFiles.vue";
-import CreationFilesAndCatalogies
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/CreationFilesAndCatalogies.vue";
-import FilePath from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/FilePath.vue";
-import GettingFileInfo
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/GettingFileInfo.vue";
-import LookingElementCatalogies
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/LookingElementCatalogies.vue";
-import ReadAndWriteInFiles
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ReadAndWriteInFiles.vue";
-import UseCatalogiesStreams
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/UseCatalogiesStreams.vue";
-import ZIPSystemFiles
-    from "./components/Language/Java/Chapter/11InputOutput/4ManipulatingFiles/Theme/ZIPSystemFiles.vue";
-//11.5
-import BlockingFiles
-    from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/BlockingFiles.vue";
-import DataBufferStructure
-    from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/DataBufferStructure.vue";
-import EffictiveFilesIntoMemory
-    from "./components/Language/Java/Chapter/11InputOutput/5FilesIntoDatamember/Theme/EffictiveFilesIntoMemory.vue";
-//11.6
-import ChangingSame from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/ChangingSame.vue";
-import FindinManySaneInString
-    from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/FindinManySaneInString.vue";
-import ItemingStringToSeparator
-    from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/ItemingStringToSeparator.vue";
-import SameWithString
-    from "./components/Language/Java/Chapter/11InputOutput/6RegularExpression/Theme/SameWithString.vue";
-//12.1-3
-import IntroductionToXML from "./components/Language/Java/Chapter/12XML/1IntroductionToXML/IntroductionToXML.vue";
-import StructureXML from "./components/Language/Java/Chapter/12XML/2StructureXML/StructureXML.vue";
-import SyntaxAnalizeXMLDoc from "./components/Language/Java/Chapter/12XML/3SyntaxAnalizeXMLDoc/SyntaxAnalizeXMLDoc.vue";
-//12.4
-import DeclarationDocType
-    from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/DeclarationDocType.vue";
-import PracticUseXMLDocUse
-    from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/PracticUseXMLDocUse.vue";
-import SchemaXML from "./components/Language/Java/Chapter/12XML/4CheckingTrustXMLDoc/Theme/SchemaXML.vue";
-//12.5-6
-import FindInfoViaXPath from "./components/Language/Java/Chapter/12XML/5FindInfoViaXPath/FindInfoViaXPath.vue";
-import UseSpacenaming from "./components/Language/Java/Chapter/12XML/6UseSpacenaming/UseSpacenaming.vue";
-//12.7
-import SAXAnalizator from "./components/Language/Java/Chapter/12XML/7StreamSyntaxAnalizator/Theme/SAXAnalizator.vue";
-import STAXAnalizator from "./components/Language/Java/Chapter/12XML/7StreamSyntaxAnalizator/Theme/STAXAnalizator.vue";
-//12.8
-import FormingFileViaSVG from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/FormingFileViaSVG.vue";
-import WriteXMLDoc from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/WriteXMLDoc.vue";
-import WriteXMLViaSTAX from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/WriteXMLViaSTAX.vue";
-import XMLWithoutSpacenaming
-    from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithoutSpacenaming.vue";
-import XMLWithSpacenaming from "./components/Language/Java/Chapter/12XML/8FormingXMLDoc/Theme/XMLWithSpacenaming.vue";
-import TransformationXMLDocViaXSLT
-    from "./components/Language/Java/Chapter/12XML/9TransformationXMLDocViaXSLT/TransformationXMLDocViaXSLT.vue";
 //13.1
 import CallFuncktionAndMethodsFromScenario
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/CallFuncktionAndMethodsFromScenario.vue";
@@ -806,77 +719,6 @@ const routes = [
     //10.14
     {path: '/language/java/streams/ParallelStreamsData', component: ParallelStreamsData},
 
-    //11.1
-    {path: '/language/java/inputoutput/CodingSymbols', component: CodingSymbols},
-    {path: '/language/java/inputoutput/FullComplectInputOutputStreams', component: FullComplectInputOutputStreams},
-    {path: '/language/java/inputoutput/InputOutputText', component: InputOutputText},
-    {path: '/language/java/inputoutput/InputText', component: InputText},
-    {path: '/language/java/inputoutput/MixingFiltersStreamsInputOutput', component: MixingFiltersStreamsInputOutput},
-    {path: '/language/java/inputoutput/OutputText', component: OutputText},
-    {path: '/language/java/inputoutput/ReadAndWriteBites', component: ReadAndWriteBites},
-    {path: '/language/java/inputoutput/SaveObjectInTextFormat', component: SaveObjectInTextFormat},
-
-    //11.2
-    {path: '/language/java/inputoutput/FilesRandomAccess', component: FilesRandomAccess},
-    {path: '/language/java/inputoutput/InterfaceDataInputDataOutput', component: InterfaceDataInputDataOutput},
-    {path: '/language/java/inputoutput/ZIPFiles', component: ZIPFiles},
-
-    //11.3
-    {path: '/language/java/inputoutput/ChangingSourceMechanizmSerialization', component: ChangingSourceMechanizmSerialization},
-    {path: '/language/java/inputoutput/ControlVertions', component: ControlVertions},
-    {path: '/language/java/inputoutput/DeclarationFormatFileForSerialization', component: DeclarationFormatFileForSerialization},
-    {path: '/language/java/inputoutput/SavingAndLoadingSerializeObject', component: SavingAndLoadingSerializeObject},
-    {path: '/language/java/inputoutput/UseSerializationForClonning', component: UseSerializationForClonning},
-
-    //11.4
-    {path: '/language/java/inputoutput/CopingTempAndDeleteFiles', component: CopingTempAndDeleteFiles},
-    {path: '/language/java/inputoutput/CreationFilesAndCatalogies', component: CreationFilesAndCatalogies},
-    {path: '/language/java/inputoutput/FilePath', component: FilePath},
-    {path: '/language/java/inputoutput/GettingFileInfo', component: GettingFileInfo},
-    {path: '/language/java/inputoutput/LookingElementCatalogies', component: LookingElementCatalogies},
-    {path: '/language/java/inputoutput/ReadAndWriteInFiles', component: ReadAndWriteInFiles},
-    {path: '/language/java/inputoutput/UseCatalogiesStreams', component: UseCatalogiesStreams},
-    {path: '/language/java/inputoutput/ZIPSystemFiles', component: ZIPSystemFiles},
-
-    //11.5
-    {path: '/language/java/inputoutput/BlockingFiles', component: BlockingFiles},
-    {path: '/language/java/inputoutput/DataBufferStructure', component: DataBufferStructure},
-    {path: '/language/java/inputoutput/EffictiveFilesIntoMemory', component: EffictiveFilesIntoMemory},
-
-    //11.6
-    {path: '/language/java/inputoutput/ChangingSame', component: ChangingSame},
-    {path: '/language/java/inputoutput/FindinManySaneInString', component: FindinManySaneInString},
-    {path: '/language/java/inputoutput/ItemingStringToSeparator', component: ItemingStringToSeparator},
-    {path: '/language/java/inputoutput/SameWithString', component: SameWithString},
-
-    //12.1-3
-    {path: '/language/java/xml/IntroductionToXML', component: IntroductionToXML},
-    {path: '/language/java/xml/StructureXML', component: StructureXML},
-    {path: '/language/java/xml/SyntaxAnalizeXMLDoc', component: SyntaxAnalizeXMLDoc},
-
-    //12.4
-    {path: '/language/java/xml/DeclarationDocType', component: DeclarationDocType},
-    {path: '/language/java/xml/PracticUseXMLDocUse', component: PracticUseXMLDocUse},
-    {path: '/language/java/xml/SchemaXML', component: SchemaXML},
-
-    //12.5-6
-    {path: '/language/java/xml/FindInfoViaXPath', component: FindInfoViaXPath},
-    {path: '/language/java/xml/UseSpacenaming', component: UseSpacenaming},
-
-    //12.7
-    {path: '/language/java/xml/SAXAnalizator', component: SAXAnalizator},
-    {path: '/language/java/xml/STAXAnalizator', component: STAXAnalizator},
-
-    //12.8
-    {path: '/language/java/xml/FormingFileViaSVG', component: FormingFileViaSVG},
-    {path: '/language/java/xml/WriteXMLDoc', component: WriteXMLDoc},
-    {path: '/language/java/xml/WriteXMLViaSTAX', component: WriteXMLViaSTAX},
-    {path: '/language/java/xml/XMLWithoutSpacenaming', component: XMLWithoutSpacenaming},
-    {path: '/language/java/xml/XMLWithSpacenaming', component: XMLWithSpacenaming},
-
-    //12.9
-    {path: '/language/java/xml/TransformationXMLDocViaXSLT', component: TransformationXMLDocViaXSLT},
-
     //13.1
     {path: '/language/java/scenarioandannotation/CallFuncktionAndMethodsFromScenario', component: CallFuncktionAndMethodsFromScenario},
     {path: '/language/java/scenarioandannotation/CompileScenario', component: CompileScenario},
@@ -923,14 +765,10 @@ const routes = [
     {path: '/language/kotlin', component: KotlinLanguage},
     {path: '/language/js', component: JSLanguage},
 
-    //test
-    {path: '/language/kotlin/1', component: test},
-
     {path: '/message', component: MessageMain},
     {path: '/friend', component: FriendMain},
     {path: '/settings', component: SettingsMain},
     {path: '/login', component: LoginMain},
-    //{path: '/registration', component: Registration}
 ]
 
 const router = new VueRouter({
