@@ -9,9 +9,6 @@
       <theme-button theme-name="Составление завершаемых Future действий"
                     path-theme="/language/java/threads/MakingFutureEndingActions"
                     id="java-9-chapter-7-theme-2-subtheme"/>
-      <theme-button theme-name="Длительные задачи в обратных вызовах из GUI"
-                    path-theme="/language/java/threads/LongTaskInBackcallGUI"
-                    id="java-9-chapter-7-theme-3-subtheme"/>
     </div>
   </div>
 </template>
@@ -53,24 +50,28 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter9Theme7SubTheme3 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-9-chapter-7-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-9-chapter-7-theme-3-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme7SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme7SubTheme2.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme7SubTheme3.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 19; i < 21; i++) {
+      if (window.frontendData.language.chapters[8].listThemes[i].finished) {
+        let k = i - 18
+        document.getElementById("java-9-chapter-7-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 24) {
+      document.getElementById("java-9-chapter-7-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 24)
+        document.getElementById("java-9-chapter-7-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

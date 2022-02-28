@@ -648,7 +648,7 @@ class ChapterFuller(
     fun fullingNinthChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..12) {
+        for (i in 1..22) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -708,13 +708,22 @@ class ChapterFuller(
                     task.answer = "Он тратит слишком много ресурсов на закрытие потока"
                 }
                 17 -> {
-                    task.answer = "Формирование сообщений или выпорлнение других операций перед завершением потока"
+                    task.answer = "Определить класс расширяющийся интерфейсом Callable< T >, переопределить переопределить get(), создать объект FutureTask< T >, созадть и запустить Thread, вызвать get()"
                 }
                 18 -> {
-                    task.answer = "Совместная запись суммы в результате перевода со счета на счет несколькими методами"
+                    task.answer = "Меньшая нагрузка на память при выделении потоков"
                 }
                 19 -> {
-                    task.answer = "Блокировка не будет снята и останется за потоком вызвавшим метод lock()"
+                    task.answer = "Вычисление где не важен порядок а важен первый результат"
+                }
+                20 -> {
+                    task.answer = "Возможность просто разделять задачи на подзадачи и получать результат"
+                }
+                21 -> {
+                    task.answer = "Организация последовательного исполнения кода"
+                }
+                22 -> {
+                    task.answer = "Для вызова функции f в другом потоке"
                 }
             }
             val taskId = taskRepo.save(task).id

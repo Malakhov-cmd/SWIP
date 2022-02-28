@@ -90,6 +90,25 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme6SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter9Theme6SubTheme4.node);
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 15; i < 19; i++) {
+      if (window.frontendData.language.chapters[8].listThemes[i].finished) {
+        let k = i - 14
+        document.getElementById("java-9-chapter-6-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 24) {
+      document.getElementById("java-9-chapter-6-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 24)
+        document.getElementById("java-9-chapter-6-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
+
   }
 }
 </script>

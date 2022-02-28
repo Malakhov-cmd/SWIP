@@ -277,22 +277,6 @@ import KeyWorkSynchrinized
 import MonitorPrincep from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/MonitorPrincep.vue";
 import SynchroBlocks from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/SynchroBlocks.vue";
 import TypeVolatile from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/TypeVolatile.vue";
-//9.5
-import AlgorithmsWorkingOnParralelMassive
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/AlgorithmsWorkingOnParralelMassive.vue";
-import AtomicUpdateRowInReflections
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/AtomicUpdateRowInReflections.vue";
-import BlockingQueue from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/BlockingQueue.vue";
-import DepricatedThreadSecurity
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/DepricatedThreadSecurity.vue";
-import EffictiveReflectionMapAndQueue
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/EffictiveReflectionMapAndQueue.vue";
-import GroupOperationOnParralelHashMap
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/GroupOperationOnParralelHashMap.vue";
-import MassiveCopingOnWriting
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/MassiveCopingOnWriting.vue";
-import ParralelDeclarationMap
-    from "./components/Language/Java/Chapter/9Threads/5ThreadSafeCollection/Theme/ParralelDeclarationMap.vue";
 //9.6
 import ArchitectureForkLink
     from "./components/Language/Java/Chapter/9Threads/6TaskAndPullsThreads/Theme/ArchitectureForkLink.vue";
@@ -304,14 +288,8 @@ import ManagerGroupTask
 //9.7
 import EndingFutureActions
     from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/EndingFutureActions.vue";
-import LongTaskInGUI
-    from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/LongTaskInBackcallGUI.vue";
 import MakingFutureEndingActions
     from "./components/Language/Java/Chapter/9Threads/7AsinchronizedCalk/Theme/MakingFutureEndingActions.vue";
-//9.8
-import BuildingProccess from "./components/Language/Java/Chapter/9Threads/8Processes/Theme/BuildingProccess.vue";
-import DescriptorsProccess from "./components/Language/Java/Chapter/9Threads/8Processes/Theme/DescriptorsProccess.vue";
-import ExecutionProccess from "./components/Language/Java/Chapter/9Threads/8Processes/Theme/ExecutionProccess.vue";
 //10.1-10.6
 import FromInterationToStreams
     from "./components/Language/Java/Chapter/10Streams/1FromInterationToStreams/FromInterationToStreams.vue";
@@ -771,16 +749,6 @@ const routes = [
     {path: '/language/java/threads/SynchroBlocks', component: SynchroBlocks},
     {path: '/language/java/threads/TypeVolatile', component: TypeVolatile},
 
-    //9.5
-    {path: '/language/java/threads/AlgorithmsWorkingOnParralelMassive', component: AlgorithmsWorkingOnParralelMassive},
-    {path: '/language/java/threads/AtomicUpdateRowInReflections', component: AtomicUpdateRowInReflections},
-    {path: '/language/java/threads/BlockingQueue', component: BlockingQueue},
-    {path: '/language/java/threads/DepricatedThreadSecurity', component: DepricatedThreadSecurity},
-    {path: '/language/java/threads/EffictiveReflectionMapAndQueue', component: EffictiveReflectionMapAndQueue},
-    {path: '/language/java/threads/GroupOperationOnParralelHashMap', component: GroupOperationOnParralelHashMap},
-    {path: '/language/java/threads/MassiveCopingOnWriting', component: MassiveCopingOnWriting},
-    {path: '/language/java/threads/ParralelDeclarationMap', component: ParralelDeclarationMap},
-
     //9.6
     {path: '/language/java/threads/ArchitectureForkLink', component: ArchitectureForkLink},
     {path: '/language/java/threads/Executions', component: Executions},
@@ -789,13 +757,7 @@ const routes = [
 
     //9.7
     {path: '/language/java/threads/EndingFutureActions', component: EndingFutureActions},
-    {path: '/language/java/threads/LongTaskInBackcallGUI', component: LongTaskInGUI},
     {path: '/language/java/threads/MakingFutureEndingActions', component: MakingFutureEndingActions},
-
-    //9.8
-    {path: '/language/java/threads/BuildingProccess', component: BuildingProccess},
-    {path: '/language/java/threads/DescriptorsProccess', component: DescriptorsProccess},
-    {path: '/language/java/threads/ExecutionProccess', component: ExecutionProccess},
 
     //10.1
     {path: '/language/java/streams/FromInterationToStreams', component: FromInterationToStreams},
