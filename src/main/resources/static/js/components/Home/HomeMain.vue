@@ -191,6 +191,7 @@
 import axios from "axios";
 
 let isSendedandrecived = false
+let preloadPersonalData = false
 
 export default {
   name: "HomeMain",
@@ -370,22 +371,29 @@ export default {
     })
         .then(function (response) {
           window.frontendData.profile = response.data
+
+          preloadPersonalData = true
         })
         .catch(function (error) {
           console.log(error);
         })
-    this.dataUpdate();
+    const preLoadInfoAboutUser = setInterval(() => {
+      if (preloadPersonalData) {
+        preloadPersonalData = false
 
+        this.currentUser = window.frontendData.profile
 
-    this.currentUser = window.frontendData.profile
+        this.userName = frontendData.wall.owner.name
+        this.userSelfDescription = frontendData.wall.owner.selfDescription
+        this.userProfilePhoto = frontendData.wall.owner.userpic
 
-    this.userName = frontendData.wall.owner.name
-    this.userSelfDescription = frontendData.wall.owner.selfDescription
-    this.userProfilePhoto = frontendData.wall.owner.userpic
+        this.userGitLink = frontendData.wall.owner.gitLink
+        this.userInstaLink = frontendData.wall.owner.instagramLink
+        this.userFacebookLink = frontendData.wall.owner.faceBookLink
 
-    this.userGitLink = frontendData.wall.owner.gitLink
-    this.userInstaLink = frontendData.wall.owner.instagramLink
-    this.userFacebookLink = frontendData.wall.owner.faceBookLink
+        clearInterval(preLoadInfoAboutUser)
+      }
+    }, 200)
 
     axios.get('http://localhost:9000/api/userinfo/wall', {
       params: {
