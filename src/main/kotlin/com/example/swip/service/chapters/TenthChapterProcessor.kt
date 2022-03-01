@@ -131,7 +131,7 @@ class TenthChapterProcessor(
 
         theme.isFinished = true
 
-        chapter.chapterProgress = chapter.chapterProgress + 4.54
+        chapter.chapterProgress = chapter.chapterProgress + 11.1
 
         javaLanguagesRepo.save(language)
         chapterRepo.save(chapter)

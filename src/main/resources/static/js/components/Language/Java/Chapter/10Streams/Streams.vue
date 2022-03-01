@@ -13,8 +13,6 @@
                     path-theme="/language/java/streams/MethodsFilterMapFlatMap"
                     id="java-10-chapter-3-theme"/>
       <type-optional/>
-
-
       <theme-button theme-name="Группирование и разделение"
                     path-theme="/language/java/streams/GroupingAndRegrouping"
                     id="java-10-chapter-10-theme"/>
@@ -41,7 +39,7 @@ export default {
     const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-10-chapter-1-theme"),
@@ -55,7 +53,7 @@ export default {
     const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-10-chapter-2-theme"),
@@ -69,7 +67,7 @@ export default {
     const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-10-chapter-3-theme"),
@@ -98,7 +96,7 @@ export default {
     const arrowFromCentralBtnChapterTo10Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-10-chapter-10-theme"),
@@ -112,7 +110,7 @@ export default {
     const arrowFromCentralBtnChapterTo11Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-10-chapter-11-theme"),
@@ -126,7 +124,7 @@ export default {
     const arrowFromCentralBtnChapterTo12Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-10-chapter-12-theme"),
@@ -148,61 +146,49 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo12Theme.node);
 
     if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
+      document.getElementById("java-10-chapter-1-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[9].listThemes[1].finished) {
-      document.getElementById("java10-chapter-2-theme")
+      document.getElementById("java-10-chapter-2-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[9].listThemes[2].finished) {
-      document.getElementById("java10-chapter-3-theme")
+      document.getElementById("java-10-chapter-3-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
-    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
+    if (window.frontendData.language.chapters[9].listThemes[6].finished) {
+      document.getElementById("java-10-chapter-10-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
-    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
+    if (window.frontendData.language.chapters[9].listThemes[7].finished) {
+      document.getElementById("java-10-chapter-11-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
-    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
-      document.getElementById("java10-chapter-1-theme")
+    if (window.frontendData.language.chapters[9].listThemes[8].finished) {
+      document.getElementById("java-10-chapter-12-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
 
     if (window.frontendData.language.chapters[9].chapterProgress > 0 &&
         window.frontendData.language.chapters[9].chapterProgress < 99) {
-      document.getElementById("central-btn10chapter").setAttribute("style", " background: #dbcc16; border: green;")
+      document.getElementById("central-btn-10chapter").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
       if (window.frontendData.language.chapters[9].chapterProgress >= 99) {
-        document.getElementById("central-btn10chapter").setAttribute("style", "background: #28a745; border: green;")
+        document.getElementById("central-btn-10chapter").setAttribute("style", "background: #28a745; border: green;")
       }
     }
 
     //Отображение общей информации в popover
     $(document).ready(function () {
-      let progress = window.frontendData.language.chapters[8].chapterProgress
+      let progress = window.frontendData.language.chapters[9].chapterProgress
       let dataPopover
       if (progress > 99) {
         dataPopover = 'Процент завершения ' + 100
       } else {
         dataPopover = 'Процент завершения ' + Math.round(progress)
       }
-      $("#central-btn10chapter").popover({
+      $("#central-btn-10chapter").popover({
         title: '<h4 class="custom-title"><div class="popover-head-text">Глава 10</div></h4>',
         content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
         trigger: 'hover',

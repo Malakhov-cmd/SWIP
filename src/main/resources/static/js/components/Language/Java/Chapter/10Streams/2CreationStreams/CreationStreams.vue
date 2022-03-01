@@ -70,7 +70,7 @@
               Для получения бесконечных последовательностей вроде О 1 2 3 . .. служит
               метод iterate 1). Этот метод принимает началыюе значение и функцию (а формально - объект функционал1,ного
               интерфейса Una ryOpe ra t.o r
-              <T>) и повторно применяет функцию к предыдущему результату, как пока:ыно в следующем
+              < T >) и повторно применяет функцию к предыдущему результату, как пока:ыно в следующем
                 примере кода :
             </p>
             <pre class="hljs"
@@ -335,7 +335,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[9].listThemes[1].task.answer = response.data
-              window.frontendData.language.chapters[9].chapterProgress += 8.3
+              window.frontendData.language.chapters[9].chapterProgress += 11.1
               window.frontendData.language.chapters[9].listThemes[1].finished = true
 
               isSendedandrecived = true

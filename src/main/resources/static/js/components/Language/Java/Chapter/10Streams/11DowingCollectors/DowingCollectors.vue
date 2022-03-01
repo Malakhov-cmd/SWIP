@@ -251,7 +251,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[9].listThemes[7].task.answer = response.data
-              window.frontendData.language.chapters[9].chapterProgress += 8.3
+              window.frontendData.language.chapters[9].chapterProgress += 11.1
               window.frontendData.language.chapters[9].listThemes[7].finished = true
 
               isSendedandrecived = true
@@ -370,7 +370,7 @@ class Phone{
   beforeDestroy() {
     let container = document.getElementsByClassName('language-main-row-content').item(0)
 
-    let themeToClose = document.getElementById('java-10-chapter-11');
+    let themeToClose = document.getElementById('java-10-chapter-11-theme');
 
     let topPosOfClosingElement = themeToClose.offsetTop;
     let leftPosOfClosingElement = themeToClose.offsetLeft;
