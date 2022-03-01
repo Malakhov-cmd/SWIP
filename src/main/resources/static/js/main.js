@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 import vuetify from "./plugin/vuetify";
 
 import './plugin/bootstrap-vue'
+import './plugin/apexchart.js';
 import App from "pages/App.vue";
 import InfoMain from "./components/Info/InfoMain.vue";
 import LanguageMain from "./components/Language/LanguageMain.vue";

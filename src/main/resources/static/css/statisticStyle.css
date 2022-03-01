@@ -1,0 +1,6 @@
+.statistic-main{
+    overflow-y: auto;
+    max-height: 85vh;
+
+    padding: 85px 20px 85px 35px;
+}
