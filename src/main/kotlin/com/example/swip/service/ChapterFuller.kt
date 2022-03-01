@@ -70,6 +70,10 @@ class ChapterFuller(
                     fullingNinthChapter(chapterId!!)
                     lang.chapters.add(chapterRepo.findById(chapterId).get())
                 }
+                10 -> {
+                    fullingTenthChapter(chapterId!!)
+                    lang.chapters.add(chapterRepo.findById(chapterId).get())
+                }
             }
             javaLanguagesRepo.save(lang)
         }
@@ -724,6 +728,61 @@ class ChapterFuller(
                 }
                 22 -> {
                     task.answer = "Для вызова функции f в другом потоке"
+                }
+            }
+            val taskId = taskRepo.save(task).id
+
+            val themeSaved = themeRepo.findById(themeId).get()
+            themeSaved.task = taskRepo.findById(taskId!!).get()
+
+            themeRepo.save(themeSaved)
+
+            chapter.listThemes.add(themeSaved)
+
+            chapterRepo.save(chapter)
+        }
+    }
+
+    fun fullingTenthChapter(chapterId: Long){
+        val chapter: Chapter = chapterRepo.findById(chapterId).get()
+
+        for (i in 1..9) {
+            val theme = Theme()
+            theme.chapter = chapter
+            theme.number = i
+            theme.isFinished = false
+
+            val themeId = themeRepo.save(theme).id
+
+            val task = Task()
+            task.theme = themeRepo.findById(themeId!!).get()
+            when (i) {
+                1 -> {
+                    task.answer = "2"
+                }
+                2 -> {
+                    task.answer = "3"
+                }
+                3 -> {
+                    task.answer = "1"
+                }
+                4 -> {
+                    task.answer = "3"
+                }
+                5 -> {
+                    task.answer = "16 32 8"
+                }
+                6 -> {
+                    task.answer = "16 32 8 0"
+                }
+                7 -> {
+                    task.answer = "4 + 4 4 * 4"
+                }
+                8 -> {
+                    task.answer = "Samsung 340 Google 500 Apple 450"
+                }
+                9 -> {
+                    task.answer = "2330"
                 }
             }
             val taskId = taskRepo.save(task).id

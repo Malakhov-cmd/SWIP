@@ -295,34 +295,16 @@ import FromInterationToStreams
 import CreationStreams from "./components/Language/Java/Chapter/10Streams/2CreationStreams/CreationStreams.vue";
 import MethodsFilterMapFlatMap
     from "./components/Language/Java/Chapter/10Streams/3MethodsFilterMapFlatMap/MethodsFilterMapFlatMap.vue";
-import ExtractionSubStreamsAndAddingData
-    from "./components/Language/Java/Chapter/10Streams/4ExtractionSubStreamsAndAddingData/ExtractionSubStreamsAndAddingData.vue";
-import AnotherOperarionOnStreams
-    from "./components/Language/Java/Chapter/10Streams/5AnotherOperarionOnStreams/AnotherOperarionOnStreams.vue";
-import SimpleMethodsGrouping
-    from "./components/Language/Java/Chapter/10Streams/6SimpleMethodsGrouping/SimpleMethodsGrouping.vue";
 //10.7
 import FactoryUnnessary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FactoryUnnessary.vue";
-import FormingUnnessasary
-    from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/FormingUnnessasary.vue";
 import GettingUnnesaryResults
     from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/GettingUnnesaryResults.vue";
-import OptinalToStream from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/OptinalToStream.vue";
 import UsingUnnesary from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/UsingUnnesary.vue";
-import WarningProcessingUnnessasary
-    from "./components/Language/Java/Chapter/10Streams/7TypeOptional/Theme/WarningProcessingUnnessasary.vue";
 //10.8-10.14
-import AccumulationResults
-    from "./components/Language/Java/Chapter/10Streams/8AccumulationResults/AccumulationResults.vue";
-import AccumulationInReflection
-    from "./components/Language/Java/Chapter/10Streams/9AccumulationInReflection/AccumulationInReflection.vue";
 import GroupingAndRegrouping
     from "./components/Language/Java/Chapter/10Streams/10GroupingAndRegrouping/GroupingAndRegrouping.vue";
 import DowingCollectors from "./components/Language/Java/Chapter/10Streams/11DowingCollectors/DowingCollectors.vue";
 import AddingOperation from "./components/Language/Java/Chapter/10Streams/12AddingOperation/AddingOperation.vue";
-import SimpleTypeStreams from "./components/Language/Java/Chapter/10Streams/13SimpleTypeStreams/SimpleTypeStreams.vue";
-import ParallelStreamsData
-    from "./components/Language/Java/Chapter/10Streams/14ParallelStreamsData/ParallelStreamsData.vue";
 //13.1
 import CallFuncktionAndMethodsFromScenario
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/CallFuncktionAndMethodsFromScenario.vue";
@@ -681,28 +663,10 @@ const routes = [
     //10.3
     {path: '/language/java/streams/MethodsFilterMapFlatMap', component: MethodsFilterMapFlatMap},
 
-    //10.4
-    {path: '/language/java/streams/ExtractionSubStreamsAndAddingData', component: ExtractionSubStreamsAndAddingData},
-
-    //10.5
-    {path: '/language/java/streams/AnotherOperarionOnStreams', component: AnotherOperarionOnStreams},
-
-    //10.6
-    {path: '/language/java/streams/SimpleMethodsGrouping', component: SimpleMethodsGrouping},
-
     //10.7
     {path: '/language/java/streams/FactoryUnnessary', component: FactoryUnnessary},
-    {path: '/language/java/streams/FormingUnnessasary', component: FormingUnnessasary},
     {path: '/language/java/streams/GettingUnnesaryResults', component: GettingUnnesaryResults},
-    {path: '/language/java/streams/OptinalToStream', component: OptinalToStream},
     {path: '/language/java/streams/UsingUnnesary', component: UsingUnnesary},
-    {path: '/language/java/streams/WarningProcessingUnnessasary', component: WarningProcessingUnnessasary},
-
-    //10.8
-    {path: '/language/java/streams/AccumulationResults', component: AccumulationResults},
-
-    //10.9
-    {path: '/language/java/streams/AccumulationInReflection', component: AccumulationInReflection},
 
     //10.10
     {path: '/language/java/streams/GroupingAndRegrouping', component: GroupingAndRegrouping},
@@ -712,12 +676,6 @@ const routes = [
 
     //10.12
     {path: '/language/java/streams/AddingOperation', component: AddingOperation},
-
-    //10.13
-    {path: '/language/java/streams/SimpleTypeStreams', component: SimpleTypeStreams},
-
-    //10.14
-    {path: '/language/java/streams/ParallelStreamsData', component: ParallelStreamsData},
 
     //13.1
     {path: '/language/java/scenarioandannotation/CallFuncktionAndMethodsFromScenario', component: CallFuncktionAndMethodsFromScenario},

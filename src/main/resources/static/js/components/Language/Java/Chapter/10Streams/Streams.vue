@@ -12,22 +12,9 @@
       <theme-button theme-name="Методы filter(), map() и flatMap()"
                     path-theme="/language/java/streams/MethodsFilterMapFlatMap"
                     id="java-10-chapter-3-theme"/>
-      <theme-button theme-name="Извлечение подпотоков и объединение потоков данных"
-                    path-theme="/language/java/streams/ExtractionSubStreamsAndAddingData"
-                    id="java-10-chapter-4-theme"/>
-      <theme-button theme-name="Другие операции преобразования потоков данных"
-                    path-theme="/language/java/streams/AnotherOperarionOnStreams"
-                    id="java-10-chapter-5-theme"/>
-      <theme-button theme-name="Простые методы сведения"
-                    path-theme="/language/java/streams/SimpleMethodsGrouping"
-                    id="java-10-chapter-6-theme"/>
       <type-optional/>
-      <theme-button theme-name="Накопление результатов"
-                    path-theme="/language/java/streams/AccumulationResults"
-                    id="java-10-chapter-8-theme"/>
-      <theme-button theme-name="Накопление результатов в отображениях"
-                    path-theme="/language/java/streams/AccumulationInReflection"
-                    id="java-10-chapter-9-theme"/>
+
+
       <theme-button theme-name="Группирование и разделение"
                     path-theme="/language/java/streams/GroupingAndRegrouping"
                     id="java-10-chapter-10-theme"/>
@@ -37,12 +24,6 @@
       <theme-button theme-name="Операции сведения"
                     path-theme="/language/java/streams/AddingOperation"
                     id="java-10-chapter-12-theme"/>
-      <theme-button theme-name="Потоки данных примитивных типов"
-                    path-theme="/language/java/streams/SimpleTypeStreams"
-                    id="java-10-chapter-13-theme"/>
-      <theme-button theme-name=" Параллельные потоки данных"
-                    path-theme="/language/java/streams/ParallelStreamsData"
-                    id="java-10-chapter-14-theme"/>
     </div>
   </div>
 </template>
@@ -99,48 +80,7 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromCentralBtnChapterTo4Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-4-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-5-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-6-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
     const arrowFromCentralBtnChapterTo7Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-10chapter"),
@@ -148,34 +88,6 @@ export default {
       },
       to: {
         node: () => document.getElementById("java-10-chapter-7-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo8Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-8-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo9Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-9-theme"),
         direction: DIRECTION.LEFT,
         translation: [-1, 0]
       },
@@ -225,49 +137,79 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromCentralBtnChapterTo13Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-13-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo14Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-10chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-14-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
 
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo1Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo2Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo6Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo10Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo11Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo12Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo13Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo14Theme.node);
+
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[1].finished) {
+      document.getElementById("java10-chapter-2-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[2].finished) {
+      document.getElementById("java10-chapter-3-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[9].listThemes[0].finished) {
+      document.getElementById("java10-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+
+    if (window.frontendData.language.chapters[9].chapterProgress > 0 &&
+        window.frontendData.language.chapters[9].chapterProgress < 99) {
+      document.getElementById("central-btn10chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[9].chapterProgress >= 99) {
+        document.getElementById("central-btn10chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[8].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn10chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 10</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
 
   }
 }

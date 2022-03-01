@@ -12,15 +12,6 @@
       <theme-button theme-name="Конвейеризация необязательных значений"
                     path-theme="/language/java/streams/FactoryUnnessary"
                     id="java-10-chapter-7-theme-3-subtheme"/>
-      <theme-button theme-name="Как не следует обрабатывать необязательные значения"
-                    path-theme="/language/java/streams/WarningProcessingUnnessasary"
-                    id="java-10-chapter-7-theme-4-subtheme"/>
-      <theme-button theme-name="Формирование необязательных значений"
-                    path-theme="/language/java/streams/FormingUnnessasary"
-                    id="java-10-chapter-7-theme-5-subtheme"/>
-      <theme-button theme-name="Преобразование типа Optional в поток данных"
-                    path-theme="/language/java/streams/OptinalToStream"
-                    id="java-10-chapter-7-theme-6-subtheme"/>
     </div>
   </div>
 </template>
@@ -76,55 +67,29 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter10Theme7SubTheme4 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-10-chapter-7-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-7-theme-4-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter10Theme7SubTheme5 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-10-chapter-7-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-7-theme-5-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter10Theme7SubTheme6 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-10-chapter-7-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-10-chapter-7-theme-6-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter10Theme7SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter10Theme7SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter10Theme7SubTheme3.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter10Theme7SubTheme4.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter10Theme7SubTheme5.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter10Theme7SubTheme6.node);
+
+    let countProgressLocalTheme = 0
+
+    for (let i = 3; i < 6; i++) {
+      if (window.frontendData.language.chapters[7].listThemes[i].finished) {
+        let k = i - 2
+        document.getElementById("java-10-chapter-7-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 8.3;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 49) {
+      document.getElementById("java-10-chapter-7-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 49)
+        document.getElementById("java-10-chapter-7-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
 
   }
 }

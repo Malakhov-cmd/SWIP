@@ -160,8 +160,6 @@ export default {
         html: true
       });
     });
-
-
   }
 }
 </script>
