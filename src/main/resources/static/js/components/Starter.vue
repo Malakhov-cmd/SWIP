@@ -19,6 +19,9 @@
           <a class="nav-link active" href="#">
             <router-link to="/Friend" class="mainNav">Friends</router-link>
           </a>
+          <a class="nav-link active">
+            <router-link to="/statistic" class="mainNav">Statistic</router-link>
+          </a>
           <a class="nav-link active" href="#">
             <router-link to="/Settings" class="mainNav">Settings</router-link>
           </a>

@@ -13,6 +13,8 @@ import Dialog from "./components/Message/Dialog.vue"
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
 import LoginMain from "./components/Login/LoginMain.vue";
+import Statistic from "./components/Statistic/Statictic.vue"
+
 /*Languages*/
 import JavaLanguage from "./components/Language/Java/JavaLanguage.vue";
 import KotlinLanguage from "./components/Language/Kotlin/KotlinLanguage.vue";
@@ -83,7 +85,6 @@ import UndefindedCycle
 //2.9
 import BigDigit from "./components/Language/Java/Chapter/2LanguageConstruction/9BigDigit/BigDigit.vue";
 //2.10
-
 import CopyingMassive from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/CopyingMassive.vue";
 import ForEachStyle from "./components/Language/Java/Chapter/2LanguageConstruction/10Arrays/Theme/ForEachStyle.vue";
 import IntroductionArray
@@ -125,7 +126,6 @@ import ParamethrMethods from "./components/Language/Java/Chapter/3OOP/5Paramethr
 //3.7
 import Packets from "./components/Language/Java/Chapter/3OOP/7Packets/Packets.vue"
 //3.8
-
 //3.9
 import AddingComments from "./components/Language/Java/Chapter/3OOP/9DocumentringComments/Theme/AddingComments.vue";
 import ClassComment from "./components/Language/Java/Chapter/3OOP/9DocumentringComments/Theme/ClassComment.vue";
@@ -152,7 +152,6 @@ import MethodsEqual from "./components/Language/Java/Chapter/4Inheritance/2Class
 import MethodTostring from "./components/Language/Java/Chapter/4Inheritance/2ClassObject/Theme/MethodTostring.vue";
 import TempObjectType from "./components/Language/Java/Chapter/4Inheritance/2ClassObject/Theme/TempObjectType.vue";
 //4.3
-
 //4.4
 import ObjectShellAndAutoPacking
     from "./components/Language/Java/Chapter/4Inheritance/4ObjectShellAndAutoPacking/ObjectShellAndAutoPacking.vue";
@@ -162,7 +161,6 @@ import TempCountParamethersOfMethod
 //4.6
 import EnumClasses from "./components/Language/Java/Chapter/4Inheritance/6EnumClasses/EnumClasses.vue";
 //4.7
-
 //4.8
 import RecomendationUseInheritance
     from "./components/Language/Java/Chapter/4Inheritance/8RecomendationUseInheritance/RecomendationUseInheritance.vue";
@@ -262,7 +260,6 @@ import Thread from "./components/Language/Java/Chapter/9Threads/2ConditionThread
 import DemonThreads from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/DemonThreads.vue";
 import HandlerUnproccessException
     from "./components/Language/Java/Chapter/9Threads/3PropertiesThread/Theme/HandlerUnproccessException.vue";
-
 //9.4
 import AtomicOperation from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/AtomicOperation.vue";
 import BlockingObject from "./components/Language/Java/Chapter/9Threads/4Sinchronization/Theme/BlockingObject.vue";
@@ -727,6 +724,7 @@ const routes = [
     {path: '/friend', component: FriendMain},
     {path: '/settings', component: SettingsMain},
     {path: '/login', component: LoginMain},
+    {path: '/statistic', component: Statistic}
 ]
 
 const router = new VueRouter({
