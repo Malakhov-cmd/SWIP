@@ -870,7 +870,7 @@ class ChapterFuller(
     fun fullingTwelfthChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..9) {
+        for (i in 1..7) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
@@ -882,30 +882,24 @@ class ChapterFuller(
             task.theme = themeRepo.findById(themeId!!).get()
             when (i) {
                 1 -> {
-                    task.answer = ""
+                    task.answer = "Для разграничения логических структур (компонентов) в больших приложениях"
                 }
                 2 -> {
-                    task.answer = ""
+                    task.answer = "Обозначать по имени пакета верхнего уровня"
                 }
                 3 -> {
-                    task.answer = ""
+                    task.answer = "Добавить пакет в module-info.java"
                 }
                 4 -> {
-                    task.answer = ""
+                    task.answer = "Объявить свой модуль как опирающийся на модуль ..."
                 }
                 5 -> {
-                    task.answer = ""
+                    task.answer = "Добавить в файл module-info {exports com.name.*}"
                 }
                 6 -> {
                     task.answer = ""
                 }
                 7 -> {
-                    task.answer = ""
-                }
-                8 -> {
-                    task.answer = ""
-                }
-                9 -> {
                     task.answer = ""
                 }
             }

@@ -18,18 +18,6 @@
       <theme-button theme-name="Экспорт пакетов"
                     path-theme="/language/java/module/ExportModules"
                     id="java-14-chapter-5-theme"/>
-      <theme-button theme-name="Модульные архивные JAR-файлы"
-                    path-theme="/language/java/module/ModuleArchiveJAR"
-                    id="java-14-chapter-6-theme"/>
-      <theme-button theme-name="Автоматические модули"
-                    path-theme="/language/java/module/AutoModule"
-                    id="java-14-chapter-7-theme"/>
-      <theme-button theme-name="Безымянные модули"
-                    path-theme="/language/java/module/UnnamedModules"
-                    id="java-14-chapter-8-theme"/>
-      <theme-button theme-name="Инструментальные средства для работы с модулями"
-                    path-theme="/language/java/module/InstrumentalForWorkingWithModules"
-                    id="java-14-chapter-9-theme"/>
     </div>
   </div>
 </template>
@@ -46,7 +34,7 @@ export default {
     const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-14-chapter-1-theme"),
@@ -60,7 +48,7 @@ export default {
     const arrowFromCentralBtnChapterTo2Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-14-chapter-2-theme"),
@@ -102,66 +90,10 @@ export default {
     const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-14-chapter-5-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo6Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-14-chapter-6-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo7Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-14-chapter-7-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo8Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-14-chapter-8-theme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromCentralBtnChapterTo9Theme = arrowCreate({
-      from: {
-        node: () => document.getElementById("central-btn-14chapter"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-14-chapter-9-theme"),
         direction: DIRECTION.LEFT,
         translation: [-1, 0]
       },
@@ -175,45 +107,25 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo6Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
 
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+    if (window.frontendData.language.chapters[11].listThemes[0].finished) {
+      document.getElementById("java-14-chapter-1-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[1].finished) {
+      document.getElementById("java-14-chapter-2-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[2].finished) {
+      document.getElementById("java-14-chapter-3-theme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[3].finished) {
+      document.getElementById("java-14-chapter-4-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
     if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
-          .setAttribute("style", "background: #28a745; border: green;");
-    }
-    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
-      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+      document.getElementById("java-14-chapter-5-theme")
           .setAttribute("style", "background: #28a745; border: green;");
     }
 

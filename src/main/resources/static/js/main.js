@@ -336,11 +336,6 @@ import ExampleModuleHelloWorld
     from "./components/Language/Java/Chapter/14Modules/3ExampleModuleHelloWorld/ExampleModuleHelloWorld.vue";
 import ReqirementModules from "./components/Language/Java/Chapter/14Modules/4ReqirementModules/ReqirementModules.vue";
 import ExportModules from "./components/Language/Java/Chapter/14Modules/5ExportModules/ExportModules.vue";
-import ModuleArchiveJAR from "./components/Language/Java/Chapter/14Modules/6ModuleArchiveJAR/ModuleArchiveJAR.vue";
-import AutoModule from "./components/Language/Java/Chapter/14Modules/7AutoModule/AutoModule.vue";
-import UnnamedModules from "./components/Language/Java/Chapter/14Modules/8UnnamedModules/UnnamedModules.vue";
-import InstrumentalForWorkingWithModules
-    from "./components/Language/Java/Chapter/14Modules/9InstrumentalForWorkingWithModules/InstrumentalForWorkingWithModules.vue";
 
 //Глобальная шина событий
 Vue.prototype.$eventBus = new Vue();
@@ -480,13 +475,10 @@ const routes = [
     //4.1
     {path: '/language/java/inheritance/AbstractClasses', component: AbstractClasses},
     {path: '/language/java/inheritance/BringingTypes', component: BringingTypes},
-
     {path: '/language/java/inheritance/DefenitionUnderClasses', component: DefenitionUnderClasses},
-
     {path: '/language/java/inheritance/HierarchyInheritance', component: HierarchyInheritance},
     {path: '/language/java/inheritance/Polymorfizm', component: Polymorfizm},
     {path: '/language/java/inheritance/PreventionInheritance', component: PreventionInheritance},
-
 
     //4.2
     {
@@ -497,8 +489,6 @@ const routes = [
     {path: '/language/java/inheritance/MethodsEqual', component: MethodsEqual},
     {path: '/language/java/inheritance/MethodTostring', component: MethodTostring},
     {path: '/language/java/inheritance/TempObjectType', component: TempObjectType},
-
-    //4.3
 
     //4.4
     {path: '/language/java/inheritance/ObjectShellAndAutoPacking', component: ObjectShellAndAutoPacking},
@@ -524,13 +514,11 @@ const routes = [
     },
 
     //5.2
-
     {path: '/language/java/interfacesLyambdaAndInner/FunctionalInterfaces', component: FunctionalInterfaces},
 
     {path: '/language/java/interfacesLyambdaAndInner/LinkToTheMethods', component: LinkToTheMethods},
 
     {path: '/language/java/interfacesLyambdaAndInner/ReasonsForUseLyambda', component: ReasonsForUseLyambda},
-
 
     //5.3
     {
@@ -678,10 +666,6 @@ const routes = [
     {path: '/language/java/module/ExampleModuleHelloWorld', component: ExampleModuleHelloWorld},
     {path: '/language/java/module/ReqirementModules', component: ReqirementModules},
     {path: '/language/java/module/ExportModules', component: ExportModules},
-    {path: '/language/java/module/ModuleArchiveJAR', component: ModuleArchiveJAR},
-    {path: '/language/java/module/AutoModule', component: AutoModule},
-    {path: '/language/java/module/UnnamedModules', component: UnnamedModules},
-    {path: '/language/java/module/InstrumentalForWorkingWithModules', component: InstrumentalForWorkingWithModules},
 
     {path: '/language/kotlin', component: KotlinLanguage},
     {path: '/language/js', component: JSLanguage},
