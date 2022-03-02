@@ -6,18 +6,12 @@
       <theme-button theme-name="Интерфейсы аннотаций"
                     path-theme="/language/java/scenarioandannotation/InterfacesAnnotations"
                     id="java-13-chapter-4-theme-1-subtheme"/>
-      <theme-button theme-name="Объявление аннотаций"
-                    path-theme="/language/java/scenarioandannotation/DeclarationAnnotation"
-                    id="java-13-chapter-4-theme-2-subtheme"/>
       <theme-button theme-name="Аннотирование объявлений"
                     path-theme="/language/java/scenarioandannotation/AnnotationingAnnouncement"
-                    id="java-13-chapter-4-theme-3-subtheme"/>
+                    id="java-13-chapter-4-theme-2-subtheme"/>
       <theme-button theme-name="Аннотирование в местах употребления типов данных"
                     path-theme="/language/java/scenarioandannotation/AnnotationingInPlaceUseTypes"
-                    id="java-13-chapter-4-theme-4-subtheme"/>
-      <theme-button theme-name="Аннотирование по ссылке this"
-                    path-theme="/language/java/scenarioandannotation/AnnotationingOnLinkThis"
-                    id="java-13-chapter-4-theme-5-subtheme"/>
+                    id="java-13-chapter-4-theme-3-subtheme"/>
     </div>
   </div>
 </template>
@@ -45,7 +39,7 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter13Theme4SubTheme2 = arrowCreate({
+    const arrowFromChapter13Theme4SubTheme3 = arrowCreate({
       from: {
         node: () => document.getElementById("java-13-chapter-4-theme"),
         direction: DIRECTION.RIGHT,
@@ -59,7 +53,7 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter13Theme4SubTheme3 = arrowCreate({
+    const arrowFromChapter13Theme4SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-13-chapter-4-theme"),
         direction: DIRECTION.RIGHT,
@@ -73,41 +67,30 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter13Theme4SubTheme4 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-13-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-13-chapter-4-theme-4-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
-    const arrowFromChapter13Theme4SubTheme5 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-13-chapter-4-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-13-chapter-4-theme-5-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
+
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme4SubTheme1.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme4SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme4SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme4SubTheme4.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme4SubTheme5.node);
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 5; i < 8; i++) {
+      if (window.frontendData.language.chapters[10].listThemes[i].finished) {
+        let k = i - 4
+        document.getElementById("java-13-chapter-4-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 30) {
+      document.getElementById("java-13-chapter-4-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 30)
+        document.getElementById("java-13-chapter-4-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

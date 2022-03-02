@@ -306,28 +306,12 @@ import AddingOperation from "./components/Language/Java/Chapter/10Streams/12Addi
 //13.1
 import CallFuncktionAndMethodsFromScenario
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/CallFuncktionAndMethodsFromScenario.vue";
-import CompileScenario from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/CompileScenario.vue";
 import ExeScenario from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/ExeScenario.vue";
 import InterpretatorScenario
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/InterpretatorScenario.vue";
 import RedirectInputOutput
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/RedirectInputOutput.vue";
-//13.2
-import CallCompile
-    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/CallCompile.vue";
-import ExampleDiagnosticGeneratedJavaCode
-    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/ExampleDiagnosticGeneratedJavaCode.vue";
-import FicsationDiagnostic
-    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/FicsationDiagnostic.vue";
-import LaunchTaskOnCompile
-    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/LaunchTaskOnCompile.vue";
-import ReadSourceCodeFromOperMemory
-    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/ReadSourceCodeFromOperMemory.vue";
-import WriteBityCodeOnOperMemory
-    from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/WriteBityCodeOnOperMemory.vue";
 //13.3
-import ExampleAnnotationProcessorEvent
-    from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/ExampleAnnotationProcessorEvent.vue";
 import IntroInAnnotation
     from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/IntroInAnnotation.vue";
 //13.4
@@ -335,10 +319,6 @@ import AnnotationingAnnouncement
     from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingAnnouncement.vue";
 import AnnotationingInPlaceUseTypes
     from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingInPlaceUseTypes.vue";
-import AnnotationingOnLinkThis
-    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingOnLinkThis.vue";
-import DeclarationAnnotation
-    from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/DeclarationAnnotation.vue";
 import InterfacesAnnotations
     from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/InterfacesAnnotations.vue";
 //13.5
@@ -675,28 +655,16 @@ const routes = [
 
     //13.1
     {path: '/language/java/scenarioandannotation/CallFuncktionAndMethodsFromScenario', component: CallFuncktionAndMethodsFromScenario},
-    {path: '/language/java/scenarioandannotation/CompileScenario', component: CompileScenario},
     {path: '/language/java/scenarioandannotation/ExeScenario', component: ExeScenario},
     {path: '/language/java/scenarioandannotation/InterpretatorScenario', component: InterpretatorScenario},
     {path: '/language/java/scenarioandannotation/RedirectInputOutput', component: RedirectInputOutput},
 
-    //13.2
-    {path: '/language/java/scenarioandannotation/CallCompile', component: CallCompile},
-    {path: '/language/java/scenarioandannotation/ExampleDiagnosticGeneratedJavaCode', component: ExampleDiagnosticGeneratedJavaCode},
-    {path: '/language/java/scenarioandannotation/FicsationDiagnostic', component: FicsationDiagnostic},
-    {path: '/language/java/scenarioandannotation/LaunchTaskOnCompile', component: LaunchTaskOnCompile},
-    {path: '/language/java/scenarioandannotation/ReadSourceCodeFromOperMemory', component: ReadSourceCodeFromOperMemory},
-    {path: '/language/java/scenarioandannotation/WriteBityCodeOnOperMemory', component: WriteBityCodeOnOperMemory},
-
     //13.3
-    {path: '/language/java/scenarioandannotation/ExampleAnnotationProcessorEvent', component: ExampleAnnotationProcessorEvent},
     {path: '/language/java/scenarioandannotation/IntroInAnnotation', component: IntroInAnnotation},
 
     //13.4
     {path: '/language/java/scenarioandannotation/AnnotationingAnnouncement', component: AnnotationingAnnouncement},
     {path: '/language/java/scenarioandannotation/AnnotationingInPlaceUseTypes', component: AnnotationingInPlaceUseTypes},
-    {path: '/language/java/scenarioandannotation/AnnotationingOnLinkThis', component: AnnotationingOnLinkThis},
-    {path: '/language/java/scenarioandannotation/DeclarationAnnotation', component: DeclarationAnnotation},
     {path: '/language/java/scenarioandannotation/InterfacesAnnotations', component: InterfacesAnnotations},
 
     //13.5

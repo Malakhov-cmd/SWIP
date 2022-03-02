@@ -817,61 +817,37 @@ class ChapterFuller(
             task.theme = themeRepo.findById(themeId!!).get()
             when (i) {
                 1 -> {
-                    task.answer = ""
+                    task.answer = "Для использования преимеществ сценарных языков в некоторых частях кода"
                 }
                 2 -> {
-                    task.answer = ""
+                    task.answer = "Выполнить сценарий и получить результат"
                 }
                 3 -> {
-                    task.answer = ""
+                    task.answer = "Получение информации непосредственно при выполнении сценария"
                 }
                 4 -> {
-                    task.answer = ""
+                    task.answer = "C помощью invokeFunction(FuncName, args...)"
                 }
                 5 -> {
-                    task.answer = ""
+                    task.answer = "Все вышеперечисленное"
                 }
                 6 -> {
-                    task.answer = ""
+                    task.answer = "Создавать собственные аннотации не стоит, так как это затрудняет анализ кода другим разработчикам"
                 }
                 7 -> {
-                    task.answer = ""
+                    task.answer = "Да, перед вызовом типа: ClassName.class"
                 }
                 8 -> {
-                    task.answer = ""
+                    task.answer = "Для обеспечения повсеместной возможности их внедрения и последующей интерпритацией спец. средствами"
                 }
                 9 -> {
-                    task.answer = ""
+                    task.answer = "Некоторые из стандартных аннотаций не следует использовать никогда, так как их применение пораждает скрытые ошибки"
                 }
                 10 -> {
-                    task.answer = ""
+                    task.answer = "Инициализация бинов веб приложений"
                 }
                 11 -> {
-                    task.answer = ""
-                }
-                12 -> {
-                    task.answer = ""
-                }
-                13 -> {
-                    task.answer = ""
-                }
-                14 -> {
-                    task.answer = ""
-                }
-                15 -> {
-                    task.answer = ""
-                }
-                16 -> {
-                    task.answer = ""
-                }
-                17 -> {
-                    task.answer = ""
-                }
-                18 -> {
-                    task.answer = ""
-                }
-                19 -> {
-                    task.answer = ""
+                    task.answer = "Генерация других аннотаций и указания информации о других аннотациях"
                 }
             }
             val taskId = taskRepo.save(task).id

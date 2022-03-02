@@ -71,6 +71,24 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme5SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme5SubTheme3.node);
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 8; i < 11; i++) {
+      if (window.frontendData.language.chapters[10].listThemes[i].finished) {
+        let k = i - 4
+        document.getElementById("java-13-chapter-5-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 30) {
+      document.getElementById("java-13-chapter-5-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 30)
+        document.getElementById("java-13-chapter-5-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>
