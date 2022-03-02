@@ -179,6 +179,70 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo7Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo8Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo9Theme.node);
+
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+    if (window.frontendData.language.chapters[11].listThemes[4].finished) {
+      document.getElementById("java-14-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
+
+    if (window.frontendData.language.chapters[11].chapterProgress > 0 &&
+        window.frontendData.language.chapters[11].chapterProgress < 99) {
+      document.getElementById("central-btn-14chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[11].chapterProgress >= 99) {
+        document.getElementById("central-btn-14chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[14].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn-14chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 12</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
   }
 }
 </script>
