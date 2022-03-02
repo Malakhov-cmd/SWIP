@@ -5,7 +5,9 @@
                     id="central-btn-13chapter"/>
     <div class="theme-level-1 theme-level-1-right">
       <scenario/>
-      <use-annotation/>
+      <theme-button theme-name="Введение в аннотации"
+                    path-theme="/language/java/scenarioandannotation/IntroInAnnotation"
+                    id="java-13-chapter-3-theme-1-subtheme"/>
       <syntax-annotation/>
       <standart-annotation/>
     </div>
@@ -16,20 +18,21 @@
 import arrowCreate, {HEAD, DIRECTION} from "arrows-svg";
 import ChapterButton from "../../../Blocks/ChapterButton.vue";
 import Scenario from "./1Scenario/Scenario.vue";
-import UseAnnotation from "./3UseAnnotation/UseAnnotation.vue";
 import SyntaxAnnotation from "./4SyntaxAnnotation/SyntaxAnnotation.vue";
 import StandartAnnotation from "./5StandartAnnotation/StandartAnnotation.vue";
+import ThemeButton from "../../../Blocks/ThemeButton.vue";
 
 export default {
   name: "Annotation",
   components: {
-    StandartAnnotation, SyntaxAnnotation, UseAnnotation, Scenario, ChapterButton
+    ThemeButton,
+    StandartAnnotation, SyntaxAnnotation, Scenario, ChapterButton
   },
   mounted() {
     const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-13chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-13-chapter-1-theme"),
@@ -43,10 +46,10 @@ export default {
     const arrowFromCentralBtnChapterTo3Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-13chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
-        node: () => document.getElementById("java-13-chapter-3-theme"),
+        node: () => document.getElementById("java-13-chapter-3-theme-1-subtheme"),
         direction: DIRECTION.LEFT,
         translation: [-1, 0]
       },
@@ -57,7 +60,7 @@ export default {
     const arrowFromCentralBtnChapterTo4Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-13chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-13-chapter-4-theme"),
@@ -71,7 +74,7 @@ export default {
     const arrowFromCentralBtnChapterTo5Theme = arrowCreate({
       from: {
         node: () => document.getElementById("central-btn-13chapter"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-13-chapter-5-theme"),
@@ -87,6 +90,11 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo3Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
+
+    if (window.frontendData.language.chapters[10].listThemes[4].finished) {
+      document.getElementById("java-13-chapter-3-theme-1-subtheme")
+          .setAttribute("style", "background: #28a745; border: green;");
+    }
 
     if (window.frontendData.language.chapters[10].chapterProgress > 0 &&
         window.frontendData.language.chapters[10].chapterProgress < 99) {

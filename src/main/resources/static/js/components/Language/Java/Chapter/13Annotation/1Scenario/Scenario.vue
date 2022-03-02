@@ -31,7 +31,7 @@ export default {
     const arrowFromChapter13Theme1SubTheme1 = arrowCreate({
       from: {
         node: () => document.getElementById("java-13-chapter-1-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.TOP,
       },
       to: {
         node: () => document.getElementById("java-13-chapter-1-theme-1-subtheme"),
@@ -73,7 +73,7 @@ export default {
     const arrowFromChapter13Theme1SubTheme4 = arrowCreate({
       from: {
         node: () => document.getElementById("java-13-chapter-1-theme"),
-        direction: DIRECTION.RIGHT,
+        direction: DIRECTION.BOTTOM,
       },
       to: {
         node: () => document.getElementById("java-13-chapter-1-theme-4-subtheme"),
@@ -97,15 +97,15 @@ export default {
         let k = i + 1
         document.getElementById("java-13-chapter-1-theme-" + k + "-subtheme")
             .setAttribute("style", "background: #28a745; border: green;");
-        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+        countProgressLocalTheme = countProgressLocalTheme + 9.09;
       }
     }
 
     if (countProgressLocalTheme > 1 &&
-        countProgressLocalTheme < 30) {
+        countProgressLocalTheme < 36) {
       document.getElementById("java-13-chapter-1-theme").setAttribute("style", " background: #dbcc16; border: green;")
     } else {
-      if (countProgressLocalTheme > 30)
+      if (countProgressLocalTheme > 36)
         document.getElementById("java-13-chapter-1-theme").setAttribute("style", "background: #28a745; border: green;")
     }
   }

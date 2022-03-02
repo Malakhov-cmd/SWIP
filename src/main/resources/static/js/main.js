@@ -313,7 +313,7 @@ import RedirectInputOutput
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/RedirectInputOutput.vue";
 //13.3
 import IntroInAnnotation
-    from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/Theme/IntroInAnnotation.vue";
+    from "./components/Language/Java/Chapter/13Annotation/3UseAnnotation/IntroInAnnotation.vue";
 //13.4
 import AnnotationingAnnouncement
     from "./components/Language/Java/Chapter/13Annotation/4SyntaxAnnotation/Theme/AnnotationingAnnouncement.vue";

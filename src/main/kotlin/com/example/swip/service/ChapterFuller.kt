@@ -805,7 +805,7 @@ class ChapterFuller(
     fun fullingElevenChapter(chapterId: Long){
         val chapter: Chapter = chapterRepo.findById(chapterId).get()
 
-        for (i in 1..9) {
+        for (i in 1..11) {
             val theme = Theme()
             theme.chapter = chapter
             theme.number = i
