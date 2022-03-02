@@ -140,7 +140,7 @@ export default {
 
     //Отображение общей информации в popover
     $(document).ready(function () {
-      let progress = window.frontendData.language.chapters[14].chapterProgress
+      let progress = window.frontendData.language.chapters[11].chapterProgress
       let dataPopover
       if (progress > 99) {
         dataPopover = 'Процент завершения ' + 100

@@ -164,7 +164,7 @@ export default {
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
               window.frontendData.language.chapters[11].listThemes[1].task.answer = response.data
-              window.frontendData.language.chapters[11].chapterProgress += 9.09
+              window.frontendData.language.chapters[11].chapterProgress += 20
               window.frontendData.language.chapters[11].listThemes[1].finished = true
 
               isSendedandrecived = true

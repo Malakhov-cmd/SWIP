@@ -13,7 +13,6 @@ import MessageMain from "./components/Message/MessageMain.vue";
 import Dialog from "./components/Message/Dialog.vue"
 import FriendMain from "./components/Friend/FriendMain.vue";
 import SettingsMain from "./components/Settings/SettingsMain.vue";
-import LoginMain from "./components/Login/LoginMain.vue";
 import Statistic from "./components/Statistic/Statictic.vue"
 
 /*Languages*/
@@ -673,7 +672,6 @@ const routes = [
     {path: '/message', component: MessageMain},
     {path: '/friend', component: FriendMain},
     {path: '/settings', component: SettingsMain},
-    {path: '/login', component: LoginMain},
     {path: '/statistic', component: Statistic}
 ]
 
