@@ -18,9 +18,6 @@
       <theme-button theme-name="Компиляция сценариев"
                     path-theme="/language/java/scenarioandannotation/CompileScenario"
                     id="java-13-chapter-1-theme-5-subtheme"/>
-      <theme-button theme-name="Пример создания сценария для обработки событий в UI"
-                    path-theme="/language/java/scenarioandannotation/UseScenarioForProcessingGUI"
-                    id="java-13-chapter-1-theme-6-subtheme"/>
     </div>
   </div>
 </template>
@@ -104,28 +101,31 @@ export default {
         func: HEAD.VEE,
       },
     });
-    const arrowFromChapter13Theme1SubTheme6 = arrowCreate({
-      from: {
-        node: () => document.getElementById("java-13-chapter-1-theme"),
-        direction: DIRECTION.RIGHT,
-      },
-      to: {
-        node: () => document.getElementById("java-13-chapter-1-theme-6-subtheme"),
-        direction: DIRECTION.LEFT,
-        translation: [-1, 0]
-      },
-      head: {
-        func: HEAD.VEE,
-      },
-    });
 
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme1SubTheme1.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme1SubTheme2.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme1SubTheme3.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme1SubTheme4.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme1SubTheme5.node);
-    document.getElementById("language-main-row-content").appendChild(arrowFromChapter13Theme1SubTheme6.node);
 
+    let countProgressLocalTheme = 0
+
+    for (let i = 0; i < 5; i++) {
+      if (window.frontendData.language.chapters[10].listThemes[i].finished) {
+        let k = i + 1
+        document.getElementById("java-13-chapter-1-theme-" + k + "-subtheme")
+            .setAttribute("style", "background: #28a745; border: green;");
+        countProgressLocalTheme = countProgressLocalTheme + 11.1;
+      }
+    }
+
+    if (countProgressLocalTheme > 1 &&
+        countProgressLocalTheme < 30) {
+      document.getElementById("java-13-chapter-1-theme").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (countProgressLocalTheme > 30)
+        document.getElementById("java-13-chapter-1-theme").setAttribute("style", "background: #28a745; border: green;")
+    }
   }
 }
 </script>

@@ -30,8 +30,6 @@ class StatisticService(
 
         javaLanguageData.chapters.stream().forEach {
             chapterPercentCorrectlyListDTO.add(createChapterPercentDTO(it))
-
-
         }
 
         return chapterPercentCorrectlyListDTO

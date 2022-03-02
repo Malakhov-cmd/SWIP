@@ -312,8 +312,6 @@ import InterpretatorScenario
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/InterpretatorScenario.vue";
 import RedirectInputOutput
     from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/RedirectInputOutput.vue";
-import UseScenarioForProcessingGUI
-    from "./components/Language/Java/Chapter/13Annotation/1Scenario/Theme/UseScenarioForProcessingGUI.vue";
 //13.2
 import CallCompile
     from "./components/Language/Java/Chapter/13Annotation/2InterfaceAPIForCompiler/Theme/CallCompile.vue";
@@ -681,7 +679,6 @@ const routes = [
     {path: '/language/java/scenarioandannotation/ExeScenario', component: ExeScenario},
     {path: '/language/java/scenarioandannotation/InterpretatorScenario', component: InterpretatorScenario},
     {path: '/language/java/scenarioandannotation/RedirectInputOutput', component: RedirectInputOutput},
-    {path: '/language/java/scenarioandannotation/UseScenarioForProcessingGUI', component: UseScenarioForProcessingGUI},
 
     //13.2
     {path: '/language/java/scenarioandannotation/CallCompile', component: CallCompile},

@@ -1,9 +1,10 @@
 <template>
   <div class="chapter-level-1">
-    <chapter-button chapter-name="Написание сценариев, компиляция и обработка аннотаций" class="theme-level-13-chapter-right"
+    <chapter-button chapter-name="Написание сценариев, компиляция и обработка аннотаций"
+                    class="theme-level-13-chapter-right"
                     id="central-btn-13chapter"/>
     <div class="theme-level-1 theme-level-1-right">
-<scenario/>
+      <scenario/>
       <interface-a-p-i-for-compiler/>
       <use-annotation/>
       <syntax-annotation/>
@@ -24,7 +25,8 @@ import StandartAnnotation from "./5StandartAnnotation/StandartAnnotation.vue";
 export default {
   name: "Annotation",
   components: {
-    StandartAnnotation, SyntaxAnnotation, UseAnnotation, InterfaceAPIForCompiler, Scenario, ChapterButton},
+    StandartAnnotation, SyntaxAnnotation, UseAnnotation, InterfaceAPIForCompiler, Scenario, ChapterButton
+  },
   mounted() {
     const arrowFromCentralBtnChapterTo1Theme = arrowCreate({
       from: {
@@ -103,6 +105,32 @@ export default {
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo4Theme.node);
     document.getElementById("language-main-row-content").appendChild(arrowFromCentralBtnChapterTo5Theme.node);
 
+    if (window.frontendData.language.chapters[10].chapterProgress > 0 &&
+        window.frontendData.language.chapters[10].chapterProgress < 99) {
+      document.getElementById("central-btn-13chapter").setAttribute("style", " background: #dbcc16; border: green;")
+    } else {
+      if (window.frontendData.language.chapters[10].chapterProgress >= 99) {
+        document.getElementById("central-btn-13chapter").setAttribute("style", "background: #28a745; border: green;")
+      }
+    }
+
+    //Отображение общей информации в popover
+    $(document).ready(function () {
+      let progress = window.frontendData.language.chapters[10].chapterProgress
+      let dataPopover
+      if (progress > 99) {
+        dataPopover = 'Процент завершения ' + 100
+      } else {
+        dataPopover = 'Процент завершения ' + Math.round(progress)
+      }
+      $("#central-btn-13chapter").popover({
+        title: '<h4 class="custom-title"><div class="popover-head-text">Глава 11</div></h4>',
+        content: '<div class="popover-body"><div class="popover-body-text">' + dataPopover + '</div></div>',
+        trigger: 'hover',
+        placement: 'right',
+        html: true
+      });
+    });
   }
 }
 </script>
