@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-class ChapterPercentCorrectly() {
+class ChapterFullTimeSolution() {
     var chapterNumber = 0
-    var percentCorrectly = 0.0
+    var chapterTimeSpend = 0
 }
