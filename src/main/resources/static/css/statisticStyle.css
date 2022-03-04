@@ -1,6 +1,49 @@
 .statistic-main{
     overflow-y: auto;
-    max-height: 85vh;
+    max-height: 75vh;
 
     padding: 85px 20px 85px 35px;
+}
+
+.graphic-section{
+    margin-bottom: 45px;
+}
+
+.graphic-lable{
+    margin-top: 25px;
+    font-family: "Roboto", serif;
+    font-size: large;
+}
+
+.statistic-main-lable{
+    font-size: xx-large;
+    font-family: "Roboto", serif;
+    margin-bottom: 45px;
+}
+
+.statistic-main::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.statistic-main::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.statistic-main::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.statistic-main::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.statistic-main::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
 }

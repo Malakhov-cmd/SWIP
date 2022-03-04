@@ -1,36 +1,51 @@
 <template>
   <div class="statistic-main">
     <div class="statistic-header">
-      <p>
+      <p class="statistic-main-lable">
         Общая статистика
       </p>
     </div>
     <div class="personal-global-stats">
-      <p>
-        Процент правильности во всех главах
-      </p>
-      <div id="correctly-percent-all-chapter" v-if="dataOfPercentCorrectAllChapterReady">
-        <apexchart type="treemap" height="350"
-                   :options="chartTreeOptions"
-                   :series="seriesPersentCorrectly"></apexchart>
+      <div class="graphic-section">
+        <p class="graphic-lable">
+          Процент правильности во всех главах
+        </p>
+        <div id="correctly-percent-all-chapter" v-if="dataOfPercentCorrectAllChapterReady">
+          <apexchart type="treemap" height="350"
+                     :options="chartTreeOptions"
+                     :series="seriesPersentCorrectly"></apexchart>
+        </div>
+        <div v-if="!dataOfPercentCorrectAllChapterReady">
+          <p class="graphic-lable">
+            Данные отсутствуют, возможно вы еще не прошли ни одной главы
+          </p>
+        </div>
       </div>
 
-      <p>
-        Количество попыток решения и количество тем в главе
-      </p>
-      <div id="count-try-per-theme-number-chapter">
-        <div id="realyTryCountPerThemeNumber"></div>
+      <div class="graphic-section">
+        <p class="graphic-lable">
+          Количество попыток решения и количество тем в главе
+        </p>
+        <div id="count-try-per-theme-number-chapter">
+          <div id="realyTryCountPerThemeNumber"></div>
+        </div>
       </div>
 
-      <p>
-        Время затраценнное на главу
-      </p>
-      <div id="full-time-solution-chapter" v-if="dataOfFullTimeSolutionChapterReady">
-        <apexchart type="treemap" height="350"
-                   :options="chartTreeOptions"
-                   :series="seriesChapterFullTimeSolution"></apexchart>
+      <div class="graphic-section">
+        <p class="graphic-lable">
+          Время затраценнное на главу
+        </p>
+        <div id="full-time-solution-chapter" v-if="dataOfFullTimeSolutionChapterReady">
+          <apexchart type="treemap" height="350"
+                     :options="chartTreeOptions"
+                     :series="seriesChapterFullTimeSolution"></apexchart>
+        </div>
+        <div v-if="!dataOfFullTimeSolutionChapterReady">
+          <p class="graphic-lable">
+            Данные отсутствуют, возможно вы еще не прошли ни одной главы
+          </p>
+        </div>
       </div>
-
     </div>
   </div>
 </template>
