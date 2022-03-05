@@ -1,14 +1,18 @@
 package com.example.swip.service.statistic
 
 import com.example.swip.domain.Chapter
+import com.example.swip.domain.JavaLanguage
 import com.example.swip.repo.*
 import com.example.swip.service.statistic.DTO.ChapterFullTimeSolution
 import com.example.swip.service.statistic.DTO.ChapterPercentCorrectly
 import com.example.swip.service.statistic.DTO.ChapterRealTryCountThemeRealCountDTO
+import com.example.swip.service.statistic.calculation.ChapterFullTimeCalculate
 import com.example.swip.service.statistic.calculation.ChapterPercentCorrectlyCalculate
 import com.example.swip.service.statistic.calculation.ChapterRealTryCountPerThemeNumberCalculate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.*
+import java.util.concurrent.*
 
 @Service
 class StatisticService(
@@ -30,6 +34,8 @@ class StatisticService(
                 userDetailsRepo.findById(userId).get()
         )
 
+        javaLanguageData.chapters.sortBy { item -> item.numberChapter }
+
         javaLanguageData.chapters.stream().forEach {
             chapterPercentCorrectlyListDTO
                     .add(ChapterPercentCorrectlyCalculate().createChapterPercentDTO(it))
@@ -45,20 +51,27 @@ class StatisticService(
                 userDetailsRepo.findById(userId).get()
         )
 
+        javaLanguageData.chapters.sortBy { item -> item.numberChapter }
+
         javaLanguageData.chapters.stream().forEach {
-            chapterPercentCorrectlyListDTO.add(createChapterFullTimeDTO(it))
+            chapterPercentCorrectlyListDTO.add(
+                    ChapterFullTimeCalculate()
+                    .createChapterFullTimeDTO(it)
+            )
         }
 
         return chapterPercentCorrectlyListDTO
     }
 
     fun getChapterRealTryCountPerThemeCount(userId: String)
-    : List<ChapterRealTryCountThemeRealCountDTO> {
+            : List<ChapterRealTryCountThemeRealCountDTO> {
         val chapterPercentCorrectlyListDTO: MutableList<ChapterRealTryCountThemeRealCountDTO> = mutableListOf()
 
         val javaLanguageData = javaLanguagesRepo.findByOwner(
                 userDetailsRepo.findById(userId).get()
         )
+
+        javaLanguageData.chapters.sortBy { item -> item.numberChapter }
 
         javaLanguageData.chapters.stream().forEach {
             chapterPercentCorrectlyListDTO.add(
@@ -70,20 +83,34 @@ class StatisticService(
         return chapterPercentCorrectlyListDTO
     }
 
+    fun averagePercentCorrectly(userId: String)
+            : List<Double> {
+        val javaLanguage = javaLanguagesRepo.findAll()
 
-    private fun createChapterFullTimeDTO(chapter: Chapter): ChapterFullTimeSolution {
-        var totalTimeSpend = 0
+        val asynchCalckAveragePercentChapter: Future<List<Double>> = CompletableFuture.supplyAsync {
+            val averageValuesPerChapter: MutableList<Double> = mutableListOf(
+                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+            )
 
-        chapter.listThemes.forEach {
-            if (it.isFinished) {
-                totalTimeSpend += it.task!!.timeOnSolutionInSeconds
+            javaLanguage.stream().forEach { language ->
+                val averageOneUser = ChapterPercentCorrectlyCalculate()
+                        .calculateAverageCorrectlyChapterOfOneUser(language)
+
+                for (i in 0..11) {
+                    averageValuesPerChapter[i] = averageValuesPerChapter[i] + averageOneUser[i]
+                }
             }
+
+            for (i in 0..11) {
+                averageValuesPerChapter[i] = String
+                        .format("%.2f", (averageValuesPerChapter[i] / javaLanguage.size))
+                        .replace(',', '.')
+                        .toDouble()
+            }
+
+            return@supplyAsync averageValuesPerChapter
         }
-
-        val chapterFullTimeSolution = ChapterFullTimeSolution()
-        chapterFullTimeSolution.chapterNumber = chapter.numberChapter!!
-        chapterFullTimeSolution.chapterTimeSpend = totalTimeSpend
-
-        return chapterFullTimeSolution
+        return asynchCalckAveragePercentChapter.get()
     }
 }

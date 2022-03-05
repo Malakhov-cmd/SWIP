@@ -46,6 +46,23 @@
           </p>
         </div>
       </div>
+
+      <div class="graphic-section">
+        <p class="graphic-lable">
+          Сравнительный график процентного соотношения правильности вашего решения и
+          среднего значения других пользователей
+        </p>
+        <div id="average-correctly-percent-all-chapter" v-if="dataOfAveragePercentCorrectAllChapterReady">
+          <apexchart type="area" height="350"
+                     :options="averagePercentCorrectlyChartOptions"
+                     :series="averagePercentCorrectlySeries"></apexchart>
+        </div>
+        <div v-if="!dataOfAveragePercentCorrectAllChapterReady">
+          <p class="graphic-lable">
+            Данные отсутствуют, возможно вы еще не прошли ни одной главы
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +74,7 @@ import axios from "axios";
 let isSendedandrecivedFor1 = false
 let isSendedandrecivedFor2 = false
 let isSendedandrecivedFor3 = false
+let isSendedandrecivedFor4 = false
 
 //1
 let percentCorrectAllChapter = []
@@ -64,6 +82,8 @@ let percentCorrectAllChapter = []
 let realTryCountPerThemeNumber = []
 //3
 let dataOfFullTimeSolutionChapter = []
+//4
+let dataOfAveragePercentCorrectlyAnotherUsers = []
 
 export default {
   name: "JavaStatistic",
@@ -92,6 +112,30 @@ export default {
           data: []
         }
       ],
+
+      //4
+      dataOfAveragePercentCorrectAllChapter: [],
+      dataOfAveragePercentCorrectAllChapterReady: false,
+
+      averagePercentCorrectlySeries: [],
+      averagePercentCorrectlyChartOptions: {
+        chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          categories: ["Глава 1", "Глава 2", "Глава 3", "Глава 4",
+            "Глава 5", "Глава 6", "Глава 7", "Глава 8",
+            "Глава 9", "Глава 10", "Глава 11", "Глава 12"]
+        }
+      },
+
 
       //1 and 3
       chartTreeOptions: {
@@ -184,6 +228,17 @@ export default {
           y: this.dataOfFullTimeSolutionChapter[i].chapterTimeSpend
         }
       }
+
+      return massiveData
+    },
+
+    extractPersonalCorrectlyPersent() {
+      let massiveData = []
+
+      if (this.dataOfPercentCorrectAllChapterReady)
+        for (let i = 0; i < this.dataOfPercentCorrectAllChapter.length; i++) {
+          massiveData[i] = this.dataOfPercentCorrectAllChapter[i].percentCorrectly
+        }
 
       return massiveData
     }
@@ -279,6 +334,39 @@ export default {
 
         this.dataOfFullTimeSolutionChapterReady = true
         clearInterval(interval3Graph)
+      }
+    }, 200)
+
+    //4
+    axios.get('http://localhost:9000/java/statistic/avaragePercentCorrectly', {
+      params: {
+        userId: window.frontendData.profile.id
+      }
+    })
+        .then(function (response) {
+          dataOfAveragePercentCorrectlyAnotherUsers = response.data
+
+          isSendedandrecivedFor4 = true
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    const interval4Graph = setInterval(() => {
+      if (isSendedandrecivedFor4 && this.dataOfPercentCorrectAllChapterReady) {
+        isSendedandrecivedFor4 = false
+
+        this.dataOfAveragePercentCorrectAllChapter = dataOfAveragePercentCorrectlyAnotherUsers
+
+        this.averagePercentCorrectlySeries = [{
+          name: 'Ваши результаты',
+          data: this.extractPersonalCorrectlyPersent()
+        }, {
+          name: 'Средние результаты',
+          data: this.dataOfAveragePercentCorrectAllChapter
+        }]
+
+        this.dataOfAveragePercentCorrectAllChapterReady = true
+        clearInterval(interval4Graph)
       }
     }, 200)
   }
