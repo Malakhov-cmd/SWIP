@@ -896,12 +896,6 @@ class ChapterFuller(
                 5 -> {
                     task.answer = "Добавить в файл module-info {exports com.name.*}"
                 }
-                6 -> {
-                    task.answer = ""
-                }
-                7 -> {
-                    task.answer = ""
-                }
             }
             val taskId = taskRepo.save(task).id
 

@@ -1,17 +1,15 @@
 package com.example.swip.service.statistic
 
-import com.example.swip.domain.Chapter
-import com.example.swip.domain.JavaLanguage
 import com.example.swip.repo.*
 import com.example.swip.service.statistic.DTO.ChapterFullTimeSolution
 import com.example.swip.service.statistic.DTO.ChapterPercentCorrectly
 import com.example.swip.service.statistic.DTO.ChapterRealTryCountThemeRealCountDTO
 import com.example.swip.service.statistic.calculation.ChapterFullTimeCalculate
 import com.example.swip.service.statistic.calculation.ChapterPercentCorrectlyCalculate
+import com.example.swip.service.statistic.calculation.ChapterPercentProgressCalculate
 import com.example.swip.service.statistic.calculation.ChapterRealTryCountPerThemeNumberCalculate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.util.*
 import java.util.concurrent.*
 
 @Service
@@ -112,5 +110,59 @@ class StatisticService(
             return@supplyAsync averageValuesPerChapter
         }
         return asynchCalckAveragePercentChapter.get()
+    }
+
+    fun averageTimeOnSolution(userId: String)
+            : List<Double> {
+        val javaLanguage = javaLanguagesRepo.findAll()
+
+        val asynchCalckAverageTimeSpend: Future<List<Double>> = CompletableFuture.supplyAsync {
+            val averageTimeSpendOnChapter: MutableList<Double> = mutableListOf(
+                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+            )
+
+            javaLanguage.stream().forEach { language ->
+                val userTimeSpendList: MutableList<Int> = ChapterFullTimeCalculate().calculateTimeOnLanguageOfUser(language)
+
+                for (i in 0..11) {
+                    averageTimeSpendOnChapter[i] = averageTimeSpendOnChapter[i] + userTimeSpendList[i]
+                }
+            }
+
+            for (i in 0..11) {
+                averageTimeSpendOnChapter[i] = String
+                        .format("%.2f", (averageTimeSpendOnChapter[i] / javaLanguage.size))
+                        .replace(',', '.')
+                        .toDouble()
+            }
+
+            return@supplyAsync averageTimeSpendOnChapter
+        }
+        return asynchCalckAverageTimeSpend.get()
+    }
+
+    fun percentOfEndingOfChapter(userId: String)
+            : List<Double> {
+        val chapterPercentCorrectlyList: MutableList<Double> = mutableListOf()
+        val chapterPercentProgressCalculate = ChapterPercentProgressCalculate()
+
+        val javaLanguageData = javaLanguagesRepo.findByOwner(
+                userDetailsRepo.findById(userId).get()
+        )
+
+        javaLanguageData.chapters.sortBy { chapter -> chapter.numberChapter }
+
+        javaLanguageData.chapters.stream().forEach { chapter ->
+            chapterPercentCorrectlyList.add(
+                    chapterPercentProgressCalculate.calculatePercentOfFinishedThemes(chapter)
+            )
+        }
+
+        chapterPercentCorrectlyList.add(
+                chapterPercentProgressCalculate
+                        .getAbsoluteCompletePercent(javaLanguageData))
+
+        return chapterPercentCorrectlyList
     }
 }

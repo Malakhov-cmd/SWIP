@@ -35,4 +35,14 @@ class StatisticController(
     fun averagePercentCorrectly(
             @RequestParam(required = true) userId: String,
     ): List<Double> = statisticService.averagePercentCorrectly(userId)
+
+    @GetMapping("/avarageTimeOnSolution")
+    fun avarageTimeOnSolution(
+            @RequestParam(required = true) userId: String,
+    ): List<Double> = statisticService.averageTimeOnSolution(userId)
+
+    @GetMapping("/percentOfEndinOfChapter")
+    fun percentOfEndinOfChapter(
+            @RequestParam(required = true) userId: String,
+    ): List<Double> = statisticService.percentOfEndingOfChapter(userId)
 }

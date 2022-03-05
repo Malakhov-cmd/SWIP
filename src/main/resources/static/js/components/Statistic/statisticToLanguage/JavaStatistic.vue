@@ -63,6 +63,38 @@
           </p>
         </div>
       </div>
+
+      <div class="graphic-section">
+        <p class="graphic-lable">
+          Сравнительный график затраченного времени в секундах на решение главы пользователемями и вами
+        </p>
+        <div id="average-time-on-chapter-spend" v-if="dataOfAverageTimeSpendOnSolutionReady">
+          <apexchart type="area" height="350"
+                     :options="averagePercentCorrectlyChartOptions"
+                     :series="averageTimeSpendOnSolutionSeries"></apexchart>
+        </div>
+        <div v-if="!dataOfAverageTimeSpendOnSolutionReady">
+          <p class="graphic-lable">
+            Данные отсутствуют, возможно вы еще не прошли ни одной главы
+          </p>
+        </div>
+      </div>
+
+      <div class="graphic-section">
+        <p class="graphic-lable">
+          Радиальный график демонстрации процентной завершенности глав
+        </p>
+        <div id="percent-of-ending-in-chapters" v-if="dataOfPercentEndedThemesInChapterReady">
+          <apexchart type="radialBar" height="600"
+                     :options="chartPercentEndedThemesInChapterOptions"
+                     :series="percentEndedThemesInChapterSeries"></apexchart>
+        </div>
+        <div v-if="!dataOfPercentEndedThemesInChapterReady">
+          <p class="graphic-lable">
+            Данные отсутствуют, возможно вы еще не прошли ни одной главы
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -75,6 +107,8 @@ let isSendedandrecivedFor1 = false
 let isSendedandrecivedFor2 = false
 let isSendedandrecivedFor3 = false
 let isSendedandrecivedFor4 = false
+let isSendedandrecivedFor5 = false
+let isSendedandrecivedFor6 = false
 
 //1
 let percentCorrectAllChapter = []
@@ -84,6 +118,11 @@ let realTryCountPerThemeNumber = []
 let dataOfFullTimeSolutionChapter = []
 //4
 let dataOfAveragePercentCorrectlyAnotherUsers = []
+//5
+let dataOfAverageTimeSpendOnSolutionChapter = []
+//6
+let dataOfPercentEndedThemesInChapter = []
+let absoluteFinishedJavaLanguage = 0.0
 
 export default {
   name: "JavaStatistic",
@@ -136,6 +175,46 @@ export default {
         }
       },
 
+      //5
+      dataOfAverageTimeSpendOnSolution: [],
+      dataOfAverageTimeSpendOnSolutionReady: false,
+
+      averageTimeSpendOnSolutionSeries: [],
+
+      //6
+      dataOfPercentEndedThemesInChapter: [],
+      dataOfPercentEndedThemesInChapterReady: false,
+
+      percentEndedThemesInChapterSeries: [],
+      chartPercentEndedThemesInChapterOptions: {
+        chart: {
+          height: 350,
+          type: 'radialBar',
+        },
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              name: {
+                fontSize: '22px',
+              },
+              value: {
+                fontSize: '16px',
+              },
+              total: {
+                show: true,
+                label: 'Пройдено',
+                formatter: function (w) {
+                  // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                  return absoluteFinishedJavaLanguage + '% '
+                }
+              }
+            }
+          }
+        },
+        labels: ["Глава 1", "Глава 2", "Глава 3", "Глава 4",
+          "Глава 5", "Глава 6", "Глава 7", "Глава 8",
+          "Глава 9", "Глава 10", "Глава 11", "Глава 12"],
+      },
 
       //1 and 3
       chartTreeOptions: {
@@ -239,6 +318,29 @@ export default {
         for (let i = 0; i < this.dataOfPercentCorrectAllChapter.length; i++) {
           massiveData[i] = this.dataOfPercentCorrectAllChapter[i].percentCorrectly
         }
+
+      return massiveData
+    },
+
+    extractPersonalTimeOnSolution() {
+      let massiveData = []
+
+      if (this.dataOfFullTimeSolutionChapterReady)
+        for (let i = 0; i < this.dataOfFullTimeSolutionChapter.length; i++) {
+          massiveData[i] = this.dataOfFullTimeSolutionChapter[i].chapterTimeSpend
+        }
+
+      return massiveData
+    },
+
+    extractPercentFinishedChapter() {
+      let massiveData = []
+
+      for (let i = 0; i < this.dataOfPercentEndedThemesInChapter.length - 1; i++) {
+        massiveData[i] = this.dataOfPercentEndedThemesInChapter[i]
+      }
+
+      absoluteFinishedJavaLanguage = this.dataOfPercentEndedThemesInChapter[this.dataOfPercentEndedThemesInChapter.length - 1]
 
       return massiveData
     }
@@ -369,10 +471,69 @@ export default {
         clearInterval(interval4Graph)
       }
     }, 200)
+
+    //5
+    axios.get('http://localhost:9000/java/statistic/avarageTimeOnSolution', {
+      params: {
+        userId: window.frontendData.profile.id
+      }
+    })
+        .then(function (response) {
+          dataOfAverageTimeSpendOnSolutionChapter = response.data
+
+          isSendedandrecivedFor5 = true
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    const interval5Graph = setInterval(() => {
+      if (isSendedandrecivedFor5 && this.dataOfFullTimeSolutionChapterReady) {
+        isSendedandrecivedFor5 = false
+
+        this.dataOfAverageTimeSpendOnSolution = dataOfAverageTimeSpendOnSolutionChapter
+
+        this.averageTimeSpendOnSolutionSeries = [{
+          name: 'Ваши результаты',
+          data: this.extractPersonalTimeOnSolution()
+        }, {
+          name: 'Средние результаты',
+          data: this.dataOfAverageTimeSpendOnSolution
+        }]
+
+        this.dataOfAverageTimeSpendOnSolutionReady = true
+        clearInterval(interval5Graph)
+      }
+    }, 200)
+
+    //6
+    axios.get('http://localhost:9000/java/statistic/percentOfEndinOfChapter', {
+      params: {
+        userId: window.frontendData.profile.id
+      }
+    })
+        .then(function (response) {
+          dataOfPercentEndedThemesInChapter = response.data
+
+          isSendedandrecivedFor6 = true
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    const interval6Graph = setInterval(() => {
+      if (isSendedandrecivedFor6) {
+        isSendedandrecivedFor6 = false
+
+        this.dataOfPercentEndedThemesInChapter = dataOfPercentEndedThemesInChapter
+
+        this.percentEndedThemesInChapterSeries = this.extractPercentFinishedChapter()
+
+        this.dataOfPercentEndedThemesInChapterReady = true
+        clearInterval(interval6Graph)
+      }
+    }, 200)
   }
 }
 </script>
-
 
 <style scoped>
 
