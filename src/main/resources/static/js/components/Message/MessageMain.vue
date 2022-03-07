@@ -279,7 +279,7 @@ export default {
   methods: {
     requestFindUsersByName() {
       this.potentialFriendFinded = false
-      axios.get('http://localhost:9000/dialog/find/name', {
+      axios.get('/dialog/find/name', {
         params: {
           userId: window.frontendData.profile.id,
           friendName: this.nameFeatureFriend
@@ -307,7 +307,7 @@ export default {
     },
     requestFindUserById() {
       this.potentialFriendFinded = false
-      axios.get('http://localhost:9000/dialog/find/id', {
+      axios.get('/dialog/find/id', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: this.idFeatureFriend
@@ -336,7 +336,7 @@ export default {
     requestCreateChat() {
       this.potentialFriendFinded = false
 
-      axios.get('http://localhost:9000/dialog/create', {
+      axios.get('/dialog/create', {
         params: {
           userId: window.frontendData.profile.id,
           members: this.addedToCreationGroupChat.toString()
@@ -365,7 +365,7 @@ export default {
     requestDeleteChat(dialogId) {
       this.potentialFriendFinded = false
 
-      axios.get('http://localhost:9000/dialog/delete', {
+      axios.get('/dialog/delete', {
         params: {
           userId: window.frontendData.profile.id,
           dialogId: dialogId
@@ -389,7 +389,7 @@ export default {
     },
     dataUpdate() {
       this.dataUpdater = setInterval(() => {
-        axios.get('http://localhost:9000/api/userinfo', {
+        axios.get('/api/userinfo', {
           params: {
             userId: window.frontendData.profile.id
           }
@@ -491,7 +491,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://localhost:9000/api/userinfo', {
+    axios.get('/api/userinfo', {
       params: {
         userId: window.frontendData.profile.id
       }

@@ -227,7 +227,7 @@
     </div>
 
     <div class="my-friend-list-alternative" v-show="!existingAnyFriend">
-      <p>У вас пока нет друзей</p>
+      <p style="text-indent: 0;">У вас пока нет друзей</p>
     </div>
   </div>
 </template>
@@ -284,7 +284,7 @@ export default {
     requestFindFriendByName() {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/find/name', {
+      axios.get('/home/friend/find/name', {
         params: {
           userId: window.frontendData.profile.id,
           friendName: this.nameFeatureFriend
@@ -313,7 +313,7 @@ export default {
     requestFindFriendById() {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/find/id', {
+      axios.get('/home/friend/find/id', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: this.idFeatureFriend
@@ -340,7 +340,7 @@ export default {
     requestFriendAdding(friendId, index) {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/add', {
+      axios.get('/home/friend/add', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: friendId
@@ -365,7 +365,7 @@ export default {
     requestOutgoingDelete(friendId, index) {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/delete', {
+      axios.get('/home/friend/delete', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: friendId
@@ -390,7 +390,7 @@ export default {
     requestIncomesDelete(friendId, index) {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/delete/from/incomes', {
+      axios.get('/home/friend/delete/from/incomes', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: friendId
@@ -415,7 +415,7 @@ export default {
     requestIncomesAdd(friendId, index) {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/add/incomes', {
+      axios.get('/home/friend/add/incomes', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: friendId
@@ -440,7 +440,7 @@ export default {
     requestDeleteExistingFriend(friendId) {
       this.flagsOff()
 
-      axios.get('http://localhost:9000/home/friend/delete/from/friendlist', {
+      axios.get('/home/friend/delete/from/friendlist', {
         params: {
           userId: window.frontendData.profile.id,
           friendId: friendId
@@ -508,7 +508,7 @@ export default {
     },
     profileDataUpdate() {
       this.profileDataUpdater = setInterval(() => {
-        axios.get('http://localhost:9000/api/userinfo', {
+        axios.get('/api/userinfo', {
           params: {
             userId: window.frontendData.profile.id
           }

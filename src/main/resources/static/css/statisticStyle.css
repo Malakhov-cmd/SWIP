@@ -9,6 +9,11 @@
     margin-bottom: 45px;
 }
 
+.graphic-svg{
+    color: #343a40;
+    font-family: "Roboto", serif;
+}
+
 .graphic-lable{
     margin-top: 25px;
     font-family: "Roboto", serif;

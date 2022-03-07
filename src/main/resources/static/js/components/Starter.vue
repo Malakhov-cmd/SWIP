@@ -4,7 +4,7 @@
       <div class="header-cls">
         <h3 class="float-md-start mb-0">SWIP</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link active" aria-current="page" href="">
             <router-link to="/info" class="mainNav"> Info </router-link>
           </a>
           <a class="nav-link active" href="#">
@@ -53,9 +53,7 @@ import VueRouter from "vue-router"
 Vue.use(VueRouter)
 
 export default {
-  name: "Starter",
-  methods: {
-  }
+  name: "Starter"
 }
 </script>
 

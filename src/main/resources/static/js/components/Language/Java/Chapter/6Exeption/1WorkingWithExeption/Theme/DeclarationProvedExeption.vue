@@ -262,7 +262,7 @@ export default {
       this.timeEndeded = Date.now()
       this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
 
-      axios.get('http://localhost:9000/java/sixthchapter/', {
+      axios.get('/java/sixthchapter/', {
         params: {
           numberTheme: 2,
           answer: this.selected,

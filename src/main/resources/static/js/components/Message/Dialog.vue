@@ -102,7 +102,7 @@ export default {
       let memberId = this.dialogData.members.find(
           item => item.memberId == this.profileData.id).id
 
-      axios.get('http://localhost:9000/dialog/send/message', {
+      axios.get('/dialog/send/message', {
         params: {
           userId: this.userId,
           dialogId: this.chatId,
@@ -143,7 +143,7 @@ export default {
     },
     dataUpdate() {
       this.dataUpdater = setInterval(() => {
-        axios.get('http://localhost:9000/api/userinfo', {
+        axios.get('/api/userinfo', {
           params: {
             userId: window.frontendData.profile.id
           }
@@ -202,7 +202,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://localhost:9000/api/userinfo', {
+    axios.get('/api/userinfo', {
       params: {
         userId: this.userId
       }

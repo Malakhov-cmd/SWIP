@@ -247,7 +247,7 @@ export default {
       return this.owner.posts[index].comments.length > 0;
     },
     requestCreatePost() {
-      axios.get('http://localhost:9000/home/post/creation', {
+      axios.get('/home/post/creation', {
         params: {
           wallId: this.owner.id,
           authorId: window.frontendData.profile.id,
@@ -277,7 +277,7 @@ export default {
       }, 200)
     },
     requestCreateComment(index) {
-      axios.get('http://localhost:9000/home/comment/creation', {
+      axios.get('/home/comment/creation', {
         params: {
           authorId: window.frontendData.profile.id,
           postId: this.owner.posts[index].id,
@@ -304,7 +304,7 @@ export default {
       }, 200)
     },
     requestLike(postId, index) {
-      axios.get('http://localhost:9000/home/post/like', {
+      axios.get('/home/post/like', {
         params: {
           postId: postId,
           likerId: window.frontendData.profile.id,
@@ -329,7 +329,7 @@ export default {
     },
     dataUpdate() {
       this.dataUpdater = setInterval(() => {
-        axios.get('http://localhost:9000/api/userinfo/wall', {
+        axios.get('/api/userinfo/wall', {
           params: {
             userId: this.id
           }
@@ -367,7 +367,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://localhost:9000/api/userinfo/wall', {
+    axios.get('/api/userinfo/wall', {
       params: {
         userId: this.id
       }
@@ -410,8 +410,6 @@ export default {
     }, 200)
 
     this.dataUpdate()
-
-    //TODO изменить в бд настройки текс большой не залазиет
   },
   beforeDestroy() {
     clearInterval(this.dataUpdater)

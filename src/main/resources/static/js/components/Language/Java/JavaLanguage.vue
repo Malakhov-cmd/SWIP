@@ -103,8 +103,8 @@ export default {
       this.show = false
 
       let container = document.getElementsByClassName('language-main-row-content').item(0)
-      container.scrollBy(1,1)
-      console.log("boom")
+      if (container != null)
+        container.scrollBy(1, 1)
     }, 4000)
 
     var scr = $(".language-main-row-content");

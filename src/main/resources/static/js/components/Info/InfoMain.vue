@@ -37,7 +37,7 @@
           </button>
           <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-static-list"
                   data-bs-toggle="list" href="#list-static" role="tab" aria-controls="list-static">
-            Static
+            Statistic
           </button>
           <button class="btn btn-outline-success list-group-item list-group-item-action" id="list-setting-list"
                   data-bs-toggle="list" href="#list-setting" role="tab" aria-controls="list-setting">
@@ -188,7 +188,26 @@
           </div>
           <div class="tab-pane fade" id="list-static" role="tabpanel" aria-labelledby="list-static-list">
             <p class="info-paragraph">
-              Static
+              Статистика создержит информацию о ваших успехах в освоении языков в удобном формате.
+            </p>
+            <p class="info-paragraph">
+              Здесь вы можете узнать о среднем проценте правильных ответов по каждой из глав.
+            </p>
+            <p class="info-paragraph">
+              Соотношении колиества попыток по главе к общему числу заданий.
+            </p>
+            <p class="info-paragraph">
+              Соотношении колиества попыток по главе к общему числу заданий.
+            </p>
+            <p class="info-paragraph">
+              Время затраченное на каждую главу
+            </p>
+            <p class="info-paragraph">
+              Сравнительные графики по правильности ответов и затраченного времени на решение по вашим показателям и
+              данных других пользователей.
+            </p>
+            <p class="info-paragraph">
+              График процентного завершения по всем главам и языку в целом.
             </p>
           </div>
           <div class="tab-pane fade" id="list-setting" role="tabpanel" aria-labelledby="list-setting-list">

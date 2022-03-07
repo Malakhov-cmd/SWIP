@@ -239,7 +239,7 @@ export default {
       return frontendData.wall.posts[index].comments.length > 0;
     },
     requestCreatePost() {
-      axios.get('http://localhost:9000/home/post/creation', {
+      axios.get('/home/post/creation', {
         params: {
           wallId: this.wallData.id,
           authorId: window.frontendData.profile.id,
@@ -271,7 +271,7 @@ export default {
       }, 200)
     },
     requestCreateComment(index) {
-      axios.get('http://localhost:9000/home/comment/creation', {
+      axios.get('/home/comment/creation', {
         params: {
           authorId: window.frontendData.profile.id,
           postId: window.frontendData.wall.posts[index].id,
@@ -300,7 +300,7 @@ export default {
       }, 200)
     },
     requestLike(postId, index) {
-      axios.get('http://localhost:9000/home/post/like', {
+      axios.get('/home/post/like', {
         params: {
           postId: postId,
           likerId: window.frontendData.profile.id,
@@ -325,7 +325,7 @@ export default {
     },
     dataUpdate() {
       this.dataUpdater = setInterval(() => {
-        axios.get('http://localhost:9000/api/userinfo/wall', {
+        axios.get('/api/userinfo/wall', {
           params: {
             userId: window.frontendData.profile.id
           }
@@ -364,7 +364,7 @@ export default {
   },
   mounted() {
 
-    axios.get('http://localhost:9000/api/userinfo', {
+    axios.get('/api/userinfo', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -395,7 +395,7 @@ export default {
       }
     }, 200)
 
-    axios.get('http://localhost:9000/api/userinfo/wall', {
+    axios.get('/api/userinfo/wall', {
       params: {
         userId: window.frontendData.profile.id
       }

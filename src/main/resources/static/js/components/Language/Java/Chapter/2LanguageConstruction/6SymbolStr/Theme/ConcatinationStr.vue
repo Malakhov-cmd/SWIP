@@ -156,7 +156,7 @@ export default {
   },
   methods: {
     Request() {
-      axios.get('http://localhost:9000/java/secondchapter/', {
+      axios.get('/java/secondchapter/', {
         params: {
           numberTheme: 20,
           answer: this.selected,

@@ -185,7 +185,7 @@ export default {
   },
   methods: {
     changeName() {
-      axios.get('http://localhost:9000/data/change/name', {
+      axios.get('/data/change/name', {
         params: {
           userId: window.frontendData.profile.id,
           newName: this.newNameInputed
@@ -240,7 +240,7 @@ export default {
       }, 200)
     },
     changeLink() {
-      axios.get('http://localhost:9000/data/change/img', {
+      axios.get('/data/change/img', {
         params: {
           userId: window.frontendData.profile.id,
           newIngLink: this.linkToPictureInputed
@@ -294,7 +294,7 @@ export default {
       }, 200)
     },
     changeSelfDescription() {
-      axios.get('http://localhost:9000/data/change/self/description', {
+      axios.get('/data/change/self/description', {
         params: {
           userId: window.frontendData.profile.id,
           newDescription: this.aboutSelfInputed
@@ -348,7 +348,7 @@ export default {
       }, 200)
     },
     changeGitLink() {
-      axios.get('http://localhost:9000/data/change/git', {
+      axios.get('/data/change/git', {
         params: {
           userId: window.frontendData.profile.id,
           newGitLink: this.gitLinkInputed
@@ -402,7 +402,7 @@ export default {
       }, 200)
     },
     changeInstaLink() {
-      axios.get('http://localhost:9000/data/change/insta', {
+      axios.get('/data/change/insta', {
         params: {
           userId: window.frontendData.profile.id,
           newInstaLink: this.instagramLinlInputed
@@ -511,7 +511,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://localhost:9000/api/userinfo', {
+    axios.get('/api/userinfo', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -534,7 +534,7 @@ export default {
       }
     }, 200)
 
-    axios.get('http://localhost:9000/api/userinfo/wall', {
+    axios.get('/api/userinfo/wall', {
       params: {
         userId: window.frontendData.profile.id
       }

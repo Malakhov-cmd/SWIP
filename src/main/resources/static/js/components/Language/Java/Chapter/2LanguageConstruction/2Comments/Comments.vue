@@ -163,7 +163,7 @@ export default {
       this.timeSpended = Math.round((this.timeEndeded - this.timeStarted) / 1000)
 
       if (tempValue !== '') {
-        axios.get('http://localhost:9000/java/secondchapter/', {
+        axios.get('/java/secondchapter/', {
           params: {
             numberTheme: 2,
             answer: tempValue,

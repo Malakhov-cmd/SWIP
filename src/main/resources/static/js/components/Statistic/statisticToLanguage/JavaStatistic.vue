@@ -10,7 +10,7 @@
         <p class="graphic-lable">
           Процент правильности во всех главах
         </p>
-        <div id="correctly-percent-all-chapter" v-if="dataOfPercentCorrectAllChapterReady">
+        <div id="correctly-percent-all-chapter" class="graphic-svg" v-if="dataOfPercentCorrectAllChapterReady">
           <apexchart type="treemap" height="350"
                      :options="chartTreeOptions"
                      :series="seriesPersentCorrectly"></apexchart>
@@ -26,7 +26,7 @@
         <p class="graphic-lable">
           Количество попыток решения и количество тем в главе
         </p>
-        <div id="count-try-per-theme-number-chapter">
+        <div id="count-try-per-theme-number-chapter" class="graphic-svg">
           <div id="realyTryCountPerThemeNumber"></div>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <p class="graphic-lable">
           Время затраценнное на главу
         </p>
-        <div id="full-time-solution-chapter" v-if="dataOfFullTimeSolutionChapterReady">
+        <div id="full-time-solution-chapter" class="graphic-svg" v-if="dataOfFullTimeSolutionChapterReady">
           <apexchart type="treemap" height="350"
                      :options="chartTreeOptions"
                      :series="seriesChapterFullTimeSolution"></apexchart>
@@ -52,7 +52,8 @@
           Сравнительный график процентного соотношения правильности вашего решения и
           среднего значения других пользователей
         </p>
-        <div id="average-correctly-percent-all-chapter" v-if="dataOfAveragePercentCorrectAllChapterReady">
+        <div id="average-correctly-percent-all-chapter" class="graphic-svg"
+             v-if="dataOfAveragePercentCorrectAllChapterReady">
           <apexchart type="area" height="350"
                      :options="averagePercentCorrectlyChartOptions"
                      :series="averagePercentCorrectlySeries"></apexchart>
@@ -68,7 +69,7 @@
         <p class="graphic-lable">
           Сравнительный график затраченного времени в секундах на решение главы пользователемями и вами
         </p>
-        <div id="average-time-on-chapter-spend" v-if="dataOfAverageTimeSpendOnSolutionReady">
+        <div id="average-time-on-chapter-spend" class="graphic-svg" v-if="dataOfAverageTimeSpendOnSolutionReady">
           <apexchart type="area" height="350"
                      :options="averagePercentCorrectlyChartOptions"
                      :series="averageTimeSpendOnSolutionSeries"></apexchart>
@@ -84,7 +85,7 @@
         <p class="graphic-lable">
           Радиальный график демонстрации процентной завершенности глав
         </p>
-        <div id="percent-of-ending-in-chapters" v-if="dataOfPercentEndedThemesInChapterReady">
+        <div id="percent-of-ending-in-chapters" class="graphic-svg" v-if="dataOfPercentEndedThemesInChapterReady">
           <apexchart type="radialBar" height="600"
                      :options="chartPercentEndedThemesInChapterOptions"
                      :series="percentEndedThemesInChapterSeries"></apexchart>
@@ -167,6 +168,9 @@ export default {
         },
         stroke: {
           curve: 'smooth'
+        },
+        markers: {
+          colors: ['#F44336', '#E91E63', '#9C27B0']
         },
         xaxis: {
           categories: ["Глава 1", "Глава 2", "Глава 3", "Глава 4",
@@ -347,7 +351,7 @@ export default {
   },
   mounted() {
     //1
-    axios.get('http://localhost:9000/java/statistic/percentCorrectly', {
+    axios.get('/java/statistic/percentCorrectly', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -379,7 +383,7 @@ export default {
     }, 200)
 
     //2
-    axios.get('http://localhost:9000/java/statistic/tryCountPerThemeNumber', {
+    axios.get('/java/statistic/tryCountPerThemeNumber', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -409,7 +413,7 @@ export default {
     }, 200)
 
     //3
-    axios.get('http://localhost:9000/java/statistic/timeOnChapter', {
+    axios.get('/java/statistic/timeOnChapter', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -440,7 +444,7 @@ export default {
     }, 200)
 
     //4
-    axios.get('http://localhost:9000/java/statistic/avaragePercentCorrectly', {
+    axios.get('/java/statistic/avaragePercentCorrectly', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -473,7 +477,7 @@ export default {
     }, 200)
 
     //5
-    axios.get('http://localhost:9000/java/statistic/avarageTimeOnSolution', {
+    axios.get('/java/statistic/avarageTimeOnSolution', {
       params: {
         userId: window.frontendData.profile.id
       }
@@ -506,7 +510,7 @@ export default {
     }, 200)
 
     //6
-    axios.get('http://localhost:9000/java/statistic/percentOfEndinOfChapter', {
+    axios.get('/java/statistic/percentOfEndinOfChapter', {
       params: {
         userId: window.frontendData.profile.id
       }
