@@ -12,14 +12,14 @@ class DeleteFriend(
         var userDetailsRepo: UserDetailsRepo
 ) {
     fun deleteOutgoing(userId: String, friendToRemoveFromOutgoing: String): User {
-        val user = userDetailsRepo.findById(userId).get()
+        var user = userDetailsRepo.findById(userId).get()
         val friend = userDetailsRepo.findById(friendToRemoveFromOutgoing)
 
-        if (friend.isEmpty) {
-            return user
+        friend.ifPresent {
+            user = operateRemove(user, friend.get())
         }
 
-        return operateRemove(user, friend.get())
+        return user
     }
 
     fun deleteFromIncomes(userId: String, friendToRemoveFromOutgoing: String): User {
@@ -34,14 +34,14 @@ class DeleteFriend(
     }
 
     fun deleteFromFriendList(userId: String, friendToRemoveFromOutgoing: String): User {
-        val user = userDetailsRepo.findById(userId).get()
+        var user = userDetailsRepo.findById(userId).get()
         val friend = userDetailsRepo.findById(friendToRemoveFromOutgoing)
 
-        if (friend.isEmpty) {
-            return user
+        friend.ifPresent {
+            user = operateRemoveFriendFromFriendList(user, friend.get())
         }
 
-        return operateRemoveFriendFromFriendList(user, friend.get())
+        return user
     }
 
     private fun operateRemove(

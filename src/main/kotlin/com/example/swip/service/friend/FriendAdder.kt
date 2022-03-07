@@ -39,7 +39,7 @@ class FriendAdder(
         val user = userDetailsRepo.findById(userId).get()
         val friend = userDetailsRepo.findById(potentialFriendId)
 
-        if (friend.isEmpty) {
+        if (friend.get() == null) {
             return user
         }
 
