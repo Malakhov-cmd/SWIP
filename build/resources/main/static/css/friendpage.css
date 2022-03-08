@@ -1,0 +1,83 @@
+.friend-main {
+    overflow-y: scroll;
+    max-height: 75vh;
+    padding: 85px 20px 85px 35px;
+}
+
+.friend-finder-input-neo {
+    padding: 35px;
+}
+
+.profile-header-user-txt-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.btn-find-friend-collapsed {
+    overflow-anchor: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+
+    border-radius: 50px;
+}
+
+.friend-finder-input {
+    margin-top: 37px;
+    margin-bottom: 17px;
+}
+
+.finded-potential-friend-item-header {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px;
+}
+
+.finded-potential-friend-item-header-personal-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.finded-potential-friend-item-header-name {
+    margin-left: 25px;
+}
+
+.pagination-to-potentional-friend {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 45px;
+}
+
+.friend-main::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.friend-main::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.friend-main::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.friend-main::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.friend-main::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}

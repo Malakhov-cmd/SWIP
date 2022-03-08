@@ -1,0 +1,32 @@
+.message-main{
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.message-main::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.message-main::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.message-main::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.message-main::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.message-main::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}

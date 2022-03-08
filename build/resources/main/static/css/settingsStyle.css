@@ -1,0 +1,68 @@
+.settings-main{
+    overflow-y: auto;
+    max-height: 85vh;
+
+    padding: 85px 20px 85px 35px;
+}
+
+.settings-change{
+    padding: 25px;
+    margin-bottom: 45px;
+    margin-top: 25px;
+}
+
+.setting-social-links{
+    padding: 25px;
+    margin-bottom: 53px;
+}
+
+.settings-social-links-icon{
+    max-width: 32px;
+    max-height: 32px;
+    margin-right: 7px;
+}
+
+.personal-data-card-main{
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+}
+
+.card-img{
+    border-radius: 50px;
+}
+
+.card-include-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: system-ui;
+    margin-top: 25px;
+}
+
+.settings-main::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.settings-main::-webkit-scrollbar-thumb {
+    border-width: 1px 1px 1px 2px;
+    border-color: #9f1b1b;
+    background-color: #aaa;
+    border-radius: 7px;
+}
+
+.settings-main::-webkit-scrollbar-thumb:hover {
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+.settings-main::-webkit-scrollbar-track {
+    border-width: 0;
+}
+
+.settings-main::-webkit-scrollbar-track:hover {
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}

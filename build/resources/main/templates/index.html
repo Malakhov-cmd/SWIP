@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>SWIP</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--For animation-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+    <!--For code mirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.css">
+    <script src="https://codemirror.net/mode/jsx/jsx.js"></script>
+    <link rel="stylesheet" href="https://codemirror.net/theme/dracula.css">
+
+    <script th:inline="javascript">
+        frontendData = [[${frontendData}]];
+    </script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/cover.css}" rel="stylesheet">
+    <link th:href="@{/css/homeStyle.css}" rel="stylesheet">
+    <link th:href="@{/css/languageStyle.css}" rel="stylesheet">
+    <link th:href="@{/css/pageStyle.css}" rel="stylesheet">
+    <link th:href="@{/css/profile.css}" rel="stylesheet">
+    <link th:href="@{/css/friendpage.css}" rel="stylesheet">
+    <link th:href="@{/css/chatStyle.css}" rel="stylesheet">
+    <link th:href="@{/css/dialogStyle.css}" rel="stylesheet">
+    <link th:href="@{/css/settingsStyle.css}" rel="stylesheet">
+    <link th:href="@{/css/inProccess.css}" rel="stylesheet">
+    <link th:href="@{/css/info.css}" rel="stylesheet">
+    <link th:href="@{/css/statisticStyle.css}" rel="stylesheet">
+</head>
+<body class="text-center text-white bg-dark" id="vantaId">
+<div id="app"></div>
+
+<!-- Connecting external js-files -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+<script th:src="${isDevMode} ? 'https://swip-app.herokuapp.com/main.js' : '/js/main.js'"></script>
+
+<script type="text/javascript" th:src="@{/js/three.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/vanta.net.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/visualDot.js}"></script>
+<script type="text/javascript" th:src="@{/js/inProccess.js}"></script>
+</body>
+</html>

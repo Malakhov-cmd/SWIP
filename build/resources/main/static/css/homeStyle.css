@@ -1,0 +1,132 @@
+#home-container {
+    background: none;
+    display: table-footer-group;
+}
+
+.home-instruction{
+    margin-top: 125px;
+}
+
+.list-group-item{
+    background: none;
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.Iam {
+    display: inline;
+    /*padding: 2em 5em;*/
+    font: normal 40px/50px Montserrat, sans-serif;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+.Iam p {
+    height: 50px;
+    float: left;
+    margin-right: 0.3em;
+}
+.Iam b {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    height: 50px;
+    top: 40px;
+}
+.Iam .innerIam {
+    display: inline-block;
+    color: #e74c3c;
+    position: relative;
+    white-space: nowrap;
+    top: 0;
+    left: 0;
+
+
+    /*animation*/
+    -webkit-animation:move 5s;
+    -moz-animation:move 5s;
+    -ms-animation:move 5s;
+    -o-animation:move 5s;
+    animation:move 5s;
+    /*animation-iteration-count*/
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+    -o-animation-iteration-count:infinite;
+    animation-iteration-count:infinite;
+    /*animation-delay*/
+    -webkit-animation-delay:1s;
+    -moz-animation-delay:1s;
+    -ms-animation-delay:1s;
+    -o-animation-delay:1s;
+    animation-delay:1s;
+}
+@keyframes move{
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+
+@-webkit-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+@-moz-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+@-o-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+@keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+
+@media (max-width: 800px) {
+    .home-instruction{
+        margin-top: 175px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Iam-b{
+        font-size: xx-large;
+    }
+}
+
+@media (max-width: 485px) {
+    .Iam-b{
+        font-size: x-large;
+    }
+    .home-instruction{
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-nav-panel{
+        max-width: none;
+    }
+    .info-content-panel{
+        margin-top: 35px;
+        max-width: none;
+    }
+}
+@media (max-width: 400px) {
+    .home-instruction{
+        max-width: 320px;
+    }
+}

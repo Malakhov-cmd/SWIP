@@ -1,0 +1,31 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 230941456647-soqga3l5ab0237dmbgc7l7dor01dv1i7.apps.googleusercontent.com
+            clientSecret: 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
+  datasource:
+    url: jdbc:postgresql://ec2-63-32-7-190.eu-west-1.compute.amazonaws.com:5432/d3qj0gm1i8kso4
+    username: ulmjyraynwzyhr
+    password: 0652a93f7341c7d5452153558563dfb18d91a18b2a51f93737d991e926a498ea
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  profiles:
+    active: dev
+
+server:
+  port: 9000
+  tomcat:
+    relaxed-query-chars: "{,},[,],|"
+
