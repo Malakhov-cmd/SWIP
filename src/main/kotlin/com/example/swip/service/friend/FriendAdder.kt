@@ -18,7 +18,9 @@ class FriendAdder(
         val user = userDetailsRepo.findById(userId).get()
         val friend = userDetailsRepo.findById(potentialFriendId)
 
-        if (friend.isEmpty) {
+        try {
+            friend.get()
+        } catch (e:NoSuchElementException) {
             return user
         }
 

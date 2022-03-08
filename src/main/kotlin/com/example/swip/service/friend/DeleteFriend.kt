@@ -23,11 +23,11 @@ class DeleteFriend(
     }
 
     fun deleteFromIncomes(userId: String, friendToRemoveFromOutgoing: String): User {
-        val user = userDetailsRepo.findById(userId).get()
+        var user = userDetailsRepo.findById(userId).get()
         val friend = userDetailsRepo.findById(friendToRemoveFromOutgoing)
 
-        if (friend.isEmpty) {
-            return user
+        friend.ifPresent {
+            user = operateRemove(user, friend.get())
         }
 
         return operateRemoveIncomes(user, friend.get())
