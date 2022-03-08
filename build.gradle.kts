@@ -28,21 +28,17 @@ dependencies {
     // https://mvnrepository.com/artifact/org.codehaus.groovy/groovy
     implementation("org.codehaus.groovy:groovy:3.0.8")
 
-    // https://mvnrepository.com/artifact/org.springframework.session/spring-session-jdbc
-    //implementation("org.springframework.session:spring-session-jdbc:2.3.0.RELEASE")
-
     // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
     implementation("org.flywaydb:flyway-core:8.0.2")
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.12")
 
-    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
-    //implementation("org.thymeleaf:thymeleaf:3.0.11.RELEASE")
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:2.5.4")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+
     runtimeOnly("org.postgresql:postgresql")
 
     // https://mvnrepository.com/artifact/org.springframework.security.oauth.boot/spring-security-oauth2-autoconfigure
@@ -60,4 +56,15 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes["Main-Class"] = "com.example.swip.SwipApplication"
+    }
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
 }
