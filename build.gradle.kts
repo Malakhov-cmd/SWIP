@@ -62,7 +62,7 @@ tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     manifest {
-        attributes["Main-Class"] = "com.example.swip.SwipApplication"
+        attributes["Main-Class"] = "com.example.swip.SwipApplicationKt"
     }
     configurations["compileClasspath"].forEach { file: File ->
         from(zipTree(file.absoluteFile))
