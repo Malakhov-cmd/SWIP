@@ -127,8 +127,6 @@ export default {
               window.frontendData.language.chapters[0].chapterProgress += 33.3
               window.frontendData.language.chapters[0].listThemes[0].finished = true
 
-              tempAnswer = response.data
-
               isSendedandrecived = true
             })
             .catch(function (error) {

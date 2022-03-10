@@ -65,6 +65,7 @@ module.exports = {
     ],
     resolve: {
         modules: [
+            path.join(__dirname, 'src', 'main', 'resources', 'static'),
             path.join(__dirname, 'src', 'main', 'resources', 'static', 'js'),
             path.join(__dirname, 'src', 'main', 'resources', 'static', 'js', 'pages'),
             path.join(__dirname, 'src', 'main', 'resources', 'static', 'js', 'components'),

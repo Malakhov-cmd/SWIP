@@ -43,15 +43,9 @@ class FirstChapterProcessor(
         firstChapter.listThemes.sortBy { it.number }
 
         when (numberTheme) {
-            1 -> {
-                approvedResult = checkerUserAnswer(javaLanguage.id!!, 0, answer, timeSpend)
-            }
-            2 -> {
-                approvedResult = checkerUserAnswer(javaLanguage.id!!, 1, answer, timeSpend)
-            }
-            3 -> {
-                approvedResult = checkerUserAnswer(javaLanguage.id!!, 2, answer, timeSpend)
-            }
+            1 -> approvedResult = checkerUserAnswer(javaLanguage.id!!, 0, answer, timeSpend)
+            2 -> approvedResult = checkerUserAnswer(javaLanguage.id!!, 1, answer, timeSpend)
+            3 -> approvedResult = checkerUserAnswer(javaLanguage.id!!, 2, answer, timeSpend)
         }
         return approvedResult
     }

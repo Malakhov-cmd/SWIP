@@ -21,19 +21,34 @@ class CreateChatsService(
     private val userIdRegex = """\d*""".toRegex()
 
     fun createChat(userId: String, members: String): User {
-        val sortedMembers = clearDuplicates(parser(members))
-        sortedMembers.add(userId)
+        if (!isChatLikeThisAlreadyExist(userId, members)) {
 
-        operateCreateDialog(sortedMembers)
+            val sortedMembers = clearDuplicates(parser(members))
+            sortedMembers.add(userId)
 
+            operateCreateDialog(sortedMembers)
+        }
         return userDetailsRepo.findById(userId).get()
+    }
+
+    private fun isChatLikeThisAlreadyExist(userId: String, members: String): Boolean {
+        val membersToCreateChat = parser(members)
+        membersToCreateChat.add(userId)
+
+        val userChats = userDetailsRepo.findById(userId).get().dialogList
+
+        return userChats.stream().anyMatch { dialog ->
+            dialog.members.stream().allMatch { member ->
+                membersToCreateChat.contains(member.memberId)
+            }
+        }
     }
 
     private fun parser(members: String): MutableList<String> {
         val membersList = mutableListOf<String>()
 
         if (members.contains(',')) {
-           membersList.addAll( userIdRegex.split(","))
+            membersList.addAll(userIdRegex.split(","))
         }
 
         membersList.add(members)
