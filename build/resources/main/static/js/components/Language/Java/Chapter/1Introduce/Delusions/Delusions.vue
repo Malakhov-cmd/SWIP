@@ -276,12 +276,9 @@ export default {
       })
           .then(function (response) {
             if (response.data !== 'Incorrect answer') {
-              console.log(response.data + ' - data  ')
               window.frontendData.language.chapters[0].listThemes[2].task.answer = response.data
               window.frontendData.language.chapters[0].chapterProgress += 33.3
               window.frontendData.language.chapters[0].listThemes[2].finished = true
-
-              tempAnswer = response.data
 
               isSendedandrecived = true
             }
